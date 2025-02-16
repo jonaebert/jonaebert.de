@@ -12,7 +12,7 @@
         } else {
             return {
                 ...event.teaserImage,
-                url: '/home/teaser.webp'
+                url: '/contact/teaser.svg'
             };
         }
     };
