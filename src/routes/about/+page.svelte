@@ -64,7 +64,7 @@
 			</div>
 			<div class="flex-1 relative flex items-end justify-center">
 				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
-				<Image src="/portrait/portrait_6_clean.webp" alt="Portrait von {name}" classNames="relative w-[70vh] rounded-lg"/>
+				<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] rounded-lg"/>
 			</div>
 		</div>
 	</div>

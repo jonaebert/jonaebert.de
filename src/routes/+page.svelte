@@ -34,7 +34,7 @@
 				<div class="absolute lg:hidden top-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 -translate-y-1/4"></div>
 				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
 				<a href="/about">
-					<Image src="/portrait/portrait_6_clean.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
+					<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
 				</a>
 			</div>
 		</div>
