@@ -37,6 +37,10 @@
 	}
 </script>
 
+<svelte:head>
+	<meta name="robots" content="index,follow">
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center p-5 min-h-[95vh]">
 	<div class="container mx-auto">
 		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">

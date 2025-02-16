@@ -20,6 +20,7 @@
 
 <svelte:head>
     <title>{event.summary} - {FormatDate(event.start, 'date')} - {name}</title>
+    <meta name="robots" content="none">
     <meta property="og:title" content="{event.summary} - {FormatDate(event.start, 'date')}" />
     <meta property="og:image" content={teaserImage().url} />
 </svelte:head>

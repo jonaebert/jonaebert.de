@@ -2,6 +2,10 @@
 	import { name, address, contact, uri } from '$lib/store';
 </script>
 
+<svelte:head>
+	<meta name="robots" content="index,follow">
+</svelte:head>
+
 <div class="container pb-12">
 	<h1 class="text-5xl font-bold text-je-magical-fata_morgana my-2 py-10">Datenschutz</h1>
 	<div class="text-balance font-montserrat mb-4">

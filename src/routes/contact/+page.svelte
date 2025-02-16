@@ -71,7 +71,7 @@
 </script>
 
 <svelte:head>
-    <!-- <meta name="description" content=""> -->
+    <meta name="robots" content="index,follow">
 </svelte:head>
 
 <div class="container pb-20">

@@ -8,6 +8,7 @@
 
 <svelte:head>
 	<title>{data.category} - {name}</title>
+    <meta name="robots" content="noindex,follow">
 	<meta property="og:title" content={data.category} />
 </svelte:head>
 
