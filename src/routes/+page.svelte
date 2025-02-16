@@ -41,7 +41,7 @@
 	</div>
 </div>
 
-<div class="container relative bg-[url('/home/teaser.webp')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="relative py-7 text-center text-balance w-[100%] md:w-[70%]">
 		<h2 class="text-4xl font-bold pb-7 uppercase text-je-magical-fata_morgana font-poppins">Politik für eine lebenswerte Welt</h2>
@@ -74,7 +74,7 @@
     {/if}
 </div>
 
-<div class="container relative bg-[url('/home/brunswiek.webp')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="container relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="relative py-7 text-center text-balance w-[100%] md:w-[70%]">
 		<h2 class="text-4xl font-bold pb-7 uppercase text-je-magical-fata_morgana font-poppins">Politik in Braunschweig</h2>
