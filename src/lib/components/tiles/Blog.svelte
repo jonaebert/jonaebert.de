@@ -30,12 +30,5 @@
                 {FormatDate(ph.asDate(item.first_publication_date),'day')}. {FormatDate(ph.asDate(item.first_publication_date),'monthshort')} {FormatDate(ph.asDate(item.first_publication_date),'year')}
             {/if}
         </p>
-        <div class="flex flex-row flex-wrap gap-2 font-montserrat">
-            {#if item.tags[0]}
-                {#each item.tags as category}
-                    <Tags text={category} clickable={true} link="/blog/category/{category}" resize={110} target="_self" />
-                {/each}
-            {/if}
-        </div>
     </div>
 </div>
