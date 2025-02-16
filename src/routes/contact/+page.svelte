@@ -71,12 +71,12 @@
 </script>
 
 <svelte:head>
-    <!-- <meta name="description" content=""> -->
+    <meta name="robots" content="index,follow">
 </svelte:head>
 
 <div class="container pb-20">
     <h1 class="text-5xl font-bold text-je-magical-fata_morgana my-2 py-10 font-poppins">So erreichst du mich.</h1>
-    <div class="bg-[url('/contact/teaser.webp')] bg-fixed bg-no-repeat bg-center bg-cover rounded-xl pt-10">
+    <div class="bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover rounded-xl pt-10">
         <div class="grid gap-8 md:pt-20 pb-10 place-content-center place-items-center md:place-content-between lg:place-content-around">
             <div class="flex flex-col gap-3 bg-je-mystical-nachtblau-900 p-5 rounded-lg col-start-1 row-start-1 md:row-end-3 place-items-start">
                 <h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 font-poppins">Kontaktformular</h2>

@@ -66,6 +66,9 @@ export default {
                     sand: '#f5f1e9',
                     himmel: '#0ba1dd',
                     sonne: '#fff17a',
+                    jugend: {
+                        hellgruen: '#c7ff7a',
+                    },
                 },
                 gingco: {
                     blau: '#00dcfe'

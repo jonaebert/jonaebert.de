@@ -37,6 +37,10 @@
 	}
 </script>
 
+<svelte:head>
+	<meta name="robots" content="index,follow">
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center p-5 min-h-[95vh]">
 	<div class="container mx-auto">
 		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
@@ -64,7 +68,7 @@
 			</div>
 			<div class="flex-1 relative flex items-end justify-center">
 				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
-				<Image src="/portrait/portrait_6_clean.webp" alt="Portrait von {name}" classNames="relative w-[70vh] rounded-lg"/>
+				<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] rounded-lg"/>
 			</div>
 		</div>
 	</div>

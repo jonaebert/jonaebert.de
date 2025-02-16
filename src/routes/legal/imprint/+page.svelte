@@ -17,6 +17,10 @@
     }
 </style>
 
+<svelte:head>
+    <meta name="robots" content="index,follow">
+</svelte:head>
+
 <div class="container pb-12">
     <div class="font-montserrat">
         <h1 class="text-5xl font-bold text-je-magical-fata_morgana my-2 py-10">Impressum</h1>

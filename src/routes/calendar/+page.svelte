@@ -15,6 +15,10 @@
     });
 </script>
 
+<svelte:head>
+    <meta name="robots" content="noindex,follow">
+</svelte:head>
+
 <main>
     <div class="flex flex-col items-center justify-center min-h-screen container text-pretty">
         <InfoMessage message={`Diese Seite existiert nicht. Du wirst automatisch in <strong>${countdown} Sekunden</strong> weitergeleitet...`} />

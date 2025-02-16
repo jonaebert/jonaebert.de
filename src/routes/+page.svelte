@@ -12,6 +12,10 @@
     const { posts, events } = data;
 </script>
 
+<svelte:head>
+	<meta name="robots" content="index,follow">
+</svelte:head>
+
 <div class="flex flex-col items-center justify-center p-5 min-h-[95vh] relative z-10">
 	<div class="container mx-auto w-[100%] md:w-[80%]">
 		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
@@ -34,14 +38,14 @@
 				<div class="absolute lg:hidden top-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 -translate-y-1/4"></div>
 				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
 				<a href="/about">
-					<Image src="/portrait/portrait_6_clean.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
+					<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
 				</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="container relative bg-[url('/home/teaser.webp')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="relative py-7 text-center text-balance w-[100%] md:w-[70%]">
 		<h2 class="text-4xl font-bold pb-7 uppercase text-je-magical-fata_morgana font-poppins">Politik für eine lebenswerte Welt</h2>
@@ -74,7 +78,7 @@
     {/if}
 </div>
 
-<div class="container relative bg-[url('/home/brunswiek.webp')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="container relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="relative py-7 text-center text-balance w-[100%] md:w-[70%]">
 		<h2 class="text-4xl font-bold pb-7 uppercase text-je-magical-fata_morgana font-poppins">Politik in Braunschweig</h2>
@@ -95,7 +99,7 @@
 		  <h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts[0]}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-baseline">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
 			{#each posts as post}
 				<BlogTiles item={post} />
 			{/each}

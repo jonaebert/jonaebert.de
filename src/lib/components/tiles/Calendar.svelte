@@ -32,7 +32,7 @@
                     {#if event.teaserImage.url && event.teaserImage.url != null}
                         <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} className="w-full"/>
                     {:else}
-                        <Image src="/home/teaser.webp" alt={`Teaser Bild ${event.summary}`} className="w-full"/>
+                        <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} className="w-full"/>
                     {/if}
                 </a>
             </div>

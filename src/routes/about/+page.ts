@@ -7,6 +7,7 @@ export const load = () => {
                     { key: 'work_experience', title: 'Berufserfahrung' },
                     { key: 'education', title: 'Ausbildung' },
                     { key: 'volunteer', title: 'Ehrenamt' },
+                    { key: 'fellowships', title: 'Mitgliedschaften' },
                     { key: 'skills', title: 'Kompetenzen' }
                 ]
             },
@@ -111,18 +112,32 @@ export const load = () => {
                 ],
                 volunteer: [
                     {
-                        title: 'Koordination AG Digitales',
+                        title: 'Mitglied im Wahlkampfteam Bundestagswahl 2025',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
-                        start: '2023-11',
-                        end: '',
-                        description: [],
+                        start: '2024-11',
+                        end: '2025-02',
+                        description: ['Koordination der Plakatierung in Braunschweig zur Bundestagswahl 2025'],
                         skills: [],
                         image: 'logo_gruene.svg',
                         bgcolor: 'bg-gruene-tanne',
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
-                        title: 'Koordination Aktionsgruppe',
+                        title: 'Koordination AG Digitales',
+                        company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
+                        start: '2023-11',
+                        end: '',
+                        description: [
+                            'Planung von Sitzungsterminen',
+                            'Einladen zu Sitzungsterminen',
+                        ],
+                        skills: [],
+                        image: 'logo_gruene.svg',
+                        bgcolor: 'bg-gruene-tanne',
+                        link: 'https://gruene-braunschweig.de',
+                    },
+                    {
+                        title: 'Co-Koordination Aktionsgruppe',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2023-11',
                         end: '2024-08',
@@ -131,7 +146,42 @@ export const load = () => {
                         image: 'logo_gruene.svg',
                         bgcolor: 'bg-gruene-tanne',
                         link: 'https://gruene-braunschweig.de',
-                    }
+                    },
+                ],
+                fellowships: [
+                    {
+                        title: 'NABU',
+                        // company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
+                        start: '2025-01',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_nabu.webp',
+                        bgcolor: 'bg-white',
+                        link: 'https://gruene-jugend.de',
+                    },
+                    {
+                        title: 'GRÜNE JUGEND',
+                        // company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
+                        start: '2022-11',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_gruene_jugend.webp',
+                        bgcolor: 'bg-gruene-jugend-hellgruen',
+                        link: 'https://gruene-jugend.de',
+                    },
+                    {
+                        title: 'BÜNDNIS 90/DIE GRÜNEN',
+                        // company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
+                        start: '2022-11',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_gruene.svg',
+                        bgcolor: 'bg-gruene-tanne',
+                        link: 'https://www.gruene.de',
+                    },
                 ],
                 skills: [
                     {
@@ -155,10 +205,6 @@ export const load = () => {
                         category: 'Sprachen',
                         skills: [ 'Deutsch (Muttersprache)', 'Englisch (B1)' ]
                     },
-                    {
-                        category: 'Mitgliedschaften',
-                        skills: [ 'BÜNDNIS 90/DIE GRÜNEN - seit 2022', 'GRÜNE JUGEND - seit 2022' ]
-                    }
                 ]
             }
         }

@@ -43,6 +43,7 @@
 
 <svelte:head>
 	<title>{ph.asText(post.data.title)} - {name}</title>
+	<meta name="robots" content="index,follow">
 	<meta property="og:title" content={ph.asText(post.data.title)} />
 	<meta property="og:image" content={teaserImage()} />
 </svelte:head>
