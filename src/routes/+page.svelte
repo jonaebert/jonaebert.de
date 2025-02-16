@@ -95,7 +95,7 @@
 		  <h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts[0]}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-baseline">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
 			{#each posts as post}
 				<BlogTiles item={post} />
 			{/each}
