@@ -27,7 +27,7 @@
 		"eslint-plugin-svelte": "^2.46.1",
 		"postcss": "^8.4.49",
 		"prettier": "^3.5.2",
-		"prettier-plugin-svelte": "^3.3.2",
+		"prettier-plugin-svelte": "^3.3.3",
 		"slice-machine-ui": "^2.12.3",
 		"svelte": "^5.2.3",
 		"svelte-check": "^4.1.4",
