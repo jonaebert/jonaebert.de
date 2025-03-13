@@ -10,6 +10,20 @@ export default {
         extend: {
             colors: {
                 je: {
+                    // Grünes Design
+                    tanne:      '#005538',
+                    klee:       '#008939',
+                    grashalm:   '#8ABD24',
+                    himmel:     '#0BA1DD',
+                    sand:       '#F5F1E9',
+                    sonne:      '#FFF17A',
+                    secondary:  {
+                        900:    '#002216',
+                    },
+                    grey:       {
+                        300:    '#D1DBDA',
+                    },
+                    // Altes Design
                     magical: {
                         fata_morgana: '#efe9ce',
                         sonnenglanz: '#ffdd00',
