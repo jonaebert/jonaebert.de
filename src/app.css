@@ -22,6 +22,7 @@
 /* Link-Stile */
 a:hover {
 	@apply hover:decoration-je-sonne;
+	text-decoration: underline 3px;
 }
 
 /* Styles for Privacy */
