@@ -16,8 +16,25 @@
 	<meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center p-5 min-h-[95vh] relative z-10">
-	<div class="container mx-auto w-[100%] md:w-[80%]">
+<div class="flex flex-col items-start justify-end p-5 min-h-[50vh] relative z-10 bg-[url('/portrait/Portrait.png')] bg-no-repeat bg-cover bg-left-top mb-5 overflow-hidden">
+	<div class="absolute inset-0">
+		<a href="/about" aria-label="Über mich">
+			<div class="absolute inset-0 bg-[url('/portrait/portrait_clear.webp')] bg-no-repeat bg-cover bg-left-top z-20 ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-4"></div>
+		</a>
+		<div class="absolute inset-0 bg-black opacity-55 z-10"> </div>
+	</div>
+	<div class="relative grid grid-row-3 gap-6 place-items-start z-30">
+		<div class="row-span-1">
+			<Slogan />
+		</div>
+		<div class="text-3xl xl:text-5xl font-bold text-je-sand my-2 row-span-2">
+			<h1>{name}</h1>
+		</div>
+		<div class="row-span-3">
+			<Social />
+		</div>
+	</div>
+	<!-- <div class="container mx-auto w-[100%] md:w-[90%]">
 		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
 			<div class="p-8 font-poppins flex-1 justify-start md:justify-start lg:justify-center flex flex-col text-left lg:text-left relative overflow-hidden">
 				<div class="size-fit md:size-80">
@@ -42,7 +59,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 
 <div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
