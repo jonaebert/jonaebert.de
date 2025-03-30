@@ -36,6 +36,20 @@
 	</div>
 </div>
 
+<div class="container mx-auto px-4 py-12 max-w-screen-xl">
+	<div class="text-left font-poppins">
+    	<h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2">Termine</h2>
+    	<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">Hier kannst du mich treffen!</h3>
+	</div>
+    {#if events[0]}
+        <CalendarTiles items={events}></CalendarTiles>
+    {:else}
+        <div class="text-center py-8 font-montserrat">
+            <InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"></InfoMessage>
+        </div>
+    {/if}
+</div>
+
 <div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="relative py-7 text-center text-balance w-[100%] md:w-[70%]">
@@ -55,18 +69,21 @@
 	</div>
 </div>
 
-<div class="container mx-auto px-4 py-12 w-[100%] md:w-[70%]">
-	<div class="text-center font-poppins">
-    	<h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2">Termine</h2>
-    	<h3 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 pb-10">Hier kannst du mich treffen!</h3>
+<div class="container mx-auto px-4 py-12 max-w-screen-xl">
+    <div class="text-left font-poppins">
+		  <h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
-    {#if events[0]}
-        <CalendarTiles items={events}></CalendarTiles>
-    {:else}
-        <div class="text-center py-8 font-montserrat">
-            <InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"></InfoMessage>
+	{#if posts[0]}
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
+			{#each posts as post}
+				<BlogTiles item={post} />
+			{/each}
+		</div>
+	{:else}
+		<div class="text-center py-8 font-montserrat">
+            <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
         </div>
-    {/if}
+	{/if}
 </div>
 
 <div class="container relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
@@ -83,21 +100,4 @@
 			Diese Erfahrungen haben mich dazu inspiriert, mich noch intensiver für Braunschweig einzusetzen. Es ist mir eine große Freude, derzeit die AG Digitales zu koordinieren und mich so leidenschaftlich für unser schönes Braunschweig einzusetzen. Mein Ziel ist es, ein buntes, offenes und lebendiges Braunschweig zu fördern und zu unterstützen. Die Vielfalt und Geschichte dieser Stadt, von den mittelalterlichen Weichbilden bis hin zur modernen Architektur des Happy RIZZI House, inspiriert mich täglich.
 		</div>
 	</div>
-</div>
-
-<div class="container mx-auto px-4 py-12 w-[100%] md:w-[70%]">
-    <div class="text-center font-poppins">
-		  <h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2 pb-7">Aktuelles</h2>
-	</div>
-	{#if posts[0]}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
-			{#each posts as post}
-				<BlogTiles item={post} />
-			{/each}
-		</div>
-	{:else}
-		<div class="text-center py-8 font-montserrat">
-            <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
-        </div>
-	{/if}
 </div>
