@@ -23,11 +23,11 @@
 		</a>
 		<div class="absolute inset-0 bg-black opacity-55 z-10"> </div>
 	</div>
-	<div class="relative grid grid-row-3 gap-6 place-items-start z-30">
+	<div class="relative grid grid-row-3 place-items-start z-30">
 		<div class="row-span-1">
 			<Slogan />
 		</div>
-		<div class="text-3xl xl:text-5xl font-bold text-je-sand my-2 row-span-2">
+		<div class="text-3xl xl:text-5xl font-bold text-je-sand mb-6 row-span-2">
 			<h1>{name}</h1>
 		</div>
 		<div class="row-span-3">
