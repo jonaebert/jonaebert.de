@@ -34,32 +34,6 @@
 			<Social />
 		</div>
 	</div>
-	<!-- <div class="container mx-auto w-[100%] md:w-[90%]">
-		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
-			<div class="p-8 font-poppins flex-1 justify-start md:justify-start lg:justify-center flex flex-col text-left lg:text-left relative overflow-hidden">
-				<div class="size-fit md:size-80">
-					<div>
-						<Slogan></Slogan>
-					</div>
-					<h1 class="text-4xl xl:text-5xl font-bold text-je-magical-fata_morgana mt-2 mb-2">{ name }</h1>
-					<div class="pb-8 w-[70%] xl:w-[95%]">
-						<Social hoverBGColor="je-mystical-waldtiefe-700" />
-					</div>
-				</div>
-				<div class="absolute top-0 right-0 size-16 md:size-32 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-				<div class="hidden lg:block absolute bottom-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
-				<div class="absolute bottom-0 right-0 size-56 md:size-80 lg:size-[140%] bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2"></div>
-			</div>
-			<div class="flex-1 relative flex items-end justify-center">
-				<div class="hidden lg:block absolute top-0 left-0 size-16 md:size-32 bg-je-magical-korallenriff rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-				<div class="absolute lg:hidden top-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 -translate-y-1/4"></div>
-				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
-				<a href="/about">
-					<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
-				</a>
-			</div>
-		</div>
-	</div> -->
 </div>
 
 <div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
