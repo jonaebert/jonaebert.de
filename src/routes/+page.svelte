@@ -19,7 +19,7 @@
 <div class="flex flex-col items-start justify-end p-5 min-h-[50vh] relative z-10 bg-[url('/portrait/Portrait.png')] bg-no-repeat bg-cover bg-left-top mb-5 overflow-hidden">
 	<div class="absolute inset-0">
 		<a href="/about" aria-label="Über mich">
-			<div class="absolute inset-0 bg-[url('/portrait/portrait_clear.webp')] bg-no-repeat bg-cover bg-left-top z-20 ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-4"></div>
+			<div class="absolute inset-0 bg-[url('/portrait/portrait_clear.webp')] bg-no-repeat bg-cover bg-left-top z-20 ease-in-out transition-transform transform hover:scale-105 duration-500"></div>
 		</a>
 		<div class="absolute inset-0 bg-black opacity-55 z-10"> </div>
 	</div>
