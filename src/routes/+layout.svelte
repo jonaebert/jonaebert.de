@@ -132,7 +132,7 @@
 			<div class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
 			<div class="block absolute bottom-0 right-0 size-16 md:size-24 bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2 z-30"></div>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-				<Image src={logo} alt="Logo von {name}" classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform hover:scale-110" />
+				<Image src={logo} alt="Logo von {name}" classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform scale-105 hover:scale-110" />
 				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
 			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded transition" aria-pressed="false" on:click={toggleMenu} type="button">
