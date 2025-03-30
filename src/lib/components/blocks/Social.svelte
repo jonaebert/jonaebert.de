@@ -27,7 +27,7 @@
     let disabled = false;
 </script>
 
-<ul class="flex flex-wrap gap-x-6 gap-y-3">
+<ul class="flex flex-wrap gap-x-3.5 gap-y-3">
     <li><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} {disabled} /></li>
     <li><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} {disabled} /></li>
     <li><RoundedIcon href="https://www.youtube.com/@jonaebert" icon={faYoutube} target="_blank" {colors} {disabled} /></li>
