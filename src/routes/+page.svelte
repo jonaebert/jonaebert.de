@@ -16,33 +16,38 @@
 	<meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center p-5 min-h-[95vh] relative z-10">
-	<div class="container mx-auto w-[100%] md:w-[80%]">
-		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
-			<div class="p-8 font-poppins flex-1 justify-start md:justify-start lg:justify-center flex flex-col text-left lg:text-left relative overflow-hidden">
-				<div class="size-fit md:size-80">
-					<div>
-						<Slogan></Slogan>
-					</div>
-					<h1 class="text-4xl xl:text-5xl font-bold text-je-magical-fata_morgana mt-2 mb-2">{ name }</h1>
-					<div class="pb-8 w-[70%] xl:w-[95%]">
-						<Social hoverBGColor="je-mystical-waldtiefe-700" />
-					</div>
-				</div>
-				<div class="absolute top-0 right-0 size-16 md:size-32 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-				<div class="hidden lg:block absolute bottom-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
-				<div class="absolute bottom-0 right-0 size-56 md:size-80 lg:size-[140%] bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2"></div>
-			</div>
-			<div class="flex-1 relative flex items-end justify-center">
-				<div class="hidden lg:block absolute top-0 left-0 size-16 md:size-32 bg-je-magical-korallenriff rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
-				<div class="absolute lg:hidden top-0 left-0 size-40 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 -translate-y-1/4"></div>
-				<div class="absolute inset-0 bg-je-mystical-waldtiefe-700 transform -skew-y-12 rounded-3xl"></div>
-				<a href="/about">
-					<Image src="/portrait/portrait_clear.webp" alt="Portrait von {name}" classNames="relative w-[70vh] md:w-[50vh] rounded-lg duration-500 ease-in-out transition-transform transform hover:scale-105"/>
-				</a>
-			</div>
+<div class="flex flex-col items-start justify-end p-5 min-h-[50vh] relative z-10 bg-[url('/portrait/Portrait.png')] bg-no-repeat bg-cover bg-left-top mb-5 overflow-hidden">
+	<div class="absolute inset-0">
+		<a href="/about" aria-label="Über mich">
+			<div class="absolute inset-0 bg-[url('/portrait/portrait_clear.webp')] bg-no-repeat bg-cover bg-left-top z-20 ease-in-out transition-transform transform hover:scale-105 duration-500"></div>
+		</a>
+		<div class="absolute inset-0 bg-black opacity-55 z-10"> </div>
+	</div>
+	<div class="relative grid grid-row-3 place-items-start z-30">
+		<div class="row-span-1">
+			<Slogan />
+		</div>
+		<div class="text-3xl xl:text-5xl font-bold text-je-sand mb-6 row-span-2">
+			<h1>{name}</h1>
+		</div>
+		<div class="row-span-3">
+			<Social />
 		</div>
 	</div>
+</div>
+
+<div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
+	<div class="text-left font-poppins">
+    	<h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2">Termine</h2>
+    	<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">Hier kannst du mich treffen!</h3>
+	</div>
+    {#if events[0]}
+        <CalendarTiles items={events}></CalendarTiles>
+    {:else}
+        <div class="text-center py-8 font-montserrat">
+            <InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"></InfoMessage>
+        </div>
+    {/if}
 </div>
 
 <div class="container relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
@@ -64,18 +69,21 @@
 	</div>
 </div>
 
-<div class="container mx-auto px-4 py-12 w-[100%] md:w-[70%]">
-	<div class="text-center font-poppins">
-    	<h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2">Termine</h2>
-    	<h3 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 pb-10">Hier kannst du mich treffen!</h3>
+<div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
+    <div class="text-left font-poppins">
+		  <h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
-    {#if events[0]}
-        <CalendarTiles items={events}></CalendarTiles>
-    {:else}
-        <div class="text-center py-8 font-montserrat">
-            <InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"></InfoMessage>
+	{#if posts[0]}
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
+			{#each posts as post}
+				<BlogTiles item={post} />
+			{/each}
+		</div>
+	{:else}
+		<div class="text-center py-8 font-montserrat">
+            <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
         </div>
-    {/if}
+	{/if}
 </div>
 
 <div class="container relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
@@ -92,21 +100,4 @@
 			Diese Erfahrungen haben mich dazu inspiriert, mich noch intensiver für Braunschweig einzusetzen. Es ist mir eine große Freude, derzeit die AG Digitales zu koordinieren und mich so leidenschaftlich für unser schönes Braunschweig einzusetzen. Mein Ziel ist es, ein buntes, offenes und lebendiges Braunschweig zu fördern und zu unterstützen. Die Vielfalt und Geschichte dieser Stadt, von den mittelalterlichen Weichbilden bis hin zur modernen Architektur des Happy RIZZI House, inspiriert mich täglich.
 		</div>
 	</div>
-</div>
-
-<div class="container mx-auto px-4 py-12 w-[100%] md:w-[70%]">
-    <div class="text-center font-poppins">
-		  <h2 class="text-5xl font-semibold text-je-magical-fata_morgana my-2 pb-7">Aktuelles</h2>
-	</div>
-	{#if posts[0]}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
-			{#each posts as post}
-				<BlogTiles item={post} />
-			{/each}
-		</div>
-	{:else}
-		<div class="text-center py-8 font-montserrat">
-            <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
-        </div>
-	{/if}
 </div>
