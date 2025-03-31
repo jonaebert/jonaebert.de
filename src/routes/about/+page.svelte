@@ -118,7 +118,7 @@
 					<!-- Title -->
 					<h3 class="flex items-center mb-1 text-xl font-semibold text-white font-poppins">{item.title}
 						{#if valDate(item?.start, item?.end).active}
-							<span class="text-sm font-medium me-2 px-2.5 py-0.5 rounded bg-blue-900 text-blue-300 ms-3 font-montserrat">Aktuell</span>
+							<span class="text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm bg-blue-900 text-blue-300 ms-3 font-montserrat">Aktuell</span>
 						{/if}
 					</h3>
 					<!-- Place -->

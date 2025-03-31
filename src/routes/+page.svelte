@@ -36,7 +36,7 @@
 	</div>
 </div>
 
-<div class="container mx-auto px-4 py-12 max-w-screen-xl">
+<div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
     	<h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2">Termine</h2>
     	<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">Hier kannst du mich treffen!</h3>
@@ -69,7 +69,7 @@
 	</div>
 </div>
 
-<div class="container mx-auto px-4 py-12 max-w-screen-xl">
+<div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
     <div class="text-left font-poppins">
 		  <h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>

@@ -127,7 +127,7 @@
 
 <header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne container overflow-hidden">
 	<nav>
-		<div class="max-w-screen-xl navbar flex flex-wrap items-center justify-between mx-auto p-0 group" aria-pressed="false">
+		<div class="max-w-(--breakpoint-xl) navbar flex flex-wrap items-center justify-between mx-auto p-0 group" aria-pressed="false">
 			<div class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"></div>
 			<div class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
 			<div class="block absolute bottom-0 right-0 size-16 md:size-24 bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2 z-30"></div>
@@ -135,12 +135,12 @@
 				<Image src={logo} alt="Logo von {name}" classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform translate-x-1 scale-105 hover:scale-110" />
 				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
-			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded transition mr-3" aria-pressed="false" on:click={toggleMenu} type="button">
+			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-3" aria-pressed="false" on:click={toggleMenu} type="button">
 				<span class="sr-only">Menu</span>
 				<svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-					<rect class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
-					<rect class="origin-center transition-all duration-300 group-[[aria-pressed=true]]:hidden" y="7" width="16" height="1.5" rx="1"></rect>
-					<rect class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:-rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
+					<rect class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
+					<rect class="origin-center transition-all duration-300 group-aria-pressed:hidden" y="7" width="16" height="1.5" rx="1"></rect>
+					<rect class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:-rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
 				</svg>
 			</button>
 			<div class={isResponsive ? "w-full md:block md:w-auto" : "hidden w-full md:block md:w-auto"} id="navbar">
@@ -148,8 +148,8 @@
 					{#each menuLinks as link}
 						<li>
 							<a href={link.href} class={activeRoute === link.href
-								? 'font-bold block py-2 px-3 rounded-sm md:bg-transparent md:p-0'
-								: 'block py-2 px-3 rounded-sm md:bg-transparent md:p-0'} aria-current="page" on:click={closeMenu}>{link.title}</a>
+								? 'font-bold block py-2 px-3 rounded-xs md:bg-transparent md:p-0'
+								: 'block py-2 px-3 rounded-xs md:bg-transparent md:p-0'} aria-current="page" on:click={closeMenu}>{link.title}</a>
 						</li>
 					{/each}
 				</ul>
@@ -182,13 +182,13 @@
 	</div>
 {/if}
 
-<div class="flex flex-col flex-grow min-h-screen bg-white relative">
-	<main class="flex-grow z-20">
+<div class="flex flex-col grow min-h-screen bg-white relative">
+	<main class="grow z-20">
 		<slot />
 	</main>
 
 	<footer class="z-30 bg-je-secondary-900">
-		<div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+		<div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-6 lg:py-8">
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
 					<a href="/" class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
