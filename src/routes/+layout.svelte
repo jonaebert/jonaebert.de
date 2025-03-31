@@ -92,7 +92,7 @@
 				<a
 					href="/"
 					class={isResponsive
-						? 'flex items-center justify-start w-1/2 flex-shrink-0'
+						? 'flex items-center justify-start w-1/2 shrink-0'
 						: 'flex items-center justify-start w-1/2'}
 				>
 					<Image
@@ -152,8 +152,8 @@
 	</div>
 {/if}
 
-<div class="flex flex-col flex-grow min-h-screen bg-je-mystical-nachtblau-500 relative">
-	<main class="flex-grow z-20">
+<div class="flex flex-col grow min-h-screen bg-je-mystical-nachtblau-500 relative">
+	<main class="grow z-20">
 		<slot />
 	</main>
 
