@@ -1,10 +1,83 @@
 /* Import der Schriftart */
-@import url(/fonts/fonts.css);
+@import url(/fonts/fonts.css) layer(base);
 
 /* Tailwind CSS Direktiven */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-*: initial;
+  --font-poppins: Poppins;
+  --font-montserrat: Montserrat;
+
+  --color-je-magical-fata_morgana: #efe9ce;
+  --color-je-magical-sonnenglanz: #ffdd00;
+  --color-je-magical-korallenriff: #ff6347;
+
+  --color-je-mystical-waldtiefe-100: #009d5f;
+  --color-je-mystical-waldtiefe-200: #009058;
+  --color-je-mystical-waldtiefe-300: #008451;
+  --color-je-mystical-waldtiefe-400: #00784a;
+  --color-je-mystical-waldtiefe-500: #006d44;
+  --color-je-mystical-waldtiefe-600: #00613e;
+  --color-je-mystical-waldtiefe-700: #005538;
+  --color-je-mystical-waldtiefe-800: #004834;
+  --color-je-mystical-waldtiefe-900: #003c2e;
+
+  --color-je-mystical-schwarzgruen-100: #008b7f;
+  --color-je-mystical-schwarzgruen-200: #007f73;
+  --color-je-mystical-schwarzgruen-300: #007367;
+  --color-je-mystical-schwarzgruen-400: #00685c;
+  --color-je-mystical-schwarzgruen-500: #005d56;
+  --color-je-mystical-schwarzgruen-600: #00534c;
+  --color-je-mystical-schwarzgruen-700: #004a43;
+  --color-je-mystical-schwarzgruen-800: #00413a;
+  --color-je-mystical-schwarzgruen-900: #003831;
+
+  --color-je-mystical-nachtblau-100: #1e283f;
+  --color-je-mystical-nachtblau-200: #19233d;
+  --color-je-mystical-nachtblau-300: #162037;
+  --color-je-mystical-nachtblau-400: #141d31;
+  --color-je-mystical-nachtblau-500: #111a2b;
+  --color-je-mystical-nachtblau-600: #0f1726;
+  --color-je-mystical-nachtblau-700: #0e1521;
+  --color-je-mystical-nachtblau-800: #0c131d;
+  --color-je-mystical-nachtblau-900: #0a1119;
+
+  --color-je-misty-sturmwolke: #c0c0c0;
+  --color-je-misty-nebelmeer: #7a8b8b;
+
+  --color-je-luminous-mondlicht: #ffffff;
+  --color-je-luminous-nebellicht: #e0e0e0;
+
+  --color-gruene-tanne: #005538;
+  --color-gruene-klee: #008939;
+  --color-gruene-grashalm: #8abd24;
+  --color-gruene-sand: #f5f1e9;
+  --color-gruene-himmel: #0ba1dd;
+  --color-gruene-sonne: #fff17a;
+
+  --color-gruene-jugend-hellgruen: #c7ff7a;
+
+  --color-gingco-blau: #00dcfe;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 /* Grundlegende Stile */
 body {
