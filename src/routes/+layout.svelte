@@ -125,7 +125,7 @@
 	<title>{pageTitle}</title>
 </svelte:head>
 
-<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne container overflow-hidden">
+<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne overflow-hidden">
 	<nav>
 		<div class="max-w-(--breakpoint-xl) navbar flex flex-wrap items-center justify-between mx-auto p-0 group" aria-pressed="false">
 			<div class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"></div>
@@ -135,7 +135,7 @@
 				<Image src={logo} alt="Logo von {name}" classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform translate-x-1 scale-105 hover:scale-110" />
 				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
-			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-3" aria-pressed="false" on:click={toggleMenu} type="button">
+			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-8" aria-pressed="false" on:click={toggleMenu} type="button">
 				<span class="sr-only">Menu</span>
 				<svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 					<rect class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
