@@ -155,18 +155,8 @@
 
 {#if isVisible}
 	<div class="z-50 fixed bottom-4 right-4">
-		<button
-			on:click={scrollToTop}
-			class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-je-mystical-schwarzgruen-500 text-je-magical-fata_morgana hover:bg-je-mystical-schwarzgruen-800 hover:text-je-magical-sonnenglanz"
-			aria-label="Scroll to top"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-7 w-7"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
+		<button on:click={scrollToTop} class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-je-himmel text-je-sand hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab" aria-label="Scroll to top">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 			</svg>
 		</button>
