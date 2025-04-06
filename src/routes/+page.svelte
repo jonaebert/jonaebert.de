@@ -44,7 +44,7 @@
     {#if events[0]}
         <CalendarTiles items={events}></CalendarTiles>
     {:else}
-        <div class="text-center py-8 font-montserrat">
+        <div class="flex text-center font-montserrat justify-start">
             <InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"></InfoMessage>
         </div>
     {/if}
@@ -82,7 +82,7 @@
 			{/each}
 		</div>
 	{:else}
-		<div class="text-center py-8 font-montserrat">
+		<div class="flex text-center font-montserrat justify-start">
             <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
         </div>
 	{/if}
