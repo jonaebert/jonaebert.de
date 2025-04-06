@@ -76,11 +76,7 @@
 		  <h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts[0]}
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
-			{#each posts as post}
-				<BlogTiles item={post} />
-			{/each}
-		</div>
+		<BlogTiles items={posts} />
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
             <InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
