@@ -39,17 +39,17 @@
                         </div>
                     </div>
                     {#if event.location}
-                        <div class="mb-1 flex items-center text-xs text-je-secondary-900 md:text-base hyphens-auto text-pretty">
+                        <div class="mb-1 flex items-center text-xs text-je-secondary-900 md:text-base hyphens-auto text-pretty font-montserrat">
                             {event.location}
                         </div>
                     {/if}
-                    <div class="hyphense-auto font-bold text-je-secondary-600 text-lg md:text-2xl md:leading-[1.3]">
+                    <div class="hyphense-auto font-bold text-je-secondary-600 text-lg md:text-2xl md:leading-[1.3] font-poppins">
                         {#if event.state === 'CANCELLED'}
                                 [ABGESAGT]<br>
                         {/if}
                         {event.summary}
                     </div>
-                    <span class="mt-3 text-xs text-gray-600 md:text-base">
+                    <span class="mt-3 text-xs text-gray-600 md:text-base font-montserrat">
                         <div class="flex flex-row items-end gap-6">
                             {#if event.datetype === 'date'}
                                 <p>
