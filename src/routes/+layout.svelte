@@ -221,9 +221,14 @@
 			</div>
 			<hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
 			<div class="sm:flex sm:items-center sm:justify-between">
-				<span class="text-sm text-gray-400 sm:text-center">
-					&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte vorbehalten.
-				</span>
+				<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
+					<span class="text-sm text-gray-400 sm:text-center">
+						&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte vorbehalten.
+					</span>
+					<span class="text-sm text-gray-400 sm:text-center">
+						Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> gehostet bei <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit <a href="https://coolify.io/" target="_blank">Coolify</a>
+					</span>
+				</div>
 				<div class="flex mt-4 sm:justify-center sm:mt-0">
 					<Social />
 				</div>
