@@ -40,7 +40,9 @@
                     </div>
                     {#if event.location}
                         <div class="mb-1 flex items-center text-xs text-je-secondary-900 md:text-base hyphens-auto text-pretty font-montserrat">
-                            {event.location}
+                            <div class="flex items-center">
+                                {event.location}
+                            </div>
                         </div>
                     {/if}
                     <div class="hyphense-auto font-bold text-je-secondary-600 text-lg md:text-2xl md:leading-[1.3] font-poppins">
