@@ -24,19 +24,76 @@
 </script>
 
 {#if events}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start">
         {#each events as event}
-        <div class={event.now == true ? 'rounded-lg overflow-hidden shadow-lg animate-pulse' : 'rounded-lg overflow-hidden shadow-lg'}>
-            <div class="relative z-10 transition-transform duration-500 hover:scale-105">
-                <a href="/calendar/{event.id}">
+        <a class="group/teaser-image flex flex-col" href="/calendar/{event.id}">
+            <div class="flex h-full flex-col">
+                <div class="mb-6 flex">
+                    <div class="relative inline-block w-full overflow-hidden">
+                        {#if event.teaserImage.url && event.teaserImage.url != null}
+                            <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
+                        {:else}
+                            <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
+                        {/if}
+                        <div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
+                    </div>
+                </div>
+                {#if event.location}
+                    <div class="mb-1 flex items-center text-xs text-je-secondary-900 md:text-base hyphens-auto text-pretty">
+                        {event.location}
+                    </div>
+                {/if}
+                <div class="hyphense-auto font-bold text-je-secondary-600 text-lg md:text-2xl md:leading-[1.3]">
+                    {#if event.state === 'CANCELLED'}
+                            [ABGESAGT]<br>
+                    {/if}
+                    {event.summary}
+                </div>
+                <span class="mt-3 text-xs text-gray-600 md:text-base">
+                    <div class="flex flex-row items-end gap-6">
+                        {#if event.datetype === 'date'}
+                            <p>
+                                {event.startdate} - {event.enddate}
+                            </p>
+                            <p>
+                                Ganztägig
+                            </p>
+                        {:else if event.startdate === event.enddate && event.datetype === 'date-time'}
+                            <p>
+                                {event.startdate}
+                            </p>
+                            <p>
+                                {event.starttime} - {event.endtime}
+                            </p>
+                        {:else}
+                            <p>
+                                vom<br>
+                                bis
+                            </p>
+                            <p>
+                                {event.startdate}<br>
+                                {event.enddate}
+                            </p>
+                            <p>
+                                {event.starttime}<br>
+                                {event.endtime}
+                            </p>
+                        {/if}
+                    </div>
+                </span>
+            </div>
+        </a>
+        <!-- <div class={event.now == true ? 'rounded-lg overflow-hidden shadow-lg animate-pulse' : 'rounded-lg overflow-hidden shadow-lg'}>
+            <div class="relative z-10">
+                <a href="/calendar/{event.id}" class="overflow-hidden">
                     {#if event.teaserImage.url && event.teaserImage.url != null}
-                        <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} className="w-full"/>
+                        <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} className="w-full transition-transform duration-500 hover:scale-105"/>
                     {:else}
-                        <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} className="w-full"/>
+                        <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} className="w-full transition-all duration-500 hover:scale-105"/>
                     {/if}
                 </a>
             </div>
-            <div class="p-4 relative z-20 bg-je-mystical-schwarzgruen-800">
+            <div class="p-4 relative z-20">
                 <h2 class="text-xl font-semibold mb-2 font-poppins text-je-magical-fata_morgana hyphens-auto break-words">
                     <a href="/calendar/{event.id}">
                         {#if event.state === 'CANCELLED'}
@@ -81,7 +138,7 @@
                     {/if}
                 </div>
             </div>
-        </div>
+        </div> -->
         {/each}
     </div>
     {:else}
