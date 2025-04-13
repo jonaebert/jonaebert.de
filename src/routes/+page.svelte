@@ -16,10 +16,10 @@
 	<meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="flex flex-col items-start justify-end p-5 min-h-[50vh] relative z-10 mb-5 overflow-hidden bg-je-klee">
-	<div class="absolute inset-0 flex items-end">
-		<a href="/about" aria-label="Über mich">
-			<Image src="/portrait/portrait_clear.webp" classNames="ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-5 grayscale"/>
+<div class="flex flex-col items-start justify-end p-5 min-h-[50vh] lg:min-h-[75h] relative z-10 mb-5 overflow-hidden bg-je-klee">
+	<div class="absolute inset-0 flex items-end md:items-start justify-center">
+		<a href="/about" aria-label="Über mich" class="md:h-fit">
+			<Image src="/portrait/portrait_clear.webp" classNames="ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-5 grayscale xl:max-w-[85vh]"/>
 		</a>
 		<!-- <div class="absolute inset-0 bg-black opacity-55 z-10"> </div> -->
 	</div>
