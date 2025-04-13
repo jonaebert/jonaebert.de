@@ -2,30 +2,71 @@
     import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
     import { apiDomain, name } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
+    import Image from "$lib/components/image.svelte";
 
     export let data;
     const event = data.event[0];
 
-    function teaserImage() {
-        if (event.teaserImage.url) {
-            return event.teaserImage;
-        } else {
-            return {
-                ...event.teaserImage,
-                url: '/contact/teaser.svg'
-            };
-        }
-    };
+    // function teaserImage() {
+    //     if (event.teaserImage.url) {
+    //         return event.teaserImage;
+    //     } else {
+    //         return {
+    //             ...event.teaserImage,
+    //             url: '/contact/teaser.svg'
+    //         };
+    //     }
+    // };
 </script>
 
 <svelte:head>
     <title>{event.summary} - {FormatDate(event.start, 'date')} - {name}</title>
     <meta name="robots" content="none">
     <meta property="og:title" content="{event.summary} - {FormatDate(event.start, 'date')}" />
-    <meta property="og:image" content={teaserImage().url} />
+    <!-- <meta property="og:image" content={teaserImage().url} /> -->
 </svelte:head>
 
-<div class="relative bg-fixed bg-no-repeat bg-center bg-cover" style="background-image: url({teaserImage().url});">
+<div class="bg-gray-100 h-[50vh] container flex flex-col items-center justify-center p-5 min-h-[85vh]">
+    <div class="grid grid-cols-2 grid-rows-[auto]">
+        <div class="col-start-1 row-start-1 flex flex-col">
+            <h1 class="text-3xl xl:text-5xl font-bold text-je-secondary-900 italic mb-6 font-poppins">
+                {#if event.state === 'CANCELLED'}
+                    [ABGESAGT]
+                {/if}
+                {event.summary}
+            </h1>
+        </div>
+        <div class="col-start-1 row-start-2 flex flex-col">
+            <div class="font-montserrat text-lg text-black grid gap-4">
+                {#if event.description}
+                    <div class="py-4">
+                        {@html event.description}
+                    </div>
+                {:else}
+                    <div class="py-4">
+                        Keine Beschreibung gefunden🫠<br>
+                        Lass dich überraschen🎉
+                    </div>
+                {/if}
+            </div>
+        </div>
+        <div class="col-start-2 row-start-1 flex flex-col">
+            <div class="relative inline-block w-full overflow-hidden">
+                {#if event.teaserImage.url && event.teaserImage.url != null}
+                    <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover aspect-3/2 aspect-[3/2] bg-transparent" />
+                {:else}
+                    <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover aspect-3/2 aspect-[3/2] bg-transparent" />
+                {/if}
+                <div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
+            </div>
+        </div>
+        <div class="col-start-2 row-start-2 flex flex-col">
+            TEST
+        </div>
+    </div>
+</div>
+
+<!-- <div class="relative bg-fixed bg-no-repeat bg-center bg-cover" style="background-image: url({teaserImage().url});">
     <div class="bg-black bg-opacity-50 p-5 h-screen flex justify-center items-center">
         <div class="container mx-auto text-justify py-10">
             <div class="text-white text-center font-poppins mb-10 break-words hyphens-auto text-balance">
@@ -157,4 +198,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
