@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div class="flex flex-col items-start justify-end p-5 min-h-[50vh] relative z-10 mb-5 overflow-hidden bg-je-klee">
-	<div class="absolute inset-0">
+	<div class="absolute inset-0 flex items-end">
 		<a href="/about" aria-label="Über mich">
 			<Image src="/portrait/portrait_clear.webp" classNames="ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-5 grayscale"/>
 		</a>
