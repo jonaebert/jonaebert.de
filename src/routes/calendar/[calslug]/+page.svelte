@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-start-2 row-start-2 flex flex-col">
-            DIES IST NOCH EIN PLATZHALTER
+            ⚠️DIES IST NOCH EIN PLATZHALTER⚠️
         </div>
     </div>
 </div>
