@@ -53,7 +53,7 @@
 <div class="relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik für eine lebenswerte Welt</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2 uppercase">Politik für eine lebenswerte Welt</h2>
 		<div class="font-montserrat text-lg text-white grid gap-4">
 			<div>
 				Unser Klima verändert sich rasant und mit jedem Kilogramm CO₂ mehr wird dieser Planet zu einem lebensfeindlichen Ort. Wir steuern bereits auf eine Klimakatastrophe zu, die bald unvermeidlich sein wird. Wir stellen fest, dass unsere Sommer immer wärmer und unsere Winter immer milder werden. Wir feiern jedes Jahr einen neuen Temperaturrekord. Ein Umdenken in der Politik und Wirtschaft geht nur sehr langsam voran.
@@ -87,7 +87,7 @@
 <div class="relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik in Braunschweig</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2 uppercase">Politik in Braunschweig</h2>
 		<div class="font-montserrat text-lg text-white grid gap-4">
 			<div>
 				Im Jahr 2021 zog ich in einer schwierigen Zeit nach Braunschweig. Ich war sehr aufgeregt, denn ich hatte gehört, dass diese Stadt eine ganz besondere Atmosphäre hat. Doch das schöne Braunschweig mit seinen historischen Sehenswürdigkeiten wie dem beeindruckenden Braunschweiger Dom und dem malerischen Magniviertel hat mich von den ersten Tagen an mit offenen Armen empfangen und begeistert.
