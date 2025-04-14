@@ -118,7 +118,7 @@
 
 <header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne overflow-hidden">
 	<nav>
-		<div class="max-w-(--breakpoint-xl) navbar flex flex-wrap items-center justify-between mx-auto p-0 group" aria-pressed="false">
+		<div class="navbar container flex flex-wrap items-center justify-between mx-auto group" aria-pressed="false">
 			<div class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"></div>
 			<div class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
 			<div class="block absolute bottom-0 right-0 size-16 md:size-24 bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2 z-30"></div>
@@ -169,7 +169,7 @@
 	</main>
 
 	<footer class="z-30 bg-je-secondary-900">
-		<div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-6 lg:py-8">
+		<div class="mx-auto max-w-[95vw] md:max-w-[60vw] p-4 py-6 lg:py-8">
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
 					<a href="/" class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
