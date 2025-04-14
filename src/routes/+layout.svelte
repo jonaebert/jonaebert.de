@@ -169,7 +169,7 @@
 	</main>
 
 	<footer class="z-30 bg-je-secondary-900">
-		<div class="mx-auto max-w-[95vw] md:max-w-[60vw] p-4 py-6 lg:py-8">
+		<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
 					<a href="/" class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
