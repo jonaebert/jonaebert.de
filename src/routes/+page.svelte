@@ -16,21 +16,21 @@
 	<meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="flex flex-col items-start justify-end p-5 min-h-[50vh] lg:min-h-[75h] relative z-10 mb-5 overflow-hidden bg-je-klee">
-	<div class="absolute inset-0 flex items-end md:items-start justify-center scale-155 md:scale-100">
+<div class="flex flex-col items-start justify-end p-5 min-h-[35vh] xl:min-h-[75h] relative z-10 mb-5 overflow-hidden bg-je-klee">
+	<div class="absolute inset-0 flex items-end md:items-end lg:items-end justify-center scale-155 md:scale-100">
 		<a href="/about" aria-label="Über mich" class="md:h-fit">
 			<Image src="/portrait/portrait_clear.svg" classNames="ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-5 xl:max-w-[85vh]"/>
 		</a>
 		<!-- <div class="absolute inset-0 bg-black opacity-55 z-10"> </div> -->
 	</div>
 	<div class="relative grid grid-row-3 place-items-start z-30">
-		<div class="row-span-1 font-montserrat">
+		<div class="row-start-2 md:row-start-1 font-montserrat mt-6 md:mt-0">
 			<Slogan />
 		</div>
-		<div class="text-3xl xl:text-5xl font-bold text-white mb-6 row-span-2 font-poppins">
+		<div class="row-start-3 md:row-start-2 text-3xl xl:text-5xl font-bold text-white md:mb-6 font-poppins">
 			<h1>{name}</h1>
 		</div>
-		<div class="row-span-3">
+		<div class="row-start-1 md:row-start-3">
 			<Social />
 		</div>
 	</div>
