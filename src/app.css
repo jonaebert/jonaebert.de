@@ -119,3 +119,13 @@ a:hover {
 .ms-editor-squiggles-container {
 	all: initial;
 }
+
+
+/* Buttons */
+.button-m {
+  @apply py-[0.75rem];
+  @apply px-[1.5rem];
+  @apply rounded-full;
+  @apply font-bold;
+  @apply cursor-pointer;
+}
