@@ -21,9 +21,9 @@
 		{ title: 'Datenschutzerklärung', href: '/legal/privacy' }
 	];
 	let footerLinks = [
-		{ title: "DIE GRÜNEN Braunschweig", href: 'https://gruene-braunschweig.de/' },
+		{ title: "GRÜNE Braunschweig", href: 'https://gruene-braunschweig.de/' },
 		{
-			title: 'Grüne Ratsfraktion Braunschweig',
+			title: 'GRÜNE Ratsfraktion Braunschweig',
 			href: 'https://gruene-braunschweig-ratsfraktion.de/'
 		}
 	];
