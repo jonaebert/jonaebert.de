@@ -53,16 +53,16 @@
 		if (button.getAttribute('aria-pressed') === 'true') {
 			greenCircle.classList.remove('hidden');
 			navBar.classList.add('pb-4');
-			addMenuEventListeners();
+			window.addEventListener('click', handleClickOutside);
 		} else {
 			greenCircle.classList.add('hidden');
 			navBar.classList.remove('pb-4');
-			removeMenuEventListeners();
+			window.removeEventListener('click', handleClickOutside);
 			console.error("Closing Menu");
 		}
 	}
 	// Funktion zum Einklappen des Menüs nach der Navigation
-	function closeMenu(event) {
+	function closeMenu() {
 		isResponsive = false;
 		const button = document.querySelector('button[aria-pressed="true"]');
 		const greenCircle = document.querySelector('.green-circle');
@@ -72,31 +72,14 @@
 		}
 		greenCircle.classList.add('hidden');
 		navBar.classList.remove('pb-4');
-		removeMenuEventListeners();
 	}
 
 	// Funktion zum Schließen des Menüs bei Klick außerhalb des Headers
 	function handleClickOutside(event) {
 		const header = document.querySelector('header');
 		if (!header.contains(event.target)) {
-			closeMenu("");
+			closeMenu();
 		}
-	}
-
-	// Funktion zum Hinzufügen der Event-Listener für das Menü
-	function addMenuEventListeners() {
-		window.addEventListener('scroll', handleScroll);
-		window.addEventListener('click', handleClickOutside);
-	}
-	// Funktion zum Entfernen der Event-Listener für das Menü
-	function removeMenuEventListeners() {
-		window.removeEventListener('scroll', handleScroll);
-		window.removeEventListener('click', handleClickOutside);
-	}
-
-	// Funktion zum Behandeln des Scroll-Events
-	function handleScroll() {
-		closeMenu();
 	}
 
 	// Funktion, um zum Seitenanfang zu scrollen
