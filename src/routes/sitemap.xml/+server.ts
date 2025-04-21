@@ -8,8 +8,6 @@ const pages_10 = [
     ''
 ]
 const pages_08 = [
-    'calendar',
-    'blog',
     'about',
     'contact',
     'legal/imprint',
@@ -49,32 +47,16 @@ function blog_publish_date(blog_item: any) {
     }
 }
 
-// Fetch events
-let events: string[] = [];
-
-try {
-    const eventsRes = await fetch(`https://${apiDomain}/api?type=calendar&itemtype=all`);
-
-    if (eventsRes.ok) {
-        const eventsData = await eventsRes.json();
-        events = eventsData.data;
-    } else {
-        console.error('Error fetching events:', eventsRes.statusText);
-    }
-} catch (error) {
-    console.error('Error fetching events:', error);
-}
-
 // Building sitemap
 export async function GET({ url }) {
-    const body = sitemap(pages_10, pages_08, posts, posts_categories, events);
+    const body = sitemap(pages_10, pages_08, posts);
     const response = new Response(body);
     response.headers.set('Cache-Control', 'max-age=0, s-maxage=3600');
     response.headers.set('Content-Type', 'application/xml');
     return response;
 }
 
-const sitemap = (pages_10: string[], pages_08: string[], posts: string[], posts_categories: string[], events: string[]) => `<?xml version="1.0" encoding="UTF-8" ?>
+const sitemap = (pages_10: string[], pages_08: string[], posts: string[]) => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
     xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
@@ -101,30 +83,6 @@ const sitemap = (pages_10: string[], pages_08: string[], posts: string[], posts_
                 <url>
                     <loc>${site}/${page}</loc>
                     <changefreq>daily</changefreq>
-                    <priority>0.80</priority>
-                </url>
-            `
-        )
-        .join('')
-    }
-    ${events
-        .map(
-            (event) => `
-                <url>
-                    <loc>${site}/calendar/${event.id}</loc>
-                    <changefreq>daily</changefreq>
-                    <priority>0.80</priority>
-                </url>
-            `
-        )
-        .join('')
-    }
-    ${posts_categories
-        .map(
-            (tag) => `
-                <url>
-                    <loc>${site}/blog/category/${tag}</loc>
-                    <changefreq>weekly</changefreq>
                     <priority>0.80</priority>
                 </url>
             `

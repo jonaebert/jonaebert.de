@@ -4,15 +4,6 @@
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
-	//Vercel Speed Insights
-	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-	injectSpeedInsights();
-
-	// Vercel Analytics
-	import { dev } from '$app/environment';
-	import { inject } from '@vercel/analytics';
-	inject({ mode: dev ? 'development' : 'production' });
-
 	// Initialisierung Variabeln
 	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
@@ -30,9 +21,9 @@
 		{ title: 'Datenschutzerklärung', href: '/legal/privacy' }
 	];
 	let footerLinks = [
-		{ title: "DIE GRÜNEN Braunschweig", href: 'https://gruene-braunschweig.de/' },
+		{ title: "GRÜNE Braunschweig", href: 'https://gruene-braunschweig.de/' },
 		{
-			title: 'Grüne Ratsfraktion Braunschweig',
+			title: 'GRÜNE Ratsfraktion Braunschweig',
 			href: 'https://gruene-braunschweig-ratsfraktion.de/'
 		}
 	];
@@ -62,16 +53,16 @@
 		if (button.getAttribute('aria-pressed') === 'true') {
 			greenCircle.classList.remove('hidden');
 			navBar.classList.add('pb-4');
-			addMenuEventListeners();
+			window.addEventListener('click', handleClickOutside);
 		} else {
 			greenCircle.classList.add('hidden');
 			navBar.classList.remove('pb-4');
-			removeMenuEventListeners();
+			window.removeEventListener('click', handleClickOutside);
 			console.error("Closing Menu");
 		}
 	}
 	// Funktion zum Einklappen des Menüs nach der Navigation
-	function closeMenu(event) {
+	function closeMenu() {
 		isResponsive = false;
 		const button = document.querySelector('button[aria-pressed="true"]');
 		const greenCircle = document.querySelector('.green-circle');
@@ -81,31 +72,14 @@
 		}
 		greenCircle.classList.add('hidden');
 		navBar.classList.remove('pb-4');
-		removeMenuEventListeners();
 	}
 
 	// Funktion zum Schließen des Menüs bei Klick außerhalb des Headers
 	function handleClickOutside(event) {
 		const header = document.querySelector('header');
 		if (!header.contains(event.target)) {
-			closeMenu("");
+			closeMenu();
 		}
-	}
-
-	// Funktion zum Hinzufügen der Event-Listener für das Menü
-	function addMenuEventListeners() {
-		window.addEventListener('scroll', handleScroll);
-		window.addEventListener('click', handleClickOutside);
-	}
-	// Funktion zum Entfernen der Event-Listener für das Menü
-	function removeMenuEventListeners() {
-		window.removeEventListener('scroll', handleScroll);
-		window.removeEventListener('click', handleClickOutside);
-	}
-
-	// Funktion zum Behandeln des Scroll-Events
-	function handleScroll() {
-		closeMenu();
 	}
 
 	// Funktion, um zum Seitenanfang zu scrollen
@@ -125,9 +99,9 @@
 	<title>{pageTitle}</title>
 </svelte:head>
 
-<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne container overflow-hidden">
+<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne overflow-hidden">
 	<nav>
-		<div class="max-w-(--breakpoint-xl) navbar flex flex-wrap items-center justify-between mx-auto p-0 group" aria-pressed="false">
+		<div class="navbar container flex flex-wrap items-center justify-between mx-auto group" aria-pressed="false">
 			<div class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"></div>
 			<div class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
 			<div class="block absolute bottom-0 right-0 size-16 md:size-24 bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2 z-30"></div>
@@ -135,7 +109,7 @@
 				<Image src={logo} alt="Logo von {name}" classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform translate-x-1 scale-105 hover:scale-110" />
 				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
-			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-3" aria-pressed="false" on:click={toggleMenu} type="button">
+			<button class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-8" aria-pressed="false" on:click={toggleMenu} type="button">
 				<span class="sr-only">Menu</span>
 				<svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
 					<rect class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-[135deg]" y="7" width="16" height="1.5" rx="1"></rect>
@@ -164,18 +138,8 @@
 
 {#if isVisible}
 	<div class="z-50 fixed bottom-4 right-4">
-		<button
-			on:click={scrollToTop}
-			class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-je-mystical-schwarzgruen-500 text-je-magical-fata_morgana hover:bg-je-mystical-schwarzgruen-800 hover:text-je-magical-sonnenglanz"
-			aria-label="Scroll to top"
-		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-7 w-7"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-			>
+		<button on:click={scrollToTop} class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-je-himmel text-je-sand hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab" aria-label="Scroll to top">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 			</svg>
 		</button>
@@ -188,7 +152,7 @@
 	</main>
 
 	<footer class="z-30 bg-je-secondary-900">
-		<div class="mx-auto w-full max-w-(--breakpoint-xl) p-4 py-6 lg:py-8">
+		<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
 					<a href="/" class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
@@ -240,9 +204,14 @@
 			</div>
 			<hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
 			<div class="sm:flex sm:items-center sm:justify-between">
-				<span class="text-sm text-gray-400 sm:text-center">
-					&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte vorbehalten.
-				</span>
+				<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
+					<span class="text-sm text-gray-400 sm:text-center">
+						&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte vorbehalten.
+					</span>
+					<span class="text-sm text-gray-400 sm:text-center">
+						Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit <a href="https://coolify.io/" target="_blank">Coolify</a>
+					</span>
+				</div>
 				<div class="flex mt-4 sm:justify-center sm:mt-0">
 					<Social />
 				</div>

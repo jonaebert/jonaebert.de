@@ -16,6 +16,7 @@
   --color-je-sand: #f5f1e9;
   --color-je-sonne: #fff17a;
 
+  --color-je-secondary-600: #005437;
   --color-je-secondary-900: #002216;
 
   --color-je-grey-300: #d1dbda;
@@ -117,4 +118,14 @@ a:hover {
 }
 .ms-editor-squiggles-container {
 	all: initial;
+}
+
+
+/* Buttons */
+.button-m {
+  @apply py-[0.75rem];
+  @apply px-[1.5rem];
+  @apply rounded-full;
+  @apply font-bold;
+  @apply cursor-pointer;
 }

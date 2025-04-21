@@ -57,7 +57,7 @@
     const appliedColors = applyColorClasses(colors);
 </script>
 
-<button class="inline-flex items-center justify-center p-3 border-[1px] focus:border-[2px] disabled:cursor-not-allowed rounded-full transition-transform duration-400 hover:scale-110 {appliedColors.default.icon} {appliedColors.focus.icon} {appliedColors.hover.icon} {appliedColors.disabled.icon} {appliedColors.default.background} {appliedColors.focus.background} {appliedColors.hover.background} {appliedColors.disabled.background} {appliedColors.default.border} {appliedColors.focus.border} {appliedColors.hover.border} {appliedColors.disabled.border}" title={icon.iconName} on:click={() => window.open(href, target)} {disabled}>
+<button class="inline-flex items-center justify-center p-3 border-[1px] focus:border-[2px] disabled:cursor-not-allowed rounded-full transition-transform duration-400 hover:scale-110 cursor-pointer {appliedColors.default.icon} {appliedColors.focus.icon} {appliedColors.hover.icon} {appliedColors.disabled.icon} {appliedColors.default.background} {appliedColors.focus.background} {appliedColors.hover.background} {appliedColors.disabled.background} {appliedColors.default.border} {appliedColors.focus.border} {appliedColors.hover.border} {appliedColors.disabled.border}" title={icon.iconName} on:click={() => window.open(href, target)} {disabled}>
     <div class="w-5 h-5 flex justify-center">
         <Fa {icon} size="lg" />
     </div>

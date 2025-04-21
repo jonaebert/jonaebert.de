@@ -1,41 +1,40 @@
 <script>
-    export let words = ["Solidarisch.", "Gerecht.", "Sozial.", "Fair.", "Stark.", "Klar."];
+  export let words = ["Solidarisch", "Gerecht", "Sozial", "Fair", "Stark", "Klar"];
+
+  let currentWord = "";
+  let nextWord = "";
+  let isTransitioning = false;
+  let i = 0;
+
+  function updateWords() {
+    isTransitioning = true;
+    nextWord = words[i];
+    setTimeout(() => {
+      currentWord = nextWord;
+      i++;
+      if (i === words.length) {
+        i = 0;
+      }
+      isTransitioning = false;
+      setTimeout(updateWords, 1750); // Dauer, wie lange jedes Wort angezeigt wird
+    }, 750); // Dauer der Übergangszeit
+  }
   
-    let currentWord = "";
-    let nextWord = "";
-    let isTransitioning = false;
-    let i = 0;
+  updateWords();
+</script>
   
-    function updateWords() {
-      isTransitioning = true;
-      nextWord = words[i];
-      setTimeout(() => {
-        currentWord = nextWord;
-        i++;
-        if (i === words.length) {
-          i = 0;
-        }
-        isTransitioning = false;
-        setTimeout(updateWords, 1750); // Dauer, wie lange jedes Wort angezeigt wird
-      }, 750); // Dauer der Übergangszeit
-    }
+<style lang="postcss">
+  .fade {
+    transition: opacity 1s ease-in-out;
+  }
+  .fade-in {
+    opacity: 1;
+  }
+  .fade-out {
+    opacity: 0;
+  }
+</style>
   
-    updateWords();
-  </script>
-  
-  <style lang="postcss">
-    .fade {
-      transition: opacity 1s ease-in-out;
-    }
-    .fade-in {
-      opacity: 1;
-    }
-    .fade-out {
-      opacity: 0;
-    }
-  </style>
-  
-  <h2 class="text-xl xl:text-2xl font-semibold text-je-luminous-nebellicht text-nowrap">
-    Grün. Gemeinsam. <span class="fade" class:fade-in={!isTransitioning} class:fade-out={isTransitioning}>{currentWord}</span>
-  </h2>
-  
+<h2 class="text-xl xl:text-2xl font-semibold text-white text-nowrap">
+  Grün<span class="text-je-sonne">.</span> Gemeinsam<span class="text-je-sonne">.</span> <span class="fade text-je-sonne" class:fade-in={!isTransitioning} class:fade-out={isTransitioning}>{currentWord}</span>.
+</h2>

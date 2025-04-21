@@ -27,11 +27,11 @@
     let disabled = false;
 </script>
 
-<ul class="flex flex-wrap gap-x-3.5 gap-y-3">
-    <li><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} {disabled} /></li>
-    <li><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} {disabled} /></li>
-    <li><RoundedIcon href="https://www.youtube.com/@jonaebert" icon={faYoutube} target="_blank" {colors} {disabled} /></li>
-    <li><RoundedIcon href="https://www.tiktok.com/@jona_ebert" icon={faTiktok} target="_blank" {colors} {disabled} /></li>
-    <li><RoundedIcon href="https://www.linkedin.com/in/jonaebert" icon={faLinkedinIn} target="_blank" {colors} {disabled} /></li>
-    <li><RoundedIcon href="https://github.com/jonaebert" icon={faGithub} target="_blank" {colors} {disabled} /></li>
-</ul>
+<div class="gap-x-3.5 gap-y-3.5 grid grid-cols-3 md:grid-cols-6">
+    <div><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://www.youtube.com/@jonaebert" icon={faYoutube} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://www.tiktok.com/@jona_ebert" icon={faTiktok} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://www.linkedin.com/in/jonaebert" icon={faLinkedinIn} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://github.com/jonaebert" icon={faGithub} target="_blank" {colors} {disabled} /></div>
+</div>
