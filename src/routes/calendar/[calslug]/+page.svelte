@@ -5,7 +5,25 @@
     import Image from "$lib/components/image.svelte";
 
     export let data;
-    const event = data.event[0];
+
+    // Tranform Event date
+    const rawEvent = data.event[0];
+    const event = {
+        ...rawEvent,
+        start: FormatDate(rawEvent.start, ''),
+        end: FormatDate(rawEvent.end, ''),
+        startday: FormatDate(rawEvent.start, 'day'),
+        endday: FormatDate(rawEvent.end, 'day'),
+        startmonth: FormatDate(rawEvent.start, 'month'),
+        endmonth: FormatDate(rawEvent.end, 'month'),
+        startyear: FormatDate(rawEvent.start, 'year'),
+        endyear: FormatDate(rawEvent.end, 'year'),
+        starttime: FormatDate(rawEvent.start, 'time'),
+        endtime: FormatDate(rawEvent.end, 'time'),
+        startdate: FormatDate(rawEvent.start, 'date'),
+        enddate: FormatDate(rawEvent.end, 'date'),
+    };
+    console.log(event);
 </script>
 
 <svelte:head>
