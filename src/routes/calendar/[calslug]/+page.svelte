@@ -26,9 +26,9 @@
 </script>
 
 <svelte:head>
-    <title>{event.summary} - {FormatDate(event.start, 'date')} - {name}</title>
+    <title>{event.summary} - {event.startdate} - {name}</title>
     <meta name="robots" content="none">
-    <meta property="og:title" content="{event.summary} - {FormatDate(event.start, 'date')}" />
+    <meta property="og:title" content="{event.summary} - {event.startdate}" />
     {#if event.teaserImage.url && event.teaserImage.url !== null}
         <meta property="og:image" content={event.teaserImage.url} />
     {:else}
