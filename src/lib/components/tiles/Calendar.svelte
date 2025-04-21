@@ -50,7 +50,9 @@
                     {/if}
                     <div class="hyphense-auto font-bold text-je-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
                         {#if event.state === 'CANCELLED'}
-                                [ABGESAGT]<br>
+                            <span class="bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4">
+                                ABGESAGT<br>
+                            </span>
                         {/if}
                         {event.summary}
                     </div>
