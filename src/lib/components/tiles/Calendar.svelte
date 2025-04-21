@@ -28,7 +28,7 @@
         {#each events as event}
             <a class="group/teaser-image flex flex-col" href="/calendar/{event.id}">
                 <div class="flex h-full flex-col">
-                    <div class="mb-6 flex">
+                    <div class={event.now == true ? 'mb-6 flex animate-pulse':'mb-6 flex'}>
                         <div class="relative inline-block w-full overflow-hidden">
                             {#if event.teaserImage.url && event.teaserImage.url != null}
                                 <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
