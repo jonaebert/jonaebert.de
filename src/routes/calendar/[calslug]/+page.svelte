@@ -23,7 +23,6 @@
         startdate: FormatDate(rawEvent.start, 'date'),
         enddate: FormatDate(rawEvent.end, 'date'),
     };
-    console.log(event);
 </script>
 
 <svelte:head>
