@@ -1,22 +1,11 @@
 <script lang="ts">
     import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
     import { apiDomain, name } from '$lib/store';
-	import { FormatDate } from '$lib/util/date';
+    import { FormatDate } from '$lib/util/date';
     import Image from "$lib/components/image.svelte";
 
     export let data;
     const event = data.event[0];
-
-    // function teaserImage() {
-    //     if (event.teaserImage.url) {
-    //         return event.teaserImage;
-    //     } else {
-    //         return {
-    //             ...event.teaserImage,
-    //             url: '/contact/teaser.svg'
-    //         };
-    //     }
-    // };
 </script>
 
 <svelte:head>
