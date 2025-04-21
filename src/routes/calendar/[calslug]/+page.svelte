@@ -30,7 +30,11 @@
     <title>{event.summary} - {FormatDate(event.start, 'date')} - {name}</title>
     <meta name="robots" content="none">
     <meta property="og:title" content="{event.summary} - {FormatDate(event.start, 'date')}" />
-    <!-- <meta property="og:image" content={teaserImage().url} /> -->
+    {#if event.teaserImage.url && event.teaserImage.url !== null}
+        <meta property="og:image" content={event.teaserImage.url} />
+    {:else}
+        <meta property="og:image" content="/contact/teaser.svg" />
+    {/if}
 </svelte:head>
 
 <div class="min-h-screen flex items-center justify-center container">
