@@ -112,6 +112,17 @@ export const load = () => {
                 ],
                 volunteer: [
                     {
+                        title: 'Bürger*innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
+                        company: 'Stadt Braunschweig',
+                        start: '2025-04',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_stadt_braunschweig.png',
+                        bgcolor: 'bg-white',
+                        link: 'https://braunschweig.de',
+                    },
+                    {
                         title: 'Mitglied im Wahlkampfteam Bundestagswahl 2025',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2024-11',
