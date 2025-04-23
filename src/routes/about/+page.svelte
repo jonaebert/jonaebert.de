@@ -105,21 +105,21 @@
 </div>
 
 <!-- Curriculum vitae -->
-<div class="container pb-12">
-	<h2 class="text-4xl font-bold text-je-magical-fata_morgana font-poppins">{headings.main}</h2>
+<div class="container py-12">
+	<h2 class="text-2xl xl:text-4xl font-bold text-je-secondary-900 font-poppins italic">{headings.main}</h2>
 	{#each headings.sections as section}
-		<h3 class="text-3xl font-bold text-je-magical-fata_morgana font-poppins">{section.title}</h3>
+		<h3 class="text-xl xl:text-3xl font-bold text-black md:mb-6 font-poppins italic">{section.title}</h3>
 		{#if section.key == 'skills'}
 			<!-- Skills -->
 			{#each items[section.key] as item}
 				<div class="pt-3">
-					<h4 class="text-2xl font-bold text-je-magical-fata_morgana font-poppins">
+					<h4 class="text-lg xl:text-2xl font-bold text-black md:mb-6 font-poppins italic">
 						{item.category}
 					</h4>
 					{#if item.subcategories}
 						{#each item.subcategories as subcategory}
 							<div>
-								<h5 class="text-2xl font-bold font-poppins">{subcategory.title}</h5>
+								<h5 class="text-md xl:text-2xl font-bold text-black md:mt-6 font-poppins italic">{subcategory.title}</h5>
 								<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
 									{#each subcategory.skills as skill}
 										<Tags text={skill} />
@@ -138,23 +138,23 @@
 			{/each}
 		{:else}
 			<!-- Experience -->
-			<ol class="relative border-s border-gray-700 mt-10 font-montserrat">
+			<ol class="relative border-s border-gray-700 mt-10 pl-5 font-montserrat">
 				{#each items[section.key] as item}
 					<li class="mb-10 ms-7">
 						<!-- Image -->
 						<a href={item.link} target="_blank">
 							<span
-								class="absolute flex items-center justify-center size-8 rounded-full -start-4 ring-8 ring-je-mystical-nachtblau-500 {item.bgcolor} transition-transform duration-500 hover:scale-150 overflow-hidden"
+								class="absolute flex border border-gray-100 hover:border-none items-center justify-center size-9 rounded-full -start-4 ring-8 ring-white hover:ring-je-sonne {item.bgcolor} transition-transform duration-500 hover:scale-150 overflow-hidden"
 							>
 								<Image
 									src="/about_logos/{item.image}"
 									alt="Logo von {item.company}"
-									classNames="size-5"
+									classNames="size-6"
 								/>
 							</span>
 						</a>
 						<!-- Title -->
-						<h3 class="flex items-center mb-1 text-xl font-semibold text-white font-poppins">
+						<h3 class="flex items-center mb-1 text-xl font-semibold text-black font-poppins">
 							{item.title}
 							{#if valDate(item?.start, item?.end).active}
 								<span
