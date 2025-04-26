@@ -51,7 +51,7 @@
 <div
 	class="flex flex-col container items-start justify-between pt-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden bg-primary-700"
 >
-	<div class="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+	<div class="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
 		<!-- Linke Spalte: Text, Name, Slogan, Social -->
 		<div class="flex flex-col space-y-6">
 			<!-- Textblock -->
@@ -116,112 +116,118 @@
 
 <!-- CV -->
 <div class="container py-5">
-	<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic">
-		{headings.main}
-	</h2>
-	<div class="grid gap-4">
-		{#each headings.sections as section}
-			<h3 class="text-2xl md:text-3xl font-semibold text-black italic">
-				{section.title}
-			</h3>
-			{#if section.key !== 'skills'}
-				<ol class="relative border-s border-grey-300">
-					{#each items[section.key] as item}
-						<li class="mb-10 ms-9">
-							<span
-								class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
-							>
-								<a href={item.link} target="_blank">
-									<Image
-										classNames="rounded-full size-7.5"
-										src="/about_logos/{item.image}"
-										alt="Logo von {item.company}"
-									/>
-								</a>
-								{#if valDate(item?.start, item?.end).active}
-									<span
-										class="top-0 start-7 absolute w-3.5 h-3.5 bg-himmel-600 border-2 border-white rounded-full animate-bounce"
-									></span>
-								{/if}
-							</span>
-							<div class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200">
-								<div class="items-center justify-between sm:flex">
-									<div class="text-sm font-semibold text-black">
-										{item.title}
-										<div class="font-normal text-grey-600">
-											<a
-												href={item.link}
-												target="_blank"
-												class="font-normal hover:underline text-grey-600">{item.company}</a
-											>
-										</div>
-									</div>
-									<time
-										class="mb-1 text-xs font-normal text-grey-500 flex items-center justify-between"
-									>
-										{valDate(item?.start, item?.end).date}
-									</time>
-								</div>
-								{#if item.description[0] || item.skills[0]}
-									<div
-										class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 border-1 border-solid border-grey-300 text-grey-600"
-									>
-										{#if item.description[0]}
-											<ul class="list-disc pl-2.5 md:pl-3.5">
-												{#each item.description as desc}
-													<li>{desc}</li>
-												{/each}
-											</ul>
-										{/if}
-										{#if item.skills[0]}
-											<div class="flex flex-row flex-wrap gap-1 text-sm not-italic">
-												{#each item.skills as skill}
-													<Tags text={skill} />
-												{/each}
+	<div class="max-w-screen-lg">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic">
+			{headings.main}
+		</h2>
+		<div class="grid gap-4">
+			{#each headings.sections as section}
+				<h3 class="text-2xl md:text-3xl font-semibold text-black italic">
+					{section.title}
+				</h3>
+				{#if section.key !== 'skills'}
+					<ol class="relative border-s border-grey-300">
+						{#each items[section.key] as item}
+							<li class="mb-10 ms-9">
+								<span
+									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
+								>
+									<a href={item.link} target="_blank">
+										<Image
+											classNames="rounded-full size-7.5"
+											src="/about_logos/{item.image}"
+											alt="Logo von {item.company}"
+										/>
+									</a>
+									{#if valDate(item?.start, item?.end).active}
+										<span
+											class="top-0 start-7 absolute w-3.5 h-3.5 bg-himmel-600 border-2 border-white rounded-full animate-bounce"
+										></span>
+									{/if}
+								</span>
+								<div
+									class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200"
+								>
+									<div class="items-center justify-between sm:flex">
+										<div class="text-sm font-semibold text-black">
+											{item.title}
+											<div class="font-normal text-grey-600">
+												<a
+													href={item.link}
+													target="_blank"
+													class="font-normal hover:underline text-grey-600">{item.company}</a
+												>
 											</div>
-										{/if}
+										</div>
+										<time
+											class="mb-1 text-xs font-normal text-grey-500 flex items-center justify-between"
+										>
+											{valDate(item?.start, item?.end).date}
+										</time>
 									</div>
-								{/if}
-							</div>
-						</li>
-					{/each}
-				</ol>
-			{:else}
-				<!-- Skills -->
-				<div class="grid gap-3">
-					{#each items[section.key] as item}
-						<div class="">
-							<h4 class="text-xl md:text-2xl font-semibold text-black italic">
-								{item.category}
-							</h4>
-							<div class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200">
-								{#if item.subcategories}
-									<div class="grid gap-6">
-										{#each item.subcategories as subcategory}
-											<div>
-												<h5 class="text-md xl:text-2xl font-bold text-black font-poppins italic">
-													{subcategory.title}
-												</h5>
-												<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
-													{#each subcategory.skills as skill}
+									{#if item.description[0] || item.skills[0]}
+										<div
+											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 border-1 border-solid border-grey-300 text-grey-600"
+										>
+											{#if item.description[0]}
+												<ul class="list-disc pl-2.5 md:pl-3.5">
+													{#each item.description as desc}
+														<li>{desc}</li>
+													{/each}
+												</ul>
+											{/if}
+											{#if item.skills[0]}
+												<div class="flex flex-row flex-wrap gap-1 text-sm not-italic">
+													{#each item.skills as skill}
 														<Tags text={skill} />
 													{/each}
 												</div>
-											</div>
-										{/each}
-									</div>
-								{:else}
-									<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
-										{#each item.skills as skill}
-											<Tags text={skill} />
-										{/each}
-									</div>
-								{/if}
+											{/if}
+										</div>
+									{/if}
+								</div>
+							</li>
+						{/each}
+					</ol>
+				{:else}
+					<!-- Skills -->
+					<div class="grid gap-3">
+						{#each items[section.key] as item}
+							<div class="">
+								<h4 class="text-xl md:text-2xl font-semibold text-black italic">
+									{item.category}
+								</h4>
+								<div
+									class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200"
+								>
+									{#if item.subcategories}
+										<div class="grid gap-6">
+											{#each item.subcategories as subcategory}
+												<div>
+													<h5 class="text-md xl:text-2xl font-bold text-black font-poppins italic">
+														{subcategory.title}
+													</h5>
+													<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+														{#each subcategory.skills as skill}
+															<Tags text={skill} />
+														{/each}
+													</div>
+												</div>
+											{/each}
+										</div>
+									{:else}
+										<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+											{#each item.skills as skill}
+												<Tags text={skill} />
+											{/each}
+										</div>
+									{/if}
+								</div>
 							</div>
-						</div>
-					{/each}
-				</div>
-			{/if}
-		{/each}
+						{/each}
+					</div>
+				{/if}
+			{/each}
+		</div>
 	</div>
 </div>
