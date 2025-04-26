@@ -12,7 +12,7 @@
             <a class="group/teaser-image flex flex-col" href="{item.url}">
                 <div class="flex h-full flex-col">
                     <div class="mb-6 flex">
-                        <div class="relative inline-block w-full overflow-hidden">
+                        <div class="relative inline-block w-full overflow-hidden rounded-sm">
                             {#if item.data.teaser_image[0]}
                                 <Image src={ph.asImageSrc(item.data.teaser_image[0].image)} alt={`Teaser Bild ${ph.asText(item.title)}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
                             {:else}
