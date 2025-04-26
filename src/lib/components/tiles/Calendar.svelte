@@ -56,7 +56,7 @@
                         {/if}
                         {event.summary}
                     </div>
-                    <span class="mt-3 text-xs text-gray-600 md:text-base font-montserrat">
+                    <span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
                         <div class="flex flex-row items-end gap-6">
                             {#if event.datetype === 'date'}
                                 <p>

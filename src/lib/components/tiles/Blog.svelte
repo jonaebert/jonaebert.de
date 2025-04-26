@@ -37,7 +37,7 @@
                     <div class="hyphense-auto font-bold text-je-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
                         {ph.asText(item.data.title)}
                     </div>
-                    <span class="mt-3 text-xs text-gray-600 md:text-base font-montserrat">
+                    <span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
                         {#if item.data.overwrite_publish_date}
                             {FormatDate(ph.asDate(item.data.overwrite_publish_date),'day')}. {FormatDate(ph.asDate(item.data.overwrite_publish_date),'monthshort')} {FormatDate(ph.asDate(item.data.overwrite_publish_date),'year')}
                         {:else}
