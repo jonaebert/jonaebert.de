@@ -130,7 +130,7 @@
 						{#each items[section.key] as item}
 							<li class="mb-10 ms-9">
 								<span
-									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
+									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
 								>
 									<a href={item.link} target="_blank">
 										<Image
