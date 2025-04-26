@@ -10,62 +10,62 @@
 
   /* Grunddesign */
   /* Klee */
-  --color-je-primary-50:      #E5F3EB;
-  --color-je-primary-100:     #CCE7D7;
-  --color-je-primary-200:     #B2DCC4;
-  --color-je-primary-300:     #99D0B0;
-  --color-je-primary-400:     #66B888;
-  --color-je-primary-500:     #33A161;
-  --color-je-primary-600:     #008939;
-  --color-je-primary-700:     #006E2E;
-  --color-je-primary-800:     #005222;
-  --color-je-primary-900:     #003717;
-  --color-je-primary-950:     #002911;
+  --color-primary-50:      #E5F3EB;
+  --color-primary-100:     #CCE7D7;
+  --color-primary-200:     #B2DCC4;
+  --color-primary-300:     #99D0B0;
+  --color-primary-400:     #66B888;
+  --color-primary-500:     #33A161;
+  --color-primary-600:     #008939; /* Klee */
+  --color-primary-700:     #006E2E;
+  --color-primary-800:     #005222;
+  --color-primary-900:     #003717;
+  --color-primary-950:     #002911;
 
   /* Tanne */
-  --color-je-secondary-50:    #D5EEE6;
-  --color-je-secondary-100:   #BEDDD2;
-  --color-je-secondary-200:   #A6CCBF;
-  --color-je-secondary-300:   #8EBBAB;
-  --color-je-secondary-400:   #5F9885;
-  --color-je-secondary-500:   #2F765E;
-  --color-je-secondary-600:   #005538;
-  --color-je-secondary-700:   #00432C;
-  --color-je-secondary-800:   #003221;
-  --color-je-secondary-900:   #002216;
+  --color-secondary-50:    #D5EEE6;
+  --color-secondary-100:   #BEDDD2;
+  --color-secondary-200:   #A6CCBF;
+  --color-secondary-300:   #8EBBAB;
+  --color-secondary-400:   #5F9885;
+  --color-secondary-500:   #2F765E;
+  --color-secondary-600:   #005538; /* Tanne */
+  --color-secondary-700:   #00432C;
+  --color-secondary-800:   #003221;
+  --color-secondary-900:   #002216;
 
   /* Grey */
-  --color-je-white:           #FFFFFF;
-  --color-je-grey-50:         #F9FAFB;
-  --color-je-grey-100:        #F3FAF6;
-  --color-je-grey-200:        #E6ECEA;
-  --color-je-grey-300:        #D1DBDA;
-  --color-je-grey-400:        #9CABAF;
-  --color-je-grey-500:        #6B7A80;
-  --color-je-grey-600:        #4B5D63;
-  --color-je-grey-700:        #374951;
-  --color-je-grey-800:        #1F2F37;
-  --color-je-grey-900:        #111E27;
-  --color-je-grey-950:        #031112;
-  --color-je-black:           #000000;
+  --color-white:           #FFFFFF;
+  --color-grey-50:         #F9FAFB;
+  --color-grey-100:        #F3FAF6;
+  --color-grey-200:        #E6ECEA;
+  --color-grey-300:        #D1DBDA;
+  --color-grey-400:        #9CABAF;
+  --color-grey-500:        #6B7A80;
+  --color-grey-600:        #4B5D63;
+  --color-grey-700:        #374951;
+  --color-grey-800:        #1F2F37;
+  --color-grey-900:        #111E27;
+  --color-grey-950:        #031112;
+  --color-black:           #000000;
 
   /* Sand */
-  --color-je-neutral-500:     #F7F4ED;
-  --color-je-neutral-600:     #F5F1E9;
-  --color-je-neutral-700:     #EFE8DB;
+  --color-neutral-500:     #F7F4ED;
+  --color-neutral-600:     #F5F1E9; /* Sand */
+  --color-neutral-700:     #EFE8DB;
 
   /* Sonne */
-  --color-je-sun-600:         #FFF17A;
+  --color-sun-600:         #FFF17A;
 
   /* Himmel */
-  --color-je-himmel-500:      #3CB4E4;
-  --color-je-himmel-600:      #0BA1DD;
-  --color-je-himmel-700:      #0981B1;
+  --color-himmel-500:      #3CB4E4;
+  --color-himmel-600:      #0BA1DD; /* Himmel */
+  --color-himmel-700:      #0981B1;
 
   /* Grashalm */
-  --color-je-grashalm-500:    #A1CA50;
-  --color-je-grashalm-600:    #8ABD24;
-  --color-je-grashalm-700:    #6E971D;
+  --color-grashalm-500:    #A1CA50;
+  --color-grashalm-600:    #8ABD24; /* Grashalm */
+  --color-grashalm-700:    #6E971D;
 
   /* Old colors */
   --color-je-tanne: #005538;
