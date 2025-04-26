@@ -37,7 +37,7 @@
 </svelte:head>
 
 <div class="flex min-h-screen items-center justify-center container py-5">
-    <div class="bg-gray-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2">
+    <div class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2">
         <!-- Bildbereich -->
         <div class="relative w-full h-64 md:h-auto">
             {#if event.teaserImage.url && event.teaserImage.url !== null}
@@ -48,17 +48,17 @@
         </div>
 
         <!-- Textbereich -->
-        <div class="flex flex-col justify-center border border-gray-100 py-6 container">
+        <div class="flex flex-col justify-center border border-grey-100 py-6 container">
             {#if event.state === 'CANCELLED'}
                 <span class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4">
                     ABGESAGT
                 </span>
             {/if}
-            <h1 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic font-poppins">
+            <h1 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
                 {event.summary}
             </h1>
 
-            <div class="font-montserrat text-gray-700 text-base md:text-lg leading-relaxed text-pretty mb-6">
+            <div class="font-montserrat text-grey-700 text-base md:text-lg leading-relaxed text-pretty mb-6">
                 {#if event.description}
                     <div>{@html event.description}</div>
                 {:else}
@@ -137,7 +137,7 @@
             
             {#if event.url}
                 <div class="flex flex-row items-center flex-nowrap pt-3">
-                    <button class="text-base md:text-lg flex flex-row items-center button-m bg-je-secondary-600 text-white hover:bg-je-sonne hover:text-je-secondary-900 w-auto" on:click={() => window.open(event.url, '_blank')}>
+                    <button class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto" on:click={() => window.open(event.url, '_blank')}>
                         <div class="flex flex-row items-center">
                             <div class="mr-3">🔗</div>
                             <div class="text-balance">
@@ -149,7 +149,7 @@
             {/if}
             {#if event.id}
                 <div class="flex flex-row items-center flex-nowrap pt-3">
-                    <button class="text-base md:text-lg flex flex-row items-center button-m bg-je-secondary-600 hover:bg-je-sonne text-white hover:text-je-secondary-900 w-auto" on:click={async () => {
+                    <button class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto" on:click={async () => {
                         try {
                             const response = await fetch(`https://${apiDomain}/api?type=calendar&itemtype=single&id=${event.id}&download=true`);
 
