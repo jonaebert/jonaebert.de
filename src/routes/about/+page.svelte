@@ -48,7 +48,7 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div class="flex flex-col container items-start justify-between py-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-je-klee">
+<div class="flex flex-col container items-start justify-between py-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-primary-700">
 	<!-- Portrait absolut positioniert am rechten Rand -->
 	<div class="absolute inset-0 pointer-events-none">
 		<div class="flex justify-end items-end lg:items-start h-full">
@@ -106,7 +106,7 @@
 
 <!-- Curriculum vitae -->
 <div class="container py-12">
-	<h2 class="text-2xl xl:text-4xl font-bold text-je-secondary-900 font-poppins italic">{headings.main}</h2>
+	<h2 class="text-2xl xl:text-4xl font-bold text-secondary-900 font-poppins italic">{headings.main}</h2>
 	{#each headings.sections as section}
 		<h3 class="text-xl xl:text-3xl font-bold text-black md:mb-6 font-poppins italic">{section.title}</h3>
 		{#if section.key == 'skills'}
@@ -138,13 +138,13 @@
 			{/each}
 		{:else}
 			<!-- Experience -->
-			<ol class="relative border-s border-gray-700 mt-10 pl-5 font-montserrat">
+			<ol class="relative border-s border-grey-700 mt-10 pl-5 font-montserrat">
 				{#each items[section.key] as item}
 					<li class="mb-10 ms-7">
 						<!-- Image -->
 						<a href={item.link} target="_blank">
 							<span
-								class="absolute flex border border-gray-100 hover:border-none items-center justify-center size-9 rounded-full -start-4 ring-8 ring-white hover:ring-je-sonne {item.bgcolor} transition-transform duration-500 hover:scale-150 overflow-hidden"
+								class="absolute flex border border-grey-100 hover:border-none items-center justify-center size-9 rounded-full -start-4 ring-8 ring-white hover:ring-sun-600 {item.bgcolor} transition-transform duration-500 hover:scale-150 overflow-hidden"
 							>
 								<Image
 									src="/about_logos/{item.image}"
@@ -164,14 +164,14 @@
 							{/if}
 						</h3>
 						<!-- Place -->
-						<p class="text-base font-normal text-gray-400">{item.company}</p>
+						<p class="text-base font-normal text-grey-400">{item.company}</p>
 						<!-- Time -->
-						<time class="block mb-2 text-sm font-normal leading-none text-gray-500"
+						<time class="block mb-2 text-sm font-normal leading-none text-grey-500"
 							>{valDate(item?.start, item?.end).date}</time
 						>
 						<!-- Description -->
 						{#if item.description[0]}
-							<div class="pl-4 mb-4 text-base font-normal text-gray-400">
+							<div class="pl-4 mb-4 text-base font-normal text-grey-400">
 								<ul class="list-disc text-md">
 									{#each item.description as desc}
 										<li>{desc}</li>

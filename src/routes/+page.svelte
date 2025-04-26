@@ -16,7 +16,7 @@
 	<meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="flex flex-col items-start justify-end p-5 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-je-klee">
+<div class="flex flex-col items-start justify-end p-5 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-primary-700">
 	<div class="absolute inset-0 flex items-end lg:items-start justify-center">
 	  <a href="/about" aria-label="Über mich" class="md:h-fit">
 		<Image 
@@ -40,7 +40,7 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-    	<h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2">Termine</h2>
+    	<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Termine</h2>
     	<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">Hier kannst du mich treffen!</h3>
 	</div>
     {#if events[0]}
@@ -75,7 +75,7 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
     <div class="text-left font-poppins">
-		  <h2 class="text-3xl md:text-4xl font-bold text-je-secondary-900 italic my-2 pb-7">Aktuelles</h2>
+		  <h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts[0]}
 		<BlogTiles items={posts} />

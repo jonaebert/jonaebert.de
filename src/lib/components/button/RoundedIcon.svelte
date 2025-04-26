@@ -34,21 +34,21 @@
             default: {
                 icon: colors.default.icon ? "text-" + colors.default.icon : "text-black",
                 background: colors.default.background ? "bg-" + colors.default.background : "bg-white",
-                border: colors.default.border ? "border-" + colors.default.border : "border-je-grey-300",
+                border: colors.default.border ? "border-" + colors.default.border : "border-grey-300",
             },
             focus: {
                 icon: colors.focus.icon ? "focus:text-" + colors.focus.icon : "focus:text-black",
                 background: colors.focus.background ? "focus:bg-" + colors.focus.background : "focus:bg-white",
-                border: colors.focus.border ? "focus:border-" + colors.focus.border : "focus:border-je-himmel",
+                border: colors.focus.border ? "focus:border-" + colors.focus.border : "focus:border-himmel-600",
             },
             hover: {
                 icon: colors.hover.icon ? "hover:text-" + colors.hover.icon : "hover:text-black",
-                background: colors.hover.background ? "hover:bg-" + colors.hover.background : "hover:bg-je-sonne",
+                background: colors.hover.background ? "hover:bg-" + colors.hover.background : "hover:bg-sun-600",
                 border: colors.hover.border ? "hover:border-" + colors.hover.border : "hover:border-transparent",
             },
             disabled: {
                 icon: colors.disabled.icon ? "disabled:text-" + colors.disabled.icon : "disabled:text-white",
-                background: colors.disabled.background ? "disabled:bg-" + colors.disabled.background : "disabled:bg-je-grey-300",
+                background: colors.disabled.background ? "disabled:bg-" + colors.disabled.background : "disabled:bg-grey-300",
                 border: colors.disabled.border ? "disabled:border-" + colors.disabled.border : "disabled:border-transparent",
             },
         };

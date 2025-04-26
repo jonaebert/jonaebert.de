@@ -99,7 +99,7 @@
 	<title>{pageTitle}</title>
 </svelte:head>
 
-<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-je-tanne overflow-hidden">
+<header class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-secondary-600 overflow-hidden">
 	<nav>
 		<div class="navbar container flex flex-wrap items-center justify-between mx-auto group" aria-pressed="false">
 			<div class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"></div>
@@ -138,7 +138,7 @@
 
 {#if isVisible}
 	<div class="z-50 fixed bottom-4 right-4">
-		<button on:click={scrollToTop} class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-je-himmel text-je-sand hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab" aria-label="Scroll to top">
+		<button on:click={scrollToTop} class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-himmel-600 text-neutral-600 hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab" aria-label="Scroll to top">
 			<svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 			</svg>
@@ -151,7 +151,7 @@
 		<slot />
 	</main>
 
-	<footer class="z-30 bg-je-secondary-900">
+	<footer class="z-30 bg-secondary-900">
 		<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
