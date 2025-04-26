@@ -48,67 +48,81 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div class="flex flex-col container items-start justify-between py-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-primary-700">
-	<!-- Portrait absolut positioniert am rechten Rand -->
-	<div class="absolute inset-0 pointer-events-none">
-		<div class="flex justify-end items-end lg:items-start h-full">
-			<Image src="/portrait/portrait_clear.svg" classNames="object-contain mt-15 max-h-[60vh] lg:max-h-[75vh]"/>
-		</div>
-	</div>
+<div
+	class="flex flex-col container items-start justify-between pt-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden bg-primary-700"
+>
+	<div class="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+		<!-- Linke Spalte: Text, Name, Slogan, Social -->
+		<div class="flex flex-col space-y-6">
+			<!-- Textblock -->
+			<div class="text-pretty">
+				<div class="text-3xl md:text-4xl font-bold text-white italic my-2 pb-7 font-poppins">
+					<h2>Vordenker*in im Einklang von Technik und Natur</h2>
+				</div>
+				<div class="text-white text-sm md:text-base font-montserrat gap-4 grid grid-rows-[auto]">
+					<div class="">
+						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
+						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
+						Nachhaltigkeit eine Symbiose eingehen. Mein Engagement für den Klimaschutz ist geprägt
+						von der Überzeugung, dass wir alle eine Rolle in der Bewahrung unseres Planeten spielen.
+					</div>
+					<div class="">
+						Als IT-Experte mit einem breiten Spektrum an Fähigkeiten habe ich mich in verschiedenen
+						Sektoren bewährt. Die Möglichkeit, meine Kenntnisse für den Umweltschutz einzusetzen,
+						ist ein spannendes Feld, das ich erkunden möchte, um die Schnittstelle zwischen IT und
+						Nachhaltigkeit zu stärken.
+					</div>
+					<div class="">
+						Meine politische Tätigkeit bei BÜNDNIS 90/DIE GRÜNEN in Braunschweig ist Ausdruck meines
+						Bestrebens, auf lokaler Ebene positive Veränderungen zu bewirken. Ich trete für eine
+						Politik ein, die den Herausforderungen des Klimawandels mit Weitsicht begegnet, für eine
+						Wirtschaft, die Ressourcen schont, und für ein Miteinander, das den Schutz unserer
+						natürlichen Lebensgrundlagen ernst nimmt.
+					</div>
+					<div class="">
+						Ich bin fest davon überzeugt, dass jeder Einzelne die Kraft hat, die Welt zu verändern.
+						Durch mein Engagement hoffe ich, andere zu inspirieren, sich ebenfalls für den
+						Umweltschutz stark zu machen und gemeinsam einen Weg in eine nachhaltige Zukunft zu
+						ebnen.
+					</div>
+				</div>
+			</div>
 
-	<!-- Inhalt linksbündig -->
-	<div class="relative z-30 grid grid-rows-[auto,auto] place-items-start max-w-[50vw] text-pretty">
-		<div class="row-start-1 text-2xl xl:text-4xl font-bold text-white md:mb-6 font-poppins">
-			<h2>Vordenker*in im Einklang von Technik und Natur</h2>
-		</div>
-		<div class="row-start-2 text-white text-sm md:text-base">
-			<div class="mb-4 font-montserrat">
-				In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
-				Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
-				Nachhaltigkeit eine Symbiose eingehen. Mein Engagement für den Klimaschutz ist geprägt
-				von der Überzeugung, dass wir alle eine Rolle in der Bewahrung unseres Planeten spielen.
-			</div>
-			<div class="mb-4 font-montserrat">
-				Als IT-Experte mit einem breiten Spektrum an Fähigkeiten habe ich mich in verschiedenen
-				Sektoren bewährt. Die Möglichkeit, meine Kenntnisse für den Umweltschutz einzusetzen,
-				ist ein spannendes Feld, das ich erkunden möchte, um die Schnittstelle zwischen IT und
-				Nachhaltigkeit zu stärken.
-			</div>
-			<div class="mb-4 font-montserrat">
-				Meine politische Tätigkeit bei BÜNDNIS 90/DIE GRÜNEN in Braunschweig ist Ausdruck meines
-				Bestrebens, auf lokaler Ebene positive Veränderungen zu bewirken. Ich trete für eine
-				Politik ein, die den Herausforderungen des Klimawandels mit Weitsicht begegnet, für eine
-				Wirtschaft, die Ressourcen schont, und für ein Miteinander, das den Schutz unserer
-				natürlichen Lebensgrundlagen ernst nimmt.
-			</div>
-			<div class="mb-4 font-montserrat">
-				Ich bin fest davon überzeugt, dass jeder Einzelne die Kraft hat, die Welt zu verändern.
-				Durch mein Engagement hoffe ich, andere zu inspirieren, sich ebenfalls für den
-				Umweltschutz stark zu machen und gemeinsam einen Weg in eine nachhaltige Zukunft zu
-				ebnen.
+			<!-- Name, Slogan, Socials -->
+			<div
+				class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]"
+			>
+				<div class="row-start-1 font-montserrat mt-6 md:mt-0">
+					<Slogan />
+				</div>
+				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-white md:mb-6 font-poppins">
+					<h1>{name} ({pronouns})</h1>
+				</div>
+				<div class="row-start-3">
+					<Social />
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Name und Social-Icons -->
-	<div class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-[10vh]">
-		<div class="row-start-2 md:row-start-1 font-montserrat mt-6 md:mt-0">
-			<Slogan />
-		</div>
-		<div class="row-start-3 md:row-start-2 text-3xl xl:text-5xl font-bold text-white md:mb-6 font-poppins">
-			<h1>{name} ({pronouns})</h1>
-		</div>
-		<div class="row-start-1 md:row-start-3">
-			<Social />
+		<!-- Rechte Spalte: Portrait -->
+		<div class="flex justify-center lg:justify-end">
+			<Image
+				src="/portrait/portrait_clear.svg"
+				classNames="object-contain mt-0 md:mt-15 max-h-[60vh] lg:max-h-[75vh]"
+			/>
 		</div>
 	</div>
 </div>
 
 <!-- Curriculum vitae -->
 <div class="container py-12">
-	<h2 class="text-2xl xl:text-4xl font-bold text-secondary-900 font-poppins italic">{headings.main}</h2>
+	<h2 class="text-2xl xl:text-4xl font-bold text-secondary-900 font-poppins italic">
+		{headings.main}
+	</h2>
 	{#each headings.sections as section}
-		<h3 class="text-xl xl:text-3xl font-bold text-black md:mb-6 font-poppins italic">{section.title}</h3>
+		<h3 class="text-xl xl:text-3xl font-bold text-black md:mb-6 font-poppins italic">
+			{section.title}
+		</h3>
 		{#if section.key == 'skills'}
 			<!-- Skills -->
 			{#each items[section.key] as item}
@@ -119,7 +133,9 @@
 					{#if item.subcategories}
 						{#each item.subcategories as subcategory}
 							<div>
-								<h5 class="text-md xl:text-2xl font-bold text-black md:mt-6 font-poppins italic">{subcategory.title}</h5>
+								<h5 class="text-md xl:text-2xl font-bold text-black md:mt-6 font-poppins italic">
+									{subcategory.title}
+								</h5>
 								<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
 									{#each subcategory.skills as skill}
 										<Tags text={skill} />
