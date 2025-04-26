@@ -5,7 +5,6 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-*: initial;
   --font-poppins: Poppins;
   --font-montserrat: Montserrat;
 
