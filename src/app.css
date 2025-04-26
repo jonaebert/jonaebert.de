@@ -12,6 +12,8 @@
   /* Colors */
   /* Remove predefined colors by tailwind */
   --color-*: initial;
+  /* Basic colors */
+  --color-transparent:     #00000000;
   /* Grunddesign */
   /* Klee */
   --color-primary-50:      #E5F3EB;
