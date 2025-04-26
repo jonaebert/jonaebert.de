@@ -8,12 +8,6 @@
   --font-poppins: Poppins;
   --font-montserrat: Montserrat;
 
-  --color-je-tanne: #005538;
-  --color-je-klee: #008939;
-  --color-je-grashalm: #8abd24;
-  --color-je-himmel: #0ba1dd;
-  --color-je-sand: #f5f1e9;
-  --color-je-sonne: #fff17a;
   /* Grunddesign */
   /* Klee */
   --color-je-primary-50:      #E5F3EB;
@@ -74,6 +68,13 @@
   --color-je-grashalm-700:    #6E971D;
 
   /* Old colors */
+  --color-je-tanne: #005538;
+  --color-je-klee: #008939;
+  --color-je-grashalm: #8abd24;
+  --color-je-himmel: #0ba1dd;
+  --color-je-sand: #f5f1e9;
+  --color-je-sonne: #fff17a;
+
   --color-je-magical-fata_morgana: #efe9ce;
   --color-je-magical-sonnenglanz: #ffdd00;
   --color-je-magical-korallenriff: #ff6347;
