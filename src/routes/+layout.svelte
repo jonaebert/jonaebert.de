@@ -164,7 +164,7 @@
 				id="navbar"
 			>
 				<ul
-					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
+					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 rounded-lg bg-grey-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
 				>
 					{#each menuLinks as link}
 						<li>
@@ -233,7 +233,7 @@
 				<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 text-balance">
 					<div>
 						<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
-						<ul class="text-gray-400 font-medium font-montserrat">
+						<ul class="text-grey-400 font-medium font-montserrat">
 							{#each menuLinks as link}
 								<li class="mb-4 hover:text-white">
 									<a href={link.href} class="hover:underline">{link.title}</a>
@@ -245,7 +245,7 @@
 						<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
 							Rechtliches ⚖️
 						</h2>
-						<ul class="text-gray-400 font-medium font-montserrat">
+						<ul class="text-grey-400 font-medium font-montserrat">
 							{#each legalLinks as link}
 								<li class="mb-4 break-words hyphens-auto hover:text-white">
 									<a href={link.href} class="hover:underline">{link.title}</a>
@@ -257,7 +257,7 @@
 						<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
 							Schau mal hier vorbei 👀
 						</h2>
-						<ul class="text-gray-400 font-medium font-montserrat">
+						<ul class="text-grey-400 font-medium font-montserrat">
 							{#each footerLinks as link}
 								<li class="mb-4 hover:text-white">
 									<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
@@ -267,14 +267,14 @@
 					</div>
 				</div>
 			</div>
-			<hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
+			<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
 			<div class="sm:flex sm:items-center sm:justify-between">
 				<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
-					<span class="text-sm text-gray-400 sm:text-center">
+					<span class="text-sm text-grey-400 sm:text-center">
 						&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte
 						vorbehalten.
 					</span>
-					<span class="text-sm text-gray-400 sm:text-center">
+					<span class="text-sm text-grey-400 sm:text-center">
 						Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
 						<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
 						gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit
