@@ -19,7 +19,7 @@
 <div
 	class="flex flex-col items-start justify-end p-5 min-h-[45vh] xl:min-h-[40vh] relative z-10 mb-5 overflow-hidden bg-primary-700"
 >
-	<div class="absolute inset-0 flex items-end lg:items-start justify-center">
+	<div class="absolute inset-0 flex items-start justify-center">
 		<a href="/about" aria-label="Über mich" class="md:h-fit">
 			<Image
 				src="/portrait/portrait_clear.svg"
