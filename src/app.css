@@ -5,9 +5,13 @@
 @import 'tailwindcss';
 
 @theme {
+  /* Fonts */
   --font-poppins: Poppins;
   --font-montserrat: Montserrat;
 
+  /* Colors */
+  /* Remove predefined colors by tailwind */
+  --color-*: initial;
   /* Grunddesign */
   /* Klee */
   --color-primary-50:      #E5F3EB;
