@@ -21,7 +21,7 @@ export const load = () => {
                         description: [],
                         skills: [ 'Windows', 'Datenbankverwaltung (MSSQL)', 'Kunden-Support', 'VOIS' ],
                         image: 'logo_itebo.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://www.itebo.de',
                     },
                     {
@@ -56,7 +56,7 @@ export const load = () => {
                         ],
                         skills: [ 'Telekommunikation', 'Telekommunikationssysteme', 'Linux', 'Windows', ],
                         image: 'logo_lba.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://www.lba.de/DE/Home/home_node.html',
                     },
                     {
@@ -75,7 +75,7 @@ export const load = () => {
                         ],
                         skills: [ 'PHP', 'Scripting', 'HTML', 'Datenmanagement', ],
                         image: 'logo_steinel.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://steinel.de'
                     }
                 ],
@@ -95,7 +95,7 @@ export const load = () => {
                         ],
                         skills: [ 'Windows', 'Kunden-Support', 'Drucker', ],
                         image: 'logo_steinel.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://steinel.de',
                     },
                     {
@@ -106,7 +106,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_vzg.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://von-zumbusch-gesamtschule.de',
                     }
                 ],

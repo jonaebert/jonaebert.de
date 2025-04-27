@@ -108,13 +108,13 @@
 			aria-pressed="false"
 		>
 			<div
-				class="block absolute top-0 right-0 size-8 md:size-16 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"
+				class="block absolute top-0 right-0 size-8 md:size-16 bg-sun-600 rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"
 			></div>
 			<div
-				class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"
+				class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-secondary-600 rounded-full transform -translate-x-1/2 translate-y-1/2"
 			></div>
 			<div
-				class="block absolute bottom-0 right-0 size-16 md:size-24 bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2 z-30"
+				class="block absolute bottom-0 right-0 size-16 md:size-24 bg-grashalm-600 rounded-full transform translate-x-1/2 translate-y-1/2 z-30"
 			></div>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image

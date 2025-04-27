@@ -29,7 +29,7 @@
 
 <button class="align-center justify-center" on:click={scrollDown} on:keydown={(e) => e.key === 'Enter' && scrollDown()} aria-label="Scroll down">
 	{#each Array(count) as _, i}
-		<div class="chevron before:bg-je-sand after:bg-je-sand"></div>
+		<div class="chevron before:bg-neutral-600 after:bg-neutral-600"></div>
 	{/each}
 </button>
 
