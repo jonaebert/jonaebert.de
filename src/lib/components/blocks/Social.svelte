@@ -6,21 +6,21 @@
         default: {
             icon: "black",
             background: "white",
-            border: "je-grey-300",
+            border: "grey-300",
         },
         focus: {
             icon: "black",
             background: "white",
-            border: "je-himmel",
+            border: "himmel-600",
         },
         hover: {
             icon: "black",
-            background: "je-sonne",
+            background: "sun-600",
             border: "transparent",
         },
         disabled: {
             icon: "white",
-            background: "je-grey-300",
+            background: "grey-300",
             border: "transparent",
         },
     };

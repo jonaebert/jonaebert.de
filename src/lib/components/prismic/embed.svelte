@@ -2,7 +2,7 @@
     export let slice;
 
     let html = slice.oembed.html
-      .replace(/width="\d+"/, `class="w-full aspect-video my-8 rounded-xl border-2 border-je-green-300"`)
+      .replace(/width="\d+"/, `class="w-full aspect-video my-8 rounded-xl border-2 border-secondary-400"`)
       .replace(/height="\d+"/, "");
 </script>
 

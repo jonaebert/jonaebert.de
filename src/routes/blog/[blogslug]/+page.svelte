@@ -1,25 +1,25 @@
 <script lang="ts">
-	// import Image from '$lib/components/image.svelte';
-	import { name } from '$lib/store';
+	import { name, pronouns } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-    import * as ph from '@prismicio/helpers';
+	import * as ph from '@prismicio/helpers';
 	import { SliceZone } from '@prismicio/svelte';
-	import Tags from '$lib/components/blocks/Tags.svelte';
+	import Image from '$lib/components/image.svelte';
 
 	import Paragraph from '$lib/components/prismic/paragraph.svelte';
-	import Image from '$lib/components/prismic/image.svelte';
+	import Image_Blog from '$lib/components/prismic/image.svelte';
 	import Heading from '$lib/components/prismic/heading.svelte';
 	import Lists from '$lib/components/prismic/lists.svelte';
 	import Embed from '$lib/components/prismic/embed.svelte';
 	import Code from '$lib/components/prismic/code.svelte';
 	import { text } from '@sveltejs/kit';
-	
+	import { faPhabricator } from '@fortawesome/free-brands-svg-icons';
+
 	export let data;
-    let { post } = data;
+	let { post } = data;
 
 	const components = {
 		paragraph: Paragraph,
-		image: Image,
+		image: Image_Blog,
 		heading1: Heading,
 		heading2: Heading,
 		heading3: Heading,
@@ -33,65 +33,75 @@
 	};
 
 	function teaserImage() {
+		let image: string = '/home/teaser.webp';
 		if (ph.asImageSrc(post.data.teaser_image[0].image)) {
-			return ph.asImageSrc(post.data.teaser_image[0].image);
-		} else {
-			return '/home/teaser.webp';
+			image = ph.asImageSrc(post.data.teaser_image[0].image);
+			return image;
 		}
 	}
 </script>
 
 <svelte:head>
 	<title>{ph.asText(post.data.title)} - {name}</title>
-	<meta name="robots" content="index,follow">
+	<meta name="robots" content="index,follow" />
 	<meta property="og:title" content={ph.asText(post.data.title)} />
 	<meta property="og:image" content={teaserImage()} />
 </svelte:head>
 
-<div class="relative bg-fixed bg-no-repeat bg-center bg-cover" style="background-image: url({teaserImage()});">
-	<div class="bg-black bg-opacity-50 p-5">
-		<article class="container mx-auto text-justify py-10">
-			<div class="text-white text-center font-poppins">
-				<h1 class="text-4xl font-bold text-white my-2">{ph.asText(post.data.title)}</h1>
-			</div>
-		</article>
-	</div>
-</div>
-
-<div class="container mx-auto p-5 text-pretty text-justify bg-je-mystical-schwarzgruen-700">
-	<div class="flex flex-wrap justify-center items-center gap-2 font-montserrat">
-		{#if post.data.teaser_image[0].image.copyright}
-			<p class="text-lg md:mr-40">
-				{#if post.data.teaser_image[0].copyright_link}
-					📸 <a href={post.data.teaser_image[0].copyright_link.url} target={post.data.teaser_image[0].copyright_link.target}>
-						{post.data.teaser_image[0].image.copyright}
-					</a>
-				{:else}
-					📸 {post.data.teaser_image[0].image.copyright}
-				{/if}
-			</p>
-		{/if}
-		<p class="text-lg md:mr-40">
-            {#if post.data.overwrite_publish_date}
-                Veröffentlicht am: {FormatDate(ph.asDate(post.data.overwrite_publish_date),'day')}. {FormatDate(ph.asDate(post.data.overwrite_publish_date),'monthshort')} {FormatDate(ph.asDate(post.data.overwrite_publish_date),'year')}
-            {:else}
-                Veröffentlicht am: {FormatDate(ph.asDate(post.first_publication_date),'day')}. {FormatDate(ph.asDate(post.first_publication_date),'monthshort')} {FormatDate(ph.asDate(post.first_publication_date),'year')}
-            {/if}
-        </p>
-		<div class="flex flex-wrap gap-2">
-			{#if post.tags[0]}
-				{#each post.tags as category}
-					<Tags text={category} clickable={true} link="/blog/category/{category}" resize={110} target="_self" />
-				{/each}
+<div class="relative min-h-[80vh] flex flex-col">
+	<!-- Hintergrundbild -->
+	<div class="background absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat" style="background-image: url({teaserImage()});"></div>
+	<!-- Schwarzer Overlay -->
+	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
+  
+	<!-- Inhalt: Titel + Content -->
+	<div class="container flex-grow flex flex-col justify-between">
+	  <!-- Titel und Datum -->
+	  <div class="py-5 flex justify-center text-pretty">
+		<div class="md:max-w-[60%] grid gap-5">
+		  <h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
+			{ph.asText(post.data.title)}
+		  </h1>
+		  <div class="font-montserrat text-white">
+			{#if post.data.overwrite_publish_date}
+			  {FormatDate(ph.asDate(post.data.overwrite_publish_date), 'day')}. {FormatDate(
+				ph.asDate(post.data.overwrite_publish_date),
+				'month'
+			  )}
+			  {FormatDate(ph.asDate(post.data.overwrite_publish_date), 'year')}
+			{:else}
+			  {FormatDate(ph.asDate(post.first_publication_date), 'day')}. {FormatDate(
+				ph.asDate(post.first_publication_date),
+				'month'
+			  )}
+			  {FormatDate(ph.asDate(post.first_publication_date), 'year')}
 			{/if}
+		  </div>
 		</div>
+	  </div>
+  
+	  <!-- Blog-Content am unteren Rand -->
+	  <div class="text-pretty">
+		<div class="p-6 bg-white relative shadow-lg">
+		  <div class="float-right max-w-95 ml-8 mb-8 relative">
+			<Image
+			  src={ph.asImageSrc(post.data.teaser_image[0].image)}
+			  alt={ph.asText(post.data.title)}
+			  classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+			/>
+			{#if post.data.teaser_image[0] != undefined}
+			  <div class="absolute right-2 bottom-10">
+				<div class="bg-white rounded p-1 text-xs my-1 opacity-50">
+				  &copy; {post.data.teaser_image[0].copyright}
+				</div>
+			  </div>
+			{/if}
+		  </div>
+		  <article>
+			<SliceZone slices={post.data.body} {components} />
+		  </article>
+		</div>
+	  </div>
 	</div>
-</div>
-
-<div class="container mx-auto p-5 pb-12 text-pretty md:text-pretty" style="font-family: Montserrat">
-	<div class="mt-8">
-		<article>
-			<SliceZone slices={post.data.body} {components}/>
-		</article>
-	</div>
-</div>
+  </div>
+  

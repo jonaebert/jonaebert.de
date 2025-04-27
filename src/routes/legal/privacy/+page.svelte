@@ -3,11 +3,11 @@
 </script>
 
 <svelte:head>
-	<meta name="robots" content="index,follow">
+	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div class="container pb-12">
-	<h1 class="text-5xl font-bold text-je-magical-fata_morgana my-2 py-10">Datenschutz</h1>
+<div class="container py-12 grid gap-5">
+	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 italic my-2">Datenschutz</h1>
 	<div class="text-balance font-montserrat mb-4">
 		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von
 		personenbezogenen Daten (im Folgenden auch nur als "Daten" bezeichnet) aufklären.
@@ -17,7 +17,7 @@
 		für die von uns vorgehaltenen Online-Medien.
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
 			Wer bei uns für die Datenverarbeitung verantwortlich ist
 		</h2>
 		<div class="font-montserrat text-balance mb-4">
@@ -33,7 +33,9 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Ihre Rechte nach der DSGVO</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+			Ihre Rechte nach der DSGVO
+		</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Nach der DSGVO stehen Ihnen die nachfolgend aufgeführten Rechte zu, die Sie jederzeit bei dem
 			in Ziffer 1. dieser Datenschutzerklärung genannten Verantwortlichen geltend machen können:
@@ -67,12 +69,12 @@
 				</li>
 			</ul>
 		</div>
-		<h3 class="text-3xl font-semibold text-je-magical-fata_morgana my-2 py-10">Widerrufsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerrufsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung jederzeit zu
 			widerrufen.
 		</div>
-		<h3 class="text-3xl font-semibold text-je-magical-fata_morgana my-2 py-10">Widerspruchsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerspruchsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
 			berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch einzulegen. Sofern
@@ -91,7 +93,9 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Wann löschen wir Ihre Daten?</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+			Wann löschen wir Ihre Daten?
+		</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir löschen Ihre Daten dann, wenn wir diese nicht mehr brauchen oder Sie uns dies vorgeben.
 			Das bedeutet, dass - sofern sich aus den einzelnen Datenschutzhinweisen dieser
@@ -135,7 +139,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Webhosting</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Webhosting</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
 			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
@@ -188,22 +192,20 @@
 		<div class="text-balance font-montserrat mb-4">
 			<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">
-			Von uns beauftragte(r) Webhoster:
-		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">
-			Vercel Inc.
-		</div>
+		<div class="text-balance font-montserrat mb-4 font-bold">Von uns beauftragte(r) Webhoster:</div>
+		<div class="text-balance font-montserrat mb-4 font-bold">Hetzner Online</div>
 		<div class="text-balance font-montserrat mb-4">
-			Dienstanbieter: Vercel Inc., 340 S Lemon Ave 4133 Walnut, CA 91789, USA<br />
-			<a href="https://vercel.com/" target="_blank" class="externalLink">Internetseite</a>
-			<a href="https://vercel.com/legal/privacy-policy" target="_blank" class="externalLink"
+			Dienstanbieter: Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen<br />
+			<a href="https://www.hetzner.de/" target="_blank" class="externalLink">Internetseite</a>
+			<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
 				>Datenschutzerklärung</a
 			>
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Content-Delivery-Network</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+			Content-Delivery-Network
+		</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir benutzen zum Ausspielen unserer Internetseiten ein Content-Delivery-Network (CDN). Ein CDN
 			ist ein Netz regional verteilter und über das Internet verbundener Server. Über das CDN werden
@@ -222,9 +224,7 @@
 			vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer Rechte nicht
 			oder nur erschwert erfolgen kann.
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">
-			Betroffene Daten:
-		</div>
+		<div class="text-balance font-montserrat mb-4 font-bold">Betroffene Daten:</div>
 		<div class="text-balance font-montserrat mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
@@ -259,7 +259,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Kontaktaufnahme</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Kontaktaufnahme</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
 			sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre Telefonnummer
@@ -287,7 +287,7 @@
 				1 lit. b DSGVO, berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 			</div>
 			<div>
-				<h3 class="text-3xl font-semibold text-je-magical-fata_morgana my-2 py-10">
+				<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
 				<div class="text-balance font-montserrat mb-4">
@@ -301,82 +301,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Zahlungsdienstleister</h2>
-		<div class="text-balance font-montserrat mb-4">
-			Gemäß unserer gesetzlichen Pflichten beziehungsweise wegen unserer berechtigten Interessen an
-			einer effizienten, sicheren und Kunden orientierten Zahlungsabwicklung können Personen, die
-			mit uns einen Vertrag oder eine anderweitige Rechtsbeziehung geschlossen haben, zur Zahlung
-			sowohl Banken und Kreditinstitute, als auch weitere Zahlungsdienstleister in Anspruch nehmen.
-			Die von uns angebotenen Zahlungsdienstleister, verarbeiten in diesem Rahmen Bestandsdaten,
-			dazu zählen Name, Adresse oder auch Bankdaten wie Konto-/Kreditkartennummer, Passwörter, TANs,
-			Prüfnummern sowie Angaben zum abgeschlossenen Vertrag und Angaben zum Empfänger der Zahlung.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			Die in diesem Zusammenhang erhobenen Daten sind erforderlich, um die Zahlungsabwicklung durch
-			den Zahlungsdienstleister vornehmen zu können. Ausschließlich der von uns beauftragte
-			Zahlungsdienstleister erhebt und verarbeitet diese persönlichen Angaben. Wir erhalten zu
-			keinem Zeitpunkt Informationen über Ihre Konto- oder Kreditkartenverbindung. Wir werden von
-			unserem Zahlungsdienstleister darüber in Kenntnis gesetzt, ob die Zahlung unserer Kunden
-			eingetroffen ist oder nicht. Es besteht die Möglichkeit, dass unsere Zahlungsdienstleister die
-			Daten unserer Kunden an Wirtschaftsauskunftsdateien weiterleiten, um die Identität sowie
-			Bonität des Zahlenden prüfen zu können. Insoweit verweisen wir auf die Datenschutzerklärung
-			und Allgemeinen Geschäftsbedingungen (AGB) unserer Zahlungsdienstleister.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			Es gelten die AGB und Datenschutzbestimmung des jeweiligen Zahlungsdienstleister. Sie finden
-			diese Hinweise auf der Webseite des betroffenen Dienstleister oder in der
-			Transaktionsanwendung. Für weitergehende Informationen und für die Geltendmachung Ihrer Rechte
-			bezüglich Widerruf und Auskunft verweisen wir insoweit auf die Bestimmungen des jeweiligen
-			Dienstleisters.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Betroffene Daten:</p>
-			<ul class="list-disc">
-				<li class="mb-2">Bestandsdaten (bspw. Name, Adresse),</li>
-				<li class="mb-2">
-					Benutzungsdaten (bspw. besuchte Internetseiten, Interesse an bestimmten Themen, Zeiten der
-					Zugriffe),
-				</li>
-				<li class="mb-2">Zahlungsdaten (bspw. Bankverbindung, Rechnungen. Zahlungshistorie),</li>
-				<li class="mb-2">
-					Geschäftsabschlussdaten (bspw. Laufzeit, Kundenkategorie, Vertragsgegenstand),
-				</li>
-				<li class="mb-2">
-					Kommunikations- und Metadaten (bspw. IP-Adresse, Informationen zum Gerät oder
-					Computersystem)
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<strong>Verarbeitungszweck:</strong> Effektive, sichere sowie Kunden orientierte Zahlungsangebote
-			(Service) sowie Abwicklung von Zahlungen gemäß vertraglicher Vereinbarung
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<strong>Rechtsgrundlage:</strong> Vertragserfüllung und Erfüllung vorvertraglichen Anfragen, Art.
-			6 Abs. 1 lit. b DSGVO, berechtigte Interessen, Art. 6 Abs. 1 lit. f DSGVO
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<strong>Widerrufsmöglichkeiten:</strong> Sie können Ihre Einwilligung zur Verwendung der personenbezogenen
-			Daten jederzeit gegenüber dem jeweiligen Zahlungsdienstleister widerrufen. Trotz Widerruf bleibt
-			der Zahlungsdienstleister gegebenenfalls weiterhin dazu berechtigt, die personenbezogenen Daten
-			zu verarbeiten, zu nutzen und zu übermitteln, die zur vertragsmäßigen Zahlungsabwicklung zwingend
-			notwendig sind. Bezüglich der Speicherung und fristgemäßen Löschung der personenbezogenen Daten
-			verweisen wir auf die jeweiligen Datenschutzbestimmungen des Zahlungsdienstleisters.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Wir nutzen folgende Zahlungsdienstleister:</p>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Stripe</p>
-			<div>
-				Dienstanbieter: Stripe Inc., 510 Townsend Street, San Francisco, CA 94103, USA <br />
-				<a href="https://stripe.com/de" class="externalLink">Internetseite</a><br />
-				<a href="https://stripe.com/de/privacy" class="externalLink">Datenschutzerklärung</a>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
 			Unsere Onlinepräsenzen bei sozialen Netzwerken
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -517,7 +442,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Content-Dienste</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Content-Dienste</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
 			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
@@ -543,7 +468,9 @@
 			<p class="font-bold">Betroffene Daten:</p>
 			<ul class="list-disc">
 				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)</li>
+				<li class="mb-2">
+					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
+				</li>
 			</ul>
 		</div>
 		<div class="text-balance font-montserrat mb-4">
@@ -555,13 +482,19 @@
 		<div class="text-balance font-montserrat mb-4">
 			<p class="font-bold">Verarbeitungszweck:</p>
 			<ul class="list-disc">
-				<li class="mb-2">Ausspielen unserer Internetseiten, Anbieten von Inhalten, Gewährleistung des Betriebs unserer Internetseiten</li>
+				<li class="mb-2">
+					Ausspielen unserer Internetseiten, Anbieten von Inhalten, Gewährleistung des Betriebs
+					unserer Internetseiten
+				</li>
 			</ul>
 		</div>
 		<div class="text-balance font-montserrat mb-4">
 			<p class="font-bold">Rechtsgrundlage:</p>
 			<ul class="list-disc">
-				<li class="mb-2">Einwilligung über Cookie-Consent-Banner, Art. 6 Abs. 1 lit. a DSGVO, berechtigte Interessen, Art. 6 Abs. 1 lit. f DSGVO</li>
+				<li class="mb-2">
+					Einwilligung über Cookie-Consent-Banner, Art. 6 Abs. 1 lit. a DSGVO, berechtigte
+					Interessen, Art. 6 Abs. 1 lit. f DSGVO
+				</li>
 			</ul>
 		</div>
 		<div class="text-balance font-montserrat mb-4">
@@ -571,44 +504,86 @@
 					<p class="font-bold">Google Maps</p>
 					<div>
 						<div class="mb-2">
-							Wir nutzen auf unserer Internetpräsenz Google Maps. Hierbei wird durch Google die IP-Adresse des Besuchers erhoben und verarbeitet. Wenn Sie eine Internetseite besuchen, auf der Google Maps eingebunden ist, wird unabhängig davon, ob die Nutzung von Google Maps tatsächlich erfolgt oder Sie in Ihrem Google Account eingeloggt sind Ihre IP-Adresse sowie Ihre Standortdaten (letztere in der Regel nicht ohne Ihre Einwilligung) an Google übermittelt. Ihre IP-Adresse wird Ihrem Google Account zugeordnet, sofern Sie bei dem Besuch unserer Internetpräsenz dort eingeloggt sind.
+							Wir nutzen auf unserer Internetpräsenz Google Maps. Hierbei wird durch Google die
+							IP-Adresse des Besuchers erhoben und verarbeitet. Wenn Sie eine Internetseite
+							besuchen, auf der Google Maps eingebunden ist, wird unabhängig davon, ob die Nutzung
+							von Google Maps tatsächlich erfolgt oder Sie in Ihrem Google Account eingeloggt sind
+							Ihre IP-Adresse sowie Ihre Standortdaten (letztere in der Regel nicht ohne Ihre
+							Einwilligung) an Google übermittelt. Ihre IP-Adresse wird Ihrem Google Account
+							zugeordnet, sofern Sie bei dem Besuch unserer Internetpräsenz dort eingeloggt sind.
 						</div>
-						<div>Dienstanbieter: Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</div>
-						<div>Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</div>
+						<div>
+							Dienstanbieter: Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
+						</div>
+						<div>
+							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland
+						</div>
 						<div><a href="https://www.google.de/maps">Internetseite</a></div>
 						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
-						<div><a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener" class="font-bold">Opt-Out-Möglichkeit</a></div>
+						<div>
+							<a
+								href="https://tools.google.com/dlpage/gaoptout?hl=de"
+								target="_blank"
+								rel="noopener"
+								class="font-bold">Opt-Out-Möglichkeit</a
+							>
+						</div>
 					</div>
 				</li>
 				<li class="mb-2">
 					<p class="font-bold">YouTube</p>
 					<div>
 						<div class="mb-2">
-							Wir nutzen auf dieser Webseite Komponenten von YouTube, um hierüber Videos auf unseren Internetseiten einzubinden, so dass diese über Ihren Internetbrowser abgespielt werden können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von Google in den USA übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn Sie unsere Internetseiten aufrufen.
+							Wir nutzen auf dieser Webseite Komponenten von YouTube, um hierüber Videos auf unseren
+							Internetseiten einzubinden, so dass diese über Ihren Internetbrowser abgespielt werden
+							können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren
+							Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite
+							bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von
+							Google in den USA übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
+							davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder
+							Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden
+							gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn
+							Sie unsere Internetseiten aufrufen.
 						</div>
 						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA</div>
-						<div>Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland</div>
+						<div>
+							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
+						</div>
 						<div><a href="https://www.youtube.com/">Internetseite</a></div>
 						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
-						<div><a href="https://tools.google.com/dlpage/gaoptout?hl=de" class="font-bold">Opt-Out-Möglichkeit</a></div>
+						<div>
+							<a href="https://tools.google.com/dlpage/gaoptout?hl=de" class="font-bold"
+								>Opt-Out-Möglichkeit</a
+							>
+						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Sicherheits Maßnahmen</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+			Sicherheits Maßnahmen
+		</h2>
 		<div class="text-balance font-montserrat mb-4">
-			Wir treffen im Übrigen technische und organisatorische Sicherheitsmaßnahmen nach dem Stand der Technik, um die Vorschriften der Datenschutzgesetze einzuhalten und Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen.
+			Wir treffen im Übrigen technische und organisatorische Sicherheitsmaßnahmen nach dem Stand der
+			Technik, um die Vorschriften der Datenschutzgesetze einzuhalten und Ihre Daten gegen zufällige
+			oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen
+			den unbefugten Zugriff Dritter zu schützen.
 		</div>
 	</div>
 	<div>
-		<h2 class="text-4xl font-semibold text-je-magical-fata_morgana my-2 py-10">Aktualität und Änderung dieser Datenschutzerklärung</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+			Aktualität und Änderung dieser Datenschutzerklärung
+		</h2>
 		<div class="text-balance font-montserrat mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2024. Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung anzupassen.
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2025. Aufgrund geänderter
+			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
+			anzupassen.
 		</div>
 		<div class="text-balance font-montserrat mb-4 font-bold">
-			Diese Datenschutzerklärung wurde mit Hilfe des Datenschutz-Generators von SOS Recht erstellt. SOS Recht ist ein Angebot der Mueller.legal Rechtsanwälte Partnerschaft mit Sitz in Berlin.
+			Diese Datenschutzerklärung wurde mit Hilfe des Datenschutz-Generators von SOS Recht erstellt.
+			SOS Recht ist ein Angebot der Mueller.legal Rechtsanwälte Partnerschaft mit Sitz in Berlin.
 		</div>
 	</div>
 </div>
