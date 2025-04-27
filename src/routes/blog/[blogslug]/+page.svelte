@@ -78,13 +78,6 @@
                 Veröffentlicht am: {FormatDate(ph.asDate(post.first_publication_date),'day')}. {FormatDate(ph.asDate(post.first_publication_date),'monthshort')} {FormatDate(ph.asDate(post.first_publication_date),'year')}
             {/if}
         </p>
-		<div class="flex flex-wrap gap-2">
-			{#if post.tags[0]}
-				{#each post.tags as category}
-					<Tags text={category} clickable={true} link="/blog/category/{category}" resize={110} target="_self" />
-				{/each}
-			{/if}
-		</div>
 	</div>
 </div>
 
