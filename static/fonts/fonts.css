@@ -10,7 +10,7 @@
 /* Thin italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Thin.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-ThinItalic.ttf) format('truetype');
 	font-weight: 100;
 	font-style: italic;
 	font-display: swap;
@@ -26,7 +26,7 @@
 /* ExtraLight italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-ExtraLight.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-ExtraLightItalic.ttf) format('truetype');
 	font-weight: 200;
 	font-style: italic;
 	font-display: swap;
@@ -42,7 +42,7 @@
 /* Light italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Light.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-LightItalic.ttf) format('truetype');
 	font-weight: 300;
 	font-style: italic;
 	font-display: swap;
@@ -58,7 +58,7 @@
 /* Regular italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Regular.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-RegularItalic.ttf) format('truetype');
 	font-weight: 400;
 	font-style: italic;
 	font-display: swap;
@@ -74,7 +74,7 @@
 /* Medium italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Medium.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-MediumItalic.ttf) format('truetype');
 	font-weight: 500;
 	font-style: italic;
 	font-display: swap;
@@ -90,7 +90,7 @@
 /* SemiBold italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-SemiBold.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-SemiBoldItalic.ttf) format('truetype');
 	font-weight: 600;
 	font-style: italic;
 	font-display: swap;
@@ -106,7 +106,7 @@
 /* Bold italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Bold.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-BoldItalic.ttf) format('truetype');
 	font-weight: 700;
 	font-style: italic;
 	font-display: swap;
@@ -122,7 +122,7 @@
 /* ExtraBold italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-ExtraBold.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-ExtraBoldItalic.ttf) format('truetype');
 	font-weight: 800;
 	font-style: italic;
 	font-display: swap;
@@ -138,7 +138,7 @@
 /* Black italic */
 @font-face {
 	font-family: 'Poppins';
-	src: url(/fonts/poppins/Poppins-Black.ttf) format('truetype');
+	src: url(/fonts/poppins/Poppins-BlackItalic.ttf) format('truetype');
 	font-weight: 900;
 	font-style: italic;
 	font-display: swap;

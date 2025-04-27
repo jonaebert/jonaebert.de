@@ -24,67 +24,75 @@
 </script>
 
 {#if events}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-end">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start">
         {#each events as event}
-        <div class={event.now == true ? 'rounded-lg overflow-hidden shadow-lg animate-pulse' : 'rounded-lg overflow-hidden shadow-lg'}>
-            <div class="relative z-10 transition-transform duration-500 hover:scale-105">
-                <a href="/calendar/{event.id}">
-                    {#if event.teaserImage.url && event.teaserImage.url != null}
-                        <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} className="w-full"/>
-                    {:else}
-                        <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} className="w-full"/>
+            <a class="group/teaser-image flex flex-col" href="/calendar/{event.id}">
+                <div class="flex h-full flex-col">
+                    <div class={event.now == true ? 'mb-6 flex animate-pulse':'mb-6 flex'}>
+                        <div class="relative inline-block w-full overflow-hidden rounded-sm">
+                            {#if event.teaserImage.url && event.teaserImage.url != null}
+                                <Image src={event.teaserImage.url} alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
+                            {:else}
+                                <Image src="/contact/teaser.svg" alt={`Teaser Bild ${event.summary}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
+                            {/if}
+                            <div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
+                        </div>
+                    </div>
+                    {#if event.location}
+                        <div class="mb-1 flex items-center text-xs text-secondary-600 md:text-base hyphens-auto text-pretty font-montserrat">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 -960 960 960" class="mr-1.5 shrink-0 inline h-4 w-4 fill-secondary-600">
+                                    <path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/>
+                                </svg>
+                                {event.location}
+                            </div>
+                        </div>
                     {/if}
-                </a>
-            </div>
-            <div class="p-4 relative z-20 bg-je-mystical-schwarzgruen-800">
-                <h2 class="text-xl font-semibold mb-2 font-poppins text-je-magical-fata_morgana hyphens-auto break-words">
-                    <a href="/calendar/{event.id}">
+                    <div class="hyphense-auto font-bold text-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
                         {#if event.state === 'CANCELLED'}
-                            [ABGESAGT]
+                            <span class="bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4">
+                                ABGESAGT<br>
+                            </span>
                         {/if}
                         {event.summary}
-                    </a>
-                </h2>
-                <div class="flex flex-row items-end gap-6 mb-2">
-                    {#if event.datetype === 'date'}
-                        <p class="text-lg">
-                            {event.startdate} - {event.enddate}
-                        </p>
-                        <p class="text-lg">
-                            Ganztägig
-                        </p>
-                    {:else if event.startdate === event.enddate && event.datetype === 'date-time'}
-                        <p class="text-lg">
-                            {event.startdate}
-                        </p>
-                        <p class="text-lg">
-                            {event.starttime} - {event.endtime}
-                        </p>
-                    {:else}
-                        <p class="text-lg">
-                            vom<br>
-                            bis
-                        </p>
-                        <p class="text-lg">
-                            {event.startdate}<br>
-                            {event.enddate}
-                        </p>
-                        <p class="text-lg">
-                            {event.starttime}<br>
-                            {event.endtime}
-                        </p>
-                    {/if}
+                    </div>
+                    <span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
+                        <div class="flex flex-row items-end gap-6">
+                            {#if event.datetype === 'date'}
+                                <p>
+                                    {event.startdate} - {event.enddate}
+                                </p>
+                                <p>
+                                    Ganztägig
+                                </p>
+                            {:else if event.startdate === event.enddate && event.datetype === 'date-time'}
+                                <p>
+                                    {event.startdate}
+                                </p>
+                                <p>
+                                    {event.starttime} - {event.endtime}
+                                </p>
+                            {:else}
+                                <p>
+                                    vom<br>
+                                    bis
+                                </p>
+                                <p>
+                                    {event.startdate}<br>
+                                    {event.enddate}
+                                </p>
+                                <p>
+                                    {event.starttime}<br>
+                                    {event.endtime}
+                                </p>
+                            {/if}
+                        </div>
+                    </span>
                 </div>
-                <div class="flex flex-row flex-wrap gap-2 font-montserrat">
-                    {#if event.location}
-                        <Tags text={event.location} clickable={true} link="https://www.google.de/maps/place/{event.location}" />
-                    {/if}
-                </div>
-            </div>
-        </div>
+            </a>
         {/each}
     </div>
-    {:else}
+{:else}
     <div class="text-center py-8 font-montserrat">
         Es konnten keine Termine gefunden werden!
     </div>

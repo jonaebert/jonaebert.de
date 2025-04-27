@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex justify-center items-center">
-    <div class="flex my-5 border-2 p-4 rounded-lg border-blue-400 bg-blue-600 bg-opacity-20 text-white font-semibold shadow-lg flex-col items-center">
+    <div class="flex border-2 p-4 rounded-full border-himmel-700 bg-himmel-600 bg-opacity-20 text-white font-semibold shadow-lg flex-col items-center">
         <p class="w-full text-center">
             {@html message}
         </p>

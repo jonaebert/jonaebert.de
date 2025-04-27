@@ -21,7 +21,7 @@ export const load = () => {
                         description: [],
                         skills: [ 'Windows', 'Datenbankverwaltung (MSSQL)', 'Kunden-Support', 'VOIS' ],
                         image: 'logo_itebo.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://www.itebo.de',
                     },
                     {
@@ -56,7 +56,7 @@ export const load = () => {
                         ],
                         skills: [ 'Telekommunikation', 'Telekommunikationssysteme', 'Linux', 'Windows', ],
                         image: 'logo_lba.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://www.lba.de/DE/Home/home_node.html',
                     },
                     {
@@ -75,7 +75,7 @@ export const load = () => {
                         ],
                         skills: [ 'PHP', 'Scripting', 'HTML', 'Datenmanagement', ],
                         image: 'logo_steinel.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://steinel.de'
                     }
                 ],
@@ -95,7 +95,7 @@ export const load = () => {
                         ],
                         skills: [ 'Windows', 'Kunden-Support', 'Drucker', ],
                         image: 'logo_steinel.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://steinel.de',
                     },
                     {
@@ -106,31 +106,39 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_vzg.webp',
-                        bgcolor: 'bg-je-luminous-mondlicht',
+                        bgcolor: 'bg-white',
                         link: 'https://von-zumbusch-gesamtschule.de',
                     }
                 ],
                 volunteer: [
                     {
-                        title: 'Mitglied im Wahlkampfteam Bundestagswahl 2025',
+                        title: 'Bürger*innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
+                        company: 'Stadt Braunschweig',
+                        start: '2025-04',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_stadt_braunschweig.png',
+                        bgcolor: 'bg-white',
+                        link: 'https://braunschweig.de',
+                    },
+                    {
+                        title: 'Plakatiermanager*in im Wahlkampfteam Bundestagswahl 2025',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2024-11',
                         end: '2025-02',
-                        description: ['Koordination der Plakatierung in Braunschweig zur Bundestagswahl 2025'],
+                        description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
                         bgcolor: 'bg-gruene-tanne',
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
-                        title: 'Koordination AG Digitales',
+                        title: 'Co-Koordination AG Digitales',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2023-11',
                         end: '',
-                        description: [
-                            'Planung von Sitzungsterminen',
-                            'Einladen zu Sitzungsterminen',
-                        ],
+                        description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
                         bgcolor: 'bg-gruene-tanne',
