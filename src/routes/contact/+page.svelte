@@ -1,6 +1,7 @@
 <script lang="ts">
     import { address, apiDomain, contact, name } from "$lib/store"
     import Social from "$lib/components/blocks/Social.svelte"
+	import InfoMessage from "$lib/components/blocks/InfoMessage.svelte";
 
     let response: any
     let submitting: number = 0
@@ -74,7 +75,8 @@
     <meta name="robots" content="index,follow">
 </svelte:head>
 
-<div class="container pb-20">
+<div class="container py-5">
+    <InfoMessage message="Aktuell wird diese Seite überarbeitet. Eine Möglichkeit zur Meldung von Barrieren wird zeitnah implementiert."/>
     <h1 class="text-5xl font-bold text-je-magical-fata_morgana my-2 py-10 font-poppins">So erreichst du mich.</h1>
     <div class="bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover rounded-xl pt-10">
         <div class="grid gap-8 md:pt-20 pb-10 place-content-center place-items-center md:place-content-between lg:place-content-around">
