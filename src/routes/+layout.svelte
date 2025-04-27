@@ -275,10 +275,20 @@
 						vorbehalten.
 					</span>
 					<span class="text-sm text-grey-400 sm:text-center">
+						<br />
+					</span>
+					<span class="text-sm text-grey-400 sm:text-center">
 						Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
 						<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
 						gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit
-						<a href="https://coolify.io/" target="_blank">Coolify</a>
+						<a href="https://coolify.io/" target="_blank">Coolify</a>.
+					</span>
+					<span class="text-sm text-grey-400 sm:text-center">
+						Design inspiriert von <a
+							href="https://www.gruene.de"
+							class="hover:underline"
+							target="_blank">BÜNDNIS 90/DIE GRÜNEN</a
+						>.
 					</span>
 				</div>
 				<div class="flex mt-4 sm:justify-center sm:mt-0">
