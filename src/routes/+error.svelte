@@ -1,19 +1,29 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Image from '$lib/components/image.svelte';
 </script>
 
-<div class="flex flex-col items-center justify-center p-5 min-h-[85vh] relative z-10">
-	<div class="container mx-auto w-[100%] md:w-[60%]">
-		<div class="bg-je-mystical-nachtblau-900 rounded-lg overflow-hidden flex flex-col lg:flex-row shadow-lg relative">
-			<div class="p-8 font-poppins flex-1 justify-start md:justify-start lg:justify-center flex flex-col text-left lg:text-left relative overflow-hidden">
-				<div class="size-fit md:size-80">
-					<h2 class="text-2xl font-semibold text-je-luminous-nebellicht">{$page.error.message}</h2>
-					<h1 class="text-5xl font-bold text-je-magical-fata_morgana mt-2 mb-2">{$page.status}</h1>
-				</div>
-				<div class="absolute top-0 right-0 size-16 md:size-32 bg-je-magical-korallenriff rounded-full transform translate-x-1/2 -translate-y-1/2"></div>
-				<div class="absolute bottom-0 left-0 size-24 md:size-8/12 bg-je-mystical-waldtiefe-700 rounded-full transform -translate-x-1/2 translate-y-1/2"></div>
-				<div class="absolute bottom-0 right-0 size-56 md:size-80 lg:size-[140%] bg-je-magical-sonnenglanz rounded-full transform translate-x-1/2 translate-y-1/2"></div>
-			</div>
+<div class="flex min-h-screen items-center justify-center container py-5">
+	<div
+		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2"
+	>
+		<!-- Bildbereich -->
+		<div class="relative w-full h-64 md:h-auto">
+			<Image src="/contact/teaser.svg" alt="Teaser Bild" classNames="w-full h-full object-cover" />
+		</div>
+
+		<!-- Textbereich -->
+		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
+			<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
+				{$page.status}
+			</h1>
+			<h2 class="text-2xl md:text-3xl font-bold text-black italic font-poppins">
+				{#if $page.status == '404'}
+					Deine Seite gibt es nicht.<br />Was willst du hier?
+				{:else}
+					{$page.error.message}
+				{/if}
+			</h2>
 		</div>
 	</div>
 </div>
