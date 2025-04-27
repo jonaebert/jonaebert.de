@@ -83,11 +83,11 @@
 	  <!-- Blog-Content am unteren Rand -->
 	  <div class="text-pretty">
 		<div class="p-6 bg-white relative shadow-lg">
-		  <div class="float-right w-95 ml-8 mb-8 relative">
+		  <div class="float-right max-w-95 ml-8 mb-8 relative">
 			<Image
 			  src={ph.asImageSrc(post.data.teaser_image[0].image)}
 			  alt={ph.asText(post.data.title)}
-			  classNames="float-right w-96 ml-8 mb-8"
+			  classNames="float-right w-96 ml-8 mb-8 rounded-lg"
 			/>
 			{#if post.data.teaser_image[0] != undefined}
 			  <div class="absolute right-2 bottom-10">
