@@ -2,7 +2,7 @@
 	import { address, apiDomain, contact, name } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/image.svelte';
 
 	let response: any;
 	let submitting: number = 0;
