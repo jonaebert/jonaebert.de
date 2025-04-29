@@ -55,6 +55,20 @@
 					classNames="w-full h-full object-cover"
 				/>
 			{/if}
+			{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
+				<div class="absolute right-2 bottom-2">
+					<div class="bg-grey-50 rounded p-1 text-xs font-black text-black my-1 opacity-50">
+						&copy;
+						{#if event.teaserImage.copyright?.url != undefined}
+							<a href={event.teaserImage.copyright.url} target="_blank">
+								{event.teaserImage.copyright.text}
+							</a>
+						{:else}
+							{event.teaserImage.copyright.text}
+						{/if}
+					</div>
+				</div>
+			{/if}
 		</div>
 
 		<!-- Textbereich -->
@@ -83,24 +97,7 @@
 				{/if}
 			</div>
 
-			{#if event.teaserImage.copyright?.url && event.teaserImage.copyright?.text}
-				<div class="text-base md:text-lg text-nowrap font-montserrat">
-					<div class="flex flex-row justify-start items-center">
-						<div class="mr-3">📸</div>
-						<div>
-							<a
-								href={event.teaserImage.copyright.url}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="text-balance"
-							>
-								{event.teaserImage.copyright.text}
-							</a>
-						</div>
-					</div>
-				</div>
-			{/if}
-
+			<!-- Date -->
 			<div class="text-base md:text-lg text-nowrap font-montserrat">
 				<div class="flex flex-row justify-start items-center">
 					<div class="mr-3">🗓️</div>
