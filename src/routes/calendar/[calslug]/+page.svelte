@@ -57,7 +57,7 @@
 			{/if}
 			{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
 				<div class="absolute right-2 bottom-2">
-					<div class="bg-grey-50 rounded p-1 text-xs font-black text-black my-1 opacity-50">
+					<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-50">
 						&copy;
 						{#if event.teaserImage.copyright?.url != undefined}
 							<a href={event.teaserImage.copyright.url} target="_blank">
