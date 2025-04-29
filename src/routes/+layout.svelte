@@ -284,7 +284,7 @@
 						<a href="https://coolify.io/" target="_blank">Coolify</a>.
 					</span>
 					<span class="text-sm text-grey-400 sm:text-center">
-						Design inspiriert von <a
+						Basisdesign von <a
 							href="https://www.gruene.de"
 							class="hover:underline"
 							target="_blank">BÜNDNIS 90/DIE GRÜNEN</a
