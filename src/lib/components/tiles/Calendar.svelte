@@ -47,7 +47,7 @@
 							{/if}
 							{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
 								<div class="absolute right-2 bottom-1">
-									<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-50">
+									<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
 										&copy;
 										{event.teaserImage.copyright.text}
 									</div>
