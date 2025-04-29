@@ -138,13 +138,7 @@
 				<div class="text-base md:text-lg text-nowrap font-montserrat">
 					<div class="flex flex-row items-center">
 						<div class="mr-3">📍</div>
-						<a
-							class="text-balance"
-							href="https://www.google.de/maps/place/{event.location}"
-							target="_blank"
-						>
-							{event.location}
-						</a>
+						<div class="text-balance">{event.location}</div>
 					</div>
 				</div>
 			{:else}
