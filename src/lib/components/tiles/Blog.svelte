@@ -18,6 +18,14 @@
                             {:else}
                                 <Image src="/contact/teaser.svg" alt={`Teaser Bild ${ph.asText(item.title)}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
                             {/if}
+                            {#if item.data.teaser_image[0] != undefined}
+								<div class="absolute right-2 bottom-1">
+									<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
+										&copy;
+										{item.data.teaser_image[0].copyright}
+									</div>
+								</div>
+							{/if}
                             <div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
                         </div>
                     </div>

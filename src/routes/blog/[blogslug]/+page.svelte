@@ -91,7 +91,7 @@
 			/>
 			{#if post.data.teaser_image[0] != undefined}
 			  <div class="absolute right-2 bottom-10">
-				<div class="bg-white rounded p-1 text-xs my-1 opacity-50">
+				<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
 				  &copy; {post.data.teaser_image[0].copyright}
 				</div>
 			  </div>
