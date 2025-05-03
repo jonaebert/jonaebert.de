@@ -18,7 +18,8 @@
 	];
 	let legalLinks = [
 		{ title: 'Impressum', href: '/legal/imprint' },
-		{ title: 'Datenschutzerklärung', href: '/legal/privacy' }
+		{ title: 'Datenschutzerklärung', href: '/legal/privacy' },
+		{ title: 'Barriere melden', href: '/contact?barrier=true' }
 	];
 	let footerLinks = [
 		{ title: 'GRÜNE Braunschweig', href: 'https://gruene-braunschweig.de/' },

@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { address, apiDomain, contact, name } from '$lib/store';
+	import { address, contact, name, bb_base_url, bb_api_token } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Image from '$lib/components/image.svelte';
+
+	import { page } from '$app/stores';
+	$: barrierParam = $page.url.searchParams.get('barrier');
+	$: barrierChecked = barrierParam === 'true';
 
 	let response: any;
 	let submitting: number = 0;
@@ -40,16 +44,30 @@
 			const formData = new FormData(data.currentTarget);
 
 			const privacy = formData.get('privacy');
+			const barrier = formData.get('barrier') ? 'true' : 'false';
 			const name = formData.get('name');
 			const pronouns = formData.get('pronouns');
 			const email = formData.get('email');
 			const message = formData.get('message');
 
 			if (privacy == 'true') {
-				const contactRes = await fetch(
-					`https://${apiDomain}/api?action=contactForm&privacy=${privacy}&name=${name}&pronouns=${pronouns}&email=${email}&message=${message}`,
-					{ method: 'POST' }
-				);
+				const payload = {
+					privacy,
+					barrier,
+					name,
+					pronouns,
+					email,
+					message
+				};
+				const contactRes = await fetch(`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'x-budibase-app-id': 'app_5b9a41e7a11f476cbf9239575f80ae90',
+						'x-budibase-api-key': bb_api_token
+					},
+					body: JSON.stringify(payload)
+				});
 
 				if (!contactRes.ok) {
 					throw new Error('Error when sending the message');
@@ -87,11 +105,6 @@
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
-			<div class="py-5">
-				<InfoMessage
-					message="Aktuell wird diese Seite überarbeitet.<br>Eine Möglichkeit zur Meldung von Barrieren wird zeitnah implementiert."
-				/>
-			</div>
 			<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
 				Kontaktformular
 			</h2>
@@ -166,6 +179,40 @@
 						>Deine Nachricht*</label
 					>
 					<label for="message" class="text-xs">Maximal 300 Zeichen</label>
+				</div>
+				<div class="inline-flex items-center">
+					<div class="flex items-center cursor-pointer relative">
+						<input
+							type="checkbox"
+							name="barrier"
+							id="barrier"
+							value="true"
+							bind:checked={barrierChecked}
+							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 bg-white checked:bg-sun-600 checked:border-secondary-900"
+							disabled={disable(submitting)}
+						/>
+						<span
+							class="absolute text-secondary-900 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-3.5 w-3.5"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								stroke="currentColor"
+								stroke-width="1"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						</span>
+					</div>
+					<label for="barrier" class="ms-3 text-secondary-900"
+						>Ich möchte eine Barriere melden.</label
+					>
 				</div>
 				<div class="inline-flex items-center">
 					<div class="flex items-center cursor-pointer relative">

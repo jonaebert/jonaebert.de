@@ -143,7 +143,7 @@
 		<div class="text-balance font-montserrat mb-4">
 			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
 			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
-			(Hosting). Hierbei können von dem Anbieter all diejenigen über den von Ihnen genutzten Browser
+			(Hosting). Die von uns angemieteten Server befinden sich ausschließlich innerhalb Deutschlands. Hierbei können von dem Anbieter all diejenigen über den von Ihnen genutzten Browser
 			übertragenen Daten verarbeitet werden, die bei der Nutzung unserer Internetseiten anfallen.
 			Hierzu gehören insbesondere Ihre IP-Adresse, die der Anbieter benötigt, um unser
 			Online-Angebot an den von Ihnen genutzten Browser ausliefern zu können sowie sämtliche von
@@ -291,12 +291,12 @@
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
 				<div class="text-balance font-montserrat mb-4">
-					Das Kontaktformular übermittelt Daten an Google Formulare (Google Forms). Die erhaltenen
+					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von Budibase bei Hetzner. Die erhaltenen
 					Nachrichten und Daten werden von unserer Seite umgehend nach der Bearbeitung gelöscht.
 				</div>
-				<a href="https://policies.google.com/privacy" class="externalLink"
-					>Zur Datenschutzerklärung von Google</a
-				>
+				<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
+				>Zur Datenschutzerklärung von Hetzner</a
+			>
 			</div>
 		</div>
 	</div>
@@ -577,7 +577,7 @@
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2025. Aufgrund geänderter
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 03. Mai 2025. Aufgrund geänderter
 			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
 			anzupassen.
 		</div>
