@@ -22,7 +22,8 @@ export const uri = page;
 
 // API
 export const apiDomain = 'api.jonaebert.de';
-// export const apiSecret = process.env.JONA_EBERT_API_SECRET === '' ? '1234' : '';
+export const bb_base_url = import.meta.env.VITE_BB_BASE_URL;
+export const bb_api_token = import.meta.env.VITE_BB_API_TOKEN;
 
 // Pictures
 // Logo
