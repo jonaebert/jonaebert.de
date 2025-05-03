@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, apiDomain, contact, name, bb_base_url } from '$lib/store';
+	import { address, apiDomain, contact, name, bb_base_url, bb_api_token } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Image from '$lib/components/image.svelte';
@@ -46,10 +46,22 @@
 			const message = formData.get('message');
 
 			if (privacy == 'true') {
-				const contactRes = await fetch(
-					`https://${apiDomain}/api?action=contactForm&privacy=${privacy}&name=${name}&pronouns=${pronouns}&email=${email}&message=${message}`,
-					{ method: 'POST' }
-				);
+				const payload = {
+					privacy,
+					name,
+					pronouns,
+					email,
+					message
+				};
+				const contactRes = await fetch(`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'x-budibase-app-id': 'app_5b9a41e7a11f476cbf9239575f80ae90',
+						'x-budibase-api-key': bb_api_token
+					},
+					body: JSON.stringify(payload)
+				});
 
 				if (!contactRes.ok) {
 					throw new Error('Error when sending the message');
@@ -98,7 +110,6 @@
 			<h3 class="text-2xl md:text-3xl font-bold text-black italic font-poppins pb-1">
 				Schreib mir doch gleich hier!
 			</h3>
-			<p>{bb_base_url}</p>
 			<form
 				class="flex flex-col gap-3 py-5 mb-5 font-montserrat bg-grey-200 w-full h-fit p-6 rounded-lg md:rounded-xl"
 				on:submit={submitForm}
