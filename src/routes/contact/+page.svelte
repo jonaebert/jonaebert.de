@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, apiDomain, contact, name } from '$lib/store';
+	import { address, apiDomain, contact, name, bb_base_url } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Image from '$lib/components/image.svelte';
@@ -98,6 +98,7 @@
 			<h3 class="text-2xl md:text-3xl font-bold text-black italic font-poppins pb-1">
 				Schreib mir doch gleich hier!
 			</h3>
+			<p>{bb_base_url}</p>
 			<form
 				class="flex flex-col gap-3 py-5 mb-5 font-montserrat bg-grey-200 w-full h-fit p-6 rounded-lg md:rounded-xl"
 				on:submit={submitForm}
