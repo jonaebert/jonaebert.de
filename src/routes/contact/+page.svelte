@@ -40,6 +40,7 @@
 			const formData = new FormData(data.currentTarget);
 
 			const privacy = formData.get('privacy');
+			const barrier = formData.get('barrier') ? 'true' : 'false';
 			const name = formData.get('name');
 			const pronouns = formData.get('pronouns');
 			const email = formData.get('email');
@@ -48,6 +49,7 @@
 			if (privacy == 'true') {
 				const payload = {
 					privacy,
+					barrier,
 					name,
 					pronouns,
 					email,
@@ -178,6 +180,39 @@
 						>Deine Nachricht*</label
 					>
 					<label for="message" class="text-xs">Maximal 300 Zeichen</label>
+				</div>
+				<div class="inline-flex items-center">
+					<div class="flex items-center cursor-pointer relative">
+						<input
+							type="checkbox"
+							name="barrier"
+							id="barrier"
+							value="true"
+							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 bg-white checked:bg-sun-600 checked:border-secondary-900"
+							disabled={disable(submitting)}
+						/>
+						<span
+							class="absolute text-secondary-900 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								class="h-3.5 w-3.5"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								stroke="currentColor"
+								stroke-width="1"
+							>
+								<path
+									fill-rule="evenodd"
+									d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+									clip-rule="evenodd"
+								></path>
+							</svg>
+						</span>
+					</div>
+					<label for="barrier" class="ms-3 text-secondary-900"
+						>Ich möchte eine Barriere melden.</label
+					>
 				</div>
 				<div class="inline-flex items-center">
 					<div class="flex items-center cursor-pointer relative">
