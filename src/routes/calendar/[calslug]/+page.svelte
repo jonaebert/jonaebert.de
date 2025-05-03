@@ -1,6 +1,6 @@
 <script lang="ts">
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
-	import { apiDomain, name } from '$lib/store';
+	import { je_api_base_url, name } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
 
@@ -167,7 +167,7 @@
 						on:click={async () => {
 							try {
 								const response = await fetch(
-									`https://${apiDomain}/api?type=calendar&itemtype=single&id=${event.id}&download=true`
+									`${je_api_base_url}?type=calendar&itemtype=single&id=${event.id}&download=true`
 								);
 
 								if (response.ok) {
