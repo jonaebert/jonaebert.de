@@ -4,6 +4,10 @@
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Image from '$lib/components/image.svelte';
 
+	import { page } from '$app/stores';
+	$: barrierParam = $page.url.searchParams.get('barrier');
+	$: barrierChecked = barrierParam === 'true';
+
 	let response: any;
 	let submitting: number = 0;
 	let disabled: boolean = false;
@@ -101,11 +105,6 @@
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
-			<div class="py-5">
-				<InfoMessage
-					message="Aktuell wird diese Seite überarbeitet.<br>Eine Möglichkeit zur Meldung von Barrieren wird zeitnah implementiert."
-				/>
-			</div>
 			<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
 				Kontaktformular
 			</h2>
@@ -188,6 +187,7 @@
 							name="barrier"
 							id="barrier"
 							value="true"
+							bind:checked={barrierChecked}
 							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 bg-white checked:bg-sun-600 checked:border-secondary-900"
 							disabled={disable(submitting)}
 						/>
