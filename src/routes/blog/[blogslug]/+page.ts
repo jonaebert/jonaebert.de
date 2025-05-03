@@ -1,4 +1,4 @@
-import { apiDomain } from '$lib/store';
+import { je_api_base_url } from '$lib/store';
 import * as ph from '@prismicio/helpers';
 
 export async function load({ params, fetch }) {
@@ -9,7 +9,7 @@ export async function load({ params, fetch }) {
   let image = [];
 
   try {
-    const postsRes = await fetch(`https://${apiDomain}/api?type=blog&itemtype=post&postid=${params.blogslug}`);
+    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
