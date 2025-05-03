@@ -1,5 +1,5 @@
 // Imports
-import { apiDomain } from '$lib/store.js';
+import { je_api_base_url } from '$lib/store.js';
 
 const site = 'https://jonaebert.de';
 
@@ -19,7 +19,7 @@ let posts: string[] = [];
 let posts_categories: string[] = [];
 
 try {
-    const postsRes = await fetch(`https://${apiDomain}/api?type=blog&itemtype=all`);
+    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all`);
 
     if (postsRes.ok) {
         const postsData = await postsRes.json();
