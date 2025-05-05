@@ -14,7 +14,7 @@
 		"slicemachine": "start-slicemachine"
 	},
 	"devDependencies": {
-		"@slicemachine/adapter-sveltekit": "^0.3.66",
+		"@slicemachine/adapter-sveltekit": "^0.3.75",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/kit": "^2.20.8",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
