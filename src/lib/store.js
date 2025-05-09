@@ -23,6 +23,9 @@ export const uri = page;
 // API
 export const je_api_base_url = import.meta.env.VITE_JE_API_BASE_URL;
 
+// Image optimizer
+export const je_image_optimizer_base_url = import.meta.env.VITE_JE_IMAGE_OPTIMIZER_BASE_URL;
+
 // Budibase
 export const bb_base_url = import.meta.env.VITE_BB_BASE_URL;
 export const bb_api_token = import.meta.env.VITE_BB_API_TOKEN;
