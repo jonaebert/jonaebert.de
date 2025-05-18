@@ -30,7 +30,7 @@
 		"prettier-plugin-svelte": "^3.3.3",
 		"slice-machine-ui": "^2.15.1",
 		"svelte": "^5.28.2",
-		"svelte-check": "^4.1.4",
+		"svelte-check": "^4.1.7",
 		"svelte-highlight": "^7.8.3",
 		"svelte-routing": "^2.13.0",
 		"tailwindcss": "^4.1.5",
