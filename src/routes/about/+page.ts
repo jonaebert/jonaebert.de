@@ -112,6 +112,17 @@ export const load = () => {
                 ],
                 volunteer: [
                     {
+                        title: 'Co-Koordination AG Umwelt',
+                        company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
+                        start: '2025-05',
+                        end: '',
+                        description: [],
+                        skills: [],
+                        image: 'logo_gruene.svg',
+                        bgcolor: 'bg-gruene-tanne',
+                        link: 'https://gruene-braunschweig.de',
+                    },
+                    {
                         title: 'Bürger*innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
                         company: 'Stadt Braunschweig',
                         start: '2025-04',
