@@ -50,58 +50,62 @@
 
 <div class="relative min-h-[80vh] flex flex-col">
 	<!-- Hintergrundbild -->
-	<div class="background absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat" style="background-image: url({teaserImage()});"></div>
+	<div
+		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
+		style="background-image: url({teaserImage()});"
+	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
-  
+
 	<!-- Inhalt: Titel + Content -->
 	<div class="container flex-grow flex flex-col justify-between">
-	  <!-- Titel und Datum -->
-	  <div class="py-5 flex justify-center text-pretty">
-		<div class="md:max-w-[60%] grid gap-5">
-		  <h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
-			{ph.asText(post.data.title)}
-		  </h1>
-		  <div class="font-montserrat text-white">
-			{#if post.data.overwrite_publish_date}
-			  {FormatDate(ph.asDate(post.data.overwrite_publish_date), 'day')}. {FormatDate(
-				ph.asDate(post.data.overwrite_publish_date),
-				'month'
-			  )}
-			  {FormatDate(ph.asDate(post.data.overwrite_publish_date), 'year')}
-			{:else}
-			  {FormatDate(ph.asDate(post.first_publication_date), 'day')}. {FormatDate(
-				ph.asDate(post.first_publication_date),
-				'month'
-			  )}
-			  {FormatDate(ph.asDate(post.first_publication_date), 'year')}
-			{/if}
-		  </div>
-		</div>
-	  </div>
-  
-	  <!-- Blog-Content am unteren Rand -->
-	  <div class="text-pretty">
-		<div class="p-6 bg-white relative shadow-lg">
-		  <div class="float-right max-w-95 ml-8 mb-8 relative">
-			<Image
-			  src={ph.asImageSrc(post.data.teaser_image[0].image)}
-			  alt={ph.asText(post.data.title)}
-			  classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-			/>
-			{#if post.data.teaser_image[0] != undefined}
-			  <div class="absolute right-2 bottom-10">
-				<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-				  &copy; {post.data.teaser_image[0].copyright}
+		<!-- Platzhalter -->
+		 <div></div>
+		<!-- Titel und Datum -->
+		<div class="py-5 flex justify-center text-pretty">
+			<div class="md:max-w-[60%] grid gap-5">
+				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
+					{ph.asText(post.data.title)}
+				</h1>
+				<div class="font-montserrat text-white">
+					{#if post.data.overwrite_publish_date}
+						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'day')}. {FormatDate(
+							ph.asDate(post.data.overwrite_publish_date),
+							'month'
+						)}
+						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'year')}
+					{:else}
+						{FormatDate(ph.asDate(post.first_publication_date), 'day')}. {FormatDate(
+							ph.asDate(post.first_publication_date),
+							'month'
+						)}
+						{FormatDate(ph.asDate(post.first_publication_date), 'year')}
+					{/if}
 				</div>
-			  </div>
-			{/if}
-		  </div>
-		  <article>
-			<SliceZone slices={post.data.body} {components} />
-		  </article>
+			</div>
 		</div>
-	  </div>
+
+		<!-- Blog-Content am unteren Rand -->
+		<div class="text-pretty bg-white shadow-lg rounded-t-xl">
+			<div class="p-6 relative">
+				<div class="float-right max-w-95 ml-8 mb-8 relative">
+					<Image
+						src={ph.asImageSrc(post.data.teaser_image[0].image)}
+						alt={ph.asText(post.data.title)}
+						classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+					/>
+					{#if post.data.teaser_image[0] != undefined}
+						<div class="absolute right-2 bottom-10">
+							<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
+								&copy; {post.data.teaser_image[0].copyright}
+							</div>
+						</div>
+					{/if}
+				</div>
+				<article>
+					<SliceZone slices={post.data.body} {components} />
+				</article>
+			</div>
+		</div>
 	</div>
-  </div>
-  
+</div>
