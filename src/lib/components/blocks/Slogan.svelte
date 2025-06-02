@@ -1,9 +1,10 @@
 <script>
   export let words = ["Solidarisch", "Gerecht", "Sozial", "Fair", "Stark", "Klar"];
 
-  let currentWord = "";
+  let currentWord = words[2];
   let nextWord = "";
   let isTransitioning = false;
+  const timeout = 1750;
   let i = 0;
 
   function updateWords() {
@@ -16,11 +17,11 @@
         i = 0;
       }
       isTransitioning = false;
-      setTimeout(updateWords, 1750); // Dauer, wie lange jedes Wort angezeigt wird
+      setTimeout(updateWords, timeout); // Dauer, wie lange jedes Wort angezeigt wird
     }, 750); // Dauer der Übergangszeit
   }
   
-  updateWords();
+  setTimeout(updateWords, timeout);
 </script>
   
 <style lang="postcss">
