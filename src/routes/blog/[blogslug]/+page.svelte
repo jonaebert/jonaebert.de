@@ -60,7 +60,7 @@
 	<!-- Inhalt: Titel + Content -->
 	<div class="container flex-grow flex flex-col justify-between">
 		<!-- Platzhalter -->
-		 <div></div>
+		<div></div>
 		<!-- Titel und Datum -->
 		<div class="py-5 flex justify-center text-pretty">
 			<div class="md:max-w-[60%] grid gap-5">
@@ -89,17 +89,20 @@
 		<div class="text-pretty bg-white shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					<Image
-						src={ph.asImageSrc(post.data.teaser_image[0].image)}
-						alt={ph.asText(post.data.title)}
-						classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-					/>
 					{#if post.data.teaser_image[0] != undefined}
-						<div class="absolute right-2 bottom-10">
-							<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-								&copy; {post.data.teaser_image[0].copyright}
-							</div>
-						</div>
+						<Image
+							src={ph.asImageSrc(post.data.teaser_image[0].image)}
+							alt={ph.asText(post.data.title)}
+							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+							copyright={[{ name: post.data.teaser_image[0].copyright, url: '' }]}
+						/>
+					{:else}
+						<Image
+							src={ph.asImageSrc(post.data.teaser_image[0].image)}
+							alt={ph.asText(post.data.title)}
+							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+							copyright={[{ name: '', url: '' }]}
+						/>
 					{/if}
 				</div>
 				<article>
