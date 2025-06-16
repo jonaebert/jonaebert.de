@@ -28,7 +28,7 @@
 		"postcss": "^8.5.4",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.4.0",
-		"slice-machine-ui": "^2.16.0",
+		"slice-machine-ui": "^2.16.1",
 		"svelte": "^5.33.13",
 		"svelte-check": "^4.2.1",
 		"svelte-highlight": "^7.8.3",
