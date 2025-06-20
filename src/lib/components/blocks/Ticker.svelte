@@ -53,7 +53,7 @@
 
 {#if daysUntil >= 0}
 	<div
-		class="overflow-hidden whitespace-nowrap bg-yellow-300 bg-himmel-600 text-white py-2 font-bold uppercase font-montserrat"
+		class="overflow-hidden whitespace-nowrap bg-yellow-300 bg-sun-600 text-black py-2 font-bold uppercase font-montserrat"
 	>
 		<div class="inline-block animate-marquee">
 			<div class="flex">
