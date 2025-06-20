@@ -4,10 +4,34 @@
 	export let alt: string = '';
 	export let classNames: string = '';
 	export let copyright: { name: string; url: string }[] = [{ name: '', url: '' }];
+
+	function replacePaddingMarginWithZero(classes: string): string {
+		return classes
+			.split(' ')
+			.map((cls) => {
+				const normalMatch = /^(p|m)(t|b|l|r|x|y)?-\d+$/.test(cls);
+				const arbitraryMatch = /^(p|m)(t|b|l|r|x|y)?-\[.+\]$/.test(cls);
+
+				if (normalMatch) {
+					// Zahl durch 0 ersetzen
+					return cls.replace(/-\d+$/, '-0');
+				} else if (arbitraryMatch) {
+					// Arbitrary Value komplett durch 0 ersetzen
+					// z.B. p-[10px] -> p-0, mt-[3rem] -> mt-0
+					return cls.replace(/-\[.+\]$/, '-0');
+				}
+				return cls;
+			})
+			.join(' ');
+	}
+
+	if (classNames !== '') {
+		classNames = replacePaddingMarginWithZero(classNames);
+	}
 </script>
 
 <div class="relative inline-block">
-	<img src={src} alt={alt} class={classNames} use:contextMenuAction />
+	<img {src} {alt} class={classNames} use:contextMenuAction />
 	{#if copyright.length > 0 && copyright[0].name !== ''}
 		<div class="absolute right-2 bottom-2 bg-grey-50 rounded p-1 text-xs text-black opacity-75">
 			{#if copyright[0].url !== '' && copyright[0].url !== undefined && copyright[0].url.startsWith('https://')}
