@@ -30,7 +30,7 @@
 	}
 </script>
 
-<div class="relative inline-block">
+<div>
 	<img {src} {alt} class={classNames} use:contextMenuAction />
 	{#if copyright.length > 0 && copyright[0].name !== ''}
 		<div class="absolute right-2 bottom-2 bg-grey-50 rounded p-1 text-xs text-black opacity-75">
