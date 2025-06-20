@@ -5,7 +5,7 @@
 	export let slice;
 </script>
 
-<div>
+<div class="relative inline-block w-auto h-full overflow-hidden rounded-sm">
 	{#if slice.copyright}
 		{#if slice.linkTo}
 			<Image
