@@ -57,7 +57,7 @@
 			<!-- Textblock -->
 			<div class="text-pretty">
 				<div class="text-3xl md:text-4xl font-bold text-white italic my-2 pb-7 font-poppins">
-					<h2>Vordenker*in im Einklang von Technik und Natur</h2>
+					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
 				<div class="text-white text-sm md:text-base font-montserrat gap-4 grid grid-rows-[auto]">
 					<div class="">
