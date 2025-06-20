@@ -19,7 +19,7 @@ export const load = () => {
                         start: '2024-10',
                         end: '',
                         description: [],
-                        skills: [ 'Windows', 'Datenbankverwaltung (MSSQL)', 'Kunden-Support', 'VOIS' ],
+                        skills: ['Windows', 'Datenbankverwaltung (MSSQL)', 'Kunden-Support', 'VOIS'],
                         image: 'logo_itebo.webp',
                         bgcolor: 'bg-white',
                         link: 'https://www.itebo.de',
@@ -40,7 +40,7 @@ export const load = () => {
                             'Technische Unterstützung bei der Einführung der ISO 27001',
                             'Administration Azure/Intune/Entra Umgebung'
                         ],
-                        skills: [ 'PHP', 'Linux', 'Docker', 'ISO 27001', 'Microsoft Intune', 'Datenbankverwaltung (PostgreSQL & MSSQL)', 'Kunden-Support', ],
+                        skills: ['PHP', 'Linux', 'Docker', 'ISO 27001', 'Microsoft Intune', 'Datenbankverwaltung (PostgreSQL & MSSQL)', 'Kunden-Support',],
                         image: 'logo_gingco.webp',
                         bgcolor: 'bg-gingco-blau',
                         link: 'https://gingco.systems',
@@ -54,7 +54,7 @@ export const load = () => {
                             'Administration des Telekommunikationssystem',
                             'IT-Usersupport (Vor Ort und Remote)',
                         ],
-                        skills: [ 'Telekommunikation', 'Telekommunikationssysteme', 'Linux', 'Windows', ],
+                        skills: ['Telekommunikation', 'Telekommunikationssysteme', 'Linux', 'Windows',],
                         image: 'logo_lba.webp',
                         bgcolor: 'bg-white',
                         link: 'https://www.lba.de/DE/Home/home_node.html',
@@ -73,7 +73,7 @@ export const load = () => {
                             'Koordination und Kontrolle der externen Dienstleister',
                             'Umsetzung neuer gesetzlicher Vorgaben und Verordnungen',
                         ],
-                        skills: [ 'PHP', 'Scripting', 'HTML', 'Datenmanagement', ],
+                        skills: ['PHP', 'Scripting', 'HTML', 'Datenmanagement',],
                         image: 'logo_steinel.webp',
                         bgcolor: 'bg-white',
                         link: 'https://steinel.de'
@@ -93,7 +93,7 @@ export const load = () => {
                             'Erstellen, koordinieren & halten von IT-Schulungen (Allgemeine IT Schulung & Informationssicherheitsschulung)',
                             'Erstellen einer Dokumentation der WLAN Umgebung am Standort Herzebrock',
                         ],
-                        skills: [ 'Windows', 'Kunden-Support', 'Drucker', ],
+                        skills: ['Windows', 'Kunden-Support', 'Drucker',],
                         image: 'logo_steinel.webp',
                         bgcolor: 'bg-white',
                         link: 'https://steinel.de',
@@ -119,7 +119,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
-                        bgcolor: 'bg-gruene-tanne',
+                        bgcolor: 'bg-secondary-600',
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
@@ -141,7 +141,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
-                        bgcolor: 'bg-gruene-tanne',
+                        bgcolor: 'bg-secondary-600',
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
@@ -152,7 +152,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
-                        bgcolor: 'bg-gruene-tanne',
+                        bgcolor: 'bg-secondary-600',
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
@@ -163,7 +163,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
-                        bgcolor: 'bg-gruene-tanne',
+                        bgcolor: 'bg-secondary-600',
                         link: 'https://gruene-braunschweig.de',
                     },
                 ],
@@ -198,7 +198,7 @@ export const load = () => {
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
-                        bgcolor: 'bg-gruene-tanne',
+                        bgcolor: 'bg-secondary-600',
                         link: 'https://www.gruene.de',
                     },
                 ],
@@ -208,21 +208,21 @@ export const load = () => {
                         subcategories: [
                             {
                                 title: 'Infrastruktur',
-                                skills: [ 'Windowsclient', 'Windowsserver', 'Linuxserver', 'Microsoft Intune', 'Docker', 'Telekommunikation', 'Telekommunikationssysteme', 'PostgreSQL', 'MSSQL' ]
+                                skills: ['Windowsclient', 'Windowsserver', 'Linuxserver', 'Microsoft Intune', 'Docker', 'Telekommunikation', 'Telekommunikationssysteme', 'PostgreSQL', 'MSSQL']
                             },
                             {
                                 title: 'Programmierung/Frameworks',
-                                skills: [ 'PHP', 'CSS', 'HTML', 'TypeScript', 'SvelteKit' ]
+                                skills: ['PHP', 'CSS', 'HTML', 'TypeScript', 'SvelteKit']
                             },
                             {
                                 title: 'Software',
-                                skills: [ 'Word', 'Excel', 'PowerPoint', 'Outlook', 'VS Code', 'SQL Server Management Studio' ]
+                                skills: ['Word', 'Excel', 'PowerPoint', 'Outlook', 'VS Code', 'SQL Server Management Studio']
                             }
                         ]
                     },
                     {
                         category: 'Sprachen',
-                        skills: [ 'Deutsch (Muttersprache)', 'Englisch (B1)' ]
+                        skills: ['Deutsch (Muttersprache)', 'Englisch (B1)']
                     },
                 ]
             }
