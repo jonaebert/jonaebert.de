@@ -14,7 +14,7 @@ export const load = () => {
             items: {
                 work_experience: [
                     {
-                        title: 'IT-Systemadministrator (Kommunale Fachanwendungen)',
+                        title: 'IT-Systemadministrator:in (Kommunale Fachanwendungen)',
                         company: 'ITEBO GmbH',
                         start: '2024-10',
                         end: '',
@@ -25,7 +25,7 @@ export const load = () => {
                         link: 'https://www.itebo.de',
                     },
                     {
-                        title: 'System Administrator',
+                        title: 'System Administrator:in',
                         company: 'Gingco Systems GmbH',
                         start: '2022-11',
                         end: '2024-10',
@@ -46,7 +46,7 @@ export const load = () => {
                         link: 'https://gingco.systems',
                     },
                     {
-                        title: 'Fachinformatiker Anwendungsbetreuung',
+                        title: 'Fachinformatiker:in Anwendungsbetreuung',
                         company: 'Luftfahrt-Bundesamt',
                         start: '2021-10',
                         end: '2022-11',
@@ -81,7 +81,7 @@ export const load = () => {
                 ],
                 education: [
                     {
-                        title: 'Fachinformatiker in der Fachrichtung Systemintegration',
+                        title: 'Fachinformatiker:in in der Fachrichtung Systemintegration',
                         company: 'STEINEL GmbH',
                         start: '2018-08',
                         end: '2021-06',
@@ -123,7 +123,7 @@ export const load = () => {
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
-                        title: 'Bürger*innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
+                        title: 'Bürger:innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
                         company: 'Stadt Braunschweig',
                         start: '2025-04',
                         end: '',
@@ -134,7 +134,7 @@ export const load = () => {
                         link: 'https://braunschweig.de',
                     },
                     {
-                        title: 'Plakatiermanager*in im Wahlkampfteam Bundestagswahl 2025',
+                        title: 'Plakatiermanager:in im Wahlkampfteam Bundestagswahl 2025',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2024-11',
                         end: '2025-02',
