@@ -65,7 +65,7 @@
 					<Image
 						src={event.teaserImage.url}
 						alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover object-center"
+						classNames="w-full h-full object-cover object-center"
 						copyright={[{ name: '', url: '' }]}
 					/>
 				{/if}
