@@ -16,17 +16,28 @@
 					<div class="mb-6 flex">
 						<div class="relative inline-block w-full overflow-hidden rounded-sm">
 							{#if item.data.teaser_image[0]}
-                                <Image src={ph.asImageSrc(item.data.teaser_image[0].image)} alt={`Teaser Bild ${ph.asText(item.title)}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
-                            {:else}
-                                <Image src="/contact/teaser.svg" alt={`Teaser Bild ${ph.asText(item.title)}`} classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent" />
-                            {/if}
-                            {#if item.data.teaser_image[0] != undefined}
-								<div class="absolute right-2 bottom-1">
-									<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-										&copy;
-										{item.data.teaser_image[0].copyright}
-									</div>
-								</div>
+								{#if item.data.teaser_image[0].copyright != undefined || item.data.teaser_image[0].copyright != ''}
+									<Image
+										src={ph.asImageSrc(item.data.teaser_image[0].image)}
+										alt={`Teaser Bild ${ph.asText(item.title)}`}
+										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
+										copyright={[{ name: item.data.teaser_image[0].copyright, url: '' }]}
+									/>
+								{:else}
+									<Image
+										src={ph.asImageSrc(item.data.teaser_image[0].image)}
+										alt={`Teaser Bild ${ph.asText(item.title)}`}
+										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
+										copyright={[{ name: '', url: '' }]}
+									/>
+								{/if}
+							{:else}
+								<Image
+									src="/contact/teaser.svg"
+									alt={`Teaser Bild ${ph.asText(item.title)}`}
+									classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
+                                    copyright={[{ name: '', url: '' }]}
+								/>
 							{/if}
 						</div>
 					</div>
