@@ -59,15 +59,18 @@
 					email,
 					message
 				};
-				const contactRes = await fetch(`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						'x-budibase-app-id': 'app_5b9a41e7a11f476cbf9239575f80ae90',
-						'x-budibase-api-key': bb_api_token
-					},
-					body: JSON.stringify(payload)
-				});
+				const contactRes = await fetch(
+					`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`,
+					{
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'x-budibase-app-id': 'app_5b9a41e7a11f476cbf9239575f80ae90',
+							'x-budibase-api-key': bb_api_token
+						},
+						body: JSON.stringify(payload)
+					}
+				);
 
 				if (!contactRes.ok) {
 					throw new Error('Error when sending the message');
@@ -99,9 +102,7 @@
 		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2"
 	>
 		<!-- Bildbereich -->
-		<div class="relative w-full h-64 md:h-auto">
-			<Image src="/contact/teaser.svg" alt="Teaser Bild" classNames="w-full h-full object-cover" />
-		</div>
+		<div class="relative w-full h-auto bg-[url('/contact/teaser.svg')] bg-cover bg-left"></div>
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
