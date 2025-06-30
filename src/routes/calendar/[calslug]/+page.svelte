@@ -43,31 +43,38 @@
 		<!-- Bildbereich -->
 		<div class="relative w-full h-64 md:h-auto">
 			{#if event.teaserImage.url && event.teaserImage.url !== null}
+				{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
+					{#if event.teaserImage.copyright?.url != undefined}
+						<Image
+							src={event.teaserImage.url}
+							alt={`Teaser Bild ${event.summary}`}
+							classNames="w-full h-full object-cover"
+							copyright={[
+								{ name: event.teaserImage.copyright.text, url: event.teaserImage.copyright.url }
+							]}
+						/>
+					{:else}
+						<Image
+							src={event.teaserImage.url}
+							alt={`Teaser Bild ${event.summary}`}
+							classNames="w-full h-full object-cover"
+							copyright={[{ name: event.teaserImage.copyright.text, url: '' }]}
+						/>
+					{/if}
+				{:else}
 				<Image
 					src={event.teaserImage.url}
 					alt={`Teaser Bild ${event.summary}`}
 					classNames="w-full h-full object-cover"
+						copyright={[{ name: '', url: '' }]}
 				/>
+				{/if}
 			{:else}
 				<Image
 					src="/contact/teaser.svg"
 					alt={`Teaser Bild ${event.summary}`}
 					classNames="w-full h-full object-cover"
 				/>
-			{/if}
-			{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
-				<div class="absolute right-2 bottom-2">
-					<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-						&copy;
-						{#if event.teaserImage.copyright?.url != undefined}
-							<a href={event.teaserImage.copyright.url} target="_blank">
-								{event.teaserImage.copyright.text}
-							</a>
-						{:else}
-							{event.teaserImage.copyright.text}
-						{/if}
-					</div>
-				</div>
 			{/if}
 		</div>
 
