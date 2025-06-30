@@ -2,7 +2,7 @@
 	"name": "jonaebert.de",
 	"version": "1",
 	"private": true,
-	"engines": { "node": "22.11.0" },
+	"engines": { "node": "^22.11.0" },
 	"scripts": {
 		"dev": "vite dev --host",
 		"dev:local": "vite dev",
