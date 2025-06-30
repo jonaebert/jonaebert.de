@@ -41,14 +41,14 @@
 		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
-		<div class="relative w-full h-64 md:h-auto">
+		<div class="relative w-auto h-full flex overflow-hidden">
 			{#if event.teaserImage.url && event.teaserImage.url !== null}
 				{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
 					{#if event.teaserImage.copyright?.url != undefined}
 						<Image
 							src={event.teaserImage.url}
 							alt={`Teaser Bild ${event.summary}`}
-							classNames="w-full h-full object-cover"
+							classNames="w-full h-full object-cover object-center"
 							copyright={[
 								{ name: event.teaserImage.copyright.text, url: event.teaserImage.copyright.url }
 							]}
@@ -57,23 +57,23 @@
 						<Image
 							src={event.teaserImage.url}
 							alt={`Teaser Bild ${event.summary}`}
-							classNames="w-full h-full object-cover"
+							classNames="w-full h-full object-cover object-center"
 							copyright={[{ name: event.teaserImage.copyright.text, url: '' }]}
 						/>
 					{/if}
 				{:else}
-				<Image
-					src={event.teaserImage.url}
-					alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover"
+					<Image
+						src={event.teaserImage.url}
+						alt={`Teaser Bild ${event.summary}`}
+					classNames="w-full h-full object-cover object-center"
 						copyright={[{ name: '', url: '' }]}
-				/>
+					/>
 				{/if}
 			{:else}
 				<Image
 					src="/contact/teaser.svg"
 					alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover"
+					classNames="w-full h-full object-cover object-center"
 				/>
 			{/if}
 		</div>
