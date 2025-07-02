@@ -16,7 +16,7 @@
 					<div class="mb-6 flex">
 						<div class="relative inline-block w-full overflow-hidden rounded-sm">
 							{#if item.data.teaser_image[0]}
-								{#if item.data.teaser_image[0].copyright != undefined || item.data.teaser_image[0].copyright != ''}
+								{#if item.data.teaser_image[0].copyright != undefined && item.data.teaser_image[0].copyright != ''}
 									<Image
 										src={ph.asImageSrc(item.data.teaser_image[0].image)}
 										alt={`Teaser Bild ${ph.asText(item.title)}`}
