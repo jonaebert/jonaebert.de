@@ -6,7 +6,7 @@
 
 	export let data;
 
-	// Tranform Event date
+	// Transform Event date
 	const rawEvent = data.event[0];
 	const event = {
 		...rawEvent,
@@ -38,36 +38,43 @@
 
 <div class="flex min-h-screen items-center justify-center container py-5">
 	<div
-		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2"
+		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
-		<div class="relative w-full h-64 md:h-auto">
+		<div class="relative w-auto h-full flex overflow-hidden">
 			{#if event.teaserImage.url && event.teaserImage.url !== null}
-				<Image
-					src={event.teaserImage.url}
-					alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover"
-				/>
+				{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
+					{#if event.teaserImage.copyright?.url != undefined}
+						<Image
+							src={event.teaserImage.url}
+							alt={`Teaser Bild ${event.summary}`}
+							classNames="w-full h-full object-cover object-center"
+							copyright={[
+								{ name: event.teaserImage.copyright.text, url: event.teaserImage.copyright.url }
+							]}
+						/>
+					{:else}
+						<Image
+							src={event.teaserImage.url}
+							alt={`Teaser Bild ${event.summary}`}
+							classNames="w-full h-full object-cover object-center"
+							copyright={[{ name: event.teaserImage.copyright.text, url: '' }]}
+						/>
+					{/if}
+				{:else}
+					<Image
+						src={event.teaserImage.url}
+						alt={`Teaser Bild ${event.summary}`}
+						classNames="w-full h-full object-cover object-center"
+						copyright={[{ name: '', url: '' }]}
+					/>
+				{/if}
 			{:else}
 				<Image
 					src="/contact/teaser.svg"
 					alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover"
+					classNames="w-full h-full object-cover object-center"
 				/>
-			{/if}
-			{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
-				<div class="absolute right-2 bottom-2">
-					<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-						&copy;
-						{#if event.teaserImage.copyright?.url != undefined}
-							<a href={event.teaserImage.copyright.url} target="_blank">
-								{event.teaserImage.copyright.text}
-							</a>
-						{:else}
-							{event.teaserImage.copyright.text}
-						{/if}
-					</div>
-				</div>
 			{/if}
 		</div>
 
