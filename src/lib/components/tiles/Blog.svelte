@@ -90,5 +90,5 @@
 		{/each}
 	</div>
 {:else}
-	<div class="text-center py-8 font-montserrat">Es konnten keine Termine gefunden werden!</div>
+	<div class="text-center py-8 font-montserrat">Es konnten keine Artikel gefunden werden!</div>
 {/if}
