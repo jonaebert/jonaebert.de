@@ -6,7 +6,7 @@
 
 	export let data;
 
-	// Tranform Event date
+	// Transform Event date
 	const rawEvent = data.event[0];
 	const event = {
 		...rawEvent,
