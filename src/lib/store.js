@@ -12,7 +12,7 @@ export const address = {
     country: 'Deutschland'
 };
 export const contact = {
-    fax: '+49 3222 5002 428',
+    fax: '+49 5307 9402832',
     mail: 'kontakt@jonaebert.de',
     web: '/contact'
 }
