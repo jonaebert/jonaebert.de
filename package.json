@@ -19,7 +19,7 @@
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/kit": "^2.22.2",
 		"@sveltejs/vite-plugin-svelte": "^5.1.0",
-		"@tailwindcss/postcss": "^4.1.8",
+		"@tailwindcss/postcss": "^4.1.11",
 		"@types/eslint": "^9.6.1",
 		"@typescript-eslint/eslint-plugin": "^8.34.0",
 		"@typescript-eslint/parser": "^8.32.1",
