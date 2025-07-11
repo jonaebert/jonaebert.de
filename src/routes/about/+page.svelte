@@ -128,7 +128,7 @@
 				{#if section.key !== 'skills'}
 					<ol class="relative border-s border-grey-300">
 						{#each items[section.key] as item}
-							<li class="mb-10 ms-9">
+							<li class="mb-10 ms-11">
 								<span
 									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
 								>
@@ -146,7 +146,7 @@
 									{/if}
 								</span>
 								<div
-									class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200"
+									class="p-4 rounded-lg shadow-lg bg-white border-1 border-solid border-grey-200"
 								>
 									<div class="items-center justify-between sm:flex">
 										<div class="text-sm font-semibold text-black">
@@ -198,7 +198,7 @@
 									{item.category}
 								</h4>
 								<div
-									class="p-4 rounded-lg shadow-xs bg-white border-1 border-solid border-grey-200"
+									class="p-4 mt-1 rounded-lg shadow-lg bg-white border-1 border-solid border-grey-200"
 								>
 									{#if item.subcategories}
 										<div class="grid gap-6">
