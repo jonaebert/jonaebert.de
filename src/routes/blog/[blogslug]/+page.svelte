@@ -66,22 +66,14 @@
 		<div class="py-5 flex justify-center text-pretty">
 			<div class="md:max-w-[60%] grid gap-5">
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
-					{ph.asText(post.data.title)}
+					{post.data.title}
 				</h1>
 				<div class="font-montserrat text-white">
-					{#if post.data.overwrite_publish_date}
-						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'day')}. {FormatDate(
-							ph.asDate(post.data.overwrite_publish_date),
-							'month'
-						)}
-						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'year')}
-					{:else}
-						{FormatDate(ph.asDate(post.first_publication_date), 'day')}. {FormatDate(
-							ph.asDate(post.first_publication_date),
-							'month'
-						)}
-						{FormatDate(ph.asDate(post.first_publication_date), 'year')}
-					{/if}
+					{FormatDate(post.data.publishedAt, 'day')}. {FormatDate(
+						post.data.publishedAt,
+						'monthshort'
+					)}
+					{FormatDate(post.data.publishedAt, 'year')}
 				</div>
 			</div>
 		</div>
