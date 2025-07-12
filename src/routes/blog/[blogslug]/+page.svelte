@@ -34,8 +34,9 @@
 
 	function teaserImage() {
 		let image: string = '/home/teaser.webp';
-		if (ph.asImageSrc(post.data.teaser_image[0].image)) {
-			image = ph.asImageSrc(post.data.teaser_image[0].image);
+		if (post.data.cover) {
+			image = post.data.cover.formats.large.url;
+			image = je_cms_api_base_url + image;
 			return image;
 		}
 	}
