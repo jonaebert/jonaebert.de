@@ -9,7 +9,7 @@ export async function load({ params, fetch }) {
   let image = [];
 
   try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
+    const postsRes = await fetch(`${je_cms_api_base_url}/api/articles/${params.blogslug}?populate=*`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
