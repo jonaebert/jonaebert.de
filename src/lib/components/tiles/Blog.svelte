@@ -16,12 +16,12 @@
 					<div class="mb-6 flex">
 						<div class="relative inline-block w-full overflow-hidden rounded-sm">
 							{#if item.cover}
-								{#if item.copyright.enabled == true}
+								{#if item.copyright[0].enabled == true}
 									<Image
 										src={`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`}
 										alt={item.cover.alternativeText}
 										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-										copyright={[{ name: item.copyright.name, url: '' }]}
+										copyright={[{ name: item.copyright[0].name, url: '' }]}
 									/>
 								{:else}
 									<Image
