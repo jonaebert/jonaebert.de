@@ -34,7 +34,7 @@ export async function load({ params, fetch }) {
   }
 
   return {
-    posts: posts,
+    posts: [null],
     events: events
   };
 }
