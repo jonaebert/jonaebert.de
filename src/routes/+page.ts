@@ -1,15 +1,15 @@
-import { je_api_base_url } from '$lib/store';
+import { je_api_base_url, je_cms_api_base_url } from '$lib/store';
 
 export async function load({ params, fetch }) {
   // Fetch posts
   let posts = [];
 
   try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all&maxitems=5`);
+    const postsRes = await fetch(`${je_cms_api_base_url}/api/articles?populate=*`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
-      posts = postsData.data;
+      posts = postsData;
     } else {
       console.error('Error fetching posts:', postsRes.statusText);
     }
@@ -34,7 +34,7 @@ export async function load({ params, fetch }) {
   }
 
   return {
-    posts: [null],
+    posts: posts,
     events: events
   };
 }
