@@ -1,16 +1,22 @@
 <script lang="ts">
-    export let data;
+	import BlogTiles from '$lib/components/tiles/Blog.svelte';
+	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
+
+	export let data;
 	const posts = data.data;
 </script>
 
 <main class="p-8">
-	<h1 class="text-3xl font-bold">Artikel</h1>
-	<ul class="mt-4 space-y-4">
-		{#each posts as post}
-			<li class="p-4 bg-gray-100 rounded-xl">
-				<h2 class="text-xl font-semibold">{post.title}</h2>
-				<p>{post.description}</p>
-			</li>
-		{/each}
-	</ul>
+	<div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
+		<div class="text-left font-poppins">
+			<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
+		</div>
+		{#if posts[0]}
+			<BlogTiles items={posts} />
+		{:else}
+			<div class="flex text-center font-montserrat justify-start">
+				<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
+			</div>
+		{/if}
+	</div>
 </main>
