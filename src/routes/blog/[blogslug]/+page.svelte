@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, pronouns } from '$lib/store';
+	import { name, je_cms_api_base_url } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import * as ph from '@prismicio/helpers';
 	import { SliceZone } from '@prismicio/svelte';
