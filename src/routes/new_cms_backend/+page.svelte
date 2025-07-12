@@ -1,8 +1,6 @@
 <script lang="ts">
     export let data;
 	const posts = data.data;
-
-    console.log('Posts:', posts);
 </script>
 
 <main class="p-8">
