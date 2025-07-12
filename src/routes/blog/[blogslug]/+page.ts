@@ -2,27 +2,27 @@ import { je_api_base_url, je_cms_api_base_url } from '$lib/store';
 
 export async function load({ params, fetch }) {
   // Fetch posts
-  let posts = [];
+  let post = [];
   let heading = '';
   let image = [];
 
   try {
-    const postsRes = await fetch(`${je_cms_api_base_url}/api/articles/${params.blogslug}?populate=*`);
+    const postRes = await fetch(`${je_cms_api_base_url}/api/articles/${params.blogslug}?populate=*`);
 
-    if (postsRes.ok) {
-      const postsData = await postsRes.json();
-      posts = postsData;
-      heading = postsData.data.title;
-      image = postsData.data.cover;
+    if (postRes.ok) {
+      const postData = await postRes.json();
+      post = postData;
+      heading = postData.data.title;
+      image = postData.data.cover;
     } else {
-      console.error('Error fetching posts:', postsRes.statusText);
+      console.error('Error fetching posts:', postRes.statusText);
     }
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
 
   return {
-    post: posts,
+    post: post,
     heading: heading,
     image: image
   };
