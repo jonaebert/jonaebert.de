@@ -82,20 +82,32 @@
 		<div class="text-pretty bg-white shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					{#if post.data.teaser_image[0] != undefined}
+					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 						<Image
-							src={ph.asImageSrc(post.data.teaser_image[0].image)}
-							alt={ph.asText(post.data.title)}
+							{src}
+							alt={post.data.cover.alternativeText}
 							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-							copyright={[{ name: post.data.teaser_image[0].copyright, url: '' }]}
+							copyright={[{ name: cp_name, url: cp_url }]}
 						/>
+					{/snippet}
+					{#if post.data.cover}
+						{#if post.data.copyright[0].enabled == true}
+							{@render image_blog(
+								`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+								post.data.cover.alternativeText,
+								post.data.copyright[0].name,
+								post.data.copyright[0].url
+							)}
+						{:else}
+							{@render image_blog(
+								`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+								post.data.cover.alternativeText,
+								'',
+								''
+							)}
+						{/if}
 					{:else}
-						<Image
-							src={ph.asImageSrc(post.data.teaser_image[0].image)}
-							alt={ph.asText(post.data.title)}
-							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-							copyright={[{ name: '', url: '' }]}
-						/>
+						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}
 					{/if}
 				</div>
 				<article>
