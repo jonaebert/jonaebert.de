@@ -1,6 +1,7 @@
-// src/lib/api.ts
+import { je_cms_api_base_url } from '$lib/store';
+
 export async function load() {
-    const res = await fetch('http://localhost:1337/api/articles?populate=*');
+    const res = await fetch(`${je_cms_api_base_url}/articles?populate=*`);
     if (!res.ok) throw new Error('Fehler beim Laden der Daten');
     const data = await res.json();
 
