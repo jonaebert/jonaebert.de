@@ -20,6 +20,25 @@
 
 		link(href: string, title: string, text: string) {
 			return `<a href="${href.href}" target="_blank" class="underline text-secondary-600">${href.text}</a>`;
+		},
+
+		list(body: string, ordered: boolean) {
+			function listitem(items: string) {
+				let htmlitems: string = items
+					.map((item: string) => {
+						return `<li class="mb-1">${item.text}</li>`;
+					})
+					.join('');
+				return htmlitems;
+			}
+
+			const tag = body.ordered ? 'ol' : 'ul';
+			const listClass = body.ordered
+				? 'list-decimal list-inside pl-4'
+				: 'list-disc list-inside pl-4';
+
+			return `<${tag} class="${listClass} mb-4">${listitem(body.items)}</${tag}>`;
+		},
 		}
 	};
 
