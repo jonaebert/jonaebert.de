@@ -16,6 +16,10 @@
 			text.depth = text.depth === 1 ? 2 : text.depth;
 			const tag = `h${text.depth}`;
 			return `<${tag} class="${classes[text.depth]}">${text.text}</${tag}>`;
+		},
+
+		link(href: string, title: string, text: string) {
+			return `<a href="${href.href}" target="_blank" class="underline text-secondary-600">${href.text}</a>`;
 		}
 	};
 
