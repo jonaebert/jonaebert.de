@@ -73,8 +73,8 @@
 						{item.title}
 					</div>
 					<span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
-						{FormatDate(item.publishedAt, 'day')}. {FormatDate(item.publishedAt, 'monthshort')}
-						{FormatDate(item.publishedAt, 'year')}
+						{FormatDate(item.createdAt, 'day')}. {FormatDate(item.createdAt, 'monthshort')}
+						{FormatDate(item.createdAt, 'year')}
 					</span>
 				</div>
 			</a>
