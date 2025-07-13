@@ -1,37 +1,16 @@
 <script lang="ts">
 	import { name, je_cms_api_base_url } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-	import * as ph from '@prismicio/helpers';
-	import { SliceZone } from '@prismicio/svelte';
+	// import * as ph from '@prismicio/helpers';
+	// import { SliceZone } from '@prismicio/svelte';
 	import Image from '$lib/components/image.svelte';
 
-	import Paragraph from '$lib/components/prismic/paragraph.svelte';
-	import Image_Blog from '$lib/components/prismic/image.svelte';
-	import Heading from '$lib/components/prismic/heading.svelte';
-	import Lists from '$lib/components/prismic/lists.svelte';
-	import Embed from '$lib/components/prismic/embed.svelte';
-	import Code from '$lib/components/prismic/code.svelte';
 	import { text } from '@sveltejs/kit';
 	import { faPhabricator } from '@fortawesome/free-brands-svg-icons';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
 	let { post } = data;
-
-	const components = {
-		paragraph: Paragraph,
-		image: Image_Blog,
-		heading1: Heading,
-		heading2: Heading,
-		heading3: Heading,
-		heading4: Heading,
-		heading5: Heading,
-		heading6: Heading,
-		'list-item': Lists,
-		'o-list-item': Lists,
-		embed: Embed,
-		preformatted: Code
-	};
 
 	function teaserImage() {
 		let image: string = '/home/teaser.webp';
