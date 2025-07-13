@@ -4,7 +4,7 @@
 	export let body: string;
 
 	const renderer = {
-		heading(text, level) {
+		heading(text: string, level: number) {
 			const classes = {
 				2: 'text-3xl md:text-4xl font-bold text-secondary-900 font-poppins italic',
 				3: 'text-2xl md:text-3xl font-semibold text-black font-poppins italic',
