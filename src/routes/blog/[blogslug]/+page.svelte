@@ -13,6 +13,7 @@
 	import Code from '$lib/components/prismic/code.svelte';
 	import { text } from '@sveltejs/kit';
 	import { faPhabricator } from '@fortawesome/free-brands-svg-icons';
+	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
 	let { post } = data;
@@ -111,7 +112,7 @@
 					{/if}
 				</div>
 				<article>
-					<SliceZone slices={post.data.body} {components} />
+					<Renderer blocks={post.data.blocks} />
 				</article>
 			</div>
 		</div>
