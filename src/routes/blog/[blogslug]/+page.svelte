@@ -70,11 +70,11 @@
 					{post.data.title}
 				</h1>
 				<div class="font-montserrat text-white">
-					{FormatDate(post.data.publishedAt, 'day')}. {FormatDate(
-						post.data.publishedAt,
+					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(
+						post.data.createdAt,
 						'monthshort'
 					)}
-					{FormatDate(post.data.publishedAt, 'year')}
+					{FormatDate(post.data.createdAt, 'year')}
 				</div>
 			</div>
 		</div>
