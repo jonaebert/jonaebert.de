@@ -39,6 +39,24 @@
 
 			return `<${tag} class="${listClass} mb-4">${listitem(body.items)}</${tag}>`;
 		},
+
+		code(code: string, language: string) {
+			console.log(code);
+			function escapeHtml(html: string): string {
+				return html
+					.replace(/&/g, '&amp;')
+					.replace(/</g, '&lt;')
+					.replace(/>/g, '&gt;')
+					.replace(/"/g, '&quot;')
+					.replace(/'/g, '&#039;');
+			}
+			return `
+				<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
+					<div class="max-h-full">
+						<pre><code id="code-block" class="text-sm text-primary-200 whitespace-pre">${escapeHtml(code.text)}</code></pre>
+					</div>
+				</div>
+			`;
 		}
 	};
 
