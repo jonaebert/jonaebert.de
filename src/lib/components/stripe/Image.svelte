@@ -2,12 +2,10 @@
 	import { lexer } from 'marked';
 	import Image from '$lib/components/image.svelte'; 
 
-	export let body: string;
+	export let id: string;
 	let tokens: any[] = [];
 
-	tokens = lexer(body || '');
-
-	console.log(body);
+	// $: tokens = lexer(id || '');
 
 	function escapeHtml(html: string): string {
 		return html
@@ -29,6 +27,8 @@
 		};
 		return classes[level] || '';
 	}
+
+	$: console.log(id);
 </script>
 
 <div class="prose max-w-none mb-6">
@@ -48,4 +48,5 @@
 			<p>{@html token.raw}</p>
 		{/if}
 	{/each}
+	<div>TEST{id}</div>
 </div>
