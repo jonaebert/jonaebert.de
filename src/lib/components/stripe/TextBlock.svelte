@@ -1,67 +1,62 @@
 <script lang="ts">
-	import { marked } from 'marked';
+	import { lexer } from 'marked';
 
 	export let body: string;
+	let tokens: any[] = [];
 
-	const renderer = {
-		heading(text: string, level: number) {
-			const classes = {
-				2: 'text-3xl md:text-4xl font-bold text-secondary-900 font-poppins italic',
-				3: 'text-2xl md:text-3xl font-semibold text-black font-poppins italic',
-				4: 'text-xl md:text-2xl font-semibold text-black font-poppins italic',
-				5: 'text-md md:text-xl font-semibold text-black font-poppins italic',
-				6: 'text-md md:text-xl font-medium text-black font-poppins italic'
-			};
-			text.depth = 1;
-			text.depth = text.depth === 1 ? 2 : text.depth;
-			const tag = `h${text.depth}`;
-			return `<${tag} class="${classes[text.depth]}">${text.text}</${tag}>`;
-		},
+	tokens = lexer(body || '');
 
-		link(href: string, title: string, text: string) {
-			return `<a href="${href.href}" target="_blank" class="underline text-secondary-600">${href.text}</a>`;
-		},
+	console.log('Tokens:', tokens);
 
-		list(body: string, ordered: boolean) {
-			function listitem(items: string) {
-				let htmlitems: string = items
-					.map((item: string) => {
-						return `<li class="mb-1">${item.text}</li>`;
-					})
-					.join('');
-				return htmlitems;
-			}
+	function escapeHtml(html: string): string {
+		return html
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#039;');
+	}
 
-			const tag = body.ordered ? 'ol' : 'ul';
-			const listClass = body.ordered
-				? 'list-decimal list-inside pl-4'
-				: 'list-disc list-inside pl-4';
-
-			return `<${tag} class="${listClass} mb-4">${listitem(body.items)}</${tag}>`;
-		},
-
-		code(code: string, language: string) {
-			console.log(code);
-			function escapeHtml(html: string): string {
-				return html
-					.replace(/&/g, '&amp;')
-					.replace(/</g, '&lt;')
-					.replace(/>/g, '&gt;')
-					.replace(/"/g, '&quot;')
-					.replace(/'/g, '&#039;');
-			}
-			return `
-				<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
-					<div class="max-h-full">
-						<pre><code id="code-block" class="text-sm text-primary-200 whitespace-pre">${escapeHtml(code.text)}</code></pre>
-					</div>
-				</div>
-			`;
-		}
-	};
-
-	marked.use({ renderer });
-	$: html = marked.parse(body || '');
+	function getHeadingClass(level: number): string {
+		const classes: any = {
+			1: 'text-4xl font-bold text-secondary-900 font-poppins italic',
+			2: 'text-3xl md:text-4xl font-bold text-secondary-900 font-poppins italic',
+			3: 'text-2xl md:text-3xl font-semibold text-black font-poppins italic',
+			4: 'text-xl md:text-2xl font-semibold text-black font-poppins italic',
+			5: 'text-md md:text-xl font-semibold text-black font-poppins italic',
+			6: 'text-md md:text-xl font-medium text-black font-poppins italic'
+		};
+		return classes[level] || '';
+	}
 </script>
 
-<div class="max-w-none mb-6">{@html html}</div>
+<div class="prose max-w-none mb-6">
+	{#each tokens as token}
+		{#if token.type === 'paragraph'}
+			<p>{@html token.text}</p>
+		{:else if token.type === 'heading'}
+			<svelte:element this={`h${token.depth}`} class={getHeadingClass(token.depth)}>
+				{@html token.text}
+			</svelte:element>
+		{:else if token.type === 'code'}
+			<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
+				<pre><code class="text-sm text-primary-200 whitespace-pre">
+					{@html escapeHtml(token.text)}
+				</code></pre>
+			</div>
+		{:else if token.type === 'list'}
+			<svelte:element
+				this={token.ordered ? 'ol' : 'ul'}
+				class={token.ordered
+					? 'list-decimal list-inside pl-4 mb-4'
+					: 'list-disc list-inside pl-4 mb-4'}
+			>
+				{#each token.items as item}
+					<li>{@html item.text}</li>
+				{/each}
+			</svelte:element>
+		{:else}
+			<p>{@html token.raw}</p>
+		{/if}
+	{/each}
+</div>
