@@ -6,8 +6,6 @@
 
 	tokens = lexer(body || '');
 
-	console.log('Tokens:', tokens);
-
 	function escapeHtml(html: string): string {
 		return html
 			.replace(/&/g, '&amp;')
