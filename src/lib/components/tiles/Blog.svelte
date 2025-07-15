@@ -25,12 +25,21 @@
 							{/snippet}
 							{#if item.cover}
 								{#if item.copyright[0].enabled == true}
-									{@render image_blog(
-										`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
-										item.cover.alternativeText,
-										item.copyright[0].name,
-										''
-									)}
+									{#if item.copyright[0].name && item.copyright[0].url}
+										{@render image_blog(
+											`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+											item.cover.alternativeText,
+											item.copyright[0].name,
+											item.copyright[0].url
+										)}
+									{:else if item.copyright[0].name}
+										{@render image_blog(
+											`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+											item.cover.alternativeText,
+											item.copyright[0].name,
+											''
+										)}
+									{/if}
 								{:else}
 									{@render image_blog(
 										`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
@@ -40,12 +49,7 @@
 									)}
 								{/if}
 							{:else}
-								{@render image_blog(
-									'/contact/teaser.svg',
-									`Teaser Bild ${item.title}`,
-									'',
-									''
-								)}
+								{@render image_blog('/contact/teaser.svg', `Teaser Bild ${item.title}`, '', '')}
 							{/if}
 						</div>
 					</div>
