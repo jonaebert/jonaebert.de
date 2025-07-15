@@ -69,12 +69,21 @@
 					{/snippet}
 					{#if post.data.cover}
 						{#if post.data.copyright[0].enabled == true}
-							{@render image_blog(
-								`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
-								post.data.cover.alternativeText,
-								post.data.copyright[0].name,
-								post.data.copyright[0].url
-							)}
+							{#if post.data.copyright[0].name && post.data.copyright[0].url}
+								{@render image_blog(
+									`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+									post.data.cover.alternativeText,
+									post.data.copyright[0].name,
+									post.data.copyright[0].url
+								)}
+							{:else if post.data.copyright[0].name}
+								{@render image_blog(
+									`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+									post.data.cover.alternativeText,
+									post.data.copyright[0].name,
+									''
+								)}
+							{/if}
 						{:else}
 							{@render image_blog(
 								`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
