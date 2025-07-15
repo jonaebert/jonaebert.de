@@ -19,7 +19,7 @@
 								<Image
 									{src}
 									{alt}
-									classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+									classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
 									copyright={[{ name: cp_name, url: cp_url }]}
 								/>
 							{/snippet}
