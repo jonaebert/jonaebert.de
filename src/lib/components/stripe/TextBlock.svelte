@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div class="prose max-w-none mb-6">
+<div class="prose max-w-none mb-6 font-montserrat">
 	{#each tokens as token}
 		{#if token.type === 'paragraph'}
 			<p>{@html token.text}</p>
