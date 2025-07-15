@@ -4,6 +4,21 @@
 	import { FormatDate } from '$lib/util/date';
 	import { text } from '@sveltejs/kit';
 	export let items;
+
+	function getCoverUrl(cover: any): string {
+		if (!cover) {
+			return '/home/braunschweig_alte_waage.svg';
+		}
+
+		if (cover.ext === '.svg') {
+			return je_cms_api_base_url + cover.url;
+		} else if (cover.formats?.thumbnail?.url) {
+			return je_cms_api_base_url + cover.formats.thumbnail.url;
+		}
+
+		// Fallback
+		return '/home/braunschweig_alte_waage.svg';
+	}
 </script>
 
 {#if items}
@@ -27,29 +42,24 @@
 								{#if item.copyright[0].enabled == true}
 									{#if item.copyright[0].name && item.copyright[0].url}
 										{@render image_blog(
-											`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+											getCoverUrl(item.cover),
 											item.cover.alternativeText,
 											item.copyright[0].name,
 											item.copyright[0].url
 										)}
 									{:else if item.copyright[0].name}
 										{@render image_blog(
-											`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+											getCoverUrl(item.cover),
 											item.cover.alternativeText,
 											item.copyright[0].name,
 											''
 										)}
 									{/if}
 								{:else}
-									{@render image_blog(
-										`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
-										item.cover.alternativeText,
-										'',
-										''
-									)}
+									{@render image_blog(getCoverUrl(item.cover), item.cover.alternativeText, '', '')}
 								{/if}
 							{:else}
-								{@render image_blog('/contact/teaser.svg', `Teaser Bild ${item.title}`, '', '')}
+								{@render image_blog(getCoverUrl(item.cover), `Teaser Bild ${item.title}`, '', '')}
 							{/if}
 						</div>
 					</div>

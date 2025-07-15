@@ -12,13 +12,19 @@
 	export let data;
 	let { post } = data;
 
-	function teaserImage() {
-		let image: string = '/home/teaser.webp';
-		if (post.data.cover) {
-			image = post.data.cover.formats.large.url;
-			image = je_cms_api_base_url + image;
-			return image;
+	function getCoverUrl(cover: any): string {
+		if (!cover) {
+			return '/home/braunschweig_alte_waage.svg';
 		}
+
+		if (cover.ext === '.svg') {
+			return je_cms_api_base_url + cover.url;
+		} else if (cover.formats?.thumbnail?.url) {
+			return je_cms_api_base_url + cover.formats.thumbnail.url;
+		}
+
+		// Fallback
+		return '/home/braunschweig_alte_waage.svg';
 	}
 </script>
 
@@ -26,14 +32,14 @@
 	<title>{post.data.title} - {name}</title>
 	<meta name="robots" content="index,follow" />
 	<meta property="og:title" content={post.data.title} />
-	<meta property="og:image" content={teaserImage()} />
+	<meta property="og:image" content={getCoverUrl(post.data.cover)} />
 </svelte:head>
 
 <div class="relative min-h-[80vh] flex flex-col">
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({teaserImage()});"
+		style="background-image: url({getCoverUrl(post.data.cover)});"
 	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
@@ -71,14 +77,14 @@
 						{#if post.data.copyright[0].enabled == true}
 							{#if post.data.copyright[0].name && post.data.copyright[0].url}
 								{@render image_blog(
-									`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+									getCoverUrl(post.data.cover),
 									post.data.cover.alternativeText,
 									post.data.copyright[0].name,
 									post.data.copyright[0].url
 								)}
 							{:else if post.data.copyright[0].name}
 								{@render image_blog(
-									`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+									getCoverUrl(post.data.cover),
 									post.data.cover.alternativeText,
 									post.data.copyright[0].name,
 									''
@@ -86,7 +92,7 @@
 							{/if}
 						{:else}
 							{@render image_blog(
-								`${je_cms_api_base_url}${post.data.cover.formats.thumbnail.url}`,
+								getCoverUrl(post.data.cover),
 								post.data.cover.alternativeText,
 								'',
 								''
