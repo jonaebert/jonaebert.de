@@ -6,7 +6,7 @@
 	console.log(body);
 </script>
 
-<figure class="max-w-screen-md text-start">
+<figure class="max-w-screen-md text-start bg-grey-200 p-6 rounded-lg md:rounded-xl">
 	<svg
 		class="size-7.5 mb-3 text-gray-400"
 		aria-hidden="true"
@@ -24,8 +24,8 @@
 		</p>
 	</blockquote>
 	{#if name}
-		<figcaption class="flex items-center justofy-center mt-6 space-x-3 rtl:space-x-reverse">
-			<div class="flex items-center divide-x-2 rtl:divide-x-reverse divide-gray-500">
+		<figcaption class="flex items-center justofy-center mt-6 space-x-3 rtl:space-x-reverse font-montserrat">
+			<div class="flex items-center divide-x-1 rtl:divide-x-reverse divide-grey-600">
 				<cite class="pe-3 font-medium text-gray-900">{name}</cite>
 				{#if position}
 					<cite class="ps-3 text-sm text-gray-500">{position}</cite>
