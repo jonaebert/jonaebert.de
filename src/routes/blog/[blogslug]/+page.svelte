@@ -49,10 +49,7 @@
 					{post.data.title}
 				</h1>
 				<div class="font-montserrat text-white">
-					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(
-						post.data.createdAt,
-						'monthshort'
-					)}
+					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
 					{FormatDate(post.data.createdAt, 'year')}
 				</div>
 			</div>
