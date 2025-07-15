@@ -15,29 +15,37 @@
 				<div class="flex h-full flex-col">
 					<div class="mb-6 flex">
 						<div class="relative inline-block w-full overflow-hidden rounded-sm">
+							{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+								<Image
+									{src}
+									{alt}
+									classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+									copyright={[{ name: cp_name, url: cp_url }]}
+								/>
+							{/snippet}
 							{#if item.cover}
 								{#if item.copyright[0].enabled == true}
-									<Image
-										src={`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`}
-										alt={item.cover.alternativeText}
-										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-										copyright={[{ name: item.copyright[0].name, url: '' }]}
-									/>
+									{@render image_blog(
+										`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+										item.cover.alternativeText,
+										item.copyright[0].name,
+										''
+									)}
 								{:else}
-									<Image
-										src={`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`}
-										alt={item.cover.alternativeText}
-										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-										copyright={[{ name: '', url: '' }]}
-									/>
+									{@render image_blog(
+										`${je_cms_api_base_url}${item.cover.formats.thumbnail.url}`,
+										item.cover.alternativeText,
+										'',
+										''
+									)}
 								{/if}
 							{:else}
-								<Image
-									src="/contact/teaser.svg"
-									alt={`Teaser Bild ${item.title}`}
-									classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-									copyright={[{ name: '', url: '' }]}
-								/>
+								{@render image_blog(
+									'/contact/teaser.svg',
+									`Teaser Bild ${item.title}`,
+									'',
+									''
+								)}
 							{/if}
 						</div>
 					</div>
