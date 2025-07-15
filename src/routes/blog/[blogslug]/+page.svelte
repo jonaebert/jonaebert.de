@@ -12,7 +12,7 @@
 	export let data;
 	let { post } = data;
 
-	function getCoverUrl(cover: any): string {
+	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) {
 			return '/home/braunschweig_alte_waage.svg';
 		}
@@ -20,7 +20,11 @@
 		if (cover.ext === '.svg') {
 			return je_cms_api_base_url + cover.url;
 		} else if (cover.formats?.thumbnail?.url) {
-			return je_cms_api_base_url + cover.formats.thumbnail.url;
+			if (highresolution === true && cover.formats?.large?.url) {
+				return je_cms_api_base_url + cover.formats.large.url;
+			} else if (cover.formats?.thumbnail?.url) {
+				return je_cms_api_base_url + cover.formats.thumbnail.url;
+			}
 		}
 
 		// Fallback
@@ -39,7 +43,7 @@
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({getCoverUrl(post.data.cover)});"
+		style="background-image: url({getCoverUrl(post.data.cover, true)});"
 	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
