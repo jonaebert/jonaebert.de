@@ -30,31 +30,33 @@
 
 <div class="prose max-w-none mb-6 font-montserrat">
 	{#each tokens as token}
-		{#if token.type === 'paragraph'}
-			<p>{@html token.text}</p>
-		{:else if token.type === 'heading'}
-			<svelte:element this={`h${token.depth}`} class={getHeadingClass(token.depth)}>
-				{@html token.text}
-			</svelte:element>
-		{:else if token.type === 'code'}
-			<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
-				<pre><code class="text-sm text-primary-200 whitespace-pre">
+		<div class="my-3">
+			{#if token.type === 'paragraph'}
+				<p>{@html token.text}</p>
+			{:else if token.type === 'heading'}
+				<svelte:element this={`h${token.depth}`} class={getHeadingClass(token.depth)}>
+					{@html token.text}
+				</svelte:element>
+			{:else if token.type === 'code'}
+				<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
+					<pre><code class="text-sm text-primary-200 whitespace-pre">
 					{@html escapeHtml(token.text)}
 				</code></pre>
-			</div>
-		{:else if token.type === 'list'}
-			<svelte:element
-				this={token.ordered ? 'ol' : 'ul'}
-				class={token.ordered
-					? 'list-decimal list-inside pl-4 mb-4'
-					: 'list-disc list-inside pl-4 mb-4'}
-			>
-				{#each token.items as item}
-					<li>{@html item.text}</li>
-				{/each}
-			</svelte:element>
-		{:else}
-			<p>{@html token.raw}</p>
-		{/if}
+				</div>
+			{:else if token.type === 'list'}
+				<svelte:element
+					this={token.ordered ? 'ol' : 'ul'}
+					class={token.ordered
+						? 'list-decimal list-inside pl-4 mb-4'
+						: 'list-disc list-inside pl-4 mb-4'}
+				>
+					{#each token.items as item}
+						<li>{@html item.text}</li>
+					{/each}
+				</svelte:element>
+			{:else}
+				<p>{@html token.raw}</p>
+			{/if}
+		</div>
 	{/each}
 </div>
