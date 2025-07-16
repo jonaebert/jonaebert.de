@@ -25,6 +25,7 @@ export const je_api_base_url = import.meta.env.VITE_JE_API_BASE_URL;
 
 // CMS
 export const je_cms_api_base_url = import.meta.env.VITE_JE_CMS_API_BASE_URL;
+export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN;
 
 // Budibase
 export const bb_base_url = import.meta.env.VITE_BB_BASE_URL;
