@@ -2,8 +2,6 @@
 	export let body: string;
 	export let name: string;
 	export let position: string;
-
-	console.log(body);
 </script>
 
 <figure class="max-w-screen-md text-start bg-grey-200 p-6 rounded-lg md:rounded-xl">
