@@ -3,7 +3,6 @@
 	import Image from '$lib/components/image.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
-	export let __component: string;
 	export let file: array;
 
 	function getMediaURL(media:type) {
