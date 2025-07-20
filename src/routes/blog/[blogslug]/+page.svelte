@@ -10,7 +10,7 @@
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
-	let { post } = data;
+	let { post, cover } = data;
 
 	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) {
@@ -36,14 +36,14 @@
 	<title>{post.data.title} - {name}</title>
 	<meta name="robots" content="index,follow" />
 	<meta property="og:title" content={post.data.title} />
-	<meta property="og:image" content={getCoverUrl(post.data.cover)} />
+	<meta property="og:image" content={getCoverUrl(cover)} />
 </svelte:head>
 
 <div class="relative min-h-[80vh] flex flex-col">
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({getCoverUrl(post.data.cover, true)});"
+		style="background-image: url({getCoverUrl(cover, true)});"
 	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
@@ -72,32 +72,32 @@
 					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 						<Image
 							{src}
-							alt={post.data.cover.alternativeText}
+							alt={cover.alternativeText}
 							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
 							copyright={[{ name: cp_name, url: cp_url }]}
 						/>
 					{/snippet}
-					{#if post.data.cover}
+					{#if cover}
 						{#if post.data.copyright[0].enabled == true}
 							{#if post.data.copyright[0].name && post.data.copyright[0].url}
 								{@render image_blog(
-									getCoverUrl(post.data.cover),
-									post.data.cover.alternativeText,
+									getCoverUrl(cover),
+									cover.alternativeText,
 									post.data.copyright[0].name,
 									post.data.copyright[0].url
 								)}
 							{:else if post.data.copyright[0].name}
 								{@render image_blog(
-									getCoverUrl(post.data.cover),
-									post.data.cover.alternativeText,
+									getCoverUrl(cover),
+									cover.alternativeText,
 									post.data.copyright[0].name,
 									''
 								)}
 							{/if}
 						{:else}
 							{@render image_blog(
-								getCoverUrl(post.data.cover),
-								post.data.cover.alternativeText,
+								getCoverUrl(cover),
+								cover.alternativeText,
 								'',
 								''
 							)}

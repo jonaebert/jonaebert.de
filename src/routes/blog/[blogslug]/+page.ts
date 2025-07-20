@@ -4,7 +4,7 @@ export async function load({ params, fetch }) {
   // Fetch posts
   let post = [];
   let heading = '';
-  let image = [];
+  let cover = [];
 
   try {
     const postRes = await fetch(`${je_cms_api_base_url}/api/articles/${params.blogslug}?populate=*`);
@@ -13,7 +13,7 @@ export async function load({ params, fetch }) {
       const postData = await postRes.json();
       post = postData;
       heading = postData.data.title;
-      image = postData.data.cover;
+      cover = postData.data.cover;
     } else {
       console.error('Error fetching posts:', postRes.statusText);
     }
@@ -24,6 +24,6 @@ export async function load({ params, fetch }) {
   return {
     post: post,
     heading: heading,
-    image: image
+    cover: cover
   };
 }
