@@ -1,4 +1,4 @@
-import { je_api_base_url, je_cms_api_base_url } from '$lib/store';
+import { je_cms_api_base_url } from '$lib/store';
 
 export async function load({ params, fetch }) {
   // Fetch posts
