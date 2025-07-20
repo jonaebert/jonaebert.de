@@ -1,0 +1,28 @@
+<script lang="ts">
+	import { je_cms_api_base_url } from '$lib/store.js'
+	import Image from '$lib/components/image.svelte';
+	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
+
+	export let __component: string;
+	export let file: array;
+
+	function getMediaURL(media:type) {
+		if (media?.ext === '.svg') {
+			return je_cms_api_base_url + media?.url;
+		} else if (media?.formats?.thumbnail?.url) {
+			return je_cms_api_base_url + media?.formats?.large?.url;
+		}
+	}
+</script>
+
+<div class="prose max-w-none mb-6">
+		<!-- <Image
+			src={getMediaURL(file)}
+			alt={file?.alternativeText}
+			classNames="h-auto max-w-5xl rounded-lg object-cover aspect-3/2 aspect-[3/2] bg-transparent"
+			copyright={[]}
+		/> -->
+		<div class="flex text-center font-montserrat justify-start my-2">
+			<InfoMessage message="IST NOCH ZU IMPLEMENTIEREN"></InfoMessage>
+		</div>
+</div>
