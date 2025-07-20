@@ -16,14 +16,10 @@
 </script>
 
 <div class="prose max-w-none mb-6">
-	{#if __component === 'shared.media'}
 		<Image
 			src={getMediaURL(file)}
 			alt={file?.alternativeText}
 			classNames="h-auto max-w-5xl rounded-lg object-cover aspect-3/2 aspect-[3/2] bg-transparent"
 			copyright={[]}
 		/>
-	{:else}
-		<InfoMessage message="Unbekannter Block: {__component}"></InfoMessage>
-	{/if}
 </div>
