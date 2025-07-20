@@ -4,7 +4,7 @@
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
 	export let __component: string;
-	export let media: array;
+	export let file: array;
 
 	function getMediaURL(media:type) {
 		if (media?.ext === '.svg') {
@@ -18,8 +18,8 @@
 <div class="prose max-w-none mb-6">
 	{#if __component === 'shared.media'}
 		<Image
-			src={getMediaURL(media)}
-			alt={media?.alternativeText}
+			src={getMediaURL(file)}
+			alt={file?.alternativeText}
 			classNames="h-auto max-w-5xl rounded-lg object-cover aspect-3/2 aspect-[3/2] bg-transparent"
 			copyright={[]}
 		/>
