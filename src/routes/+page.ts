@@ -5,7 +5,7 @@ export async function load({ params, fetch }) {
   let posts = [];
 
   try {
-    const postsRes = await fetch(`${je_cms_api_base_url}/api/articles?populate=cover&populate=copyright`);
+    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all&maxitems=5`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
