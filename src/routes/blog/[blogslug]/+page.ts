@@ -3,7 +3,7 @@ import { je_cms_api_base_url } from '$lib/store';
 export async function load({ params, fetch }) {
   // Fetch posts
   let post = [];
-  let heading = '';
+  let title = '';
   let cover = [];
 
   try {
@@ -12,7 +12,7 @@ export async function load({ params, fetch }) {
     if (postRes.ok) {
       const postData = await postRes.json();
       post = postData;
-      heading = postData.data.title;
+      title = postData.data.title;
       cover = postData.data.cover;
     } else {
       console.error('Error fetching posts:', postRes.statusText);
@@ -23,7 +23,7 @@ export async function load({ params, fetch }) {
 
   return {
     post: post,
-    heading: heading,
+    title: title,
     cover: cover
   };
 }
