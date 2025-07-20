@@ -20,7 +20,7 @@
 		<Image
 			src={getMediaURL(media)}
 			alt={media?.alternativeText}
-			classNames="w-full object-cover aspect-3/2 aspect-[3/2] bg-transparent"
+			classNames="h-auto max-w-5xl rounded-lg object-cover aspect-3/2 aspect-[3/2] bg-transparent"
 			copyright={[]}
 		/>
 	{:else}
