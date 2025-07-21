@@ -15,10 +15,12 @@
 </script>
 
 <div class="prose max-w-none mb-6">
+	<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]">
 		<Image
 			src={getMediaURL(file)}
 			alt={file?.alternativeText}
 			classNames="h-auto max-w-lg rounded-lg object-cover"
 			copyright={[]}
 		/>
+	</div>
 </div>
