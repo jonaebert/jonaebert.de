@@ -7,7 +7,6 @@ export async function load({ params, fetch }) {
   let cover = [];
 
   try {
-    // const postRes = await fetch(`${je_cms_api_base_url}/api/articles/${params.blogslug}?populate=*`);
     const postRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
 
     if (postRes.ok) {
