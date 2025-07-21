@@ -25,7 +25,7 @@
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative h-auto max-w-lg overflow-hidden rounded-xl aspect-[3/2]">
+		<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]">
 			{#each files as img, index}
 				<Image
 					src={getMediaURL(img)}
