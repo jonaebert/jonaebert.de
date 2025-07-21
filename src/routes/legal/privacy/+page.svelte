@@ -301,6 +301,110 @@
 		</div>
 	</div>
 	<div>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Content-Dienste</h2>
+		<div class="text-balance font-montserrat mb-4">
+			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
+			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
+			die von uns eingesetzten Dienste die Ihnen zum Zeitpunkt Ihres Besuchs auf unseren
+			Internetseiten zugeordnete IP-Adresse, da nur so der jeweilige Inhalt in dem von Ihnen
+			verwendeten Browser dargestellt werden kann. Darüber hinaus können die Anbieter dieser Dienste
+			weitere Cookies auf Ihr Endgerät setzen, über die Informationen über Ihr Nutzungsverhalten,
+			Ihre Interessen, das von Ihnen verwendete Gerät und den verwendeten Browser sowie Zeitpunkt
+			und Dauer Ihrer Sitzung erhoben werden. Diese Daten verwenden die Anbieter regelmäßig für
+			Analyse-, Statistik- und Marketingzwecke. Zudem können diese Informationen können auch mit
+			Informationen aus anderen Quellen verbunden werden. Dies gilt insbesondere dann, wenn Sie
+			selbst einen Account bei dem Dienstanbieter unterhalten und zum Zeitpunkt der Sitzung dort
+			eingeloggt sind.
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			Wir weisen darauf hin, dass je nach Sitzland des nachstehend genannten Diensteanbieters die
+			nachfolgend näher benannten Daten auf Server außerhalb des Raumes der Europäischen Union
+			übertragen und verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von
+			der DSGVO vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer
+			Rechte nicht oder nur erschwert erfolgen kann.
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			<p class="font-bold">Betroffene Daten:</p>
+			<ul class="list-disc">
+				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
+				<li class="mb-2">
+					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
+				</li>
+			</ul>
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			<p class="font-bold">Betroffene Personen:</p>
+			<ul class="list-disc">
+				<li class="mb-2">Nutzer unserer Internetpräsenz</li>
+			</ul>
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			<p class="font-bold">Verarbeitungszweck:</p>
+			<ul class="list-disc">
+				<li class="mb-2">
+					Ausspielen unserer Internetseiten, Anbieten von Inhalten, Gewährleistung des Betriebs
+					unserer Internetseiten
+				</li>
+			</ul>
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			<p class="font-bold">Rechtsgrundlage:</p>
+			<ul class="list-disc">
+				<li class="mb-2">
+					Einwilligung über Cookie-Consent-Banner, Art. 6 Abs. 1 lit. a DSGVO, berechtigte
+					Interessen, Art. 6 Abs. 1 lit. f DSGVO
+				</li>
+			</ul>
+		</div>
+		<div class="text-balance font-montserrat mb-4">
+			<p class="font-bold">Wir nutzen folgende Content-Dienste:</p>
+			<ul class="list-disc">
+				<li class="mb-2">
+					<p class="font-bold">Stripe</p>
+					<div>
+						<div class="mb-2">
+							Für die redaktionelle Verwaltung und Ausspielung von Blogbeiträgen sowie weiteren multimedialen Inhalten auf unserer Internetpräsenz verwenden wir das Content-Management-System (CMS) von Stripe. Es handelt sich hierbei um eine von uns selbst betriebene und auf unseren eigenen Servern gehostete Installation, die bei unserem Webhosting-Dienstleister Hetzner Online GmbH in Deutschland betrieben wird.
+							Die Nutzung des Stripe CMS erfolgt vollständig lokal auf den von uns gemieteten Servern. Eine Übermittlung personenbezogener Daten an Stripe oder Dritte findet im Rahmen der CMS-Verwendung nicht statt.
+						</div>
+						<div>
+							Dienstanbieter: Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen
+						</div>
+						<div><a href="https://www.hetzner.de/">Internetseite</a></div>
+						<div><a href="https://www.hetzner.de/rechtliches/datenschutz">Datenschutzerklärung</a></div>
+					</div>
+				</li>
+				<li class="mb-2">
+					<p class="font-bold">YouTube</p>
+					<div>
+						<div class="mb-2">
+							Wir nutzen auf dieser Webseite Komponenten von YouTube, um hierüber Videos auf unseren
+							Internetseiten einzubinden, so dass diese über Ihren Internetbrowser abgespielt werden
+							können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren
+							Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite
+							bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von
+							Google in den USA übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
+							davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder
+							Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden
+							gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn
+							Sie unsere Internetseiten aufrufen.
+						</div>
+						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA</div>
+						<div>
+							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
+						</div>
+						<div><a href="https://www.youtube.com/">Internetseite</a></div>
+						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
+						<div>
+							<a href="https://tools.google.com/dlpage/gaoptout?hl=de" class="font-bold"
+								>Opt-Out-Möglichkeit</a
+							>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
 			Unsere Onlinepräsenzen bei sozialen Netzwerken
 		</h2>
@@ -442,126 +546,6 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Content-Dienste</h2>
-		<div class="text-balance font-montserrat mb-4">
-			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
-			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
-			die von uns eingesetzten Dienste die Ihnen zum Zeitpunkt Ihres Besuchs auf unseren
-			Internetseiten zugeordnete IP-Adresse, da nur so der jeweilige Inhalt in dem von Ihnen
-			verwendeten Browser dargestellt werden kann. Darüber hinaus können die Anbieter dieser Dienste
-			weitere Cookies auf Ihr Endgerät setzen, über die Informationen über Ihr Nutzungsverhalten,
-			Ihre Interessen, das von Ihnen verwendete Gerät und den verwendeten Browser sowie Zeitpunkt
-			und Dauer Ihrer Sitzung erhoben werden. Diese Daten verwenden die Anbieter regelmäßig für
-			Analyse-, Statistik- und Marketingzwecke. Zudem können diese Informationen können auch mit
-			Informationen aus anderen Quellen verbunden werden. Dies gilt insbesondere dann, wenn Sie
-			selbst einen Account bei dem Dienstanbieter unterhalten und zum Zeitpunkt der Sitzung dort
-			eingeloggt sind.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			Wir weisen darauf hin, dass je nach Sitzland des nachstehend genannten Diensteanbieters die
-			nachfolgend näher benannten Daten auf Server außerhalb des Raumes der Europäischen Union
-			übertragen und verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von
-			der DSGVO vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer
-			Rechte nicht oder nur erschwert erfolgen kann.
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Betroffene Daten:</p>
-			<ul class="list-disc">
-				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">
-					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Betroffene Personen:</p>
-			<ul class="list-disc">
-				<li class="mb-2">Nutzer unserer Internetpräsenz</li>
-			</ul>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Verarbeitungszweck:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					Ausspielen unserer Internetseiten, Anbieten von Inhalten, Gewährleistung des Betriebs
-					unserer Internetseiten
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Rechtsgrundlage:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					Einwilligung über Cookie-Consent-Banner, Art. 6 Abs. 1 lit. a DSGVO, berechtigte
-					Interessen, Art. 6 Abs. 1 lit. f DSGVO
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance font-montserrat mb-4">
-			<p class="font-bold">Wir nutzen folgende Content-Dienste:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					<p class="font-bold">Google Maps</p>
-					<div>
-						<div class="mb-2">
-							Wir nutzen auf unserer Internetpräsenz Google Maps. Hierbei wird durch Google die
-							IP-Adresse des Besuchers erhoben und verarbeitet. Wenn Sie eine Internetseite
-							besuchen, auf der Google Maps eingebunden ist, wird unabhängig davon, ob die Nutzung
-							von Google Maps tatsächlich erfolgt oder Sie in Ihrem Google Account eingeloggt sind
-							Ihre IP-Adresse sowie Ihre Standortdaten (letztere in der Regel nicht ohne Ihre
-							Einwilligung) an Google übermittelt. Ihre IP-Adresse wird Ihrem Google Account
-							zugeordnet, sofern Sie bei dem Besuch unserer Internetpräsenz dort eingeloggt sind.
-						</div>
-						<div>
-							Dienstanbieter: Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
-						</div>
-						<div>
-							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland
-						</div>
-						<div><a href="https://www.google.de/maps">Internetseite</a></div>
-						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
-						<div>
-							<a
-								href="https://tools.google.com/dlpage/gaoptout?hl=de"
-								target="_blank"
-								rel="noopener"
-								class="font-bold">Opt-Out-Möglichkeit</a
-							>
-						</div>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">YouTube</p>
-					<div>
-						<div class="mb-2">
-							Wir nutzen auf dieser Webseite Komponenten von YouTube, um hierüber Videos auf unseren
-							Internetseiten einzubinden, so dass diese über Ihren Internetbrowser abgespielt werden
-							können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren
-							Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite
-							bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von
-							Google in den USA übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
-							davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder
-							Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden
-							gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn
-							Sie unsere Internetseiten aufrufen.
-						</div>
-						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA</div>
-						<div>
-							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
-						</div>
-						<div><a href="https://www.youtube.com/">Internetseite</a></div>
-						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
-						<div>
-							<a href="https://tools.google.com/dlpage/gaoptout?hl=de" class="font-bold"
-								>Opt-Out-Möglichkeit</a
-							>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
 			Sicherheits Maßnahmen
 		</h2>
@@ -577,7 +561,7 @@
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 03. Mai 2025. Aufgrund geänderter
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 21. Juli 2025. Aufgrund geänderter
 			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
 			anzupassen.
 		</div>
