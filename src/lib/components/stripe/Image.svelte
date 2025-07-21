@@ -8,7 +8,7 @@
 	function getMediaURL(media:type) {
 		if (media?.ext === '.svg') {
 			return je_cms_api_base_url + media?.url;
-		} else if (media?.formats?.thumbnail?.url) {
+		} else if (media?.formats?.large?.url) {
 			return je_cms_api_base_url + media?.formats?.large?.url;
 		}
 	}
