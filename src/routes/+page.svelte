@@ -124,8 +124,8 @@
 	<div class="text-left font-poppins">
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
-	{#if posts[0]}
-		<BlogTiles items={posts} />
+	{#if posts.data[0]}
+		<BlogTiles items={posts.data} />
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
 			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>

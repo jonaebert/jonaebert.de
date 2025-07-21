@@ -1,58 +1,49 @@
 <script lang="ts">
-	import { name, pronouns } from '$lib/store';
+	import { name, je_cms_api_base_url } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-	import * as ph from '@prismicio/helpers';
-	import { SliceZone } from '@prismicio/svelte';
+	// import * as ph from '@prismicio/helpers';
+	// import { SliceZone } from '@prismicio/svelte';
 	import Image from '$lib/components/image.svelte';
 
-	import Paragraph from '$lib/components/prismic/paragraph.svelte';
-	import Image_Blog from '$lib/components/prismic/image.svelte';
-	import Heading from '$lib/components/prismic/heading.svelte';
-	import Lists from '$lib/components/prismic/lists.svelte';
-	import Embed from '$lib/components/prismic/embed.svelte';
-	import Code from '$lib/components/prismic/code.svelte';
 	import { text } from '@sveltejs/kit';
 	import { faPhabricator } from '@fortawesome/free-brands-svg-icons';
+	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
-	let { post } = data;
+	let { post, cover } = data;
 
-	const components = {
-		paragraph: Paragraph,
-		image: Image_Blog,
-		heading1: Heading,
-		heading2: Heading,
-		heading3: Heading,
-		heading4: Heading,
-		heading5: Heading,
-		heading6: Heading,
-		'list-item': Lists,
-		'o-list-item': Lists,
-		embed: Embed,
-		preformatted: Code
-	};
-
-	function teaserImage() {
-		let image: string = '/home/teaser.webp';
-		if (ph.asImageSrc(post.data.teaser_image[0].image)) {
-			image = ph.asImageSrc(post.data.teaser_image[0].image);
-			return image;
+	function getCoverUrl(cover: any, highresolution: boolean): string {
+		if (!cover) {
+			return '/home/braunschweig_alte_waage.svg';
 		}
+
+		if (cover.ext === '.svg') {
+			return je_cms_api_base_url + cover.url;
+		} else if (cover.formats?.thumbnail?.url) {
+			if (highresolution === true && cover.formats?.large?.url) {
+				return je_cms_api_base_url + cover.formats.large.url;
+			} else if (cover.formats?.thumbnail?.url) {
+				return je_cms_api_base_url + cover.formats.thumbnail.url;
+			}
+		}
+
+		// Fallback
+		return '/home/braunschweig_alte_waage.svg';
 	}
 </script>
 
 <svelte:head>
-	<title>{ph.asText(post.data.title)} - {name}</title>
+	<title>{post.data.title} - {name}</title>
 	<meta name="robots" content="index,follow" />
-	<meta property="og:title" content={ph.asText(post.data.title)} />
-	<meta property="og:image" content={teaserImage()} />
+	<meta property="og:title" content={post.data.title} />
+	<meta property="og:image" content={getCoverUrl(cover)} />
 </svelte:head>
 
 <div class="relative min-h-[80vh] flex flex-col">
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({teaserImage()});"
+		style="background-image: url({getCoverUrl(cover, true)});"
 	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
@@ -65,22 +56,11 @@
 		<div class="py-5 flex justify-center text-pretty">
 			<div class="md:max-w-[60%] grid gap-5">
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
-					{ph.asText(post.data.title)}
+					{post.data.title}
 				</h1>
 				<div class="font-montserrat text-white">
-					{#if post.data.overwrite_publish_date}
-						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'day')}. {FormatDate(
-							ph.asDate(post.data.overwrite_publish_date),
-							'month'
-						)}
-						{FormatDate(ph.asDate(post.data.overwrite_publish_date), 'year')}
-					{:else}
-						{FormatDate(ph.asDate(post.first_publication_date), 'day')}. {FormatDate(
-							ph.asDate(post.first_publication_date),
-							'month'
-						)}
-						{FormatDate(ph.asDate(post.first_publication_date), 'year')}
-					{/if}
+					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
+					{FormatDate(post.data.createdAt, 'year')}
 				</div>
 			</div>
 		</div>
@@ -89,24 +69,45 @@
 		<div class="text-pretty bg-white shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					{#if post.data.teaser_image[0] != undefined}
+					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 						<Image
-							src={ph.asImageSrc(post.data.teaser_image[0].image)}
-							alt={ph.asText(post.data.title)}
+							{src}
+							alt={cover.alternativeText}
 							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-							copyright={[{ name: post.data.teaser_image[0].copyright, url: '' }]}
+							copyright={[{ name: cp_name, url: cp_url }]}
 						/>
+					{/snippet}
+					{#if cover}
+						{#if post.data.copyright[0].enabled == true}
+							{#if post.data.copyright[0].name && post.data.copyright[0].url}
+								{@render image_blog(
+									getCoverUrl(cover),
+									cover.alternativeText,
+									post.data.copyright[0].name,
+									post.data.copyright[0].url
+								)}
+							{:else if post.data.copyright[0].name}
+								{@render image_blog(
+									getCoverUrl(cover),
+									cover.alternativeText,
+									post.data.copyright[0].name,
+									''
+								)}
+							{/if}
+						{:else}
+							{@render image_blog(
+								getCoverUrl(cover),
+								cover.alternativeText,
+								'',
+								''
+							)}
+						{/if}
 					{:else}
-						<Image
-							src={ph.asImageSrc(post.data.teaser_image[0].image)}
-							alt={ph.asText(post.data.title)}
-							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
-							copyright={[{ name: '', url: '' }]}
-						/>
+						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}
 					{/if}
 				</div>
 				<article>
-					<SliceZone slices={post.data.body} {components} />
+					<Renderer blocks={post.data.blocks} />
 				</article>
 			</div>
 		</div>

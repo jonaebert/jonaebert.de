@@ -9,7 +9,7 @@ export async function load({ params, fetch }) {
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
-      posts = postsData.data;
+      posts = postsData;
     } else {
       console.error('Error fetching posts:', postsRes.statusText);
     }
