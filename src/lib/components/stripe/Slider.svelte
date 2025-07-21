@@ -21,11 +21,36 @@
 	function nextImage() {
 		currentImage = (currentImage + 1) % files.length;
 	}
+
+	// Slider touch
+	let startX: number | null = null;
+	function handleTouchStart(event: TouchEvent | PointerEvent) {
+		startX = 'touches' in event ? event.touches[0].clientX : (event as PointerEvent).clientX;
+	}
+	function handleTouchEnd(event: TouchEvent | PointerEvent) {
+		if (startX === null) return;
+		const endX = 'changedTouches' in event ? event.changedTouches[0].clientX : (event as PointerEvent).clientX;
+		const diffX = startX - endX;
+
+		if (Math.abs(diffX) > 50) {
+			if (diffX > 0) {
+				nextImage();
+			} else {
+				previousImage();
+			}
+		}
+		startX = null; // Reset startX after handling
+	}
 </script>
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]">
+		<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]"
+			on:touchstart={handleTouchStart}
+			on:touchend={handleTouchEnd}
+			on:pointerdown={handleTouchStart}
+			on:pointerup={handleTouchEnd}
+		>
 			{#each files as img, index}
 				<Image
 					src={getMediaURL(img)}
