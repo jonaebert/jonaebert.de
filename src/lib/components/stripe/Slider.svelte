@@ -53,8 +53,8 @@
 		>
 			<!-- Wrapper für die verschiebbaren Slides -->
 			<div
-				class="flex transition-transform duration-700 ease-in-out w-full h-full"
-				style="transform: translateX(-{currentImage * 100}%);"
+				class="flex transition-transform duration-1000 ease-in-out w-full h-full"
+				style:transform={`translateX(-${currentImage * 100}%)`}
 			>
 				{#each files as img}
 					<div class="flex-shrink-0 w-full h-full overflow-hidden">
