@@ -13,6 +13,15 @@
 		}
 	}
 
+	// Auto slide
+	const intervalSlide = 5000;
+	function autoSlide() {
+		setTimeout(() => {
+			nextImage();
+			autoSlide();
+		}, intervalSlide);
+	}
+
 	// Slider functionality
 	let currentImage: number = 0;
 	function previousImage() {
@@ -41,6 +50,8 @@
 		}
 		startX = null; // Reset startX after handling
 	}
+
+	autoSlide();
 </script>
 
 <div class="prose max-w-none mb-6">
