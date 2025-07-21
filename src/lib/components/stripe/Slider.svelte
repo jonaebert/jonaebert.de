@@ -45,20 +45,28 @@
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]"
+		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-[3/2]"
 			on:touchstart={handleTouchStart}
 			on:touchend={handleTouchEnd}
 			on:pointerdown={handleTouchStart}
 			on:pointerup={handleTouchEnd}
 		>
-			{#each files as img, index}
-				<Image
-					src={getMediaURL(img)}
-					alt={img?.alternativeText}
-					classNames={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${index === currentImage ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
-					copyright={[]}
-				/>
-			{/each}
+			<!-- Wrapper für die verschiebbaren Slides -->
+			<div
+				class="flex transition-transform duration-700 ease-in-out w-full h-full"
+				style="transform: translateX(-{currentImage * 100}%);"
+			>
+				{#each files as img}
+					<div class="flex-shrink-0 w-full h-full overflow-hidden">
+						<Image
+							src={getMediaURL(img)}
+							alt={img?.alternativeText}
+							classNames="h-full w-full object-cover"
+							copyright={[{ name: '', url: '' }]}
+						/>
+					</div>
+				{/each}
+			</div>
 			<!-- Steuerung -->
 			<button on:click={previousImage} class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110" aria-label="Vorheriges Bild">
 				<svg
