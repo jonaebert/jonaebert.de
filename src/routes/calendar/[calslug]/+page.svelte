@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { je_api_base_url, je_cms_api_base_url, name } from '$lib/store';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
-	import { je_api_base_url, name } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
 
@@ -23,6 +23,21 @@
 		startdate: FormatDate(rawEvent.start, 'date'),
 		enddate: FormatDate(rawEvent.end, 'date')
 	};
+
+	function getCoverUrl(cover: any): string {
+		if (!cover) {
+			return '/home/braunschweig_alte_waage.svg';
+		}
+
+		if (cover.ext === '.svg') {
+			return je_cms_api_base_url + cover.url;
+		} else if (cover.formats?.thumbnail?.url) {
+			return je_cms_api_base_url + cover.formats.thumbnail.url;
+		}
+
+		// Fallback
+		return '/home/braunschweig_alte_waage.svg';
+	}
 </script>
 
 <svelte:head>
@@ -42,39 +57,36 @@
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
-			{#if event.teaserImage.url && event.teaserImage.url !== null}
-				{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
-					{#if event.teaserImage.copyright?.url != undefined}
-						<Image
-							src={event.teaserImage.url}
-							alt={`Teaser Bild ${event.summary}`}
-							classNames="w-full h-full object-cover object-center"
-							copyright={[
-								{ name: event.teaserImage.copyright.text, url: event.teaserImage.copyright.url }
-							]}
-						/>
-					{:else}
-						<Image
-							src={event.teaserImage.url}
-							alt={`Teaser Bild ${event.summary}`}
-							classNames="w-full h-full object-cover object-center"
-							copyright={[{ name: event.teaserImage.copyright.text, url: '' }]}
-						/>
+			{#if event.teaserImage}
+				{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+					<Image
+						{src}
+						{alt}
+						classNames="w-full h-full object-cover object-center"
+						copyright={[{ name: cp_name, url: cp_url }]}
+					/>
+				{/snippet}
+				{#if event.teaserImage.copyright.text}
+					{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
+						{@render image_blog(
+							getCoverUrl(event.teaserImage.data),
+							event.teaserImage.data.alternativeText,
+							event.teaserImage.copyright.text,
+							event.teaserImage.copyright.url
+						)}
+					{:else if event.teaserImage.copyright.text}
+						{@render image_blog(
+							getCoverUrl(event.teaserImage.data),
+							event.teaserImage.data.alternativeText,
+							event.teaserImage.copyright.text,
+							''
+						)}
 					{/if}
 				{:else}
-					<Image
-						src={event.teaserImage.url}
-						alt={`Teaser Bild ${event.summary}`}
-						classNames="w-full h-full object-cover object-center"
-						copyright={[{ name: '', url: '' }]}
-					/>
+					{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data.alternativeText, '', '')}
 				{/if}
 			{:else}
-				<Image
-					src="/contact/teaser.svg"
-					alt={`Teaser Bild ${event.summary}`}
-					classNames="w-full h-full object-cover object-center"
-				/>
+				{@render image_blog(getCoverUrl(event.teaserImage.data), `Teaser Bild ${event.summary}`, '', '')}
 			{/if}
 		</div>
 

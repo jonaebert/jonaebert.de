@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { je_cms_api_base_url } from '$lib/store.js';
 	import Image from '$lib/components/image.svelte';
 	import { FormatDate } from '$lib/util/date';
 	import Tags from '$lib/components/blocks/Tags.svelte';
@@ -21,6 +22,21 @@
 			enddate: FormatDate(event.end, 'date')
 		};
 	});
+	
+	function getCoverUrl(cover: any): string {
+		if (!cover) {
+			return '/home/braunschweig_alte_waage.svg';
+		}
+
+		if (cover.ext === '.svg') {
+			return je_cms_api_base_url + cover.url;
+		} else if (cover.formats?.thumbnail?.url) {
+			return je_cms_api_base_url + cover.formats.thumbnail.url;
+		}
+
+		// Fallback
+		return '/home/braunschweig_alte_waage.svg';
+	}
 </script>
 
 {#if events}
@@ -32,26 +48,36 @@
 				<div class="flex h-full flex-col">
 					<div class={event.now == true ? 'mb-6 flex animate-pulse' : 'mb-6 flex'}>
 						<div class="relative inline-block w-full overflow-hidden rounded-sm">
-							{#if event.teaserImage.url && event.teaserImage.url != null}
-								<Image
-									src={event.teaserImage.url}
-									alt={`Teaser Bild ${event.summary}`}
-									classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-								/>
+							{#if event.teaserImage}
+								{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+									<Image
+										{src}
+										{alt}
+										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
+										copyright={[{ name: cp_name, url: cp_url }]}
+									/>
+								{/snippet}
+								{#if event.teaserImage.copyright.text}
+									{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
+										{@render image_blog(
+											getCoverUrl(event.teaserImage.data),
+											event.teaserImage.data.alternativeText,
+											event.teaserImage.copyright.text,
+											''
+										)}
+									{:else if event.teaserImage.copyright.text}
+										{@render image_blog(
+											getCoverUrl(event.teaserImage.data),
+											event.teaserImage.data.alternativeText,
+											event.teaserImage.copyright.text,
+											''
+										)}
+									{/if}
+								{:else}
+									{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data.alternativeText, '', '')}
+								{/if}
 							{:else}
-								<Image
-									src="/contact/teaser.svg"
-									alt={`Teaser Bild ${event.summary}`}
-									classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
-								/>
-							{/if}
-							{#if event.teaserImage.copyright?.url != undefined || event.teaserImage.copyright?.text != undefined}
-								<div class="absolute right-2 bottom-1">
-									<div class="bg-grey-50 rounded p-1 text-xs text-black my-1 opacity-75">
-										&copy;
-										{event.teaserImage.copyright.text}
-									</div>
-								</div>
+								{@render image_blog(getCoverUrl(event.teaserImage.data), `Teaser Bild ${event.summary}`, '', '')}
 							{/if}
 							<div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
 						</div>
