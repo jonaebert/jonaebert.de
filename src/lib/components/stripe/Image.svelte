@@ -15,7 +15,7 @@
 </script>
 
 <div class="prose max-w-none mb-6">
-	<div class="relative h-auto max-w-lg overflow-hidden rounded-lg aspect-[3/2]">
+	<div class="relative h-auto max-w-lg overflow-hidden rounded-lg">
 		<Image
 			src={getMediaURL(file)}
 			alt={file?.alternativeText}
