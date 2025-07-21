@@ -18,7 +18,7 @@
 		<Image
 			src={getMediaURL(file)}
 			alt={file?.alternativeText}
-			classNames="h-auto max-w-5xl rounded-lg object-cover"
+			classNames="h-auto max-w-lg rounded-lg object-cover"
 			copyright={[]}
 		/>
 </div>
