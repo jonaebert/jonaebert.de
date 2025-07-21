@@ -1,33 +1,29 @@
 import { je_api_base_url } from '$lib/store';
-import * as ph from '@prismicio/helpers';
 
 export async function load({ params, fetch }) {
   // Fetch posts
-  let posts = [];
-  let heading = '';
-  let keywords = [];
-  let image = [];
+  let post = [];
+  let title = '';
+  let cover = [];
 
   try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
+    const postRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
 
-    if (postsRes.ok) {
-      const postsData = await postsRes.json();
-      posts = postsData.data;
-      heading = ph.asText(postsData.data.title);
-      keywords = postsData.data.tags.join(', ');
-      image = ph.asImageSrc(postsData.data.teaser_image);
+    if (postRes.ok) {
+      const postData = await postRes.json();
+      post = postData;
+      title = postData.data.title;
+      cover = postData.data.cover;
     } else {
-      console.error('Error fetching posts:', postsRes.statusText);
+      console.error('Error fetching posts:', postRes.statusText);
     }
   } catch (error) {
     console.error('Error fetching posts:', error);
   }
 
   return {
-    post: posts,
-    heading: heading,
-    keywords: keywords,
-    image: image
+    post: post,
+    title: title,
+    cover: cover
   };
 }
