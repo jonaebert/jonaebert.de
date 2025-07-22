@@ -47,13 +47,13 @@
 			<a class="group/teaser-image flex flex-col" href="/calendar/{event.id}">
 				<div class="flex h-full flex-col">
 					<div class={event.now == true ? 'mb-6 flex animate-pulse' : 'mb-6 flex'}>
-						<div class="relative inline-block w-full overflow-hidden rounded-sm">
+						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2">
 							{#if event.teaserImage}
 								{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 									<Image
 										{src}
 										{alt}
-										classNames="w-full object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 aspect-[3/2] bg-transparent"
+										classNames="w-1500 object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 bg-transparent"
 										copyright={[{ name: cp_name, url: cp_url }]}
 									/>
 								{/snippet}
