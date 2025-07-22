@@ -16,35 +16,18 @@ const pages_08 = [
 
 // Fetch posts
 let posts: string[] = [];
-let posts_categories: string[] = [];
 
 try {
     const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all`);
 
     if (postsRes.ok) {
         const postsData = await postsRes.json();
-        posts = postsData.data;
-
-        // Get all categories
-        posts.forEach((post) => {
-            post.tags?.forEach((tag) => {
-                posts_categories.push(tag);
-            });
-        });
-        posts_categories = [...new Set(posts_categories)];
+        posts = postsData;
     } else {
         console.error('Error fetching posts:', postsRes.statusText);
     }
 } catch (error) {
     console.error('Error fetching posts:', error);
-}
-
-function blog_publish_date(blog_item: any) {
-    if (blog_item.data.overwrite_publish_date) {
-        return blog_item.data.overwrite_publish_date + 'T01:00:00+0000';
-    } else {
-        return blog_item.first_publication_date;
-    }
 }
 
 // Building sitemap
@@ -89,13 +72,13 @@ const sitemap = (pages_10: string[], pages_08: string[], posts: string[]) => `<?
         )
         .join('')
     }
-    ${posts
+    ${posts.data
         .map(
             (post) => `
                 <url>
-                    <loc>${site}${post.url}</loc>
+                    <loc>${site}/blog/${post.documentId}</loc>
                     <changefreq>weekly</changefreq>
-                    <lastmod>${blog_publish_date(post)}</lastmod>
+                    <lastmod>${post.updatedAt}</lastmod>
                     <priority>0.50</priority>
                 </url>
             `
