@@ -34,7 +34,9 @@
 		</div>
 		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
 			<div class="relative w-md">
-				<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full"/>
+				<a href="/about" target="_self">
+					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
+				</a>
 			</div>
 		</div>
 	</div>
