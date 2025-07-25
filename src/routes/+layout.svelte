@@ -12,7 +12,7 @@
 
 	// Links
 	let menuLinks = [
-		{ title: 'Home', href: '/' },
+		{ title: 'Home', href: '/home' },
 		{ title: 'Über mich', href: '/about' },
 		{ title: 'Kontakt', href: '/contact' }
 	];
@@ -117,7 +117,7 @@
 			<div
 				class="block absolute bottom-0 right-0 size-16 md:size-24 bg-grashalm-600 rounded-full transform translate-x-1/2 translate-y-1/2 z-30"
 			></div>
-			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+			<a href="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
 					src={logo}
 					alt="Logo von {name}"
@@ -219,7 +219,7 @@
 			<div class="md:flex md:justify-around">
 				<div class="mb-6 md:mb-0">
 					<a
-						href="/"
+						href="/home"
 						class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0"
 					>
 						<Image
@@ -272,7 +272,7 @@
 			<div class="sm:flex sm:items-center sm:justify-between">
 				<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
 					<span class="text-sm text-grey-400 sm:text-center">
-						&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte
+						&copy; 2023 - {currentYear} <a href="/home" class="hover:underline">{name}</a>. Alle Rechte
 						vorbehalten.
 					</span>
 					<span class="text-sm text-grey-400 sm:text-center">
