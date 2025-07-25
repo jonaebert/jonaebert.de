@@ -36,6 +36,6 @@
   }
 </style>
   
-<h2 class="text-xl xl:text-2xl font-semibold text-white text-nowrap">
-  Grün<span class="text-sun-600">.</span> Gemeinsam<span class="text-sun-600">.</span> <span class="fade text-sun-600" class:fade-in={!isTransitioning} class:fade-out={isTransitioning}>{currentWord}</span>.
+<h2 class="text-xl xl:text-2xl font-semibold text-secondary-900 text-nowrap">
+  Grün<span class="text-primary-600">.</span> Gemeinsam<span class="text-primary-600">.</span> <span class="fade text-primary-600" class:fade-in={!isTransitioning} class:fade-out={isTransitioning}>{currentWord}</span>.
 </h2>

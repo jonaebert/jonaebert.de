@@ -16,55 +16,25 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div
-	class="flex flex-col container items-start justify-end min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden bg-primary-700"
->
-	<div class="relative z-30 grid grid-rows-[auto] grid-cols-[auto] gap-8 items-end">
-		<!-- Rechte Spalte: Portrait -->
-		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-1">
-			<a
-				href="/about"
-				target="_self"
-				class="ease-in-out transition-transform transform hover:scale-105 duration-500 hover:translate-x-5"
-			>
-				<Image
-					src="/portrait/portrait_clear.svg"
-					classNames="object-contain mt-0 md:mt-15 max-h-[50vh] lg:max-h-[45vh]"
-				/>
-			</a>
-		</div>
-		<!-- Linke Spalte: Text, Name, Slogan, Social -->
-		<div
-			class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-2"
-		>
-			<!-- Textblock -->
-			<!-- <div class="text-pretty">
-				<div class="text-3xl md:text-4xl font-bold text-white italic my-2 pb-7 font-poppins">
-					<h2>Vordenker*in im Einklang von Technik und Natur</h2>
-				</div>
-				<div class="text-white text-sm md:text-base font-montserrat gap-4 grid grid-rows-[auto]">
-					<div class="">
-						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
-						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
-						Nachhaltigkeit eine Symbiose eingehen. Mein Engagement für den Klimaschutz ist geprägt
-						von der Überzeugung, dass wir alle eine Rolle in der Bewahrung unseres Planeten spielen.
-					</div>
-				</div>
-			</div> -->
-
-			<!-- Name, Slogan, Socials -->
-			<div
-				class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]"
-			>
+<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30">
+<!--<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30 bg-cover bg-[url('https://cms.jonaebert.de/uploads/Ausbau_des_Veloroutennetzes_Cover_3b04caf8aa.svg')]">-->
+	<div class="grid grid-cols-2 grid-rows-1 w-full place-items-center">
+		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
+			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]">
 				<div class="row-start-1 font-montserrat mt-6 md:mt-0">
 					<Slogan />
 				</div>
-				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-white md:mb-6 font-poppins">
+				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-secondary-900 md:mb-6 font-poppins">
 					<h1>{name}</h1>
 				</div>
 				<div class="row-start-3">
 					<Social />
 				</div>
+			</div>
+		</div>
+		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
+			<div class="relative w-md">
+				<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full"/>
 			</div>
 		</div>
 	</div>
