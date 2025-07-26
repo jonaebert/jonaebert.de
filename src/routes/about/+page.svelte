@@ -48,13 +48,68 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div
+<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-20">
+<!--<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30 bg-cover bg-[url('https://cms.jonaebert.de/uploads/Ausbau_des_Veloroutennetzes_Cover_3b04caf8aa.svg')]">-->
+	<div class="grid grid-cols-2 grid-rows-1 w-full place-items-center">
+		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
+			<div class="relative grid grid-rows-[auto,auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]">
+				<!-- Textblock -->
+				<div class="text-pretty row-start-1 mb-20">
+					<div class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7 font-poppins">
+						<h2>Vordenker:in im Einklang von Technik und Natur</h2>
+					</div>
+					<div class="text-black text-sm md:text-base font-montserrat gap-4 grid grid-rows-[auto]">
+						<div class="">
+							In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
+							Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
+							Nachhaltigkeit eine Symbiose eingehen. Mein Engagement für den Klimaschutz ist geprägt
+							von der Überzeugung, dass wir alle eine Rolle in der Bewahrung unseres Planeten spielen.
+						</div>
+						<div class="">
+							Als IT-Experte mit einem breiten Spektrum an Fähigkeiten habe ich mich in verschiedenen
+							Sektoren bewährt. Die Möglichkeit, meine Kenntnisse für den Umweltschutz einzusetzen,
+							ist ein spannendes Feld, das ich erkunden möchte, um die Schnittstelle zwischen IT und
+							Nachhaltigkeit zu stärken.
+						</div>
+						<div class="">
+							Meine politische Tätigkeit bei BÜNDNIS 90/DIE GRÜNEN in Braunschweig ist Ausdruck meines
+							Bestrebens, auf lokaler Ebene positive Veränderungen zu bewirken. Ich trete für eine
+							Politik ein, die den Herausforderungen des Klimawandels mit Weitsicht begegnet, für eine
+							Wirtschaft, die Ressourcen schont, und für ein Miteinander, das den Schutz unserer
+							natürlichen Lebensgrundlagen ernst nimmt.
+						</div>
+						<div class="">
+							Ich bin fest davon überzeugt, dass jeder Einzelne die Kraft hat, die Welt zu verändern.
+							Durch mein Engagement hoffe ich, andere zu inspirieren, sich ebenfalls für den
+							Umweltschutz stark zu machen und gemeinsam einen Weg in eine nachhaltige Zukunft zu
+							ebnen.
+						</div>
+					</div>
+				</div>
+				<div class="row-start-2 font-montserrat mt-6 md:mt-0">
+					<Slogan />
+				</div>
+				<div class="row-start-3 text-3xl xl:text-5xl font-bold text-secondary-900 md:mb-6 font-poppins">
+					<h1>{name}</h1>
+				</div>
+				<div class="row-start-4">
+					<Social />
+				</div>
+			</div>
+		</div>
+		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
+			<div class="relative w-md">
+				<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--<div
 	class="flex flex-col container items-start justify-between pt-10 min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden bg-primary-700"
 >
 	<div class="relative z-30 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-		<!-- Linke Spalte: Text, Name, Slogan, Social -->
 		<div class="flex flex-col space-y-6">
-			<!-- Textblock -->
 			<div class="text-pretty">
 				<div class="text-3xl md:text-4xl font-bold text-white italic my-2 pb-7 font-poppins">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
@@ -88,7 +143,6 @@
 				</div>
 			</div>
 
-			<!-- Name, Slogan, Socials -->
 			<div
 				class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]"
 			>
@@ -104,7 +158,6 @@
 			</div>
 		</div>
 
-		<!-- Rechte Spalte: Portrait -->
 		<div class="flex justify-center lg:justify-end">
 			<Image
 				src="/portrait/portrait_clear.svg"
@@ -112,7 +165,7 @@
 			/>
 		</div>
 	</div>
-</div>
+</div>-->
 
 <!-- CV -->
 <div class="container py-5">
