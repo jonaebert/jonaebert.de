@@ -18,9 +18,9 @@
 
 <div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30">
 <!--<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30 bg-cover bg-[url('https://cms.jonaebert.de/uploads/Ausbau_des_Veloroutennetzes_Cover_3b04caf8aa.svg')]">-->
-	<div class="grid grid-cols-2 grid-rows-1 w-full place-items-center">
+	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-center">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
-			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start z-30 pt-0 md:pt-[10vh]">
+			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start xl:splace-items-start z-30 pt-0 md:pt-[10vh]">
 				<div class="row-start-1 font-montserrat mt-6 md:mt-0">
 					<Slogan />
 				</div>
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
-			<div class="relative w-md">
+			<div class="relative w-xs md:w-md">
 				<a href="/about" target="_self">
 					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
 				</a>
