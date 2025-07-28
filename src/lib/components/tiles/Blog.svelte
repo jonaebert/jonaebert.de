@@ -12,8 +12,8 @@
 
 		if (cover.ext === '.svg') {
 			return je_cms_api_base_url + cover.url;
-		} else if (cover.formats?.thumbnail?.url) {
-			return je_cms_api_base_url + cover.formats.thumbnail.url;
+		} else if (cover.formats?.small?.url) {
+			return je_cms_api_base_url + cover.formats.small.url;
 		}
 
 		// Fallback

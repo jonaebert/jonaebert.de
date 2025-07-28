@@ -4,8 +4,8 @@
     // Farben
     let colors = {
         default: {
-            icon: "black",
-            background: "white",
+            icon: "white",
+            background: "secondary-900",
             border: "grey-300",
         },
         focus: {
@@ -14,7 +14,7 @@
             border: "himmel-600",
         },
         hover: {
-            icon: "black",
+            icon: "secondary-900",
             background: "sun-600",
             border: "transparent",
         },
