@@ -1,4 +1,6 @@
 name: Update latest branch on stable tag
+permissions:
+  contents: write
 
 on:
   push:
