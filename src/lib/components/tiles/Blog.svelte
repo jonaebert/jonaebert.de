@@ -111,7 +111,7 @@
 									<Image
 										src={getCMSImageURL(item.author.avatar)}
 										alt={item.author.name}
-										classNames="h-[3vh] max-h-7 w-auto rounded-full mr-1.5 items-center object-cover"
+										classNames="h-7 w-auto rounded-full mr-1.5 items-center object-cover"
 									/>
 								</div>
 								<div>
@@ -120,7 +120,7 @@
 							{/if}
 						</div>
 					</div>
-					<div class="hyphense-auto font-bold text-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
+					<div class="hyphens-auto font-bold text-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
 						{item.title}
 					</div>
 					<span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
