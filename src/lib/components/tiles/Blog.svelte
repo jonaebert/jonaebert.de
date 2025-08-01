@@ -70,7 +70,6 @@
 							{#if item.type == 'article'}
 								<svg
 									version="1.1"
-									id="Ebene_1"
 									xmlns="http://www.w3.org/2000/svg"
 									x="0px"
 									y="0px"
@@ -86,6 +85,24 @@
 									<rect x="26.3" y="81" fill="inherit" width="47.7" height="11"></rect>
 								</svg>
 								Artikel
+							{:else if item.type == 'comment'}
+								<svg
+									version="1.1"
+									xmlns="http://www.w3.org/2000/svg"
+									x="0px"
+									y="0px"
+									viewBox="0 -960 960 960"
+									class="mr-1.5 shrink-0 inline h-5.5 w-5.5 fill-secondary-600"
+								>
+									<path
+										fill="inherit"
+										d="M880-80 720-240H160q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v720ZM160-320h594l46 45v-525H160v480Z"
+									/>
+									<rect x="240" y="-480" fill="inherit" width="480" height="70" />
+									<rect x="240" y="-590" fill="inherit" width="480" height="70" />
+									<rect x="240" y="-720" fill="inherit" width="480" height="70" />
+								</svg>
+								Kommentar
 							{/if}
 						</div>
 					</div>
