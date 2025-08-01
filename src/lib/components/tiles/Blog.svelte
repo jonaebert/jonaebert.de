@@ -42,24 +42,24 @@
 								{#if item.copyright[0].enabled == true}
 									{#if item.copyright[0].name && item.copyright[0].url}
 										{@render image_blog(
-											getCoverUrl(item.cover),
+											getCMSImageURL(item.cover),
 											item.cover.alternativeText,
 											item.copyright[0].name,
 											item.copyright[0].url
 										)}
 									{:else if item.copyright[0].name}
 										{@render image_blog(
-											getCoverUrl(item.cover),
+											getCMSImageURL(item.cover),
 											item.cover.alternativeText,
 											item.copyright[0].name,
 											''
 										)}
 									{/if}
 								{:else}
-									{@render image_blog(getCoverUrl(item.cover), item.cover.alternativeText, '', '')}
+									{@render image_blog(getCMSImageURL(item.cover), item.cover.alternativeText, '', '')}
 								{/if}
 							{:else}
-								{@render image_blog(getCoverUrl(item.cover), `Teaser Bild ${item.title}`, '', '')}
+								{@render image_blog(getCMSImageURL(item.cover), `Teaser Bild ${item.title}`, '', '')}
 							{/if}
 						</div>
 					</div>
