@@ -5,15 +5,15 @@
 	import { text } from '@sveltejs/kit';
 	export let items;
 
-	function getCoverUrl(cover: any): string {
-		if (!cover) {
+	function getCMSImageURL(image: any): string {
+		if (!image) {
 			return '/home/braunschweig_alte_waage.svg';
 		}
 
-		if (cover.ext === '.svg') {
-			return je_cms_api_base_url + cover.url;
-		} else if (cover.formats?.small?.url) {
-			return je_cms_api_base_url + cover.formats.small.url;
+		if (image.ext === '.svg') {
+			return je_cms_api_base_url + image.url;
+		} else if (image.formats?.small?.url) {
+			return je_cms_api_base_url + image.formats.small.url;
 		}
 
 		// Fallback
