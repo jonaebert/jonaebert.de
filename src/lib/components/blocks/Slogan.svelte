@@ -1,7 +1,7 @@
 <script>
-  export let words = ["Solidarisch", "Gerecht", "Sozial", "Fair", "Stark", "Klar"];
+  export let words = ["Queer", "Solidarisch", "Gerecht", "Sozial", "Fair", "Stark", "Klar"];
 
-  let currentWord = words[2];
+  let currentWord = words[3];
   let nextWord = "";
   let isTransitioning = false;
   const timeout = 1750;
