@@ -20,7 +20,7 @@
 <div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 	<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
-		<source src="/herovideo.mp4" type="video/mp4"/>
+		<source src="/home/herovideo.mp4" type="video/mp4"/>
 		Ihr Browser unterstützt das Video-Tag nicht.
 	</video>
 	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start xl:place-items-center z-30">

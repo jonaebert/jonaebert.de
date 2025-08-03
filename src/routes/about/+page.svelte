@@ -52,7 +52,7 @@
 	<div class="flex-grow flex flex-col justify-between">
 		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 		<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
-			<source src="/herovideo.mp4" type="video/mp4"/>
+			<source src="/home/herovideo.mp4" type="video/mp4"/>
 			Ihr Browser unterstützt das Video-Tag nicht.
 		</video>
 		<div class="text-pretty rounded-t-xl z-30">
