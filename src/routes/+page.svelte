@@ -16,8 +16,7 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<!--<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30">-->
-<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 p-30">
+<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[70vh] relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 	<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
