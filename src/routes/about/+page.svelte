@@ -51,9 +51,8 @@
 <div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">
 	<div class="flex-grow flex flex-col justify-between">
 		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-		<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
+		<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
 			<source src="/home/herovideo.mp4" type="video/mp4"/>
-			<Image src="/home/braunschweig_alte_waage.svg" alt="Standbild des Hintergrundvideos" classNames="w-full h-full object-cover absolute z-9 inset-0"/>
 		</video>
 		<div class="text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">

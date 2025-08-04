@@ -18,9 +18,8 @@
 
 <div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[70vh] relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-	<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
+	<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
-		<Image src="/home/braunschweig_alte_waage.svg" alt="Standbild des Hintergrundvideos" classNames="w-full h-full object-cover absolute z-9 inset-0"/>
 	</video>
 	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
