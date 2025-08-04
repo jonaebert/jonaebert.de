@@ -20,7 +20,8 @@
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 	<video autoplay muted loop playsinline class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
-		Ihr Browser unterstützt das Video-Tag nicht.
+		Das Hintergrundvideo zeigt Natur und Technik im Einklang. Ihr Browser unterstützt das Video-Tag nicht. 
+		<img src="/home/herovideo_poster.jpg" alt="Standbild des Hintergrundvideos" class="mt-2 w-full h-auto"/>
 	</video>
 	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
