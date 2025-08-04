@@ -22,9 +22,9 @@
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
 		Ihr Browser unterstützt das Video-Tag nicht.
 	</video>
-	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start xl:place-items-center z-30">
+	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
-			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start xl:place-items-start pt-0 md:pt-[10vh]">
+			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start pt-0 md:pt-[10vh]">
 				<div class="row-start-1 font-montserrat mt-6 md:mt-0">
 					<Slogan />
 				</div>
