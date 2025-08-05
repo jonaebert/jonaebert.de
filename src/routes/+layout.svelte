@@ -217,22 +217,21 @@
 
 <footer class="z-30 bg-secondary-900">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
-		<div class="md:flex md:justify-around">
-			<div class="mb-6 md:mb-0">
-				<a
-					href="/"
-					class="flex items-center transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0"
-				>
+		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-8 sm:gap-6 text-balance">
+			<div class="mb-6 md:mb-0 flex items-center">
+				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
+					<Image
+						src={logo_clear}
+						alt="Logo von {name}"
+						classNames="w-fit max-w-54 h-full me-3 hidden md:block"
+					/>
 					<Image
 						src={logo_small_clear}
 						alt="Logo von {name}"
-						classNames="h-32 me-3 hidden md:block"
+						classNames="w-fit max-w-42 h-full me-3 block md:hidden"
 					/>
-					<Image src={logo_clear} alt="Logo von {name}" classNames="h-16 me-3 md:hidden block" />
-					<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-poppins">Jona Ebert</span> -->
 				</a>
 			</div>
-			<div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 text-balance">
 				<div>
 					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
 					<ul class="text-grey-400 font-medium font-montserrat">
@@ -267,7 +266,6 @@
 						{/each}
 					</ul>
 				</div>
-			</div>
 		</div>
 		<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
