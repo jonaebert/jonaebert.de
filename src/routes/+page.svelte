@@ -16,15 +16,18 @@
 	<meta name="robots" content="index,follow" />
 </svelte:head>
 
-<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30">
-<!--<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden p-30 bg-cover bg-[url('https://cms.jonaebert.de/uploads/Ausbau_des_Veloroutennetzes_Cover_3b04caf8aa.svg')]">-->
-	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start xl:place-items-center">
+<div class="flex flex-col container items-center justify-center min-h-[45vh] xl:min-h-[70vh] relative z-10 p-30">
+	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
+	<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
+		<source src="/home/herovideo.mp4" type="video/mp4"/>
+	</video>
+	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
-			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start xl:place-items-start z-30 pt-0 md:pt-[10vh]">
+			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start pt-0 md:pt-[10vh]">
 				<div class="row-start-1 font-montserrat mt-6 md:mt-0">
 					<Slogan />
 				</div>
-				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-secondary-900 md:mb-6 font-poppins">
+				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
 					<h1>{name}</h1>
 				</div>
 				<div class="row-start-3">

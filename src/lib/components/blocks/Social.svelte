@@ -1,6 +1,6 @@
 <script lang="ts">
     import RoundedIcon from "$lib/components/button/RoundedIcon.svelte"
-    import { faInstagram, faThreads, faYoutube, faTiktok, faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"; // For new Icons: https://fontawesome.com/search
+    import { faInstagram, faThreads, faYoutube, faTiktok, faLinkedinIn, faGithub, faMastodon } from "@fortawesome/free-brands-svg-icons"; // For new Icons: https://fontawesome.com/search
     // Farben
     let colors = {
         default: {
@@ -27,9 +27,10 @@
     let disabled = false;
 </script>
 
-<div class="gap-x-3.5 gap-y-3.5 grid grid-cols-3 md:grid-cols-6">
+<div class="gap-x-3.5 gap-y-3.5 grid grid-cols-4 md:grid-cols-4">
     <div><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://mastodon.social/@jonaebertbs" icon={faMastodon} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.youtube.com/@jonaebert" icon={faYoutube} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.tiktok.com/@jona_ebert" icon={faTiktok} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.linkedin.com/in/jonaebert" icon={faLinkedinIn} target="_blank" {colors} {disabled} /></div>

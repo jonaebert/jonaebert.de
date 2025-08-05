@@ -50,15 +50,19 @@
 
 <div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">
 	<div class="flex-grow flex flex-col justify-between">
-		<div class="text-pretty rounded-t-xl">
+		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
+		<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
+			<source src="/home/herovideo.mp4" type="video/mp4"/>
+		</video>
+		<div class="text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
 					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full float-right"/>
 				</div>
-				<div class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7 font-poppins">
+				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7 font-poppins">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
-				<div class="text-black text-sm md:text-base font-montserrat">
+				<div class="text-white text-sm md:text-base font-montserrat">
 					<div class="">
 						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
 						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
@@ -90,7 +94,7 @@
 						<div class="row-start-2 font-montserrat mt-6 md:mt-0">
 							<Slogan />
 						</div>
-						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-secondary-900 md:mb-6 font-poppins">
+						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
 							<h1>{name}</h1>
 						</div>
 						<div class="row-start-4">
