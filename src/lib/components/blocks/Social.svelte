@@ -31,7 +31,7 @@
     <div><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://mastodon.social/@jonaebertbs" icon={faMastodon} target="_blank" {colors} {disabled} /></div>
-    <div><RoundedIcon href="https://www.youtube.com/@jonaebert" icon={faYoutube} target="_blank" {colors} {disabled} /></div>
+    <div><RoundedIcon href="https://www.youtube.com/@jonaebertbs" icon={faYoutube} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.tiktok.com/@jona_ebert" icon={faTiktok} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://www.linkedin.com/in/jonaebert" icon={faLinkedinIn} target="_blank" {colors} {disabled} /></div>
     <div><RoundedIcon href="https://github.com/jonaebert" icon={faGithub} target="_blank" {colors} {disabled} /></div>
