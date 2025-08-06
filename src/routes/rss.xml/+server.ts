@@ -1,5 +1,5 @@
 import type { RequestHandler } from './$types';
-import { name, pronouns, uri, je_api_base_url } from '$lib/store';
+import { name, pronouns, je_api_base_url } from '$lib/store';
 
 async function fetchPosts() {
   // Fetch posts
@@ -23,15 +23,16 @@ async function fetchPosts() {
   };
 }
 
-export const GET: RequestHandler = async () => {
+export const GET: RequestHandler = async ({ url }) => {
   const { posts } = await fetchPosts();
+  const baseUrl = `${url.protocol}//${url.host}`;
 
   const itemsXml = posts.data
     .map((post) => {
       const pubDate = new Date(post.createdAt).toUTCString();
       return `    <item>
       <title>${post.title}></title>
-      <link>https://jonaebert.de/blog/${post.documentId}</link>
+      <link>${baseUrl}/blog/${post.documentId}</link>
       <guid isPermaLink="false">${post.documentId}</guid>
       <description>${post.description}</description>
       <pubDate>${pubDate}</pubDate>
@@ -42,9 +43,9 @@ export const GET: RequestHandler = async () => {
   const rssXml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="https://jonaebert.de/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
     <title>Blog von ${name} (${pronouns})</title>
-    <link>https://jonaebert.de/</link>
+    <link>${baseUrl}/</link>
     <description>Die neuesten Blog-Beiträge von ${name}</description>
     <language>de</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
