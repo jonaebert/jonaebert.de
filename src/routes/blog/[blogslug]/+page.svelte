@@ -37,7 +37,7 @@
 	<meta property="og:image" content={getCoverUrl(cover)} />
 </svelte:head>
 
-<div class="relative min-h-[80vh] flex flex-col">
+<div class="relative min-h-[100vh] flex flex-col">
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
