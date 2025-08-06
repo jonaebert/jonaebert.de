@@ -33,7 +33,7 @@ export const GET: RequestHandler = async () => {
       <title>${post.title}></title>
       <link>https://jonaebert.de/blog/${post.documentId}</link>
       <guid isPermaLink="false">${post.documentId}</guid>
-      <description>AKTUELL KEINE BESCHREIBUNG</description>
+      <description>${post.description}</description>
       <pubDate>${pubDate}</pubDate>
     </item>`;
     })
