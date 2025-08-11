@@ -341,32 +341,24 @@
 				Ist das Formular nichts für dich?
 			</h3>
 			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
-				<div
-					class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
-				>
+				<div class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit">
 					<h4 class="text-xl md:text-2xl font-bold text-black italic font-poppins">
 						Soziale Medien
 					</h4>
 					<Social />
 				</div>
-				<div
-					class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
-				>
+				<div class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit">
 					<h4 class="text-xl md:text-2xl font-bold text-black italic font-poppins">E-Mail</h4>
 					<a href="mailto:{contact.mail}" class="font-montserrat">{contact.mail}</a>
 				</div>
-				<div
-					class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
-				>
+				<div class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit">
 					<h4 class="text-xl md:text-2xl font-bold text-black italic font-poppins">Post</h4>
 					<div class="font-montserrat">
 						{name}<br />{address.street}<br />{address.zipcode}
 						{address.city}<br />{address.country}
 					</div>
 				</div>
-				<div
-					class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
-				>
+				<div class="bg-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit">
 					<h4 class="text-xl md:text-2xl font-bold text-black italic font-poppins">Fax</h4>
 					<a href="tel:{contact.fax}" class="font-montserrat">{contact.fax}</a>
 				</div>
