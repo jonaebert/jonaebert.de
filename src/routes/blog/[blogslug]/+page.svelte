@@ -2,9 +2,6 @@
 	import { name, je_cms_api_base_url } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
-
-	import { text } from '@sveltejs/kit';
-	import { faPhabricator } from '@fortawesome/free-brands-svg-icons';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
