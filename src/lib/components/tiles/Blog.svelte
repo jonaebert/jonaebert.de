@@ -22,9 +22,7 @@
 </script>
 
 {#if items}
-	<div
-		class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start"
-	>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start">
 		{#each items as item}
 			<a class="group/teaser-image flex flex-col" href={`/blog/${item.documentId}`}>
 				<div class="flex h-full flex-col">
