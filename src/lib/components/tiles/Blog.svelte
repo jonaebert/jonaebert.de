@@ -22,9 +22,7 @@
 </script>
 
 {#if items}
-	<div
-		class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start"
-	>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start">
 		{#each items as item}
 			<a class="group/teaser-image flex flex-col" href={`/blog/${item.documentId}`}>
 				<div class="flex h-full flex-col">
@@ -35,7 +33,7 @@
 									{src}
 									{alt}
 									classNames="w-1500 object-cover transition-all duration-500 hover:scale-105 group-hover/teaser-image:scale-105 aspect-3/2 bg-transparent"
-									copyright={[{ name: cp_name, url: cp_url }]}
+									copyright={[{ name: cp_name, url: '' }]}
 								/>
 							{/snippet}
 							{#if item.cover}
