@@ -36,10 +36,7 @@
 
 <div class="relative min-h-[100vh] flex flex-col">
 	<!-- Hintergrundbild -->
-	<div
-		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({getCoverUrl(cover, true)});"
-	></div>
+	<div class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url({getCoverUrl(cover, true)});"></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
 
@@ -76,14 +73,14 @@
 						{#if post.data.copyright[0].enabled == true}
 							{#if post.data.copyright[0].name && post.data.copyright[0].url}
 								{@render image_blog(
-									getCoverUrl(cover),
+									getCoverUrl(cover, true),
 									cover.alternativeText,
 									post.data.copyright[0].name,
 									post.data.copyright[0].url
 								)}
 							{:else if post.data.copyright[0].name}
 								{@render image_blog(
-									getCoverUrl(cover),
+									getCoverUrl(cover, true),
 									cover.alternativeText,
 									post.data.copyright[0].name,
 									''
