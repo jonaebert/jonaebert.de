@@ -47,24 +47,18 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Termine</h2>
-		<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">
-			Hier kannst du mich treffen!
-		</h3>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
 	</div>
-	{#if events[0]}
-		<CalendarTiles items={events}></CalendarTiles>
+	{#if posts.data[0]}
+		<BlogTiles items={posts.data} />
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
-			<InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"
-			></InfoMessage>
+			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
 		</div>
 	{/if}
 </div>
 
-<div
-	class="relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
->
+<div class="relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="container relative py-7 text-start text-balance">
 		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">
@@ -97,20 +91,22 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Termine</h2>
+		<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">
+			Hier kannst du mich treffen!
+		</h3>
 	</div>
-	{#if posts.data[0]}
-		<BlogTiles items={posts.data} />
+	{#if events[0]}
+		<CalendarTiles items={events}></CalendarTiles>
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
-			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
+			<InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"
+			></InfoMessage>
 		</div>
 	{/if}
 </div>
 
-<div
-	class="relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
->
+<div class="relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="container relative py-7 text-start text-balance">
 		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik in Braunschweig</h2>
