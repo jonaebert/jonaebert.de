@@ -23,10 +23,8 @@
 	];
 	let footerLinks = [
 		{ title: 'GRÜNE Braunschweig', href: 'https://gruene-braunschweig.de/' },
-		{
-			title: 'GRÜNE Ratsfraktion Braunschweig',
-			href: 'https://gruene-braunschweig-ratsfraktion.de/'
-		}
+		{ title: 'GRÜNE Ratsfraktion Braunschweig', href: 'https://gruene-braunschweig-ratsfraktion.de/' },
+		{ title: 'GRÜNE JUGEND Braunschweig', href: 'https://gj-braunschweig.de/' }
 	];
 
 	// Reactive statement, das auf Änderungen der aktuellen Route reagiert
