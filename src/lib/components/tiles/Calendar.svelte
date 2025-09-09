@@ -59,20 +59,20 @@
 									{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
 										{@render image_blog(
 											getCoverUrl(event.teaserImage.data),
-											event.teaserImage.data.alternativeText,
+											event.teaserImage.data?.alternativeText || '',
 											event.teaserImage.copyright.text,
 											''
 										)}
 									{:else if event.teaserImage.copyright.text}
 										{@render image_blog(
 											getCoverUrl(event.teaserImage.data),
-											event.teaserImage.data.alternativeText,
+											event.teaserImage.data?.alternativeText || '',
 											event.teaserImage.copyright.text,
 											''
 										)}
 									{/if}
 								{:else}
-									{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data.alternativeText, '', '')}
+									{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data?.alternativeText || '', '', '')}
 								{/if}
 							{:else}
 								{@render image_blog(getCoverUrl(event.teaserImage.data), `Teaser Bild ${event.summary}`, '', '')}
