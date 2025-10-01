@@ -31,7 +31,7 @@ export const GET: RequestHandler = async ({ url }) => {
     .map((post) => {
       const pubDate = new Date(post.createdAt).toUTCString();
       return `    <item>
-      <title>${post.title}></title>
+      <title>${post.title}</title>
       <link>${baseUrl}/blog/${post.documentId}</link>
       <guid isPermaLink="false">${post.documentId}</guid>
       <description>${post.description}</description>
