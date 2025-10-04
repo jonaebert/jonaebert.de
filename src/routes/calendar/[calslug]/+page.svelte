@@ -31,8 +31,16 @@
 
 		if (cover.ext === '.svg') {
 			return je_cms_api_base_url + cover.url;
-		} else if (cover.formats?.large?.url) {
-			return je_cms_api_base_url + cover.formats.large.url;
+		} else if (cover.formats) {
+			if (cover.formats.large?.url) {
+				return je_cms_api_base_url + cover.formats.large.url;
+			} else if (cover.formats.medium?.url) {
+				return je_cms_api_base_url + cover.formats.medium.url;
+			} else if (cover.formats.small?.url) {
+				return je_cms_api_base_url + cover.formats.small.url;
+			} else if (cover.formats.thumbnail?.url) {
+				return je_cms_api_base_url + cover.formats.thumbnail.url;
+			}
 		}
 
 		// Fallback
