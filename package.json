@@ -40,7 +40,7 @@
 	"type": "module",
 	"dependencies": {
 		"@fortawesome/free-brands-svg-icons": "^7.0.1",
-		"marked": "^16.3.0",
+		"marked": "^16.4.1",
 		"node-fetch": "^3.3.2",
 		"svelte-fa": "^4.0.4"
 	}
