@@ -99,6 +99,10 @@
 					<td>@jonaebert</td>
 				</tr>
 				<tr>
+					<td>Mastodon</td>
+					<td>@jonaebertbs</td>
+				</tr>
+				<tr>
 					<td>TikTok</td>
 					<td>@jona_ebert</td>
 				</tr>
