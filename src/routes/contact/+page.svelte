@@ -102,7 +102,7 @@
 		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
-		<div class="relative w-full h-auto bg-[url('/contact/teaser.svg')] bg-cover bg-left"></div>
+		<div class="relative w-full h-auto bg-[url('https://cms.jonaebert.de/uploads/See_and_Wald_Hintergrund_b3d10959ff.png')] bg-cover bg-left"></div>
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
