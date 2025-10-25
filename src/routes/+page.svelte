@@ -10,9 +10,6 @@
 	// Blog data
 	export let data;
 	const { posts, events } = data;
-	
-	// URI
-	console.log('URI:', $uri.url.port);
 </script>
 
 <svelte:head>
