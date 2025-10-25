@@ -2,7 +2,6 @@
 	import { address, contact, name, bb_base_url, bb_api_token, uri } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
-	import Image from '$lib/components/image.svelte';
 
 	import { page } from '$app/stores';
 	$: barrierParam = $page.url.searchParams.get('barrier');
