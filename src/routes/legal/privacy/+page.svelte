@@ -7,8 +7,8 @@
 	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="container py-12 grid gap-5">
-	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 italic my-2">Datenschutz</h1>
+<div class="container py-12 grid gap-5 text-black dark:text-grey-400">
+	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Datenschutz</h1>
 	<div class="text-balance font-montserrat mb-4">
 		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von
 		personenbezogenen Daten (im Folgenden auch nur als "Daten" bezeichnet) aufklären.
@@ -18,7 +18,7 @@
 		für die von uns vorgehaltenen Online-Medien.
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wer bei uns für die Datenverarbeitung verantwortlich ist
 		</h2>
 		<div class="font-montserrat text-balance mb-4">
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Ihre Rechte nach der DSGVO
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -70,12 +70,12 @@
 				</li>
 			</ul>
 		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerrufsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerrufsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung jederzeit zu
 			widerrufen.
 		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerspruchsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerspruchsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
 			berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch einzulegen. Sofern
@@ -94,7 +94,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wann löschen wir Ihre Daten?
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -140,7 +140,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Webhosting</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Webhosting</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
 			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
@@ -204,7 +204,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Content-Delivery-Network
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -260,7 +260,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Kontaktaufnahme</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontaktaufnahme</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
 			sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre Telefonnummer
@@ -288,7 +288,7 @@
 				1 lit. b DSGVO, berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 			</div>
 			<div>
-				<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">
+				<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
 				<div class="text-balance font-montserrat mb-4">
@@ -302,7 +302,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Content-Dienste</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Content-Dienste</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
 			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
@@ -406,7 +406,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Unsere Onlinepräsenzen bei sozialen Netzwerken
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -547,7 +547,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Sicherheits Maßnahmen
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -558,7 +558,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
