@@ -38,7 +38,7 @@
 					{@html token.text}
 				</svelte:element>
 			{:else if token.type === 'code'}
-				<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-5xl overflow-scroll">
+				<div class="relative bg-secondary-700 rounded-lg p-4 h-auto max-w-4xl overflow-auto">
 					<pre><code class="text-sm text-primary-200 whitespace-pre">
 					{@html escapeHtml(token.text)}
 				</code></pre>
