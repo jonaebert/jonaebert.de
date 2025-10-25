@@ -1,5 +1,6 @@
 <script lang="ts">
 	// Importe
+	import { onMount } from 'svelte';
 	import '../app.css';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
@@ -85,13 +86,41 @@
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-	import { onMount } from 'svelte';
 	let isVisible = false;
 	onMount(() => {
 		window.addEventListener('scroll', () => {
 			isVisible = window.scrollY > 100;
 		});
 	});
+
+	// Theme Toggle
+	import ThemeSwitch from '$lib/components/blocks/ThemeSwitch.svelte';
+	let isDarkMode: boolean = false;
+
+	onMount(() => {
+	    const saved = localStorage.getItem('theme');
+    	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    	isDarkMode = saved === 'dark' || (!saved && prefersDark);
+    	updateHtmlClass();
+	});
+	
+	function toggleDarkMode() {
+		isDarkMode = !isDarkMode;
+		updateHtmlClass();
+	}
+	
+	function updateHtmlClass() {
+		if (typeof document === 'undefined') return; // SSR-Schutz
+		if (isDarkMode) {
+			document.documentElement.classList.remove('light');
+			document.documentElement.classList.add('dark');
+			localStorage.setItem('theme', 'dark')
+		} else {
+			document.documentElement.classList.remove('dark');
+			document.documentElement.classList.add('light');
+			localStorage.setItem('theme', 'light');
+		}
+	}
 </script>
 
 <svelte:head>
@@ -187,11 +216,14 @@
 	<Ticker />
 </div>
 
-{#if isVisible}
-	<div class="z-50 fixed bottom-4 right-4">
+<div class="fixed z-50">
+	<div class="fixed bottom-4 right-4">
+		<ThemeSwitch {isDarkMode} {toggleDarkMode} />
+	</div>
+	{#if isVisible}
 		<button
 			on:click={scrollToTop}
-			class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-himmel-600 text-neutral-600 hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab"
+			class="fixed bottom-18.5 right-4 p-3 rounded-full shadow-2xl transition duration-300 hover:scale-115 bg-himmel-600 text-white cursor-pointer"
 			aria-label="Scroll to top"
 		>
 			<svg
@@ -204,8 +236,8 @@
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 			</svg>
 		</button>
-	</div>
-{/if}
+	{/if}
+</div>
 
 <div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
 	<main class="grow z-20">

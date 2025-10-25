@@ -4,6 +4,8 @@
 /* Tailwind CSS Direktiven */
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Fonts */
   --font-poppins: Poppins;
@@ -135,4 +137,23 @@ a:hover {
   @apply rounded-full;
   @apply font-bold;
   @apply cursor-pointer;
+}
+
+/* Theme Switch */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.9) translateY(0);
+    filter: drop-shadow(0 0 1px white);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) translateY(-0.5px);
+    filter: drop-shadow(0 0 3px white);
+  }
+}
+
+.star {
+  animation: twinkle ease-in-out infinite alternate;
+  border-radius: 9999px;
 }
