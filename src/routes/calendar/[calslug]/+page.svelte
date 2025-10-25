@@ -57,9 +57,7 @@
 </svelte:head>
 
 <div class="flex min-h-screen items-center justify-center container py-5">
-	<div
-		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
-	>
+	<div class="bg-grey-50 dark:bg-grey-950 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg">
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
 			{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
@@ -95,130 +93,134 @@
 			{/if}
 		</div>
 
-		<!-- Textbereich -->
-		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
-			{#if event.state === 'CANCELLED'}
-				<span
-					class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
-				>
-					ABGESAGT
-				</span>
-			{/if}
-			<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
-				{event.summary}
-			</h1>
+		<div class="flex flex-col justify-center py-6 container border border-grey-100 dark:border-none">
+			<div class="pb-6">
+				<!-- Titel -->
+				{#if event.state === 'CANCELLED'}
+					<span class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4">
+						ABGESAGT
+					</span>
+				{/if}
+				<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins">
+					{event.summary}
+				</h1>
 
-			<div
-				class="font-montserrat text-grey-700 text-base md:text-lg leading-relaxed text-pretty mb-6"
-			>
-				{#if event.description}
-					<div>{@html event.description}</div>
-				{:else}
-					<div>
-						Keine Beschreibung gefunden 🫠 <br />
-						Lass dich überraschen 🎉
+				<!-- Beschreibung -->
+				<div class="font-montserrat text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty">
+					{#if event.description}
+						<div>{@html event.description}</div>
+					{:else}
+						<div>
+							Keine Beschreibung gefunden 🫠 <br />
+							Lass dich überraschen 🎉
+						</div>
+					{/if}
+				</div>
+			</div>
+
+			<div class="pb-6">
+				<!-- Datum -->
+				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
+					<div class="flex flex-row justify-start items-center">
+						<div class="mr-3">🗓️</div>
+						<div class="flex flex-row items-end gap-6">
+							{#if event.datetype === 'date'}
+								<p>
+									{event.startdate} - {event.enddate} <br /> Ganztägig
+								</p>
+							{:else if event.startdate === event.enddate && event.datetype === 'date-time'}
+								<p>
+									{event.startdate}
+								</p>
+								<p>
+									{event.starttime} - {event.endtime}
+								</p>
+							{:else}
+								<p>
+									vom<br />
+									bis
+								</p>
+								<p>
+									{event.startdate}<br />
+									{event.enddate}
+								</p>
+								<p>
+									{event.starttime}<br />
+									{event.endtime}
+								</p>
+							{/if}
+						</div>
+					</div>
+				</div>
+
+				<!-- Ort -->
+				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
+					{#if event.location}
+						<div class="flex flex-row items-center">
+							<div class="mr-3">📍</div>
+							<div class="text-balance">{event.location}</div>
+						</div>
+					{:else}
+						<div class="flex flex-row items-center">
+							<div class="mr-3">📍</div>
+							<div class="text-balance">Aktuell kein Ort verfügbar🙃</div>
+						</div>
+					{/if}
+				</div>
+			</div>
+
+			<div class="">
+				<!-- Veranstaltungsseite -->
+				{#if event.url}
+					<div class="flex flex-row items-center flex-nowrap pt-3">
+						<button
+							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
+							on:click={() => window.open(event.url, '_blank')}
+						>
+							<div class="flex flex-row items-center">
+								<div class="mr-3">🔗</div>
+								<div class="text-balance">Zur Veranstaltungsseite</div>
+							</div>
+						</button>
+					</div>
+				{/if}
+				<!-- ICS Export -->
+				{#if event.id}
+					<div class="flex flex-row items-center flex-nowrap pt-3">
+						<button
+							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto"
+							on:click={async () => {
+								try {
+									const response = await fetch(
+										`${je_api_base_url}?type=calendar&itemtype=single&id=${event.id}&download=true`
+									);
+
+									if (response.ok) {
+										const blob = await response.blob();
+										const url = window.URL.createObjectURL(blob);
+										const a = document.createElement('a');
+										a.style.display = 'none';
+										a.href = url;
+										a.download = `${event.summary}.ics`;
+										document.body.appendChild(a);
+										a.click();
+										window.URL.revokeObjectURL(url);
+									} else {
+										console.error('Failed to download ICS file');
+									}
+								} catch (error) {
+									console.error('Error:', error);
+								}
+							}}
+						>
+							<div class="flex flex-row items-center">
+								<div class="mr-3">📅</div>
+								<div class="text-balance">Zum Kalender hinzufügen</div>
+							</div>
+						</button>
 					</div>
 				{/if}
 			</div>
-
-			<!-- Date -->
-			<div class="text-base md:text-lg text-nowrap font-montserrat">
-				<div class="flex flex-row justify-start items-center">
-					<div class="mr-3">🗓️</div>
-					<div class="flex flex-row items-end gap-6">
-						{#if event.datetype === 'date'}
-							<p>
-								{event.startdate} - {event.enddate} <br /> Ganztägig
-							</p>
-						{:else if event.startdate === event.enddate && event.datetype === 'date-time'}
-							<p>
-								{event.startdate}
-							</p>
-							<p>
-								{event.starttime} - {event.endtime}
-							</p>
-						{:else}
-							<p>
-								vom<br />
-								bis
-							</p>
-							<p>
-								{event.startdate}<br />
-								{event.enddate}
-							</p>
-							<p>
-								{event.starttime}<br />
-								{event.endtime}
-							</p>
-						{/if}
-					</div>
-				</div>
-			</div>
-
-			{#if event.location}
-				<div class="text-base md:text-lg text-nowrap font-montserrat">
-					<div class="flex flex-row items-center">
-						<div class="mr-3">📍</div>
-						<div class="text-balance">{event.location}</div>
-					</div>
-				</div>
-			{:else}
-				<div class="text-base md:text-lg text-nowrap font-montserrat">
-					<div class="flex flex-row items-center">
-						<div class="mr-3">📍</div>
-						<div class="text-balance">Aktuell kein Ort verfügbar🙃</div>
-					</div>
-				</div>
-			{/if}
-
-			{#if event.url}
-				<div class="flex flex-row items-center flex-nowrap pt-3">
-					<button
-						class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
-						on:click={() => window.open(event.url, '_blank')}
-					>
-						<div class="flex flex-row items-center">
-							<div class="mr-3">🔗</div>
-							<div class="text-balance">Zur Veranstaltungsseite</div>
-						</div>
-					</button>
-				</div>
-			{/if}
-			{#if event.id}
-				<div class="flex flex-row items-center flex-nowrap pt-3">
-					<button
-						class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto"
-						on:click={async () => {
-							try {
-								const response = await fetch(
-									`${je_api_base_url}?type=calendar&itemtype=single&id=${event.id}&download=true`
-								);
-
-								if (response.ok) {
-									const blob = await response.blob();
-									const url = window.URL.createObjectURL(blob);
-									const a = document.createElement('a');
-									a.style.display = 'none';
-									a.href = url;
-									a.download = `${event.summary}.ics`;
-									document.body.appendChild(a);
-									a.click();
-									window.URL.revokeObjectURL(url);
-								} else {
-									console.error('Failed to download ICS file');
-								}
-							} catch (error) {
-								console.error('Error:', error);
-							}
-						}}
-					>
-						<div class="flex flex-row items-center">
-							<div class="mr-3">📅</div>
-							<div class="text-balance">Zum Kalender hinzufügen</div>
-						</div>
-					</button>
-				</div>
-			{/if}
 		</div>
 	</div>
 </div>
