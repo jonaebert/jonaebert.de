@@ -29,7 +29,7 @@ Erstellt mit **SvelteKit**, gestaltet mit **Tailwind CSS**, gehostet auf **Hetzn
 - **Responsives, barrierefreies Design** mit Fokus auf Nachhaltigkeit
 - **Headless Architektur**: separates Frontend & Backend für maximale Flexibilität
 - **Automatischer HTTPS-Support, Backups & Rollbacks** durch Coolify
-- **Dark Mode**, strukturierte OG-Meta-Tags & PWA-ready - Dark Mode (Work in Progress)
+- **Dark Mode**, strukturierte OG-Meta-Tags & PWA-ready - Dark Mode
 
 ---
 
