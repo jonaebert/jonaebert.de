@@ -99,7 +99,7 @@
 </svelte:head>
 
 <header
-	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-secondary-600 overflow-hidden"
+	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white dark:bg-grey-950 text-secondary-600 dark:text-secondary-400 overflow-hidden"
 >
 	<nav>
 		<div
@@ -163,7 +163,7 @@
 				id="navbar"
 			>
 				<ul
-					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 rounded-lg bg-grey-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
+					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 dark:border-grey-800 rounded-lg bg-grey-50 dark:bg-grey-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-inherit dark:md:bg-inherit"
 				>
 					{#each menuLinks as link}
 						<li>
@@ -207,7 +207,7 @@
 	</div>
 {/if}
 
-<div class="flex flex-col grow min-h-screen bg-white relative">
+<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
 	<main class="grow z-20">
 		<slot />
 	</main>
