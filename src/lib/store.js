@@ -33,10 +33,10 @@ export const bb_api_token = import.meta.env.VITE_BB_API_TOKEN;
 
 // Pictures
 // Logo
-export const logo = '/logo/logo_310x100.svg';
-export const logo_clear = '/logo/logo_310x100_clear.svg';
-export const logo_small = '/logo/logo_500x500.svg';
-export const logo_small_clear = '/logo/logo_500x500_clear.svg';
+export const logo = 'https://cms.jonaebert.de/uploads/Logo_310x100_c17dfefe52.svg';
+export const logo_clear = 'https://cms.jonaebert.de/uploads/Logo_310x100_Clear_2769e089a9.svg';
+export const logo_small = 'https://cms.jonaebert.de/uploads/Logo_500x500_67fca42684.svg';
+export const logo_small_clear = 'https://cms.jonaebert.de/uploads/Logo_500x500_Clear_dce31db3d5.svg';
 
 // Block image copy and context menu
 export function contextMenuAction(node) {
