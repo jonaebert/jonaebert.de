@@ -103,12 +103,12 @@
 					<td>@jonaebertbs</td>
 				</tr>
 				<tr>
-					<td>TikTok</td>
-					<td>@jona_ebert</td>
-				</tr>
-				<tr>
 					<td>Threads</td>
 					<td>@jonaebertbs</td>
+				</tr>
+				<tr>
+					<td>TikTok</td>
+					<td>@jona_ebert</td>
 				</tr>
 				<tr>
 					<td>YouTube</td>
