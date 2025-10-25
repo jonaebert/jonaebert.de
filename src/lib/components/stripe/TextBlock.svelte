@@ -17,18 +17,18 @@
 
 	function getHeadingClass(level: number): string {
 		const classes: any = {
-			1: 'text-4xl font-bold text-secondary-900 font-poppins italic',
-			2: 'text-3xl md:text-4xl font-bold text-secondary-900 font-poppins italic',
-			3: 'text-2xl md:text-3xl font-semibold text-black font-poppins italic',
-			4: 'text-xl md:text-2xl font-semibold text-black font-poppins italic',
-			5: 'text-md md:text-xl font-semibold text-black font-poppins italic',
-			6: 'text-md md:text-xl font-medium text-black font-poppins italic'
+			1: 'text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins italic',
+			2: 'text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins italic',
+			3: 'text-2xl md:text-3xl font-semibold text-black dark:text-grey-400 font-poppins italic',
+			4: 'text-xl md:text-2xl font-semibold text-black dark:text-grey-300 font-poppins italic',
+			5: 'text-md md:text-xl font-semibold text-black dark:text-grey-200 font-poppins italic',
+			6: 'text-md md:text-xl font-medium text-black dark:text-grey-100 font-poppins italic'
 		};
 		return classes[level] || '';
 	}
 </script>
 
-<div class="prose max-w-none mb-6 font-montserrat">
+<div class="prose max-w-none mb-6 font-montserrat text-black dark:text-grey-300">
 	{#each tokens as token}
 		<div class="my-3">
 			{#if token.type === 'paragraph'}
