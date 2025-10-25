@@ -51,7 +51,7 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts.data[0]}
 		<BlogTiles items={posts.data} />
@@ -64,11 +64,11 @@
 
 <div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">
+	<div class="container relative py-7 text-start text-balance text-white dark:text-grey-300">
+		<h2 class="text-3xl md:text-4xl font-bold italic my-2">
 			Politik für eine lebenswerte Welt
 		</h2>
-		<div class="font-montserrat text-lg text-white grid gap-4">
+		<div class="font-montserrat text-lg grid gap-4">
 			<div>
 				Unser Klima verändert sich rasant und mit jedem Kilogramm CO₂ mehr wird dieser Planet zu
 				einem lebensfeindlichen Ort. Wir steuern bereits auf eine Klimakatastrophe zu, die bald
@@ -95,8 +95,8 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Termine</h2>
-		<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic my-2">Termine</h2>
+		<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 italic my-2 pb-10">
 			Hier kannst du mich treffen!
 		</h3>
 	</div>
@@ -112,9 +112,9 @@
 
 <div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik in Braunschweig</h2>
-		<div class="font-montserrat text-lg text-white grid gap-4">
+	<div class="container relative py-7 text-start text-balance text-white dark:text-grey-300">
+		<h2 class="text-3xl md:text-4xl font-bold italic my-2">Politik in Braunschweig</h2>
+		<div class="font-montserrat text-lg grid gap-4">
 			<div>
 				Im Jahr 2021 zog ich in einer schwierigen Zeit nach Braunschweig. Ich war sehr aufgeregt,
 				denn ich hatte gehört, dass diese Stadt eine ganz besondere Atmosphäre hat. Doch das schöne
