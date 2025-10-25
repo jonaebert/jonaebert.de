@@ -57,7 +57,7 @@
 		<div class="text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full float-right"/>
+					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full float-right"/>
 				</div>
 				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7 font-poppins">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>

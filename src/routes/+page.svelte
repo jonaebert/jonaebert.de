@@ -38,7 +38,7 @@
 		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
 			<div class="relative w-xs md:w-md">
 				<a href="/about" target="_self">
-					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
+					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
 				</a>
 			</div>
 		</div>
