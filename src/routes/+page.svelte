@@ -106,7 +106,7 @@
 	{/if}
 </div>
 
-<div class="relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
 	<div class="container relative py-7 text-start text-balance">
 		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik in Braunschweig</h2>
