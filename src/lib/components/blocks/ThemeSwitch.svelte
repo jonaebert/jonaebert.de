@@ -31,7 +31,7 @@
 	/>
 
 	<!-- Container -->
-	<div class="relative w-[5.625em] h-[2.5em] rounded-[6.25em] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0,-0.02,0.4,1.25)] {isDarkMode ? 'bg-[#1D1F2C]' : 'bg-[#3D7EAE]'}">
+	<div class="relative w-[5.625em] h-[2.5em] rounded-[6.25em] overflow-hidden transition-all duration-500 ease-[cubic-bezier(0,-0.02,0.4,1.25)] {isDarkMode ? 'bg-[#1D1F2CBF]' : 'bg-[#3D7EAEBF]'}">
 		<!-- Wolken -->
 		<div class="absolute left-[0.312em] w-[1.25em] h-[1.25em] bg-[#F3FDFF] rounded-[6.25em]
 			shadow-[0.937em_0.312em_#F3FDFF,-0.312em_-0.312em_#AACADF,1.437em_0.375em_#F3FDFF,0.5em_-0.125em_#AACADF,2.187em_0_#F3FDFF,1.25em_-0.062em_#AACADF,2.937em_0.312em_#F3FDFF,2em_-0.312em_#AACADF,3.625em_-0.062em_#F3FDFF,2.625em_0em_#AACADF,4.5em_-0.312em_#F3FDFF,3.375em_-0.437em_#AACADF,4.625em_-1.75em_0_0.437em_#F3FDFF,4em_-0.625em_#AACADF,4.125em_-2.125em_0_0.437em_#AACADF] transition-all duration-500 ease-[cubic-bezier(0,-0.02,0.4,1.25)] {isDarkMode ? 'bottom-[-4.062em]' : 'bottom-[-0.625em]'}">
