@@ -4,7 +4,8 @@ import { page } from "$app/stores"; // Values: https://developer.mozilla.org/en-
 // Personal
 export const name       = 'Jona Ebert';
 export const pronouns   = 'they/them';
-export const job        = 'Systemadministrator';
+export const job        = 'Systemadministrator:in';
+export const slogan     = 'Grün. Gemeinsam. Sozial.';
 export const address = {
     street: 'Postfach 5835',
     zipcode: '38049',
