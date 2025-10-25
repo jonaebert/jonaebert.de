@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { contextMenuAction, name } from '$lib/store';
+	import { contextMenuAction } from '$lib/store';
 	export let src: string;
 	export let alt: string = '';
 	export let classNames: string = '';
