@@ -62,15 +62,15 @@
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
+			{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+				<Image
+					{src}
+					{alt}
+					classNames="w-full h-full object-cover object-center"
+					copyright={[{ name: cp_name, url: cp_url }]}
+				/>
+			{/snippet}
 			{#if event.teaserImage}
-				{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
-					<Image
-						{src}
-						{alt}
-						classNames="w-full h-full object-cover object-center"
-						copyright={[{ name: cp_name, url: cp_url }]}
-					/>
-				{/snippet}
 				{#if event.teaserImage.copyright.text}
 					{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
 						{@render image_blog(
