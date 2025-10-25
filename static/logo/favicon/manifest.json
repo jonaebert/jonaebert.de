@@ -2,31 +2,31 @@
  "name": "App",
  "icons": [
   {
-   "src": "\/logo\/favicon\/android-icon-36x36.png",
-   "sizes": "36x36",
+   "src": "\/logo\/favicon\/favicon-32x32.png",
+   "sizes": "32x32",
    "type": "image\/png",
    "density": "0.75"
   },
   {
-   "src": "\/logo\/favicon\/android-icon-48x48.png",
-   "sizes": "48x48",
+   "src": "\/logo\/favicon\/apple-icon-57x57.png",
+   "sizes": "57x57",
    "type": "image\/png",
    "density": "1.0"
   },
   {
-   "src": "\/logo\/favicon\/android-icon-72x72.png",
+   "src": "\/logo\/favicon\/apple-icon-72x72.png",
    "sizes": "72x72",
    "type": "image\/png",
    "density": "1.5"
   },
   {
-   "src": "\/logo\/favicon\/android-icon-96x96.png",
+   "src": "\/logo\/favicon\/favicon-96x96.png",
    "sizes": "96x96",
    "type": "image\/png",
    "density": "2.0"
   },
   {
-   "src": "\/logo\/favicon\/android-icon-144x144.png",
+   "src": "\/logo\/favicon\/apple-icon-144x144.png",
    "sizes": "144x144",
    "type": "image\/png",
    "density": "3.0"
