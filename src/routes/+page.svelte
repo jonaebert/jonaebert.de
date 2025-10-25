@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Image from '$lib/components/image.svelte';
-	import { name } from '$lib/store';
+	import { name, uri } from '$lib/store';
 	import BlogTiles from '$lib/components/tiles/Blog.svelte';
 	import CalendarTiles from '$lib/components/tiles/Calendar.svelte';
 	import Social from '$lib/components/blocks/Social.svelte';
@@ -10,10 +10,14 @@
 	// Blog data
 	export let data;
 	const { posts, events } = data;
+	
+	// URI
+	console.log('URI:', $uri.url.port);
 </script>
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="flex flex-col container items-center justify-center min-h-[100vh] relative z-10 p-30">

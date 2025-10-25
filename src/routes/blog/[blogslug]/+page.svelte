@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, je_cms_api_base_url, pronouns, slogan } from '$lib/store';
+	import { name, je_cms_api_base_url, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
@@ -30,6 +30,7 @@
 <svelte:head>
 	<title>{post.data.title} - {name} ({pronouns})</title>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 	<meta property="og:title" content={post.data.title} />
 	<meta property="og:image" content={getCoverUrl(cover)} />
 </svelte:head>

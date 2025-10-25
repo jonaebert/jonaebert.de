@@ -4,6 +4,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="container py-12 grid gap-5">

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Image from '$lib/components/image.svelte';
-	import { name, pronouns } from '$lib/store';
+	import { name, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Tags from '$lib/components/blocks/Tags.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
@@ -46,6 +46,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">

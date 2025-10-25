@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, contact, name, bb_base_url, bb_api_token } from '$lib/store';
+	import { address, contact, name, bb_base_url, bb_api_token, uri } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Image from '$lib/components/image.svelte';
@@ -95,6 +95,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="flex min-h-screen items-center justify-center container py-5">
