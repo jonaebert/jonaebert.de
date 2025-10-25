@@ -18,7 +18,7 @@
 
 <div class="flex flex-col container items-center justify-center min-h-[100vh] relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png" class="absolute z-9 inset-0 w-full h-full object-cover">
+	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
 	</video>
 	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
