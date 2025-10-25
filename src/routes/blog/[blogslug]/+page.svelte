@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, je_cms_api_base_url } from '$lib/store';
+	import { name, je_cms_api_base_url, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
@@ -28,8 +28,9 @@
 </script>
 
 <svelte:head>
-	<title>{post.data.title} - {name}</title>
+	<title>{post.data.title} - {name} ({pronouns})</title>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 	<meta property="og:title" content={post.data.title} />
 	<meta property="og:image" content={getCoverUrl(cover)} />
 </svelte:head>
@@ -47,10 +48,10 @@
 		<!-- Titel und Datum -->
 		<div class="py-5 flex justify-center text-pretty">
 			<div class="md:max-w-[60%] grid gap-5">
-				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 italic my-2">
+				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
 					{post.data.title}
 				</h1>
-				<div class="font-montserrat text-white">
+				<div class="font-montserrat text-white dark:text-grey-300">
 					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
 					{FormatDate(post.data.createdAt, 'year')}
 				</div>
@@ -58,7 +59,7 @@
 		</div>
 
 		<!-- Blog-Content am unteren Rand -->
-		<div class="text-pretty bg-white shadow-lg rounded-t-xl">
+		<div class="text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
 					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}

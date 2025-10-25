@@ -177,7 +177,7 @@ export const load = () => {
                         skills: [],
                         image: 'logo_nabu.webp',
                         bgcolor: 'bg-white',
-                        link: 'https://gruene-jugend.de',
+                        link: 'https://nabu.de',
                     },
                     {
                         title: 'GRÜNE JUGEND',

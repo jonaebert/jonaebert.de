@@ -1,11 +1,12 @@
 <script lang="ts">
 	// Importe
+	import { onMount } from 'svelte';
 	import '../app.css';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job } from '$lib/store';
+	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -31,16 +32,16 @@
 	$: activeRoute = $uri.url.pathname;
 	$: pageTitle =
 		activeRoute === '/'
-			? name + ' (' + pronouns + ') - ' + job
+			? name + ' (' + pronouns + ') - ' + slogan
 			: activeRoute === '/about'
-				? 'Über mich - ' + name + ' (' + pronouns + ') - ' + job
+				? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan
 				: activeRoute === '/contact'
-					? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + job
+					? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + slogan
 					: activeRoute === '/legal/privacy'
-						? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + job
+						? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + slogan
 						: activeRoute === '/legal/imprint'
-							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + job
-							: name + ' (' + pronouns + ') - ' + job;
+							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
+							: name + ' (' + pronouns + ') - ' + slogan;
 
 	// Funktion zum Umschalten des responsiven Headers
 	function toggleMenu(event) {
@@ -85,13 +86,41 @@
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}
-	import { onMount } from 'svelte';
 	let isVisible = false;
 	onMount(() => {
 		window.addEventListener('scroll', () => {
 			isVisible = window.scrollY > 100;
 		});
 	});
+
+	// Theme Toggle
+	import ThemeSwitch from '$lib/components/blocks/ThemeSwitch.svelte';
+	let isDarkMode: boolean = false;
+
+	onMount(() => {
+	    const saved = localStorage.getItem('theme');
+    	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    	isDarkMode = saved === 'dark' || (!saved && prefersDark);
+    	updateHtmlClass();
+	});
+	
+	function toggleDarkMode() {
+		isDarkMode = !isDarkMode;
+		updateHtmlClass();
+	}
+	
+	function updateHtmlClass() {
+		if (typeof document === 'undefined') return; // SSR-Schutz
+		if (isDarkMode) {
+			document.documentElement.classList.remove('light');
+			document.documentElement.classList.add('dark');
+			localStorage.setItem('theme', 'dark')
+		} else {
+			document.documentElement.classList.remove('dark');
+			document.documentElement.classList.add('light');
+			localStorage.setItem('theme', 'light');
+		}
+	}
 </script>
 
 <svelte:head>
@@ -99,7 +128,7 @@
 </svelte:head>
 
 <header
-	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white text-secondary-600 overflow-hidden"
+	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white dark:bg-grey-950 text-secondary-600 dark:text-secondary-400 overflow-hidden"
 >
 	<nav>
 		<div
@@ -163,7 +192,7 @@
 				id="navbar"
 			>
 				<ul
-					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 rounded-lg bg-grey-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white"
+					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 dark:border-grey-800 rounded-lg bg-grey-50 dark:bg-grey-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-inherit dark:md:bg-inherit"
 				>
 					{#each menuLinks as link}
 						<li>
@@ -187,11 +216,14 @@
 	<Ticker />
 </div>
 
-{#if isVisible}
-	<div class="z-50 fixed bottom-4 right-4">
+<div class="fixed z-50">
+	<div class="fixed bottom-4 right-4">
+		<ThemeSwitch {isDarkMode} {toggleDarkMode} />
+	</div>
+	{#if isVisible}
 		<button
 			on:click={scrollToTop}
-			class="p-3 rounded-full shadow-2xl transition duration-300 hover:scale-110 bg-himmel-600 text-neutral-600 hover:-translate-x-1 hover:-translate-y-1 hover:cursor-grab"
+			class="fixed bottom-18.5 right-4 p-3 rounded-full shadow-2xl transition duration-300 hover:scale-115 bg-himmel-600 text-white cursor-pointer"
 			aria-label="Scroll to top"
 		>
 			<svg
@@ -204,10 +236,10 @@
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 			</svg>
 		</button>
-	</div>
-{/if}
+	{/if}
+</div>
 
-<div class="flex flex-col grow min-h-screen bg-white relative">
+<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
 	<main class="grow z-20">
 		<slot />
 	</main>

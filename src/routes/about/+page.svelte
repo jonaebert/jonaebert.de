@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Image from '$lib/components/image.svelte';
-	import { name, pronouns } from '$lib/store';
+	import { name, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Tags from '$lib/components/blocks/Tags.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
@@ -46,23 +46,24 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">
 	<div class="flex-grow flex flex-col justify-between">
 		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-		<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
+		<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 			<source src="/home/herovideo.mp4" type="video/mp4"/>
 		</video>
 		<div class="text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full float-right"/>
+					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full float-right"/>
 				</div>
 				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7 font-poppins">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
-				<div class="text-white text-sm md:text-base font-montserrat">
+				<div class="text-white dark:text-grey-300 text-sm md:text-base font-montserrat">
 					<div class="">
 						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
 						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
@@ -107,23 +108,23 @@
 	</div>
 </div>
 
-<!-- CV -->
+<!-- Lebenslauf -->
 <div class="container py-5">
 	<div class="max-w-screen-lg">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic">
 			{headings.main}
 		</h2>
 		<div class="grid gap-4">
 			{#each headings.sections as section}
-				<h3 class="text-2xl md:text-3xl font-semibold text-black italic">
+				<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 italic">
 					{section.title}
 				</h3>
 				{#if section.key !== 'skills'}
-					<ol class="relative border-s border-grey-300">
+					<ol class="relative border-s border-grey-300 dark:border-grey-400">
 						{#each items[section.key] as item}
 							<li class="mb-10 ms-11">
 								<span
-									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white"
+									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white dark:ring-grey-950"
 								>
 									<a href={item.link} target="_blank">
 										<Image
@@ -139,16 +140,16 @@
 									{/if}
 								</span>
 								<div
-									class="p-4 rounded-lg shadow-lg bg-white border-1 border-solid border-grey-200"
+									class="p-4 rounded-lg shadow-lg bg-white dark:bg-grey-900 border-1 border-solid border-grey-200 dark:border-grey-800"
 								>
 									<div class="items-center justify-between sm:flex">
-										<div class="text-sm font-semibold text-black">
+										<div class="text-sm font-semibold text-black dark:text-grey-400">
 											{item.title}
-											<div class="font-normal text-grey-600">
+											<div class="font-normal text-grey-600 dark:text-grey-300">
 												<a
 													href={item.link}
 													target="_blank"
-													class="font-normal hover:underline text-grey-600">{item.company}</a
+													class="font-normal hover:underline">{item.company}</a
 												>
 											</div>
 										</div>
@@ -160,7 +161,7 @@
 									</div>
 									{#if item.description[0] || item.skills[0]}
 										<div
-											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 border-1 border-solid border-grey-300 text-grey-600"
+											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border-1 border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
 										>
 											{#if item.description[0]}
 												<ul class="list-disc pl-2.5 md:pl-3.5">
@@ -187,17 +188,17 @@
 					<div class="grid gap-3">
 						{#each items[section.key] as item}
 							<div class="">
-								<h4 class="text-xl md:text-2xl font-semibold text-black italic">
+								<h4 class="text-xl md:text-2xl font-semibold text-black dark:text-grey-400 italic">
 									{item.category}
 								</h4>
 								<div
-									class="p-4 mt-1 rounded-lg shadow-lg bg-white border-1 border-solid border-grey-200"
+									class="p-4 mt-1 rounded-lg shadow-lg bg-white dark:bg-grey-900 border-1 border-solid border-grey-200 dark:border-grey-800"
 								>
 									{#if item.subcategories}
 										<div class="grid gap-6">
 											{#each item.subcategories as subcategory}
 												<div>
-													<h5 class="text-md xl:text-2xl font-bold text-black font-poppins italic">
+													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300 font-poppins italic">
 														{subcategory.title}
 													</h5>
 													<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">

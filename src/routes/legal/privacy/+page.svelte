@@ -4,10 +4,11 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="container py-12 grid gap-5">
-	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 italic my-2">Datenschutz</h1>
+<div class="container py-12 grid gap-5 text-black dark:text-grey-400">
+	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Datenschutz</h1>
 	<div class="text-balance font-montserrat mb-4">
 		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von
 		personenbezogenen Daten (im Folgenden auch nur als "Daten" bezeichnet) aufklären.
@@ -17,7 +18,7 @@
 		für die von uns vorgehaltenen Online-Medien.
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wer bei uns für die Datenverarbeitung verantwortlich ist
 		</h2>
 		<div class="font-montserrat text-balance mb-4">
@@ -33,7 +34,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Ihre Rechte nach der DSGVO
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -69,12 +70,12 @@
 				</li>
 			</ul>
 		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerrufsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerrufsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung jederzeit zu
 			widerrufen.
 		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Widerspruchsrecht</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerspruchsrecht</h3>
 		<div class="text-balance font-montserrat mb-4">
 			Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
 			berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch einzulegen. Sofern
@@ -93,7 +94,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wann löschen wir Ihre Daten?
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -139,7 +140,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Webhosting</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Webhosting</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
 			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
@@ -203,7 +204,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Content-Delivery-Network
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -246,7 +247,7 @@
 			<div class="text-balance font-montserrat mb-4">
 				<p class="font-bold">Cloudflare</p>
 				<div>
-					Diensteanbieter: Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, USA<br />
+					Diensteanbieter: Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, United States<br />
 					<a href="https://www.cloudflare.com/" class="externalLink">Internetseite</a><br />
 					<a href="https://www.cloudflare.com/privacypolicy/" class="externalLink"
 						>Datenschutzerklärung</a
@@ -259,7 +260,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Kontaktaufnahme</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontaktaufnahme</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
 			sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre Telefonnummer
@@ -287,7 +288,7 @@
 				1 lit. b DSGVO, berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 			</div>
 			<div>
-				<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">
+				<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
 				<div class="text-balance font-montserrat mb-4">
@@ -301,7 +302,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Content-Dienste</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Content-Dienste</h2>
 		<div class="text-balance font-montserrat mb-4">
 			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
 			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
@@ -382,13 +383,13 @@
 							können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren
 							Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite
 							bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von
-							Google in den USA übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
+							Google in den United States übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
 							davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder
 							Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden
 							gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn
 							Sie unsere Internetseiten aufrufen.
 						</div>
-						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA</div>
+						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, United States</div>
 						<div>
 							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
 						</div>
@@ -405,7 +406,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Unsere Onlinepräsenzen bei sozialen Netzwerken
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -468,21 +469,9 @@
 			</p>
 			<ul class="list-disc">
 				<li class="mb-2">
-					<p class="font-bold">BlueSky</p>
-					<div>
-						<p>Dienstanbieter: Bluesky, PBLLC, Seattle, Washington, United States, USA</p>
-						<p><a href="https://bsky.social/">Internetseite</a></p>
-						<p>
-							<a href="https://bsky.social/about/support/privacy-policy">Datenschutzerklärung</a>
-						</p>
-					</div>
-				</li>
-			</ul>
-			<ul class="list-disc">
-				<li class="mb-2">
 					<p class="font-bold">Facebook</p>
 					<div>
-						<p>Dienstanbieter: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, USA</p>
+						<p>Dienstanbieter: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, United States</p>
 						<p>
 							Sitz in der EU: Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour,
 							Dublin 2, Irland
@@ -497,13 +486,41 @@
 					</div>
 				</li>
 				<li class="mb-2">
+					<p class="font-bold">GitHub</p>
+					<div>
+						<p>Dienstanbieter: GitHub, Inc. 88 Colin P. Kelly Jr. St. San Francisco, CA 94107 United States</p>
+						<p>
+							Sitz in der EU: GitHub B.V Prins Bernhardplein 200, Amsterdam 1097JB, Niederlande
+						</p>
+						<p><a href="https://github.com/">Internetseite</a></p>
+						<p><a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement/">Datenschutzerklärung</a></p>
+					</div>
+				</li>
+				<li class="mb-2">
 					<p class="font-bold">Instagram</p>
 					<div>
-						<p>Dienstanbieter: Instagram Inc., 1601 Willow Road, Menlo Park CA 94025, USA</p>
-						<p>Mutterunternehmen: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, USA</p>
+						<p>Dienstanbieter: Instagram Inc., 1601 Willow Road, Menlo Park CA 94025, United States</p>
+						<p>Mutterunternehmen: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, United States</p>
 						<p>Sitz in der EU: Facebook Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland</p>
 						<p><a href="https://www.instagram.com/">Internetseite</a></p>
 						<p><a href="https://instagram.com/about/legal/privacy">Datenschutzerklärung</a></p>
+					</div>
+				</li>
+				<li class="mb-2">
+					<p class="font-bold">LinkedIn</p>
+					<div>
+						<p>Dienstanbieter: LinkedIn Corporation, 1000 W Maude Avenue, Sunnyvale, Canada</p>
+						<p>Sitz in der EU: LinkedIn Irland Unlimited Company, Wilton Place, Dublin 2, Ireland</p>
+						<p><a href="https://www.linkedin.com/">Internetseite</a></p>
+						<p><a href="https://de.linkedin.com/legal/privacy/eu">Datenschutzerklärung</a></p>
+					</div>
+				</li>
+				<li class="mb-2">
+					<p class="font-bold">Mastodon</p>
+					<div>
+						<p>Dienstanbieter: Mastodon gGmbH, Mühlenstraße 8a, 14167 Berlin, Germany</p>
+						<p><a href="https://mastodon.social/about">Internetseite</a></p>
+						<p><a href="https://mastodon.social/privacy-policy">Datenschutzerklärung</a></p>
 					</div>
 				</li>
 				<li class="mb-2">
@@ -517,23 +534,21 @@
 					</div>
 				</li>
 				<li class="mb-2">
-					<p class="font-bold">X (Twitter)</p>
+					<p class="font-bold">TikTok</p>
 					<div>
-						<p>
-							Dienstanbieter: Twitter Inc., 1355 Market Street, Suite 900, San Francisco, CA 94103,
-							USA
-						</p>
-						<p><a href="https://twitter.com/">Internetseite</a></p>
-						<p><a href="https://twitter.com/de/privacy">Datenschutzerklärung</a></p>
+						<p>Dienstanbieter: TIKTOK PTE. LTD., RAFFLES QUAY, #26-10, Singapore 48583, Singapore</p>
+						<p>Sitz in der EU: TikTok Technology Limited, The Sorting Office, Ropemaker Place, Dublin 2, Dublin, D02 HD23, Ireland</p>
+						<p><a href="https://www.tiktok.com/de-DE/">Internetseite</a></p>
+						<p><a href="https://www.tiktok.com/legal/page/eea/privacy-policy/de">Datenschutzerklärung</a></p>
 					</div>
 				</li>
 				<li class="mb-2">
 					<p class="font-bold">YouTube</p>
 					<div>
-						<p>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, USA</p>
+						<p>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, United States</p>
 						<p>
 							Mutterunternehmen: Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043,
-							USA
+							United States
 						</p>
 						<p>
 							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
@@ -546,7 +561,7 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Sicherheits Maßnahmen
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
@@ -557,11 +572,11 @@
 		</div>
 	</div>
 	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
 		<div class="text-balance font-montserrat mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 21. Juli 2025. Aufgrund geänderter
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 26. Oktober 2025. Aufgrund geänderter
 			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
 			anzupassen.
 		</div>

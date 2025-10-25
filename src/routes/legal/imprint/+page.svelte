@@ -4,12 +4,13 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="container py-12 grid gap-5">
+<div class="container py-12 grid gap-5 text-black dark:text-grey-400">
 	<div class="font-montserrat">
-		<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 italic my-2">Impressum</h1>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Impressum</h1>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Angaben gemäß §5 Telemediengesetz
 		</h2>
 		<p>{name}</p>
@@ -18,7 +19,7 @@
 		<p>{address.country}</p>
 	</div>
 	<div class="font-montserrat">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Kontakt</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontakt</h2>
 		<table>
 			<tbody>
 				<tr>
@@ -37,7 +38,7 @@
 		</table>
 	</div>
 	<div class="font-montserrat">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Verantwortlich für den Inhalt nach §55 Abs. 2 RStV
 		</h2>
 		<p>{name}</p>
@@ -46,10 +47,10 @@
 		<p>{address.country}</p>
 	</div>
 	<div class="text-justify font-montserrat">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Haftungsausschluss
 		</h2>
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Haftung für Inhalte</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Haftung für Inhalte</h3>
 		<p class="text-balance">
 			Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
 			Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als
@@ -64,7 +65,7 @@
 		</p>
 	</div>
 	<div class="text-justify font-montserrat">
-		<h3 class="text-2xl md:text-3xl font-bold text-black italic my-2">Haftung für Links</h3>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Haftung für Links</h3>
 		<p class="text-balance">
 			Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
 			Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für
@@ -77,7 +78,7 @@
 		</p>
 	</div>
 	<div class="font-montserrat">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Social Media</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-500 my-2">Social Media</h2>
 		<p>Dieses Impressum gilt ebenfalls für folgende Social Media Präsenzen:</p>
 		<table>
 			<tbody>
@@ -98,12 +99,16 @@
 					<td>@jonaebert</td>
 				</tr>
 				<tr>
-					<td>TikTok</td>
-					<td>@jona_ebert</td>
+					<td>Mastodon</td>
+					<td>@jonaebertbs</td>
 				</tr>
 				<tr>
 					<td>Threads</td>
 					<td>@jonaebertbs</td>
+				</tr>
+				<tr>
+					<td>TikTok</td>
+					<td>@jona_ebert</td>
 				</tr>
 				<tr>
 					<td>YouTube</td>

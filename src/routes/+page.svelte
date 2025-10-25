@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Image from '$lib/components/image.svelte';
-	import { name } from '$lib/store';
+	import { name, uri } from '$lib/store';
 	import BlogTiles from '$lib/components/tiles/Blog.svelte';
 	import CalendarTiles from '$lib/components/tiles/Calendar.svelte';
 	import Social from '$lib/components/blocks/Social.svelte';
@@ -14,11 +14,12 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
+	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
 <div class="flex flex-col container items-center justify-center min-h-[100vh] relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-	<video autoplay muted loop playsinline preload="auto" poster="/home/braunschweig_alte_waage.svg" class="absolute z-9 inset-0 w-full h-full object-cover">
+	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
 	</video>
 	<div class="grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
@@ -38,7 +39,7 @@
 		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
 			<div class="relative w-xs md:w-md">
 				<a href="/about" target="_self">
-					<Image src="/portrait/portrait_clear_cropped.svg" alt="Portrait ${name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
+					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
 				</a>
 			</div>
 		</div>
@@ -47,7 +48,7 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2 pb-7">Aktuelles</h2>
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic my-2 pb-7">Aktuelles</h2>
 	</div>
 	{#if posts.data[0]}
 		<BlogTiles items={posts.data} />
@@ -58,13 +59,13 @@
 	{/if}
 </div>
 
-<div class="relative bg-[url('/contact/teaser.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">
+	<div class="container relative py-7 text-start text-balance text-white dark:text-grey-300">
+		<h2 class="text-3xl md:text-4xl font-bold italic my-2">
 			Politik für eine lebenswerte Welt
 		</h2>
-		<div class="font-montserrat text-lg text-white grid gap-4">
+		<div class="font-montserrat text-lg grid gap-4">
 			<div>
 				Unser Klima verändert sich rasant und mit jedem Kilogramm CO₂ mehr wird dieser Planet zu
 				einem lebensfeindlichen Ort. Wir steuern bereits auf eine Klimakatastrophe zu, die bald
@@ -91,8 +92,8 @@
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
 	<div class="text-left font-poppins">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 italic my-2">Termine</h2>
-		<h3 class="text-2xl md:text-3xl font-semibold text-black italic my-2 pb-10">
+		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic my-2">Termine</h2>
+		<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 italic my-2 pb-10">
 			Hier kannst du mich treffen!
 		</h3>
 	</div>
@@ -106,11 +107,11 @@
 	{/if}
 </div>
 
-<div class="relative bg-[url('/home/braunschweig_alte_waage.svg')] bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="container relative py-7 text-start text-balance">
-		<h2 class="text-3xl md:text-4xl font-bold text-white italic my-2">Politik in Braunschweig</h2>
-		<div class="font-montserrat text-lg text-white grid gap-4">
+	<div class="container relative py-7 text-start text-balance text-white dark:text-grey-300">
+		<h2 class="text-3xl md:text-4xl font-bold italic my-2">Politik in Braunschweig</h2>
+		<div class="font-montserrat text-lg grid gap-4">
 			<div>
 				Im Jahr 2021 zog ich in einer schwierigen Zeit nach Braunschweig. Ich war sehr aufgeregt,
 				denn ich hatte gehört, dass diese Stadt eine ganz besondere Atmosphäre hat. Doch das schöne

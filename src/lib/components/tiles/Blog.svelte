@@ -2,7 +2,6 @@
 	import { je_cms_api_base_url } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	import { FormatDate } from '$lib/util/date';
-	import { text } from '@sveltejs/kit';
 	export let items;
 
 	function getCMSImageURL(image: any): string {
@@ -61,9 +60,9 @@
 							{/if}
 						</div>
 					</div>
-					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 font-montserrat">
+					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 dark:text-grey-300 font-montserrat">
 						<div class="flex items-center hyphens-auto text-pretty">
-							<div class="flex items-center">
+							<div class="flex items-center fill-secondary-600 dark:fill-grey-300">
 								{#if item.type == 'article'}
 									<svg
 										version="1.1"
@@ -71,7 +70,7 @@
 										x="0px"
 										y="0px"
 										viewBox="0 0 119 119"
-										class="mr-1.5 shrink-0 inline h-4 w-4 fill-secondary-600"
+										class="mr-1.5 shrink-0 inline h-4 w-4"
 									>
 										<path
 											fill="inherit"
@@ -89,7 +88,7 @@
 										x="0px"
 										y="0px"
 										viewBox="0 -960 960 960"
-										class="mr-1.5 shrink-0 inline h-5.5 w-5.5 fill-secondary-600"
+										class="mr-1.5 shrink-0 inline h-5.5 w-5.5"
 									>
 										<path
 											fill="inherit"
@@ -118,10 +117,10 @@
 							{/if}
 						</div>
 					</div>
-					<div class="hyphens-auto font-bold text-secondary-900 text-lg md:text-2xl md:leading-[1.3] font-poppins">
+					<div class="hyphens-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3] font-poppins">
 						{item.title}
 					</div>
-					<span class="mt-3 text-xs text-grey-600 md:text-base font-montserrat">
+					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base font-montserrat">
 						{FormatDate(item.createdAt, 'day')}. {FormatDate(item.createdAt, 'monthshort')}
 						{FormatDate(item.createdAt, 'year')}
 					</span>
