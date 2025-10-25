@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { je_api_base_url, je_cms_api_base_url, name } from '$lib/store';
+	import { je_api_base_url, je_cms_api_base_url, name, pronouns } from '$lib/store';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
@@ -45,7 +45,7 @@
 </script>
 
 <svelte:head>
-	<title>{event.summary} - {event.startdate} - {name}</title>
+	<title>{event.summary} - {event.startdate} - {name} ({pronouns})</title>
 	<meta name="robots" content="none" />
 	<meta property="og:title" content="{event.summary} - {event.startdate}" />
 	{#if event.teaserImage.url && event.teaserImage.url !== null}

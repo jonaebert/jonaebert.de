@@ -5,7 +5,7 @@
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job } from '$lib/store';
+	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -31,16 +31,16 @@
 	$: activeRoute = $uri.url.pathname;
 	$: pageTitle =
 		activeRoute === '/'
-			? name + ' (' + pronouns + ') - ' + job
+			? name + ' (' + pronouns + ') - ' + slogan
 			: activeRoute === '/about'
-				? 'Über mich - ' + name + ' (' + pronouns + ') - ' + job
+				? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan
 				: activeRoute === '/contact'
-					? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + job
+					? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + slogan
 					: activeRoute === '/legal/privacy'
-						? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + job
+						? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + slogan
 						: activeRoute === '/legal/imprint'
-							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + job
-							: name + ' (' + pronouns + ') - ' + job;
+							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
+							: name + ' (' + pronouns + ') - ' + slogan;
 
 	// Funktion zum Umschalten des responsiven Headers
 	function toggleMenu(event) {
