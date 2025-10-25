@@ -2,7 +2,6 @@
 	import { je_cms_api_base_url } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	import { FormatDate } from '$lib/util/date';
-	import { text } from '@sveltejs/kit';
 	export let items;
 
 	function getCMSImageURL(image: any): string {
