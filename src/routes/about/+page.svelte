@@ -50,7 +50,7 @@
 </svelte:head>
 
 <div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">
-	<div class="flex-grow flex flex-col justify-between">
+	<div class="grow flex flex-col justify-between">
 		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 		<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 			<source src="/home/herovideo.mp4" type="video/mp4"/>
@@ -110,7 +110,7 @@
 
 <!-- Lebenslauf -->
 <div class="container py-5">
-	<div class="max-w-screen-lg">
+	<div class="max-w-5xl">
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic">
 			{headings.main}
 		</h2>
@@ -140,7 +140,7 @@
 									{/if}
 								</span>
 								<div
-									class="p-4 rounded-lg shadow-lg bg-white dark:bg-grey-900 border-1 border-solid border-grey-200 dark:border-grey-800"
+									class="p-4 rounded-lg shadow-lg bg-white dark:bg-grey-900 border border-solid border-grey-200 dark:border-grey-800"
 								>
 									<div class="items-center justify-between sm:flex">
 										<div class="text-sm font-semibold text-black dark:text-grey-400">
@@ -161,7 +161,7 @@
 									</div>
 									{#if item.description[0] || item.skills[0]}
 										<div
-											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border-1 border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
+											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
 										>
 											{#if item.description[0]}
 												<ul class="list-disc pl-2.5 md:pl-3.5">
@@ -192,7 +192,7 @@
 									{item.category}
 								</h4>
 								<div
-									class="p-4 mt-1 rounded-lg shadow-lg bg-white dark:bg-grey-900 border-1 border-solid border-grey-200 dark:border-grey-800"
+									class="p-4 mt-1 rounded-lg shadow-lg bg-white dark:bg-grey-900 border border-solid border-grey-200 dark:border-grey-800"
 								>
 									{#if item.subcategories}
 										<div class="grid gap-6">
