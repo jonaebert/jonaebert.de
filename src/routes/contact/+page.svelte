@@ -100,7 +100,7 @@
 <div class="flex min-h-screen items-center justify-center container py-5">
 	<div class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg">
 		<!-- Bildbereich -->
-		<div class="relative w-full h-auto bg-[url('https://cms.jonaebert.de/uploads/See_and_Wald_Hintergrund_b3d10959ff.png')] bg-cover bg-left"></div>
+		<div class="relative w-full h-auto bg-[url('https://cms.jonaebert.de/uploads/Kontakt_93eb0e428c.png')] bg-cover bg-center"></div>
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container">
