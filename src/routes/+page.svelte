@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Image from '$lib/components/image.svelte';
-	import { name, uri } from '$lib/store';
+	import { name, pronouns, uri } from '$lib/store';
 	import BlogTiles from '$lib/components/tiles/Blog.svelte';
 	import CalendarTiles from '$lib/components/tiles/Calendar.svelte';
 	import Social from '$lib/components/blocks/Social.svelte';
@@ -29,7 +29,7 @@
 					<Slogan />
 				</div>
 				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
-					<h1>{name}</h1>
+					<h1>{name}<br>({pronouns})</h1>
 				</div>
 				<div class="row-start-3">
 					<Social />

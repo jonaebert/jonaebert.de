@@ -96,7 +96,7 @@
 							<Slogan />
 						</div>
 						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
-							<h1>{name}</h1>
+							<h1>{name}<br>({pronouns})</h1>
 						</div>
 						<div class="row-start-4 max-w-[300px]">
 							<Social />
