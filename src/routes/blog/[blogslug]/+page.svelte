@@ -32,17 +32,17 @@
 	<meta name="robots" content="index,follow" />
 	<link rel="canonical" href="{$uri.url.href}">
 	<meta property="og:title" content={post.data.title} />
-	<meta property="og:image" content={getCoverUrl(cover)} />
+	<meta property="og:image" content={getCoverUrl(cover, false)} />
 </svelte:head>
 
-<div class="relative min-h-[100vh] flex flex-col">
+<div class="relative min-h-screen flex flex-col">
 	<!-- Hintergrundbild -->
 	<div class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url({getCoverUrl(cover, true)});"></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
 
 	<!-- Inhalt: Titel + Content -->
-	<div class="container flex-grow flex flex-col justify-between">
+	<div class="container grow flex flex-col justify-between">
 		<!-- Platzhalter -->
 		<div></div>
 		<!-- Titel und Datum -->

@@ -56,7 +56,7 @@
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-[3/2]"
+		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2"
 			on:touchstart={handleTouchStart}
 			on:touchend={handleTouchEnd}
 			on:pointerdown={handleTouchStart}
@@ -68,7 +68,7 @@
 				style:transform={`translateX(-${currentImage * 100}%)`}
 			>
 				{#each files as img}
-					<div class="flex-shrink-0 w-full h-full overflow-hidden">
+					<div class="shrink-0 w-full h-full overflow-hidden">
 						<Image
 							src={getMediaURL(img)}
 							alt={img?.alternativeText}

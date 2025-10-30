@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Image from '$lib/components/image.svelte';
-	import { name, uri } from '$lib/store';
+	import { name, pronouns, uri } from '$lib/store';
 	import BlogTiles from '$lib/components/tiles/Blog.svelte';
 	import CalendarTiles from '$lib/components/tiles/Calendar.svelte';
 	import Social from '$lib/components/blocks/Social.svelte';
@@ -17,7 +17,7 @@
 	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="flex flex-col container items-center justify-center min-h-[100vh] relative z-10 p-30">
+<div class="flex flex-col container items-center justify-center min-h-screen relative z-10 p-30">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
@@ -29,7 +29,7 @@
 					<Slogan />
 				</div>
 				<div class="row-start-2 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
-					<h1>{name}</h1>
+					<h1>{name}<br>({pronouns})</h1>
 				</div>
 				<div class="row-start-3">
 					<Social />
