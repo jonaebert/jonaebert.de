@@ -15,19 +15,25 @@
 	function childrenToHtml(item: any, escape: boolean = false): string {
 		return item.children
 			.map((child: any) => {
+				// Formatierungen anwenden
+				const classes: string[] = [];
+				if (child.bold) classes.push('font-bold');
+				if (child.italic) classes.push('italic');
+				if (child.underline) classes.push('underline');
+				if (child.strikethrough) classes.push('line-through');
+
 				if (child.type === 'text') {
 					// Zeilenumbrüche (\n) in <br> umwandeln
 					const lines = child.text.split('\n');
 					const escapedLines = lines.map((line: string) => escape ? escapeHtml(line) : line);
 					let raw = escapedLines.join('<br>');
 
-					const classes: string[] = [];
-					if (child.bold) classes.push('font-bold');
-					if (child.italic) classes.push('italic');
-					if (child.underline) classes.push('underline');
-					if (child.strikethrough) classes.push('line-through');
-
 					return `<span class="${classes.join(' ')}">${raw}</span>`;
+				} else if (child.type === 'link') {
+					const innerHtml = childrenToHtml(child, escape);
+					const classAttr = classes.length ? ` class="${classes.join(' ')}"` : '';
+
+					return `<a target=${child.target ? child.target : '_blank'} href="${child.url}"${classAttr}>${innerHtml} 🔗</a>`
 				} else {
 					return child.raw ?? '';
 				}
