@@ -165,7 +165,7 @@
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<rect
-						class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-[135deg]"
+						class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-135"
 						y="7"
 						width="16"
 						height="1.5"
@@ -179,7 +179,7 @@
 						rx="1"
 					></rect>
 					<rect
-						class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:-rotate-[135deg]"
+						class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:-rotate-135"
 						y="7"
 						width="16"
 						height="1.5"
@@ -217,13 +217,10 @@
 </div>
 
 <div class="fixed z-50">
-	<div class="fixed bottom-4 right-4">
-		<ThemeSwitch {isDarkMode} {toggleDarkMode} />
-	</div>
 	{#if isVisible}
 		<button
 			on:click={scrollToTop}
-			class="fixed bottom-18.5 right-4 p-3 rounded-full shadow-2xl transition duration-300 hover:scale-115 bg-himmel-600 text-white cursor-pointer"
+			class="fixed bottom-14 md:bottom-18.5 right-4 p-3 rounded-full shadow-2xl transition duration-300 hover:scale-115 bg-himmel-600 text-white cursor-pointer"
 			aria-label="Scroll to top"
 		>
 			<svg
@@ -237,6 +234,9 @@
 			</svg>
 		</button>
 	{/if}
+	<div class="fixed bottom-4 right-4">
+		<ThemeSwitch {isDarkMode} {toggleDarkMode} />
+	</div>
 </div>
 
 <div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
@@ -249,7 +249,7 @@
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-8 sm:gap-6 text-balance">
 			<div class="mb-6 md:mb-0 flex items-center">
-				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:-translate-x-0">
+				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0">
 					<Image
 						src={logo_clear}
 						alt="Logo von {name}"
@@ -278,7 +278,7 @@
 					</h2>
 					<ul class="text-grey-400 font-medium font-montserrat">
 						{#each legalLinks as link}
-							<li class="mb-4 break-words hyphens-auto hover:text-white">
+							<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
 								<a href={link.href} class="hover:underline">{link.title}</a>
 							</li>
 						{/each}
