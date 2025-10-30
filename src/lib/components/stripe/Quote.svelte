@@ -5,7 +5,7 @@
 </script>
 
 <div class="prose max-w-none mb-6">
-	<figure class="max-w-screen-md text-start bg-grey-200 dark:bg-grey-900 p-6 rounded-lg md:rounded-xl">
+	<figure class="max-w-3xl text-start bg-grey-200 dark:bg-grey-900 p-6 rounded-lg md:rounded-xl">
 		<svg
 			class="size-7.5 mb-3 text-secondary-700 dark:text-secondary-400"
 			aria-hidden="true"
@@ -24,7 +24,7 @@
 		</blockquote>
 		{#if name}
 			<figcaption class="flex items-center justofy-center mt-6 space-x-3 rtl:space-x-reverse font-montserrat">
-				<div class="flex items-center divide-x-1 rtl:divide-x-reverse divide-grey-600">
+				<div class="flex items-center divide-x rtl:divide-x-reverse divide-grey-600">
 					<cite class="pe-3 font-medium text-grey-800 dark:text-grey-300">{name}</cite>
 					{#if position}
 						<cite class="ps-3 text-sm text-grey-700 dark:text-grey-200">{position}</cite>
