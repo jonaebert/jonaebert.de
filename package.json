@@ -1,6 +1,6 @@
 {
 	"name": "jonaebert.de",
-	"version": "25.07.06",
+	"version": "25.10.01",
 	"private": true,
 	"engines": {
 		"node": "^20.19 || ^22.12 || >=24"
