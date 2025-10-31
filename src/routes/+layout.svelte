@@ -11,6 +11,10 @@
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
 
+	// Ticker data
+	export let data;
+	const { tickers } = data;
+
 	// Links
 	let menuLinks = [
 		{ title: 'Home', href: '/' },
@@ -213,7 +217,9 @@
 </header>
 
 <div class="z-30">
-	<Ticker />
+	{#each tickers.data as ticker}
+		<Ticker eventName={ticker.text} eventStartDate={new Date(ticker.startAt)} eventEndDate={new Date(ticker.endAt)} preWord={ticker.preWord} nowWord={ticker.nowWord} />
+	{/each}
 </div>
 
 <div class="fixed z-50">
