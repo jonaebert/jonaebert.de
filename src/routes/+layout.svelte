@@ -221,7 +221,7 @@
 				{#if headerShowLinks}	
 					{#each menuLinks as link, i}
 						<div
-							class="menu-item opacity-0 transform animate-slide-in shrink-0 bg-secondary-700 rounded-full uppercase font-semibold hover:scale-105 transition-transform duration-500 ease-in-out"
+							class="menu-item opacity-0 transform animate-slide-in shrink-0 bg-secondary-700 rounded-full font-semibold hover:scale-105 transition-transform duration-500 ease-in-out"
 							style="animation-delay: {i * 400}ms"
 							on:animationstart={() => (visibleLinks = Math.max(visibleLinks, i + 1))}
 						>
