@@ -9,7 +9,7 @@
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-full h-64 md:h-auto">
-			<Image src="/contact/teaser.svg" alt="Teaser Bild" classNames="w-full h-full object-cover" />
+			<Image src="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png" alt="Teaser Bild" classNames="w-full h-full object-cover" />
 		</div>
 
 		<!-- Textbereich -->
