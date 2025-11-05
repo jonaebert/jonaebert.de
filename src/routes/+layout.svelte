@@ -6,7 +6,7 @@
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan } from '$lib/store';
+	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan, logo_small } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -125,101 +125,125 @@
 			localStorage.setItem('theme', 'light');
 		}
 	}
+
+	// Header loading animation
+	import { tick } from 'svelte';
+
+	let headerShowLinks: boolean = false;
+	let visibleLinks: number = 0;
+	let linkWidths: number[] = [];
+	let containerEl: HTMLElement;
+	let gap: Number = 4;
+	let measured: Boolean = false;
+	const containerPaddingPerSide: Number = 4;
+
+	onMount(() => {
+		setTimeout(() => {
+			headerShowLinks = true;
+		}, 200);
+	});
+	$: if (headerShowLinks && containerEl && !measured) {
+		tick().then(() => {
+			const items = containerEl.querySelectorAll('.menu-item');
+			if (items.length > 0) {
+				linkWidths = Array.from(items).map(el =>
+				Math.round(el.getBoundingClientRect().width)
+			);
+
+			measured = true;
+		}});
+	}
+	$: if (measured) {
+		linkWidths.forEach((_, i) => {
+			setTimeout(() => {
+				visibleLinks = i + 1;
+			}, i * 400)
+		})
+	}
+	$: bgWidth = linkWidths.length && visibleLinks > 0
+		? linkWidths.slice(0, visibleLinks).reduce((acc, w) => acc + w, 0)
+		+ Math.max(0, visibleLinks - 1) * gap
+		+ containerPaddingPerSide * 2
+		: 0;
+
+	// Header scroll animation
+	let headerisScrolled = false;
+	
+	onMount(() => {
+		const update = () => {
+			headerisScrolled = window.scrollY > 100;
+		};
+
+		window.addEventListener('scroll', update);
+		update();
+
+		return () => window.removeEventListener('scroll', update);
+	});
 </script>
 
 <svelte:head>
 	<title>{pageTitle}</title>
 </svelte:head>
 
+<style>
+	@keyframes slide-in {
+		from {transform: translateX(-24px); opacity: 0;}
+		to {transform: translateX(0); opacity: 1;}
+	}
+	.animate-slide-in {
+		animation: slide-in 0.4s ease-out forwards;
+	}
+</style>
+
 <header
-	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white dark:bg-grey-950 text-secondary-600 dark:text-secondary-400 overflow-hidden"
+	class="sticky transition-all duration-300 ease-out mx-auto w-fit z-40"
+	class:top-8={!headerisScrolled}
+	class:top-2={headerisScrolled}
 >
-	<nav>
-		<div
-			class="navbar container flex flex-wrap items-center justify-between mx-auto group"
-			aria-pressed="false"
-		>
-			<div
-				class="block absolute top-0 right-0 size-8 md:size-16 bg-sun-600 rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"
-			></div>
-			<div
-				class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-secondary-600 rounded-full transform -translate-x-1/2 translate-y-1/2"
-			></div>
-			<div
-				class="block absolute bottom-0 right-0 size-16 md:size-24 bg-grashalm-600 rounded-full transform translate-x-1/2 translate-y-1/2 z-30"
-			></div>
+	<div class="flex items-center">
+		<div class="rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110">
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
-					src={logo}
+					src={logo_small_clear}
 					alt="Logo von {name}"
-					classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform translate-x-1 scale-105 hover:scale-110"
+					classNames="h-9 md:h-10 rounded-full cover object-center"
 				/>
-				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
-			<button
-				class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-8"
-				aria-pressed="false"
-				on:click={toggleMenu}
-				type="button"
-			>
-				<span class="sr-only">Menu</span>
-				<svg
-					class="w-6 h-6 fill-current pointer-events-none"
-					viewBox="0 0 16 16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<rect
-						class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-135"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-					<rect
-						class="origin-center transition-all duration-300 group-aria-pressed:hidden"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-					<rect
-						class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:-rotate-135"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-				</svg>
-			</button>
-			<div
-				class={isResponsive ? 'w-full md:block md:w-auto' : 'hidden w-full md:block md:w-auto'}
-				id="navbar"
-			>
-				<ul
-					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 dark:border-grey-800 rounded-lg bg-grey-50 dark:bg-grey-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-inherit dark:md:bg-inherit"
-				>
-					{#each menuLinks as link}
-						<li>
-							<a
-								href={link.href}
-								class={activeRoute === link.href
-									? 'font-bold block py-2 px-3 rounded-xs md:bg-transparent md:p-0'
-									: 'block py-2 px-3 rounded-xs md:bg-transparent md:p-0'}
-								aria-current="page"
-								on:click={closeMenu}>{link.title}</a
-							>
-						</li>
+		</div>
+		<div class="relative flex items-center ml-3">
+			<div class="relative flex gap-1 p-1" bind:this={containerEl}>
+				{#if headerShowLinks && measured}
+					<div
+						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
+						style="width: {bgWidth}px;"
+					></div>
+				{/if}
+				{#if headerShowLinks}	
+					{#each menuLinks as link, i}
+						<div
+							class="menu-item opacity-0 transform animate-slide-in shrink-0 bg-secondary-700 rounded-full uppercase font-semibold hover:scale-105 transition-transform duration-500 ease-in-out"
+							style="animation-delay: {i * 400}ms"
+							on:animationstart={() => (visibleLinks = Math.max(visibleLinks, i + 1))}
+						>
+							<a href={link.href} target="_self" class="px-3 py-1 inline-block">{link.title}</a>
+						</div>
 					{/each}
-				</ul>
+				{/if}
 			</div>
 		</div>
-	</nav>
+	</div>
 </header>
 
-<div class="z-30">
+<div class="z-30 -translate-y-10 md:-translate-y-12">
 	{#each tickers.data as ticker}
 		<Ticker eventName={ticker.text} eventStartDate={new Date(ticker.startAt)} eventEndDate={new Date(ticker.endAt)} preWord={ticker.preWord} nowWord={ticker.nowWord} />
 	{/each}
+</div>
+
+<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative -translate-y-10 md:-translate-y-12">
+	<main class="grow z-20">
+		<slot />
+	</main>
 </div>
 
 <div class="fixed z-50">
@@ -243,12 +267,6 @@
 	<div class="fixed bottom-4 right-4">
 		<ThemeSwitch {isDarkMode} {toggleDarkMode} />
 	</div>
-</div>
-
-<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
-	<main class="grow z-20">
-		<slot />
-	</main>
 </div>
 
 <footer class="z-30 bg-secondary-900">
