@@ -130,40 +130,40 @@
 	import { tick } from 'svelte';
 
 	let headerShowLinks: boolean = false;
-	let visibleLinks: number = 0;
-	let linkWidths: number[] = [];
-	let containerEl: HTMLElement;
-	let gap: Number = 4;
-	let measured: Boolean = false;
-	const containerPaddingPerSide: Number = 4;
+	let headerVisibleLinks: number = 0;
+	let headerLinkWidths: number[] = [];
+	let headerContainerEl: HTMLElement;
+	let headerGap: Number = 4;
+	let headerMeasured: Boolean = false;
+	const headerContainerPaddingPerSide: Number = 4;
 
 	onMount(() => {
 		setTimeout(() => {
 			headerShowLinks = true;
 		}, 200);
 	});
-	$: if (headerShowLinks && containerEl && !measured) {
+	$: if (headerShowLinks && headerContainerEl && !headerMeasured) {
 		tick().then(() => {
-			const items = containerEl.querySelectorAll('.menu-item');
+			const items = headerContainerEl.querySelectorAll('.menu-item');
 			if (items.length > 0) {
-				linkWidths = Array.from(items).map(el =>
+				headerLinkWidths = Array.from(items).map(el =>
 				Math.round(el.getBoundingClientRect().width)
 			);
 
-			measured = true;
+			headerMeasured = true;
 		}});
 	}
-	$: if (measured) {
-		linkWidths.forEach((_, i) => {
+	$: if (headerMeasured) {
+		headerLinkWidths.forEach((_, i) => {
 			setTimeout(() => {
-				visibleLinks = i + 1;
+				headerVisibleLinks = i + 1;
 			}, i * 400)
 		})
 	}
-	$: bgWidth = linkWidths.length && visibleLinks > 0
-		? linkWidths.slice(0, visibleLinks).reduce((acc, w) => acc + w, 0)
-		+ Math.max(0, visibleLinks - 1) * gap
-		+ containerPaddingPerSide * 2
+	$: bgWidth = headerLinkWidths.length && headerVisibleLinks > 0
+		? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0)
+		+ Math.max(0, headerVisibleLinks - 1) * headerGap
+		+ headerContainerPaddingPerSide * 2
 		: 0;
 
 	// Header scroll animation
@@ -211,8 +211,8 @@
 			</a>
 		</div>
 		<div class="relative flex items-center ml-3">
-			<div class="relative flex gap-1 p-1" bind:this={containerEl}>
-				{#if headerShowLinks && measured}
+			<div class="relative flex headerGap-1 p-1" bind:this={headerContainerEl}>
+				{#if headerShowLinks && headerMeasured}
 					<div
 						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
 						style="width: {bgWidth}px;"
@@ -223,7 +223,7 @@
 						<div
 							class="menu-item opacity-0 transform animate-slide-in shrink-0 bg-secondary-700 rounded-full font-semibold hover:scale-105 transition-transform duration-500 ease-in-out"
 							style="animation-delay: {i * 400}ms"
-							on:animationstart={() => (visibleLinks = Math.max(visibleLinks, i + 1))}
+							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
 						>
 							<a href={link.href} target="_self" class="px-3 py-1 inline-block">{link.title}</a>
 						</div>
@@ -271,7 +271,7 @@
 
 <footer class="z-30 bg-secondary-900">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
-		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-8 sm:gap-6 text-balance">
+		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance">
 			<div class="mb-6 md:mb-0 flex items-center">
 				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0">
 					<Image
