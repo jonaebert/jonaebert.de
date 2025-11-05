@@ -128,14 +128,15 @@
 
 	// Header loading animation
 	import { tick } from 'svelte';
+	import type { NumericRange } from '@sveltejs/kit';
 
 	let headerShowLinks: boolean = false;
 	let headerVisibleLinks: number = 0;
 	let headerLinkWidths: number[] = [];
 	let headerContainerEl: HTMLElement;
-	let headerGap: Number = 4;
-	let headerMeasured: Boolean = false;
-	const headerContainerPaddingPerSide: Number = 4;
+	let headerMeasured: boolean = false;
+	const headerGap: number = 4;
+	const headerContainerPaddingPerSide: number = 4;
 
 	onMount(() => {
 		setTimeout(() => {
@@ -160,14 +161,14 @@
 			}, i * 400)
 		})
 	}
-	$: bgWidth = headerLinkWidths.length && headerVisibleLinks > 0
+	$: headerBgWidth = headerLinkWidths.length && headerVisibleLinks > 0
 		? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0)
 		+ Math.max(0, headerVisibleLinks - 1) * headerGap
 		+ headerContainerPaddingPerSide * 2
 		: 0;
 
 	// Header scroll animation
-	let headerisScrolled = false;
+	let headerisScrolled: boolean = false;
 	
 	onMount(() => {
 		const update = () => {
@@ -211,11 +212,11 @@
 			</a>
 		</div>
 		<div class="relative flex items-center ml-3">
-			<div class="relative flex headerGap-1 p-1" bind:this={headerContainerEl}>
+			<div class="relative flex gap-1 p-1" bind:this={headerContainerEl}>
 				{#if headerShowLinks && headerMeasured}
 					<div
 						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
-						style="width: {bgWidth}px;"
+						style="width: {headerBgWidth}px;"
 					></div>
 				{/if}
 				{#if headerShowLinks}	
