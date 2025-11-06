@@ -235,13 +235,13 @@
 	</div>
 </header>
 
-<div class="z-30 -translate-y-10 md:-translate-y-12">
+<div class="z-30">
 	{#each tickers.data as ticker}
 		<Ticker eventName={ticker.text} eventStartDate={new Date(ticker.startAt)} eventEndDate={new Date(ticker.endAt)} preWord={ticker.preWord} nowWord={ticker.nowWord} />
 	{/each}
 </div>
 
-<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative -translate-y-10 md:-translate-y-12">
+<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
 	<main class="grow z-20">
 		<slot />
 	</main>
