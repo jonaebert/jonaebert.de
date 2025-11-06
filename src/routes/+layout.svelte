@@ -197,7 +197,7 @@
 </style>
 
 <header
-	class="fixed left-[50vh] transition-all duration-300 ease-out mx-auto w-fit z-40"
+	class="fixed left-1/2 -translate-x-1/2 transition-all duration-300 ease-out mx-auto w-fit z-40"
 	class:top-8={!headerisScrolled}
 	class:top-2={headerisScrolled}
 >
