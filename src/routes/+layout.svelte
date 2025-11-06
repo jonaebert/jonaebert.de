@@ -221,13 +221,13 @@
 				{/if}
 				{#if headerShowLinks}	
 					{#each menuLinks as link, i}
-						<div
-							class="menu-item opacity-0 transform animate-slide-in shrink-0 bg-secondary-700 rounded-full font-semibold hover:scale-105 transition-transform duration-500 ease-in-out"
+						<button
+							class="menu-item font-semibold {activeRoute === link.href ? 'bg-none' : 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
 							style="animation-delay: {i * 400}ms"
 							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
 						>
 							<a href={link.href} target="_self" class="px-3 py-1 inline-block">{link.title}</a>
-						</div>
+						</button>
 					{/each}
 				{/if}
 			</div>
