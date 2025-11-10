@@ -141,7 +141,6 @@
 
 	// Header loading animation
 	import { tick } from 'svelte';
-	import type { NumericRange } from '@sveltejs/kit';
 
 	let headerShowLinks: boolean = false;
 	let headerVisibleLinks: number = 0;
