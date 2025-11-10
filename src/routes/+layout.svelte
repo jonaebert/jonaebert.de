@@ -6,7 +6,17 @@
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan, logo_small } from '$lib/store';
+	import {
+		name,
+		logo_clear,
+		logo_small_clear,
+		logo,
+		uri,
+		pronouns,
+		job,
+		slogan,
+		logo_small
+	} from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -28,7 +38,10 @@
 	];
 	let footerLinks = [
 		{ title: 'GRÜNE Braunschweig', href: 'https://gruene-braunschweig.de/' },
-		{ title: 'GRÜNE Ratsfraktion Braunschweig', href: 'https://gruene-braunschweig-ratsfraktion.de/' },
+		{
+			title: 'GRÜNE Ratsfraktion Braunschweig',
+			href: 'https://gruene-braunschweig-ratsfraktion.de/'
+		},
 		{ title: 'GRÜNE JUGEND Braunschweig', href: 'https://gj-braunschweig.de/' }
 	];
 
@@ -118,7 +131,7 @@
 		if (isDarkMode) {
 			document.documentElement.classList.remove('light');
 			document.documentElement.classList.add('dark');
-			localStorage.setItem('theme', 'dark')
+			localStorage.setItem('theme', 'dark');
 		} else {
 			document.documentElement.classList.remove('dark');
 			document.documentElement.classList.add('light');
@@ -158,13 +171,14 @@
 		headerLinkWidths.forEach((_, i) => {
 			setTimeout(() => {
 				headerVisibleLinks = i + 1;
-			}, i * 400)
-		})
+			}, i * 400);
+		});
 	}
-	$: headerBgWidth = headerLinkWidths.length && headerVisibleLinks > 0
-		? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0)
-		+ Math.max(0, headerVisibleLinks - 1) * headerGap
-		+ headerContainerPaddingPerSide * 2
+	$: headerBgWidth =
+		headerLinkWidths.length && headerVisibleLinks > 0
+			? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0) +
+				Math.max(0, headerVisibleLinks - 1) * headerGap +
+				headerContainerPaddingPerSide * 2
 		: 0;
 
 	// Header scroll animation
@@ -186,23 +200,15 @@
 	<title>{pageTitle}</title>
 </svelte:head>
 
-<style>
-	@keyframes slide-in {
-		from {transform: translateX(-24px); opacity: 0;}
-		to {transform: translateX(0); opacity: 1;}
-	}
-	.animate-slide-in {
-		animation: slide-in 0.4s ease-out forwards;
-	}
-</style>
-
 <header
 	class="fixed left-1/2 -translate-x-1/2 transition-all duration-300 ease-out mx-auto w-fit z-40"
 	class:top-8={!headerisScrolled}
 	class:top-2={headerisScrolled}
 >
 	<div class="items-center flex">
-		<div class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110">
+		<div
+			class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110"
+		>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
 					src={logo_small_clear}
@@ -222,7 +228,9 @@
 				{#if headerShowLinks}	
 					{#each menuLinks as link, i}
 						<button
-							class="menu-item font-semibold {activeRoute === link.href ? 'bg-none' : 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
+							class="menu-item font-semibold {activeRoute === link.href
+								? 'bg-none'
+								: 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
 							style="animation-delay: {i * 400}ms"
 							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
 						>
@@ -237,7 +245,13 @@
 
 <div class="z-30">
 	{#each tickers.data as ticker}
-		<Ticker eventName={ticker.text} eventStartDate={new Date(ticker.startAt)} eventEndDate={new Date(ticker.endAt)} preWord={ticker.preWord} nowWord={ticker.nowWord} />
+		<Ticker
+			eventName={ticker.text}
+			eventStartDate={new Date(ticker.startAt)}
+			eventEndDate={new Date(ticker.endAt)}
+			preWord={ticker.preWord}
+			nowWord={ticker.nowWord}
+		/>
 	{/each}
 </div>
 
@@ -272,9 +286,14 @@
 
 <footer class="z-30 bg-secondary-900">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
-		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance">
+		<div
+			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"
+		>
 			<div class="mb-6 md:mb-0 flex items-center">
-				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0">
+				<a
+					href="/"
+					class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0"
+				>
 					<Image
 						src={logo_clear}
 						alt="Logo von {name}"
@@ -298,9 +317,7 @@
 					</ul>
 				</div>
 				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
-						Rechtliches ⚖️
-					</h2>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">Rechtliches ⚖️</h2>
 					<ul class="text-grey-400 font-medium font-montserrat">
 						{#each legalLinks as link}
 							<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
@@ -339,10 +356,8 @@
 					<a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</span>
 				<span class="text-sm text-grey-400 sm:text-center">
-					Basisdesign von <a
-						href="https://www.gruene.de"
-						class="hover:underline"
-						target="_blank">BÜNDNIS 90/DIE GRÜNEN</a
+					Basisdesign von <a href="https://www.gruene.de" class="hover:underline" target="_blank"
+						>BÜNDNIS 90/DIE GRÜNEN</a
 					>.
 				</span>
 			</div>
@@ -352,3 +367,19 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	@keyframes slide-in {
+		from {
+			transform: translateX(-24px);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	.animate-slide-in {
+		animation: slide-in 0.4s ease-out forwards;
+	}
+</style>
