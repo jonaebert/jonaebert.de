@@ -201,13 +201,13 @@
 	class:top-8={!headerisScrolled}
 	class:top-2={headerisScrolled}
 >
-	<div class="flex items-center">
-		<div class="rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110">
+	<div class="items-center flex">
+		<div class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110">
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
 					src={logo_small_clear}
 					alt="Logo von {name}"
-					classNames="h-9 md:h-10 rounded-full cover object-center"
+					classNames="h-full w-full rounded-full cover object-center"
 				/>
 			</a>
 		</div>
