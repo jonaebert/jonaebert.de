@@ -168,15 +168,17 @@
 				/>
 			</a>
 		</div>
-		<div class="relative flex items-center ml-3">
-			<div class="relative flex gap-1 p-1" bind:this={headerContainerEl}>
-				{#if headerShowLinks && headerMeasured}
+		<div class="relative inline-flex items-center ml-3">
+			{#if headerShowLinks}
+				<div
+					class="inline-flex gap-1 p-1"
+					bind:this={headerContainerEl}
+					style:width={`${headerBgWidth}px`}
+				>
 					<div
 						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
-						style="width: {headerBgWidth}px;"
+						style:width={`${headerBgWidth}px`}
 					></div>
-				{/if}
-				{#if headerShowLinks}
 					{#each menuLinks as link, i}
 						<button
 							class="menu-item font-semibold {activeRoute === link.href
@@ -188,8 +190,8 @@
 							<a href={link.href} target="_self" class="px-3 py-1 inline-block">{link.title}</a>
 						</button>
 					{/each}
-				{/if}
-			</div>
+				</div>
+			{/if}
 		</div>
 	</div>
 </header>
