@@ -94,24 +94,36 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
 <div class="flex min-h-screen items-center justify-center container py-5">
-	<div class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg">
+	<div
+		class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
+	>
 		<!-- Bildbereich -->
-		<div class="relative w-full h-auto bg-[url('https://cms.jonaebert.de/uploads/Kontakt_93eb0e428c.png')] bg-cover bg-center"></div>
+		<div
+			class="relative w-full h-auto bg-[url('https://cms.jonaebert.de/uploads/Kontakt_93eb0e428c.png')] bg-cover bg-center"
+		></div>
 
 		<!-- Textbereich -->
-		<div class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container">
-			<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins">
+		<div
+			class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container"
+		>
+			<h2
+				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins"
+			>
 				Kontaktformular
 			</h2>
-			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1">
+			<h3
+				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1"
+			>
 				Schreib mir doch gleich hier!
 			</h3>
-			<form class="flex flex-col gap-3 py-5 mb-5 font-montserrat bg-grey-200 dark:bg-grey-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
-				on:submit={submitForm}>
+			<form
+				class="flex flex-col gap-3 py-5 mb-5 font-montserrat bg-grey-200 dark:bg-grey-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
+				on:submit={submitForm}
+			>
 				<div class="relative">
 					<input
 						type="name"
@@ -176,8 +188,12 @@
 						>Deine Nachricht*</label
 					>
 					<div class="flex justify-between">
-						<label for="message" class="text-xs text-black dark:text-grey-300">Maximal 300 Zeichen</label>
-						<label for="name, email, message" class="text-xs text-black dark:text-grey-300">* Pflichtfeld</label>
+						<label for="message" class="text-xs text-black dark:text-grey-300"
+							>Maximal 300 Zeichen</label
+						>
+						<label for="name, email, message" class="text-xs text-black dark:text-grey-300"
+							>* Pflichtfeld</label
+						>
 					</div>
 				</div>
 				<div class="inline-flex items-center">
@@ -191,7 +207,9 @@
 							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 dark:border-grey-500 bg-white dark:bg-grey-600 checked:bg-sun-600 checked:border-secondary-900"
 							disabled={disable(submitting)}
 						/>
-						<span class="absolute text-secondary-900 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+						<span
+							class="absolute text-secondary-900 opacity-0 peer-checked:opacity-100 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								class="h-3.5 w-3.5"
@@ -208,7 +226,9 @@
 							</svg>
 						</span>
 					</div>
-					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300">Ich möchte eine Barriere melden.</label>
+					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300"
+						>Ich möchte eine Barriere melden.</label
+					>
 				</div>
 				<div class="inline-flex items-center">
 					<div class="flex items-center cursor-pointer relative">
@@ -240,12 +260,17 @@
 							</svg>
 						</span>
 					</div>
-					<label for="privacy" class="ms-3 text-secondary-900 dark:text-grey-300">Ich bin mit der <a href="/legal/privacy" target="_blank">Datenschutzerklärung</a> einverstanden.</label>
+					<label for="privacy" class="ms-3 text-secondary-900 dark:text-grey-300"
+						>Ich bin mit der <a href="/legal/privacy" target="_blank">Datenschutzerklärung</a> einverstanden.</label
+					>
 				</div>
 				{#if submitting == 0}
 					<div class="flex flex-row items-center justify-between flex-nowrap pt-3">
 						<div></div>
-						<button type="submit" class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto">
+						<button
+							type="submit"
+							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
+						>
 							<div class="flex flex-row items-center">
 								<div class="text-balance">Senden</div>
 							</div>
@@ -255,7 +280,11 @@
 				{:else if submitting == 1}
 					<div class="flex flex-row items-center justify-between flex-nowrap pt-3">
 						<div></div>
-						<button type="submit" class="text-base md:text-lg flex flex-row items-center button-m bg-sun-600 text-secondary-900 w-auto" disabled>
+						<button
+							type="submit"
+							class="text-base md:text-lg flex flex-row items-center button-m bg-sun-600 text-secondary-900 w-auto"
+							disabled
+						>
 							<div class="flex flex-row items-center cursor-not-allowed">
 								<svg
 									aria-hidden="true"
@@ -282,7 +311,11 @@
 				{:else if submitting == 2}
 					<div class="flex flex-row items-center justify-between flex-nowrap pt-3">
 						<div></div>
-						<button type="submit" class="text-base md:text-lg flex flex-row items-center button-m bg-sun-600 text-secondary-900 w-auto" disabled>
+						<button
+							type="submit"
+							class="text-base md:text-lg flex flex-row items-center button-m bg-sun-600 text-secondary-900 w-auto"
+							disabled
+						>
 							<div class="flex flex-row items-center cursor-not-allowed">
 								<div class="mr-3">💚</div>
 								<div class="text-balance">Versendet</div>
@@ -291,7 +324,11 @@
 						<div></div>
 					</div>
 				{:else}
-					<button type="submit" class="flex items-center justify-center p-2 mt-3 border rounded-full bg-himmel-600 text-neutral-600 cursor-not-allowed" disabled>
+					<button
+						type="submit"
+						class="flex items-center justify-center p-2 mt-3 border rounded-full bg-himmel-600 text-neutral-600 cursor-not-allowed"
+						disabled
+					>
 						<svg
 							class="shrink-0 inline w-4 h-4 me-3"
 							aria-hidden="true"
@@ -312,31 +349,45 @@
 					</button>
 				{/if}
 			</form>
-			<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins">
+			<h2
+				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins"
+			>
 				Weitere Kontaktmöglichkeiten
 			</h2>
-			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1">
+			<h3
+				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1"
+			>
 				Ist das Formular nichts für dich?
 			</h3>
 			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
-				<div class="bg-grey-200 dark:bg-grey-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit">
-					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-grey-200 italic font-poppins">
+				<div
+					class="bg-grey-200 dark:bg-grey-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
+				>
+					<h4
+						class="text-xl md:text-2xl font-bold text-black dark:text-grey-200 italic font-poppins"
+					>
 						Soziale Medien
 					</h4>
 					<Social />
 				</div>
-				<div class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit">
+				<div
+					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
+				>
 					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">E-Mail</h4>
 					<a href="mailto:{contact.mail}" class="font-montserrat">{contact.mail}</a>
 				</div>
-				<div class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit">
+				<div
+					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
+				>
 					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">Post</h4>
 					<div class="font-montserrat">
 						{name}<br />{address.street}<br />{address.zipcode}
 						{address.city}<br />{address.country}
 					</div>
 				</div>
-				<div class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit">
+				<div
+					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
+				>
 					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">Fax</h4>
 					<a href="fax:{contact.fax}" class="font-montserrat">{contact.fax}</a>
 				</div>
