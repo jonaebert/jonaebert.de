@@ -26,7 +26,7 @@
 
 	function getCoverUrl(cover: any): string {
 		if (!cover) {
-			return '/home/braunschweig_alte_waage.svg';
+			return 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
 		}
 
 		if (cover.ext === '.svg') {
@@ -40,7 +40,7 @@
 		}
 
 		// Fallback
-		return '/home/braunschweig_alte_waage.svg';
+		return 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
 	}
 </script>
 
@@ -52,7 +52,7 @@
 	{#if event.teaserImage.url && event.teaserImage.url !== null}
 		<meta property="og:image" content={event.teaserImage.url} />
 	{:else}
-		<meta property="og:image" content="/contact/teaser.svg" />
+		<meta property="og:image" content="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png" />
 	{/if}
 </svelte:head>
 
