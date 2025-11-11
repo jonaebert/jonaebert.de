@@ -112,19 +112,21 @@
 			class="flex flex-col justify-center py-6 container border border-grey-100 dark:border-none"
 		>
 			<div class="pb-6">
-				<!-- Titel -->
-				{#if event.state === 'CANCELLED'}
-					<span
-						class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
+				<div class="hyphens-auto text-pretty">
+					<!-- Titel -->
+					{#if event.state === 'CANCELLED'}
+						<span
+							class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
+						>
+							ABGESAGT
+						</span>
+					{/if}
+					<h1
+						class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
 					>
-						ABGESAGT
-					</span>
-				{/if}
-				<h1
-					class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
-				>
-					{event.summary}
-				</h1>
+						{event.summary}
+					</h1>
+				</div>
 
 				<!-- Beschreibung -->
 				<div
