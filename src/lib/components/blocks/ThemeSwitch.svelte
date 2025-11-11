@@ -23,7 +23,7 @@
 </script>
 
 <label
-	class="group relative block text-[1.2vh] select-none cursor-pointer transition-all duration-300 ease-in-out"
+	class="group relative block text-xs md:text-[16px] select-none cursor-pointer transition-all duration-300 ease-in-out"
 	aria-label="Toggle Theme"
 >
 	<input type="checkbox" class="hidden" bind:checked={isDarkMode} on:change={toggleDarkMode} />
@@ -64,9 +64,9 @@
 
 		<!-- Kreis -->
 		<div
-			class="absolute flex w-[3.375em] h-[3.375em] top-[-0.4375em] rounded-[6.25em] bg-white/10 shadow-[inset_0_0_0_3.375em_rgba(255,255,255,0.1),0_0_0_0.625em_rgba(255,255,255,0.1)] transition-all duration-300 ease-[cubic-bezier(0,-0.02,0.35,1.17)] {isDarkMode
-				? 'left-[calc(100%-0.3375em-2.575em)]'
-				: 'left-[-0.4375em]'}"
+			class="absolute flex w-[3.375em] h-[3.375em] top-[-0.4275em] md:top-[-0.408em] rounded-[6.25em] bg-white/10 shadow-[inset_0_0_0_3.375em_rgba(255,255,255,0.1),0_0_0_0.625em_rgba(255,255,255,0.1)] transition-all duration-300 ease-[cubic-bezier(0,-0.02,0.35,1.17)] {isDarkMode
+				? 'left-[calc(100%-0.3575em-2.575em)]'
+				: 'left-[-0.3375em]'}"
 		>
 			<div
 				class="relative m-auto w-[2.125em] h-[2.125em] rounded-full overflow-hidden transition-all duration-500 ease-[cubic-bezier(0,-0.02,0.4,1.25)] {isDarkMode
