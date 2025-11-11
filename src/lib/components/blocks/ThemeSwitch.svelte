@@ -3,7 +3,7 @@
 	export let toggleDarkMode: () => void;
 
 	/* Berechne Sterne */
-	let stars = [];
+	let stars: any[] | null | undefined = [];
 
 	function createStar() {
 		return {
