@@ -6,17 +6,7 @@
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import {
-		name,
-		logo_clear,
-		logo_small_clear,
-		logo,
-		uri,
-		pronouns,
-		job,
-		slogan,
-		logo_small
-	} from '$lib/store';
+	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -115,17 +105,17 @@
 	let isDarkMode: boolean = false;
 
 	onMount(() => {
-	    const saved = localStorage.getItem('theme');
-    	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    	isDarkMode = saved === 'dark' || (!saved && prefersDark);
-    	updateHtmlClass();
+		const saved = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		isDarkMode = saved === 'dark' || (!saved && prefersDark);
+		updateHtmlClass();
 	});
-	
+
 	function toggleDarkMode() {
 		isDarkMode = !isDarkMode;
 		updateHtmlClass();
 	}
-	
+
 	function updateHtmlClass() {
 		if (typeof document === 'undefined') return; // SSR-Schutz
 		if (isDarkMode) {
@@ -159,12 +149,13 @@
 		tick().then(() => {
 			const items = headerContainerEl.querySelectorAll('.menu-item');
 			if (items.length > 0) {
-				headerLinkWidths = Array.from(items).map(el =>
-				Math.round(el.getBoundingClientRect().width)
-			);
+				headerLinkWidths = Array.from(items).map((el) =>
+					Math.round(el.getBoundingClientRect().width)
+				);
 
-			headerMeasured = true;
-		}});
+				headerMeasured = true;
+			}
+		});
 	}
 	$: if (headerMeasured) {
 		headerLinkWidths.forEach((_, i) => {
@@ -178,11 +169,11 @@
 			? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0) +
 				Math.max(0, headerVisibleLinks - 1) * headerGap +
 				headerContainerPaddingPerSide * 2
-		: 0;
+			: 0;
 
 	// Header scroll animation
 	let headerisScrolled: boolean = false;
-	
+
 	onMount(() => {
 		const update = () => {
 			headerisScrolled = window.scrollY > 100;
@@ -224,7 +215,7 @@
 						style="width: {headerBgWidth}px;"
 					></div>
 				{/if}
-				{#if headerShowLinks}	
+				{#if headerShowLinks}
 					{#each menuLinks as link, i}
 						<button
 							class="menu-item font-semibold {activeRoute === link.href
@@ -305,38 +296,38 @@
 					/>
 				</a>
 			</div>
-				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each menuLinks as link}
-							<li class="mb-4 hover:text-white">
-								<a href={link.href} class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div>
+			<div>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each menuLinks as link}
+						<li class="mb-4 hover:text-white">
+							<a href={link.href} class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">Rechtliches ⚖️</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each legalLinks as link}
-							<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
-								<a href={link.href} class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
-						Schau mal hier vorbei 👀
-					</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each footerLinks as link}
-							<li class="mb-4 hover:text-white">
-								<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each legalLinks as link}
+						<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
+							<a href={link.href} class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
+					Schau mal hier vorbei 👀
+				</h2>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each footerLinks as link}
+						<li class="mb-4 hover:text-white">
+							<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 		<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
