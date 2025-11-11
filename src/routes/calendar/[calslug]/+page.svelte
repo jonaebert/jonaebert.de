@@ -61,7 +61,7 @@
 
 <div class="flex min-h-screen items-center justify-center container py-5">
 	<div
-		class="bg-grey-50 dark:bg-grey-950 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
+		class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
