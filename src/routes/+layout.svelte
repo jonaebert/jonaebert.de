@@ -50,45 +50,6 @@
 							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
 							: name + ' (' + pronouns + ') - ' + slogan;
 
-	// Funktion zum Umschalten des responsiven Headers
-	function toggleMenu(event) {
-		isResponsive = !isResponsive;
-		const button = event.currentTarget;
-		button.setAttribute('aria-pressed', !(button.getAttribute('aria-pressed') === 'true'));
-		const greenCircle = document.querySelector('.green-circle');
-		const navBar = document.querySelector('.navbar');
-		if (button.getAttribute('aria-pressed') === 'true') {
-			greenCircle.classList.remove('hidden');
-			navBar.classList.add('pb-4');
-			window.addEventListener('click', handleClickOutside);
-		} else {
-			greenCircle.classList.add('hidden');
-			navBar.classList.remove('pb-4');
-			window.removeEventListener('click', handleClickOutside);
-			console.error('Closing Menu');
-		}
-	}
-	// Funktion zum Einklappen des Menüs nach der Navigation
-	function closeMenu() {
-		isResponsive = false;
-		const button = document.querySelector('button[aria-pressed="true"]');
-		const greenCircle = document.querySelector('.green-circle');
-		const navBar = document.querySelector('.navbar');
-		if (button) {
-			button.setAttribute('aria-pressed', 'false');
-		}
-		greenCircle.classList.add('hidden');
-		navBar.classList.remove('pb-4');
-	}
-
-	// Funktion zum Schließen des Menüs bei Klick außerhalb des Headers
-	function handleClickOutside(event) {
-		const header = document.querySelector('header');
-		if (!header.contains(event.target)) {
-			closeMenu();
-		}
-	}
-
 	// Funktion, um zum Seitenanfang zu scrollen
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
