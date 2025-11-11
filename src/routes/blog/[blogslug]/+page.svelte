@@ -46,7 +46,7 @@
 		<!-- Platzhalter -->
 		<div></div>
 		<!-- Titel und Datum -->
-		<div class="py-5 flex justify-center text-pretty">
+		<div class="py-5 flex justify-center text-pretty mt-20 md:mt-0">
 			<div class="md:max-w-[60%] grid gap-5">
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
 					{post.data.title}
