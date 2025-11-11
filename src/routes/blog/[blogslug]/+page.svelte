@@ -30,14 +30,17 @@
 <svelte:head>
 	<title>{post.data.title} - {name} ({pronouns})</title>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 	<meta property="og:title" content={post.data.title} />
 	<meta property="og:image" content={getCoverUrl(cover, false)} />
 </svelte:head>
 
 <div class="relative min-h-screen flex flex-col">
 	<!-- Hintergrundbild -->
-	<div class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed" style="background-image: url({getCoverUrl(cover, true)});"></div>
+	<div
+		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
+		style="background-image: url({getCoverUrl(cover, true)});"
+	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
 
@@ -88,12 +91,7 @@
 								)}
 							{/if}
 						{:else}
-							{@render image_blog(
-								getCoverUrl(cover),
-								cover.alternativeText,
-								'',
-								''
-							)}
+							{@render image_blog(getCoverUrl(cover), cover.alternativeText, '', '')}
 						{/if}
 					{:else}
 						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}
