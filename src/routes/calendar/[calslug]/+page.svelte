@@ -33,7 +33,7 @@
 			return je_cms_api_base_url + cover.url;
 		} else if (cover.formats) {
 			const formatOrder = ['large', 'medium', 'small', 'thumbnail'];
-			const foundFormat = formatOrder.find(key => cover.formats[key]?.url);
+			const foundFormat = formatOrder.find((key) => cover.formats[key]?.url);
 			if (foundFormat) {
 				return je_cms_api_base_url + cover.formats[foundFormat].url;
 			}
@@ -47,17 +47,22 @@
 <svelte:head>
 	<title>{event.summary} - {event.startdate} - {name} ({pronouns})</title>
 	<meta name="robots" content="noindex" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 	<meta property="og:title" content="{event.summary} - {event.startdate}" />
 	{#if event.teaserImage.url && event.teaserImage.url !== null}
 		<meta property="og:image" content={event.teaserImage.url} />
 	{:else}
-		<meta property="og:image" content="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png" />
+		<meta
+			property="og:image"
+			content="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png"
+		/>
 	{/if}
 </svelte:head>
 
 <div class="flex min-h-screen items-center justify-center container py-5">
-	<div class="bg-grey-50 dark:bg-grey-950 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg">
+	<div
+		class="bg-grey-50 dark:bg-grey-950 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
+	>
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
 			{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
@@ -86,27 +91,45 @@
 						)}
 					{/if}
 				{:else}
-					{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data.alternativeText, '', '')}
+					{@render image_blog(
+						getCoverUrl(event.teaserImage.data),
+						event.teaserImage.data.alternativeText,
+						'',
+						''
+					)}
 				{/if}
 			{:else}
-				{@render image_blog(getCoverUrl(event.teaserImage.data), `Teaser Bild ${event.summary}`, '', '')}
+				{@render image_blog(
+					getCoverUrl(event.teaserImage.data),
+					`Teaser Bild ${event.summary}`,
+					'',
+					''
+				)}
 			{/if}
 		</div>
 
-		<div class="flex flex-col justify-center py-6 container border border-grey-100 dark:border-none">
+		<div
+			class="flex flex-col justify-center py-6 container border border-grey-100 dark:border-none"
+		>
 			<div class="pb-6">
 				<!-- Titel -->
 				{#if event.state === 'CANCELLED'}
-					<span class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4">
+					<span
+						class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
+					>
 						ABGESAGT
 					</span>
 				{/if}
-				<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins">
+				<h1
+					class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
+				>
 					{event.summary}
 				</h1>
 
 				<!-- Beschreibung -->
-				<div class="font-montserrat text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty">
+				<div
+					class="font-montserrat text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty"
+				>
 					{#if event.description}
 						<div>{@html event.description}</div>
 					{:else}
