@@ -25,7 +25,7 @@
 	
 	function getCoverUrl(cover: any): string {
 		if (!cover) {
-			return '/home/braunschweig_alte_waage.svg';
+			return 'https://cms.jonaebert.de/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png';
 		}
 
 		if (cover.ext === '.svg') {
@@ -35,7 +35,7 @@
 		}
 
 		// Fallback
-		return '/home/braunschweig_alte_waage.svg';
+		return 'https://cms.jonaebert.de/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png';
 	}
 </script>
 

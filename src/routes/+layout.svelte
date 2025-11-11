@@ -6,7 +6,7 @@
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	// Initialisierung Variabeln
-	import { name, logo_clear, logo_small_clear, logo, uri, pronouns, job, slogan } from '$lib/store';
+	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
@@ -28,7 +28,10 @@
 	];
 	let footerLinks = [
 		{ title: 'GRÜNE Braunschweig', href: 'https://gruene-braunschweig.de/' },
-		{ title: 'GRÜNE Ratsfraktion Braunschweig', href: 'https://gruene-braunschweig-ratsfraktion.de/' },
+		{
+			title: 'GRÜNE Ratsfraktion Braunschweig',
+			href: 'https://gruene-braunschweig-ratsfraktion.de/'
+		},
 		{ title: 'GRÜNE JUGEND Braunschweig', href: 'https://gj-braunschweig.de/' }
 	];
 
@@ -47,45 +50,6 @@
 							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
 							: name + ' (' + pronouns + ') - ' + slogan;
 
-	// Funktion zum Umschalten des responsiven Headers
-	function toggleMenu(event) {
-		isResponsive = !isResponsive;
-		const button = event.currentTarget;
-		button.setAttribute('aria-pressed', !(button.getAttribute('aria-pressed') === 'true'));
-		const greenCircle = document.querySelector('.green-circle');
-		const navBar = document.querySelector('.navbar');
-		if (button.getAttribute('aria-pressed') === 'true') {
-			greenCircle.classList.remove('hidden');
-			navBar.classList.add('pb-4');
-			window.addEventListener('click', handleClickOutside);
-		} else {
-			greenCircle.classList.add('hidden');
-			navBar.classList.remove('pb-4');
-			window.removeEventListener('click', handleClickOutside);
-			console.error('Closing Menu');
-		}
-	}
-	// Funktion zum Einklappen des Menüs nach der Navigation
-	function closeMenu() {
-		isResponsive = false;
-		const button = document.querySelector('button[aria-pressed="true"]');
-		const greenCircle = document.querySelector('.green-circle');
-		const navBar = document.querySelector('.navbar');
-		if (button) {
-			button.setAttribute('aria-pressed', 'false');
-		}
-		greenCircle.classList.add('hidden');
-		navBar.classList.remove('pb-4');
-	}
-
-	// Funktion zum Schließen des Menüs bei Klick außerhalb des Headers
-	function handleClickOutside(event) {
-		const header = document.querySelector('header');
-		if (!header.contains(event.target)) {
-			closeMenu();
-		}
-	}
-
 	// Funktion, um zum Seitenanfang zu scrollen
 	function scrollToTop() {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -102,29 +66,85 @@
 	let isDarkMode: boolean = false;
 
 	onMount(() => {
-	    const saved = localStorage.getItem('theme');
-    	const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    	isDarkMode = saved === 'dark' || (!saved && prefersDark);
-    	updateHtmlClass();
+		const saved = localStorage.getItem('theme');
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		isDarkMode = saved === 'dark' || (!saved && prefersDark);
+		updateHtmlClass();
 	});
-	
+
 	function toggleDarkMode() {
 		isDarkMode = !isDarkMode;
 		updateHtmlClass();
 	}
-	
+
 	function updateHtmlClass() {
 		if (typeof document === 'undefined') return; // SSR-Schutz
 		if (isDarkMode) {
 			document.documentElement.classList.remove('light');
 			document.documentElement.classList.add('dark');
-			localStorage.setItem('theme', 'dark')
+			localStorage.setItem('theme', 'dark');
 		} else {
 			document.documentElement.classList.remove('dark');
 			document.documentElement.classList.add('light');
 			localStorage.setItem('theme', 'light');
 		}
 	}
+
+	// Header loading animation
+	import { tick } from 'svelte';
+
+	let headerShowLinks: boolean = false;
+	let headerVisibleLinks: number = 0;
+	let headerLinkWidths: number[] = [];
+	let headerContainerEl: HTMLElement;
+	let headerMeasured: boolean = false;
+	const headerGap: number = 4;
+	const headerContainerPaddingPerSide: number = 4;
+
+	onMount(() => {
+		setTimeout(() => {
+			headerShowLinks = true;
+		}, 200);
+	});
+	$: if (headerShowLinks && headerContainerEl && !headerMeasured) {
+		tick().then(() => {
+			const items = headerContainerEl.querySelectorAll('.menu-item');
+			if (items.length > 0) {
+				headerLinkWidths = Array.from(items).map((el) =>
+					Math.round(el.getBoundingClientRect().width)
+				);
+
+				headerMeasured = true;
+			}
+		});
+	}
+	$: if (headerMeasured) {
+		headerLinkWidths.forEach((_, i) => {
+			setTimeout(() => {
+				headerVisibleLinks = i + 1;
+			}, i * 400);
+		});
+	}
+	$: headerBgWidth =
+		headerLinkWidths.length && headerVisibleLinks > 0
+			? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0) +
+				Math.max(0, headerVisibleLinks - 1) * headerGap +
+				headerContainerPaddingPerSide * 2
+			: 0;
+
+	// Header scroll animation
+	let headerisScrolled: boolean = false;
+
+	onMount(() => {
+		const update = () => {
+			headerisScrolled = window.scrollY > 100;
+		};
+
+		window.addEventListener('scroll', update);
+		update();
+
+		return () => window.removeEventListener('scroll', update);
+	});
 </script>
 
 <svelte:head>
@@ -132,94 +152,66 @@
 </svelte:head>
 
 <header
-	class="font-poppins sticky top-0 w-full shadow-md z-40 bg-white dark:bg-grey-950 text-secondary-600 dark:text-secondary-400 overflow-hidden"
+	class="fixed left-1/2 -translate-x-1/2 transition-all duration-300 ease-out mx-auto w-fit z-40"
+	class:top-8={!headerisScrolled}
+	class:top-2={headerisScrolled}
 >
-	<nav>
+	<div class="items-center flex">
 		<div
-			class="navbar container flex flex-wrap items-center justify-between mx-auto group"
-			aria-pressed="false"
+			class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110"
 		>
-			<div
-				class="block absolute top-0 right-0 size-8 md:size-16 bg-sun-600 rounded-full transform translate-x-1/2 -translate-y-1/2 z-30"
-			></div>
-			<div
-				class="hidden green-circle md:block absolute bottom-0 left-0 size-10 md:size-20 bg-secondary-600 rounded-full transform -translate-x-1/2 translate-y-1/2"
-			></div>
-			<div
-				class="block absolute bottom-0 right-0 size-16 md:size-24 bg-grashalm-600 rounded-full transform translate-x-1/2 translate-y-1/2 z-30"
-			></div>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
-					src={logo}
+					src={logo_small_clear}
 					alt="Logo von {name}"
-					classNames="h-14 md:h-16 duration-500 ease-in-out transition-transform transform translate-x-1 scale-105 hover:scale-110"
+					classNames="h-full w-full rounded-full cover object-center"
 				/>
-				<!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Jona Ebert</span> -->
 			</a>
-			<button
-				class="group md:hidden inline-flex w-12 h-12 text-center items-center justify-center rounded-sm transition mr-8"
-				aria-pressed="false"
-				on:click={toggleMenu}
-				type="button"
-			>
-				<span class="sr-only">Menu</span>
-				<svg
-					class="w-6 h-6 fill-current pointer-events-none"
-					viewBox="0 0 16 16"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<rect
-						class="origin-center -translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:rotate-135"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-					<rect
-						class="origin-center transition-all duration-300 group-aria-pressed:hidden"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-					<rect
-						class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-aria-pressed:translate-y-0 group-aria-pressed:-rotate-135"
-						y="7"
-						width="16"
-						height="1.5"
-						rx="1"
-					></rect>
-				</svg>
-			</button>
-			<div
-				class={isResponsive ? 'w-full md:block md:w-auto' : 'hidden w-full md:block md:w-auto'}
-				id="navbar"
-			>
-				<ul
-					class="font-medium text-lg flex flex-col p-4 md:p-0 mt-4 border border-grey-100 dark:border-grey-800 rounded-lg bg-grey-50 dark:bg-grey-900 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-inherit dark:md:bg-inherit"
-				>
-					{#each menuLinks as link}
-						<li>
-							<a
-								href={link.href}
-								class={activeRoute === link.href
-									? 'font-bold block py-2 px-3 rounded-xs md:bg-transparent md:p-0'
-									: 'block py-2 px-3 rounded-xs md:bg-transparent md:p-0'}
-								aria-current="page"
-								on:click={closeMenu}>{link.title}</a
-							>
-						</li>
-					{/each}
-				</ul>
-			</div>
 		</div>
-	</nav>
+		<div class="relative inline-flex items-center ml-3">
+			{#if headerShowLinks}
+				<div
+					class="inline-flex gap-1 p-1"
+					bind:this={headerContainerEl}
+					style:width={`${headerBgWidth}px`}
+				>
+					<div
+						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
+						style:width={`${headerBgWidth}px`}
+					></div>
+					{#each menuLinks as link, i}
+						<button
+							class="menu-item font-semibold {activeRoute === link.href
+								? 'bg-none'
+								: 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
+							style:animation-delay={`${i * 400}ms`}
+							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
+						>
+							<a href={link.href} target="_self" class="px-3 py-1 inline-block">{link.title}</a>
+						</button>
+					{/each}
+				</div>
+			{/if}
+		</div>
+	</div>
 </header>
 
 <div class="z-30">
 	{#each tickers.data as ticker}
-		<Ticker eventName={ticker.text} eventStartDate={new Date(ticker.startAt)} eventEndDate={new Date(ticker.endAt)} preWord={ticker.preWord} nowWord={ticker.nowWord} />
+		<Ticker
+			eventName={ticker.text}
+			eventStartDate={new Date(ticker.startAt)}
+			eventEndDate={new Date(ticker.endAt)}
+			preWord={ticker.preWord}
+			nowWord={ticker.nowWord}
+		/>
 	{/each}
+</div>
+
+<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
+	<main class="grow z-20">
+		<slot />
+	</main>
 </div>
 
 <div class="fixed z-50">
@@ -245,17 +237,16 @@
 	</div>
 </div>
 
-<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
-	<main class="grow z-20">
-		<slot />
-	</main>
-</div>
-
 <footer class="z-30 bg-secondary-900">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
-		<div class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 gap-8 sm:gap-6 text-balance">
+		<div
+			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"
+		>
 			<div class="mb-6 md:mb-0 flex items-center">
-				<a href="/" class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0">
+				<a
+					href="/"
+					class="transition-transform duration-400 hover:scale-110 -translate-x-4 md:translate-x-0"
+				>
 					<Image
 						src={logo_clear}
 						alt="Logo von {name}"
@@ -268,40 +259,38 @@
 					/>
 				</a>
 			</div>
-				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each menuLinks as link}
-							<li class="mb-4 hover:text-white">
-								<a href={link.href} class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
-						Rechtliches ⚖️
-					</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each legalLinks as link}
-							<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
-								<a href={link.href} class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
-				<div>
-					<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
-						Schau mal hier vorbei 👀
-					</h2>
-					<ul class="text-grey-400 font-medium font-montserrat">
-						{#each footerLinks as link}
-							<li class="mb-4 hover:text-white">
-								<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
-							</li>
-						{/each}
-					</ul>
-				</div>
+			<div>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each menuLinks as link}
+						<li class="mb-4 hover:text-white">
+							<a href={link.href} class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">Rechtliches ⚖️</h2>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each legalLinks as link}
+						<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
+							<a href={link.href} class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
+			<div>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
+					Schau mal hier vorbei 👀
+				</h2>
+				<ul class="text-grey-400 font-medium font-montserrat">
+					{#each footerLinks as link}
+						<li class="mb-4 hover:text-white">
+							<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 		<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
@@ -320,10 +309,8 @@
 					<a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</span>
 				<span class="text-sm text-grey-400 sm:text-center">
-					Basisdesign von <a
-						href="https://www.gruene.de"
-						class="hover:underline"
-						target="_blank">BÜNDNIS 90/DIE GRÜNEN</a
+					Basisdesign von <a href="https://www.gruene.de" class="hover:underline" target="_blank"
+						>BÜNDNIS 90/DIE GRÜNEN</a
 					>.
 				</span>
 			</div>
@@ -333,3 +320,19 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	@keyframes slide-in {
+		from {
+			transform: translateX(-24px);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+	.animate-slide-in {
+		animation: slide-in 0.4s ease-out forwards;
+	}
+</style>
