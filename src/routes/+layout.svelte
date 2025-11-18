@@ -8,7 +8,6 @@
 	// Initialisierung Variabeln
 	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
-	let isResponsive = false;
 	let currentYear = new Date().getFullYear();
 
 	// Ticker data
