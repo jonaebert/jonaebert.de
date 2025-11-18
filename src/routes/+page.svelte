@@ -50,8 +50,8 @@
 	<div class="text-left font-poppins">
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic my-2 pb-7">Aktuelles</h2>
 	</div>
-	{#if posts.data[0]}
-		<BlogTiles items={posts.data} />
+	{#if posts && posts?.data?.length > 0}
+		<BlogTiles items={posts?.data} />
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
 			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
@@ -97,7 +97,7 @@
 			Hier kannst du mich treffen!
 		</h3>
 	</div>
-	{#if events[0]}
+	{#if events?.length > 0}
 		<CalendarTiles items={events}></CalendarTiles>
 	{:else}
 		<div class="flex text-center font-montserrat justify-start">
