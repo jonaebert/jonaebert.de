@@ -45,17 +45,12 @@
 </script>
 
 <svelte:head>
-	<title>{event.summary} - {event.startdate} - {name} ({pronouns})</title>
+	<title>{event.subject} - {event.startdate} - {name} ({pronouns})</title>
 	<meta name="robots" content="noindex" />
 	<link rel="canonical" href={$uri.url.href} />
-	<meta property="og:title" content="{event.summary} - {event.startdate}" />
-	{#if event.teaserImage.url && event.teaserImage.url !== null}
-		<meta property="og:image" content={event.teaserImage.url} />
-	{:else}
-		<meta
-			property="og:image"
-			content="https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png"
-		/>
+	<meta property="og:title" content="{event.subject} - {event.startdate}" />
+	{#if event.cover}
+		<meta property="og:image" content={getCoverUrl(event.cover.url)} />
 	{/if}
 </svelte:head>
 
@@ -65,7 +60,7 @@
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-auto h-full flex overflow-hidden">
-			{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+			{#snippet imageblock(src: any, alt: any, cp_name: any, cp_url: any)}
 				<Image
 					{src}
 					{alt}
@@ -73,35 +68,35 @@
 					copyright={[{ name: cp_name, url: cp_url }]}
 				/>
 			{/snippet}
-			{#if event.teaserImage}
-				{#if event.teaserImage.copyright.text}
-					{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
-						{@render image_blog(
-							getCoverUrl(event.teaserImage.data),
-							event.teaserImage.data.alternativeText,
-							event.teaserImage.copyright.text,
-							event.teaserImage.copyright.url
+			{#if event.cover}
+				{#if event.copyright.enabled}
+					{#if event.copyright.name && event.copyright.url}
+						{@render imageblock(
+							getCoverUrl(event.cover),
+							event.cover.alternativeText,
+							event.copyright.name,
+							event.copyright.url
 						)}
-					{:else if event.teaserImage.copyright.text}
-						{@render image_blog(
-							getCoverUrl(event.teaserImage.data),
-							event.teaserImage.data.alternativeText,
-							event.teaserImage.copyright.text,
+					{:else if event.copyright.name}
+						{@render imageblock(
+							getCoverUrl(event.cover),
+							event.cover.alternativeText,
+							event.copyright.name,
 							''
 						)}
 					{/if}
 				{:else}
-					{@render image_blog(
-						getCoverUrl(event.teaserImage.data),
-						event.teaserImage.data.alternativeText,
+					{@render imageblock(
+						getCoverUrl(event.cover),
+						event.cover.alternativeText,
 						'',
 						''
 					)}
 				{/if}
 			{:else}
-				{@render image_blog(
-					getCoverUrl(event.teaserImage.data),
-					`Teaser Bild ${event.summary}`,
+				{@render imageblock(
+					getCoverUrl(event.cover),
+					`Teaser Bild ${event.subject}`,
 					'',
 					''
 				)}
@@ -114,7 +109,7 @@
 			<div class="pb-6">
 				<div class="hyphens-auto text-pretty">
 					<!-- Titel -->
-					{#if event.state === 'CANCELLED'}
+					{#if event.state === 'cancelled'}
 						<span
 							class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
 						>
@@ -124,7 +119,7 @@
 					<h1
 						class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
 					>
-						{event.summary}
+						{event.subject}
 					</h1>
 				</div>
 
@@ -196,11 +191,11 @@
 
 			<div class="">
 				<!-- Veranstaltungsseite -->
-				{#if event.url}
+				{#if event.externalEventURL}
 					<div class="flex flex-row items-center flex-nowrap pt-3">
 						<button
 							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
-							on:click={() => window.open(event.url, '_blank')}
+							on:click={() => window.open(event.externalEventURL, '_blank')}
 						>
 							<div class="flex flex-row items-center">
 								<div class="mr-3">🔗</div>
@@ -210,14 +205,14 @@
 					</div>
 				{/if}
 				<!-- ICS Export -->
-				{#if event.id}
+				{#if event.documentId}
 					<div class="flex flex-row items-center flex-nowrap pt-3">
 						<button
 							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto"
 							on:click={async () => {
 								try {
 									const response = await fetch(
-										`${je_api_base_url}?type=calendar&itemtype=single&id=${event.id}&download=true`
+										`${je_api_base_url}?type=calendar&itemtype=single&eventid=${event.documentId}&download=true`
 									);
 
 									if (response.ok) {
