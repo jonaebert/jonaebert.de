@@ -22,7 +22,7 @@
 		"@tailwindcss/postcss": "^4.1.16",
 		"@types/eslint": "^9.6.1",
 		"@typescript-eslint/eslint-plugin": "^8.46.4",
-		"@typescript-eslint/parser": "^8.46.3",
+		"@typescript-eslint/parser": "^8.47.0",
 		"eslint": "^9.39.0",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-svelte": "^3.13.0",
