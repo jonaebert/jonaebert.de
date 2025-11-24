@@ -42,9 +42,9 @@
 {#if events}
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-start">
 		{#each events as event}
-			<a class="group/teaser-image flex flex-col" href="/calendar/{event.id}">
+			<a class="group/teaser-image flex flex-col" href="/calendar/{event.documentId}">
 				<div class="flex h-full flex-col">
-					<div class={event.now == true ? 'mb-6 flex animate-pulse' : 'mb-6 flex'}>
+					<div class={event?.now == true ? 'mb-6 flex animate-pulse' : 'mb-6 flex'}>
 						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2">
 							{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 								<Image
@@ -54,28 +54,28 @@
 									copyright={[{ name: cp_name, url: cp_url }]}
 								/>
 							{/snippet}
-							{#if event.teaserImage}
-								{#if event.teaserImage.copyright.text}
-									{#if event.teaserImage.copyright.text && event.teaserImage.copyright.url}
+							{#if event.cover}
+								{#if event.copyright.enabled}
+									{#if event.copyright.name && event.copyright.url}
 										{@render image_blog(
-											getCoverUrl(event.teaserImage.data),
-											event.teaserImage.data?.alternativeText || '',
-											event.teaserImage.copyright.text,
+											getCoverUrl(event.cover),
+											event.cover.alternativeText || '',
+											event.copyright.name,
 											''
 										)}
-									{:else if event.teaserImage.copyright.text}
+									{:else if event.copyright.name}
 										{@render image_blog(
-											getCoverUrl(event.teaserImage.data),
-											event.teaserImage.data?.alternativeText || '',
-											event.teaserImage.copyright.text,
+											getCoverUrl(event.cover),
+											event.cover.alternativeText || '',
+											event.copyright.name,
 											''
 										)}
 									{/if}
 								{:else}
-									{@render image_blog(getCoverUrl(event.teaserImage.data), event.teaserImage.data?.alternativeText || '', '', '')}
+									{@render image_blog(getCoverUrl(event.cover), event.cover.alternativeText || '', '', '')}
 								{/if}
 							{:else}
-								{@render image_blog(getCoverUrl(event.teaserImage.data), `Teaser Bild ${event.summary}`, '', '')}
+								{@render image_blog(getCoverUrl(event.cover), `Teaser Bild ${event.summary}`, '', '')}
 							{/if}
 							<div class="top-50 absolute bottom-0 h-1/2 w-full"></div>
 						</div>
@@ -101,12 +101,12 @@
 						</div>
 					{/if}
 					<div class="hyphense-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3] font-poppins">
-						{#if event.state === 'CANCELLED'}
+						{#if event.state === 'cancelled'}
 							<span class="flex justify-start">
 								<Tags text='ABGESAGT' />
 							</span>
 						{/if}
-						{event.summary}
+						{event.subject}
 					</div>
 					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base font-montserrat">
 						<div class="flex flex-row items-end gap-6">
