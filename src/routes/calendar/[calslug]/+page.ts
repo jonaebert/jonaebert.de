@@ -5,7 +5,7 @@ export async function load({ params, fetch }) {
   let events = [];
 
   try {
-    const eventsRes = await fetch(`${je_api_base_url}?type=calendar&itemtype=single&id=${params.calslug}`);
+    const eventsRes = await fetch(`${je_api_base_url}?type=calendar&itemtype=single&eventid=${params.calslug}`);
 
     if (eventsRes.ok) {
       const eventsData = await eventsRes.json();
