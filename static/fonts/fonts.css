@@ -2,14 +2,14 @@
 /* Variable */
 @font-face {
 	font-family: 'Ubuntu';
-	src: url(/fonts/montserrat/UbuntuSans-VariableFont.ttf) format('truetype');
+	src: url(/fonts/ubuntu/UbuntuSans-VariableFont.ttf) format('truetype');
 	font-style: normal;
 	font-display: swap;
 }
 /* Variable italic */
 @font-face {
 	font-family: 'Ubuntu';
-	src: url(/fonts/montserrat/UbuntuSans-Italic-VariableFont.ttf) format('truetype');
+	src: url(/fonts/ubuntu/UbuntuSans-Italic-VariableFont.ttf) format('truetype');
 	font-style: italic;
 	font-display: swap;
 }
