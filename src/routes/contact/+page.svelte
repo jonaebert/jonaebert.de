@@ -110,14 +110,10 @@
 		<div
 			class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container"
 		>
-			<h2
-				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic"
-			>
+			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Kontaktformular
 			</h2>
-			<h3
-				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic pb-1"
-			>
+			<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 pb-1">
 				Schreib mir doch gleich hier!
 			</h3>
 			<form
@@ -226,9 +222,9 @@
 							</svg>
 						</span>
 					</div>
-					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300"
-						>Ich möchte eine Barriere melden.</label
-					>
+					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300">
+						Ich möchte eine Barriere melden.
+					</label>
 				</div>
 				<div class="inline-flex items-center">
 					<div class="flex items-center cursor-pointer relative">
@@ -349,23 +345,17 @@
 					</button>
 				{/if}
 			</form>
-			<h2
-				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic"
-			>
+			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Weitere Kontaktmöglichkeiten
 			</h2>
-			<h3
-				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic pb-1"
-			>
+			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 pb-1">
 				Ist das Formular nichts für dich?
 			</h3>
 			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
 				<div
 					class="bg-grey-200 dark:bg-grey-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
 				>
-					<h4
-						class="text-xl md:text-2xl font-bold text-black dark:text-grey-200 italic"
-					>
+					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-grey-200">
 						Soziale Medien
 					</h4>
 					<Social />
@@ -373,13 +363,13 @@
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic">E-Mail</h4>
+					<h4 class="text-xl md:text-2xl font-bold">E-Mail</h4>
 					<a href="mailto:{contact.mail}">{contact.mail}</a>
 				</div>
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic">Post</h4>
+					<h4 class="text-xl md:text-2xl font-bold">Post</h4>
 					<div>
 						{name}<br />{address.street}<br />{address.zipcode}
 						{address.city}<br />{address.country}
@@ -388,7 +378,7 @@
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic">Fax</h4>
+					<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
 					<a href="fax:{contact.fax}">{contact.fax}</a>
 				</div>
 			</div>
