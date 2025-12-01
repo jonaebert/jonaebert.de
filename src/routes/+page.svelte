@@ -47,14 +47,18 @@
 </div>
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
-	<div class="text-left font-extrabold">
-		<h2 class="text-3xl md:text-4xl text-secondary-900 dark:text-secondary-400 my-2 pb-7">Aktuelles</h2>
+	<div class="text-left">
+		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400 my-2">Termine</h2>
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 my-2 pb-10">
+			Hier kannst du mich treffen!
+		</h3>
 	</div>
-	{#if posts && posts?.data?.length > 0}
-		<BlogTiles items={posts?.data} />
+	{#if events?.length > 0}
+		<CalendarTiles items={events}></CalendarTiles>
 	{:else}
 		<div class="flex text-center justify-start">
-			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
+			<InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"
+			></InfoMessage>
 		</div>
 	{/if}
 </div>
@@ -91,18 +95,14 @@
 </div>
 
 <div class="container mx-auto px-4 py-12 max-w-(--breakpoint-xl)">
-	<div class="text-left">
-		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400 my-2">Termine</h2>
-		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 my-2 pb-10">
-			Hier kannst du mich treffen!
-		</h3>
+	<div class="text-left font-extrabold">
+		<h2 class="text-3xl md:text-4xl text-secondary-900 dark:text-secondary-400 my-2 pb-7">Aktuelles</h2>
 	</div>
-	{#if events?.length > 0}
-		<CalendarTiles items={events}></CalendarTiles>
+	{#if posts && posts?.data?.length > 0}
+		<BlogTiles items={posts?.data} />
 	{:else}
 		<div class="flex text-center justify-start">
-			<InfoMessage message="Es konnten aktuell keine Veranstaltungen gefunden werden!"
-			></InfoMessage>
+			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>
 		</div>
 	{/if}
 </div>
