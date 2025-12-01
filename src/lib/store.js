@@ -38,6 +38,8 @@ export const logo = 'https://cms.jonaebert.de/uploads/Logo_310x100_c17dfefe52.sv
 export const logo_clear = 'https://cms.jonaebert.de/uploads/Logo_310x100_Clear_2769e089a9.svg';
 export const logo_small = 'https://cms.jonaebert.de/uploads/Logo_500x500_67fca42684.svg';
 export const logo_small_clear = 'https://cms.jonaebert.de/uploads/Logo_500x500_Clear_dce31db3d5.svg';
+// Alte Waage
+export const img_alte_waage = 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
 
 // Block image copy and context menu
 export function contextMenuAction(node) {
