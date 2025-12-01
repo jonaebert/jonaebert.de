@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, contact, name, bb_base_url, bb_api_token, uri } from '$lib/store';
+	import { address, contact, name, bb_base_url, bb_api_token, uri, n8n_contact_url } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
@@ -59,7 +59,7 @@
 					message
 				};
 				const contactRes = await fetch(
-					`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`,
+					`${n8n_contact_url}`,
 					{
 						method: 'POST',
 						headers: {

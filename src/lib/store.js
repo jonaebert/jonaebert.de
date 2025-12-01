@@ -32,6 +32,9 @@ export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN;
 export const bb_base_url = import.meta.env.VITE_BB_BASE_URL;
 export const bb_api_token = import.meta.env.VITE_BB_API_TOKEN;
 
+// N8N
+export const n8n_contact_url = import.meta.env.VITE_JE_N8N_CONTACT_URL;
+
 // Pictures
 // Logo
 export const logo = 'https://cms.jonaebert.de/uploads/Logo_310x100_c17dfefe52.svg';
