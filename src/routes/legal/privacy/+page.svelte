@@ -292,7 +292,7 @@
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
 				<div class="text-balance mb-4">
-					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von Budibase bei Hetzner. Die erhaltenen
+					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von N8N bei Hetzner. Die erhaltenen
 					Nachrichten und Daten werden von unserer Seite umgehend nach der Bearbeitung gelöscht.
 				</div>
 				<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
@@ -576,7 +576,7 @@
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
 		<div class="text-balance mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 26. Oktober 2025. Aufgrund geänderter
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 01. Dezember 2025. Aufgrund geänderter
 			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
 			anzupassen.
 		</div>
