@@ -45,7 +45,7 @@
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
 
 	<!-- Inhalt: Titel + Content -->
-	<div class="container grow flex flex-col justify-between">
+	<div class="container pt-30 grow flex flex-col justify-between">
 		<!-- Platzhalter -->
 		<div></div>
 		<!-- Titel und Datum -->
@@ -91,7 +91,7 @@
 								)}
 							{/if}
 						{:else}
-							{@render image_blog(getCoverUrl(cover), cover.alternativeText, '', '')}
+							{@render image_blog(getCoverUrl(cover, true), cover.alternativeText, '', '')}
 						{/if}
 					{:else}
 						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}
