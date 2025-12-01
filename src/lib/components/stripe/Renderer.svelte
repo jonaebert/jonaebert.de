@@ -9,7 +9,7 @@
 	{#if components[block.__component]}
 		<svelte:component this={components[block.__component]} {...block} />
 	{:else}
-		<div class="flex text-center font-montserrat justify-start my-2">
+		<div class="flex text-center justify-start my-2">
 			<InfoMessage message="Unbekannter Block: {block.__component}"></InfoMessage>
 		</div>
 	{/if}

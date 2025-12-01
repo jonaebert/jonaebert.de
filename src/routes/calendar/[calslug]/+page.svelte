@@ -1,11 +1,17 @@
 <script lang="ts">
-	import { je_api_base_url, je_cms_api_base_url, name, pronouns, uri } from '$lib/store';
-	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
+	import {
+		name,
+		je_cms_api_base_url,
+		je_api_base_url,
+		pronouns,
+		uri,
+		img_alte_waage
+	} from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/image.svelte';
+	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
-
 	// Transform Event date
 	const rawEvent = data.event[0];
 	const event = {
@@ -24,108 +30,218 @@
 		enddate: FormatDate(rawEvent.end, 'date')
 	};
 
-	function getCoverUrl(cover: any): string {
+	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) {
-			return 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
+			return img_alte_waage;
 		}
 
 		if (cover.ext === '.svg') {
 			return je_cms_api_base_url + cover.url;
-		} else if (cover.formats) {
-			const formatOrder = ['large', 'medium', 'small', 'thumbnail'];
-			const foundFormat = formatOrder.find((key) => cover.formats[key]?.url);
-			if (foundFormat) {
-				return je_cms_api_base_url + cover.formats[foundFormat].url;
+		} else if (cover.formats?.thumbnail?.url) {
+			if (highresolution === true && cover.formats?.large?.url) {
+				return je_cms_api_base_url + cover.formats.large.url;
+			} else if (cover.formats?.thumbnail?.url) {
+				return je_cms_api_base_url + cover.formats.thumbnail.url;
 			}
 		}
 
 		// Fallback
-		return 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
+		return img_alte_waage;
 	}
 </script>
 
 <svelte:head>
-	<title>{event.subject} - {event.startdate} - {name} ({pronouns})</title>
-	<meta name="robots" content="noindex" />
+	<title>{event.subject} - {name} ({pronouns})</title>
+	<meta name="robots" content="index,follow" />
 	<link rel="canonical" href={$uri.url.href} />
-	<meta property="og:title" content="{event.subject} - {event.startdate}" />
-	{#if event.cover}
-		<meta property="og:image" content={getCoverUrl(event.cover.url)} />
-	{/if}
+	<meta property="og:title" content={event.subject} />
+	<meta property="og:image" content={getCoverUrl(event.cover, false)} />
 </svelte:head>
 
-<div class="flex min-h-screen items-center justify-center container py-5">
+<div class="relative min-h-screen flex flex-col">
+	<!-- Hintergrundbild -->
 	<div
-		class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
-	>
-		<!-- Bildbereich -->
-		<div class="relative w-auto h-full flex overflow-hidden">
-			{#snippet imageblock(src: any, alt: any, cp_name: any, cp_url: any)}
-				<Image
-					{src}
-					{alt}
-					classNames="w-full h-full object-cover object-center"
-					copyright={[{ name: cp_name, url: cp_url }]}
-				/>
-			{/snippet}
-			{#if event.cover}
-				{#if event.copyright.enabled}
-					{#if event.copyright.name && event.copyright.url}
-						{@render imageblock(
-							getCoverUrl(event.cover),
-							event.cover.alternativeText,
-							event.copyright.name,
-							event.copyright.url
-						)}
-					{:else if event.copyright.name}
-						{@render imageblock(
-							getCoverUrl(event.cover),
-							event.cover.alternativeText,
-							event.copyright.name,
-							''
-						)}
-					{/if}
+		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
+		style="background-image: url({getCoverUrl(event.cover, true)});"
+	></div>
+	<!-- Schwarzer Overlay -->
+	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
+
+	<!-- Inhalt: Titel + Content -->
+	<div class="container md:pt-30 grow flex flex-col justify-between">
+		{#snippet eventDate()}
+			<div class="flex flex-row items-end gap-6">
+				{#if event.datetype === 'date'}
+					<p>
+						{event.startdate} - {event.enddate} <br /> Ganztägig
+					</p>
+				{:else if event.startdate === event.enddate && event.datetype === 'date-time'}
+					<p>
+						{event.startdate}
+					</p>
+					<p>
+						{event.starttime} - {event.endtime} Uhr
+					</p>
 				{:else}
-					{@render imageblock(
-						getCoverUrl(event.cover),
-						event.cover.alternativeText,
-						'',
-						''
-					)}
+					<p>
+						vom<br />
+						bis
+					</p>
+					<p>
+						{event.startdate}<br />
+						{event.enddate}
+					</p>
+					<p>
+						{event.starttime} Uhr<br />
+						{event.endtime} Uhr
+					</p>
 				{/if}
-			{:else}
-				{@render imageblock(
-					getCoverUrl(event.cover),
-					`Teaser Bild ${event.subject}`,
-					'',
-					''
-				)}
-			{/if}
+			</div>
+		{/snippet}
+		<!-- Platzhalter notwendig -->
+		<div></div>
+		<!-- Titel und Datum -->
+		<div class="py-5 flex justify-center text-pretty hyphens-auto md:hyphens-none mt-20 md:mt-0">
+			<div class="md:max-w-[60%] grid gap-5">
+				<h1
+					class="text-5xl md:text-6xl font-extrabold text-neutral-600 dark:text-secondary-200 my-2"
+				>
+					{#if event.state === 'cancelled'}
+						ABGESAGT! <br />
+					{/if}
+					{event.subject}
+				</h1>
+				<div class="text-white dark:text-grey-300">
+					<div class="flex flex-row justify-start items-center">
+						{@render eventDate()}
+					</div>
+				</div>
+			</div>
 		</div>
 
+		<!-- Event-Content am unteren Rand -->
 		<div
-			class="flex flex-col justify-center py-6 container border border-grey-100 dark:border-none"
+			class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl"
 		>
-			<div class="pb-6">
-				<div class="hyphens-auto text-pretty">
-					<!-- Titel -->
-					{#if event.state === 'cancelled'}
-						<span
-							class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
-						>
-							ABGESAGT
-						</span>
-					{/if}
-					<h1
-						class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
-					>
-						{event.subject}
-					</h1>
-				</div>
+			<div class="p-6 relative gap-8 container">
+				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative">
+					<div class="flex flex-col gap-5">
+						<div>
+							{#snippet image_event(src: any, alt: any, cp_name: any, cp_url: any)}
+								<Image
+									{src}
+									alt={event.cover.alternativeText}
+									classNames="rounded-lg"
+									copyright={[{ name: cp_name, url: cp_url }]}
+								/>
+							{/snippet}
+							{#if event.cover}
+								{#if event.copyright.enabled == true}
+									{#if event.copyright.name && event.copyright.url}
+										{@render image_event(
+											getCoverUrl(event.cover, true),
+											event.cover.alternativeText,
+											event.copyright.name,
+											event.copyright.url
+										)}
+									{:else if event.copyright.name}
+										{@render image_event(
+											getCoverUrl(event.cover, true),
+											event.cover.alternativeText,
+											event.copyright.name,
+											''
+										)}
+									{/if}
+								{:else}
+									{@render image_event(
+										getCoverUrl(event.cover, true),
+										event.cover.alternativeText,
+										'',
+										''
+									)}
+								{/if}
+							{:else}
+								{@render image_event(img_alte_waage, `Teaser Bild ${event.title}`, '', '')}
+							{/if}
+						</div>
+						<!-- Termininformationen-->
+						<div class="flex flex-col gap-5 text-grey-700 dark:text-grey-400 text-base md:text-lg">
+							<!-- Datum -->
+							<div class="text-base md:text-lg text-nowrap">
+								<div class="flex flex-row justify-start items-center">
+									<div class="mr-3">🗓️</div>
+									{@render eventDate()}
+								</div>
+							</div>
+							<!-- Ort -->
+							<div class="text-base md:text-lg text-nowrap">
+								{#if event.location}
+									<div class="flex flex-row items-center">
+										<div class="mr-3">📍</div>
+										<div class="text-balance">{event.location}</div>
+									</div>
+								{:else}
+									<div class="flex flex-row items-center">
+										<div class="mr-3">📍</div>
+										<div class="text-balance">Aktuell kein Ort verfügbar🙃</div>
+									</div>
+								{/if}
+							</div>
+							<!-- Veranstaltungsseite -->
+							{#if event.externalEventURL}
+								<div class="flex flex-row items-center flex-nowrap">
+									<button
+										class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
+										on:click={() => window.open(event.externalEventURL, '_blank')}
+									>
+										<div class="flex flex-row items-center">
+											<div class="mr-3">🔗</div>
+											<div class="text-balance">Zur Veranstaltungsseite</div>
+										</div>
+									</button>
+								</div>
+							{/if}
+							<!-- ICS Export -->
+							{#if event.documentId}
+								<div class="flex flex-row items-center flex-nowrap">
+									<button
+										class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto"
+										on:click={async () => {
+											try {
+												const response = await fetch(
+													`${je_api_base_url}?type=calendar&itemtype=single&eventid=${event.documentId}&download=true`
+												);
 
-				<!-- Beschreibung -->
+												if (response.ok) {
+													const blob = await response.blob();
+													const url = window.URL.createObjectURL(blob);
+													const a = document.createElement('a');
+													a.style.display = 'none';
+													a.href = url;
+													a.download = `${event.subject}_${event.startyear}.ics`;
+													document.body.appendChild(a);
+													a.click();
+													window.URL.revokeObjectURL(url);
+												} else {
+													console.error('Failed to download ICS file');
+												}
+											} catch (error) {
+												console.error('Error:', error);
+											}
+										}}
+									>
+										<div class="flex flex-row items-center">
+											<div class="mr-3">📅</div>
+											<div class="text-balance">Zum Kalender hinzufügen</div>
+										</div>
+									</button>
+								</div>
+							{/if}
+						</div>
+					</div>
+				</div>
 				<div
-					class="font-montserrat text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty"
+					class="text-grey-700 dark:text-grey-400 text-left md:text-right md:text-lg leading-relaxed text-pretty"
 				>
 					{#if event.description}
 						<div>{@html event.description}</div>
@@ -136,110 +252,6 @@
 						</div>
 					{/if}
 				</div>
-			</div>
-
-			<div class="pb-6">
-				<!-- Datum -->
-				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
-					<div class="flex flex-row justify-start items-center">
-						<div class="mr-3">🗓️</div>
-						<div class="flex flex-row items-end gap-6">
-							{#if event.datetype === 'date'}
-								<p>
-									{event.startdate} - {event.enddate} <br /> Ganztägig
-								</p>
-							{:else if event.startdate === event.enddate && event.datetype === 'date-time'}
-								<p>
-									{event.startdate}
-								</p>
-								<p>
-									{event.starttime} - {event.endtime}
-								</p>
-							{:else}
-								<p>
-									vom<br />
-									bis
-								</p>
-								<p>
-									{event.startdate}<br />
-									{event.enddate}
-								</p>
-								<p>
-									{event.starttime}<br />
-									{event.endtime}
-								</p>
-							{/if}
-						</div>
-					</div>
-				</div>
-
-				<!-- Ort -->
-				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
-					{#if event.location}
-						<div class="flex flex-row items-center">
-							<div class="mr-3">📍</div>
-							<div class="text-balance">{event.location}</div>
-						</div>
-					{:else}
-						<div class="flex flex-row items-center">
-							<div class="mr-3">📍</div>
-							<div class="text-balance">Aktuell kein Ort verfügbar🙃</div>
-						</div>
-					{/if}
-				</div>
-			</div>
-
-			<div class="">
-				<!-- Veranstaltungsseite -->
-				{#if event.externalEventURL}
-					<div class="flex flex-row items-center flex-nowrap pt-3">
-						<button
-							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 text-white hover:bg-sun-600 hover:text-secondary-900 w-auto"
-							on:click={() => window.open(event.externalEventURL, '_blank')}
-						>
-							<div class="flex flex-row items-center">
-								<div class="mr-3">🔗</div>
-								<div class="text-balance">Zur Veranstaltungsseite</div>
-							</div>
-						</button>
-					</div>
-				{/if}
-				<!-- ICS Export -->
-				{#if event.documentId}
-					<div class="flex flex-row items-center flex-nowrap pt-3">
-						<button
-							class="text-base md:text-lg flex flex-row items-center button-m bg-secondary-600 hover:bg-sun-600 text-white hover:text-secondary-900 w-auto"
-							on:click={async () => {
-								try {
-									const response = await fetch(
-										`${je_api_base_url}?type=calendar&itemtype=single&eventid=${event.documentId}&download=true`
-									);
-
-									if (response.ok) {
-										const blob = await response.blob();
-										const url = window.URL.createObjectURL(blob);
-										const a = document.createElement('a');
-										a.style.display = 'none';
-										a.href = url;
-										a.download = `${event.summary}.ics`;
-										document.body.appendChild(a);
-										a.click();
-										window.URL.revokeObjectURL(url);
-									} else {
-										console.error('Failed to download ICS file');
-									}
-								} catch (error) {
-									console.error('Error:', error);
-								}
-							}}
-						>
-							<div class="flex flex-row items-center">
-								<div class="mr-3">📅</div>
-								<div class="text-balance">Zum Kalender hinzufügen</div>
-							</div>
-						</button>
-					</div>
-				{/if}
 			</div>
 		</div>
 	</div>

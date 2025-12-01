@@ -9,7 +9,7 @@
 
 <div class="container py-12 grid gap-5 text-black dark:text-grey-400">
 	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Datenschutz</h1>
-	<div class="text-balance font-montserrat mb-4">
+	<div class="text-balance mb-4">
 		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von
 		personenbezogenen Daten (im Folgenden auch nur als "Daten" bezeichnet) aufklären.
 		Personenbezogene Daten sind alle Daten, die einen persönlichen Bezug zu Ihnen aufweisen, z.B.
@@ -21,10 +21,10 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wer bei uns für die Datenverarbeitung verantwortlich ist
 		</h2>
-		<div class="font-montserrat text-balance mb-4">
+		<div class="text-balance mb-4">
 			Verantwortlich für die Datenverarbeitung ist:
 		</div>
-		<div class="font-montserrat text-balance mb-4">
+		<div class="text-balance mb-4">
 			{name} <br />
 			{address.street} <br />
 			{address.zipcode}
@@ -37,11 +37,11 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Ihre Rechte nach der DSGVO
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Nach der DSGVO stehen Ihnen die nachfolgend aufgeführten Rechte zu, die Sie jederzeit bei dem
 			in Ziffer 1. dieser Datenschutzerklärung genannten Verantwortlichen geltend machen können:
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">
 					<strong>Recht auf Auskunft:</strong> Sie haben das Recht, von uns Auskunft darüber zu verlangen,
@@ -71,12 +71,12 @@
 			</ul>
 		</div>
 		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerrufsrecht</h3>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung jederzeit zu
 			widerrufen.
 		</div>
 		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerspruchsrecht</h3>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
 			berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch einzulegen. Sofern
 			Sie von Ihrem Widerspruchsrecht Gebrauch machen, bitten wir Sie um die Darlegung der Gründe.
@@ -84,11 +84,11 @@
 			Ihnen gegenüber nachweisen, dass zwingende schutzwürdige Gründe an der Datenverarbeitung Ihre
 			Interessen und Rechte überwiegen.
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold underline">
+		<div class="text-balance mb-4 font-bold underline">
 			Unabhängig vom vorstehend Gesagten, haben Sie das jederzeitige Recht, der Verarbeitung Ihrer
 			personenbezogenen Daten für Zwecke der Werbung und Datenanalyse zu widersprechen.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Ihren Widerspruch richten Sie bitte an die oben angegebene Kontaktadresse des
 			Verantwortlichen.
 		</div>
@@ -97,12 +97,12 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Wann löschen wir Ihre Daten?
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir löschen Ihre Daten dann, wenn wir diese nicht mehr brauchen oder Sie uns dies vorgeben.
 			Das bedeutet, dass - sofern sich aus den einzelnen Datenschutzhinweisen dieser
 			Datenschutzerklärung nichts anderes ergibt - wir Ihre Daten löschen,
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">
 					wenn der Zweck der Datenverarbeitung weggefallen ist und damit die jeweilige in den
@@ -128,7 +128,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Sofern wir (bestimmte Teile) Ihre(r) Daten jedoch noch für andere Zwecke vorhalten müssen,
 			weil dies etwa steuerliche Aufbewahrungsfristen (in der Regel 6 Jahre für
 			Geschäftskorrespondenz bzw. 10 Jahre für Buchungsbelege) oder die Geltendmachung, Ausübung
@@ -141,7 +141,7 @@
 	</div>
 	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Webhosting</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
 			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
 			(Hosting). Die von uns angemieteten Server befinden sich ausschließlich innerhalb Deutschlands. Hierbei können von dem Anbieter all diejenigen über den von Ihnen genutzten Browser
@@ -151,7 +151,7 @@
 			Ihnen über unsere Internetseite getätigten Eingaben. Daneben kann der von uns genutzte
 			Anbieter
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">das Datum und die Uhrzeit des Zugriffs auf unsere Internetseite</li>
 				<li class="mb-2">Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
@@ -168,13 +168,13 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			erheben. Die vorgenannten Daten werden als Logfiles auf den Servern unseres Anbieters
 			gespeichert. Dies ist erforderlich, um die Stabilität und Sicherheit des Betriebs unserer
 			Internetseite zu gewährleisten.
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">Betroffene Daten:</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4 font-bold">Betroffene Daten:</div>
+		<div class="text-balance mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
 				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
@@ -183,19 +183,19 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Betroffene Personen: </strong>Nutzer unserer Internetpräsenz
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Verarbeitungszweck: </strong>Ausspielen unserer Internetseiten, Gewährleistung des
 			Betriebs unserer Internetseiten
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">Von uns beauftragte(r) Webhoster:</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">Hetzner Online</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4 font-bold">Von uns beauftragte(r) Webhoster:</div>
+		<div class="text-balance mb-4 font-bold">Hetzner Online</div>
+		<div class="text-balance mb-4">
 			Dienstanbieter: Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen<br />
 			<a href="https://www.hetzner.de/" target="_blank" class="externalLink">Internetseite</a>
 			<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
@@ -207,7 +207,7 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Content-Delivery-Network
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir benutzen zum Ausspielen unserer Internetseiten ein Content-Delivery-Network (CDN). Ein CDN
 			ist ein Netz regional verteilter und über das Internet verbundener Server. Über das CDN werden
 			skalierende Speicher- und Auslieferungskapazitäten zur Verfügung gestellt. Hierdurch werden
@@ -218,15 +218,15 @@
 			und zum anderen unser Angebot stetig zu verbessern und unsere Internetseiten für Sie als
 			Nutzer nutzerfreundlicher auszugestalten.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir möchten Sie darauf hinweisen, dass je nach Sitzland des unten genannten Diensteanbieters
 			die über den Dienst erfassten Daten außerhalb des Raumes der Europäischen Union übertragen und
 			verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von der DSGVO
 			vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer Rechte nicht
 			oder nur erschwert erfolgen kann.
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">Betroffene Daten:</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4 font-bold">Betroffene Daten:</div>
+		<div class="text-balance mb-4">
 			<ul class="list-disc">
 				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
 				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
@@ -234,17 +234,17 @@
 					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
 				</li>
 			</ul>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Verarbeitungszweck: </strong>Technische Optimierung der Internetpräsenz, Analyse von
 				Fehlern und Nutzerverhalten
 			</div>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 			</div>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Eingesetze CDN-Dienstleister:</strong>
 			</div>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<p class="font-bold">Cloudflare</p>
 				<div>
 					Diensteanbieter: Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, United States<br />
@@ -261,14 +261,14 @@
 	</div>
 	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontaktaufnahme</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
 			sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre Telefonnummer
 			oder Ihre E-Mail-Adresse zur Verfügung stellen oder weitere Angaben zur Ihrer Person oder
 			Ihrem Anliegen machen, verarbeiten wir diese Daten zur Beantwortung Ihrer Anfrage im Rahmen
 			des zwischen uns bestehenden vorvertraglichen oder vertraglichen Beziehungen.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Betroffene Daten:</p>
 			<ul>
 				<li>Bestandsdaten (bspw. Namen, Adressen)</li>
@@ -276,14 +276,14 @@
 				<li>Inhaltsdaten (Texte, Fotos, Videos)</li>
 				<li>Vertragsdaten (bspw. Vertragsgegenstand, Vertragsdauer)</li>
 			</ul>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Betroffene Personen: </strong>Interessenten, Kunden, Geschäfts- und Vertragspartner
 			</div>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Verarbeitungszweck: </strong>Kommunikation sowie Beantwortung von Kontaktanfragen,
 				Büro und Organisationsverfahren
 			</div>
-			<div class="text-balance font-montserrat mb-4">
+			<div class="text-balance mb-4">
 				<strong>Rechtsgrundlage:</strong> Vertragserfüllung und vorvertragliche Anfragen, Art. 6 Abs.
 				1 lit. b DSGVO, berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
 			</div>
@@ -291,8 +291,8 @@
 				<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">
 					Angaben zu dem von uns genutzten Drittanbieter:
 				</h3>
-				<div class="text-balance font-montserrat mb-4">
-					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von Budibase bei Hetzner. Die erhaltenen
+				<div class="text-balance mb-4">
+					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von N8N bei Hetzner. Die erhaltenen
 					Nachrichten und Daten werden von unserer Seite umgehend nach der Bearbeitung gelöscht.
 				</div>
 				<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
@@ -303,7 +303,7 @@
 	</div>
 	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Content-Dienste</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
 			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
 			die von uns eingesetzten Dienste die Ihnen zum Zeitpunkt Ihres Besuchs auf unseren
@@ -317,14 +317,14 @@
 			selbst einen Account bei dem Dienstanbieter unterhalten und zum Zeitpunkt der Sitzung dort
 			eingeloggt sind.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir weisen darauf hin, dass je nach Sitzland des nachstehend genannten Diensteanbieters die
 			nachfolgend näher benannten Daten auf Server außerhalb des Raumes der Europäischen Union
 			übertragen und verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von
 			der DSGVO vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer
 			Rechte nicht oder nur erschwert erfolgen kann.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Betroffene Daten:</p>
 			<ul class="list-disc">
 				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
@@ -333,13 +333,13 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Betroffene Personen:</p>
 			<ul class="list-disc">
 				<li class="mb-2">Nutzer unserer Internetpräsenz</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Verarbeitungszweck:</p>
 			<ul class="list-disc">
 				<li class="mb-2">
@@ -348,7 +348,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Rechtsgrundlage:</p>
 			<ul class="list-disc">
 				<li class="mb-2">
@@ -357,7 +357,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Wir nutzen folgende Content-Dienste:</p>
 			<ul class="list-disc">
 				<li class="mb-2">
@@ -409,7 +409,7 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Unsere Onlinepräsenzen bei sozialen Netzwerken
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir betreiben Onlinepräsenzen innerhalb der nachfolgend aufgelisteten sozialen Netzwerke.
 			Besuchen Sie eine dieser Präsenzen, werden durch den jeweiligen Anbieter die unten näher
 			aufgeführten Daten erhoben und verarbeitet. In der Regel werden diese Daten zur Werbe- und
@@ -420,25 +420,25 @@
 			interessenbezogene Werbung auszuspielen. Gegen die Erstellung von Nutzerprofilen steht Ihnen
 			ein Widerrufsrecht zu. Um dieses auszuüben, müssen Sie sich an den jeweiligen Anbieter wenden.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wenn Sie einen Account bei einem der unten aufgeführten Anbieter besitzen und beim Besuch
 			unserer Webseite dort eingeloggt sind, kann der jeweilige Anbieter Daten über Ihr
 			Nutzungsverhalten auf unserer Webseite erheben. Um eine solche Verknüpfung Ihrer Daten zu
 			verhindern, können Sie sich vor dem Besuch unserer Seite bei dem Dienst des Anbieters
 			ausloggen.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Zu welchem Zweck und in welchem Umfang Daten von dem Anbieter erhoben werden, können Sie den
 			jeweiligen, im Folgenden mitgeteilten, Datenschutzerklärungen der Anbieter entnehmen.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir möchten Sie darauf hinweisen, dass je nach Sitzland des unten genannten Anbieters die über
 			dessen Plattform erfassten Daten außerhalb des Raumes der Europäischen Union übertragen und
 			verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von der DSGVO
 			vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer Rechte nicht
 			oder nur erschwert erfolgen kann.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="font-bold">Betroffene Daten:</p>
 			<ul class="list-disc">
 				<li class="mb-2">
@@ -451,19 +451,19 @@
 				</li>
 			</ul>
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Verarbeitungszweck: </strong>Kommunikation und Marketing, Verfolgen und Anaylse von
 			Nutzerverhalten
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Rechtsgrundlage:</strong> Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, berechtigtes Interessen
 			Art. 6 Abs. 1 lit. f DSGVO
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<strong>Widerspruchsmöglichkeiten: </strong>Zu den jeweiligen Widerspruchsmöglichkeiten
 			(Opt-Out) verweisen wir auf die nachfolgend verlinkten Angaben der Anbieter.
 		</div>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			<p class="mb-2">
 				<strong>Wir unterhalten Onlinepräsenzen auf folgenden sozialen Netzwerken:</strong>
 			</p>
@@ -564,7 +564,7 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Sicherheits Maßnahmen
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
+		<div class="text-balance mb-4">
 			Wir treffen im Übrigen technische und organisatorische Sicherheitsmaßnahmen nach dem Stand der
 			Technik, um die Vorschriften der Datenschutzgesetze einzuhalten und Ihre Daten gegen zufällige
 			oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen
@@ -575,12 +575,12 @@
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Aktualität und Änderung dieser Datenschutzerklärung
 		</h2>
-		<div class="text-balance font-montserrat mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 26. Oktober 2025. Aufgrund geänderter
+		<div class="text-balance mb-4">
+			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 01. Dezember 2025. Aufgrund geänderter
 			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
 			anzupassen.
 		</div>
-		<div class="text-balance font-montserrat mb-4 font-bold">
+		<div class="text-balance mb-4 font-bold">
 			Diese Datenschutzerklärung wurde mit Hilfe des Datenschutz-Generators von SOS Recht erstellt.
 			SOS Recht ist ein Angebot der Mueller.legal Rechtsanwälte Partnerschaft mit Sitz in Berlin.
 		</div>

@@ -32,12 +32,17 @@ export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN;
 export const bb_base_url = import.meta.env.VITE_BB_BASE_URL;
 export const bb_api_token = import.meta.env.VITE_BB_API_TOKEN;
 
+// N8N
+export const n8n_contact_url = import.meta.env.VITE_JE_N8N_CONTACT_URL;
+
 // Pictures
 // Logo
 export const logo = 'https://cms.jonaebert.de/uploads/Logo_310x100_c17dfefe52.svg';
 export const logo_clear = 'https://cms.jonaebert.de/uploads/Logo_310x100_Clear_2769e089a9.svg';
 export const logo_small = 'https://cms.jonaebert.de/uploads/Logo_500x500_67fca42684.svg';
 export const logo_small_clear = 'https://cms.jonaebert.de/uploads/Logo_500x500_Clear_dce31db3d5.svg';
+// Alte Waage
+export const img_alte_waage = 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
 
 // Block image copy and context menu
 export function contextMenuAction(node) {

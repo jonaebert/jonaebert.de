@@ -35,7 +35,7 @@
 </script>
 
 {#if show}
-	<div class="overflow-hidden whitespace-nowrap bg-yellow-300 bg-sun-600 text-black py-2 font-bold uppercase font-montserrat">
+	<div class="overflow-hidden whitespace-nowrap bg-yellow-300 bg-sun-600 text-black py-2 font-bold uppercase">
 		<div class="inline-block animate-marquee">
 			<div class="flex">
 				<div class="flex">

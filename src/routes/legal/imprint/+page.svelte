@@ -8,7 +8,7 @@
 </svelte:head>
 
 <div class="container py-12 grid gap-5 text-black dark:text-grey-400">
-	<div class="font-montserrat">
+	<div>
 		<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Impressum</h1>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Angaben gemäß §5 Telemediengesetz
@@ -18,7 +18,7 @@
 		<p>{address.zipcode} {address.city}</p>
 		<p>{address.country}</p>
 	</div>
-	<div class="font-montserrat">
+	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontakt</h2>
 		<table>
 			<tbody>
@@ -37,7 +37,7 @@
 			</tbody>
 		</table>
 	</div>
-	<div class="font-montserrat">
+	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Verantwortlich für den Inhalt nach §55 Abs. 2 RStV
 		</h2>
@@ -46,7 +46,7 @@
 		<p>{address.zipcode} {address.city}</p>
 		<p>{address.country}</p>
 	</div>
-	<div class="text-justify font-montserrat">
+	<div class="text-justify">
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
 			Haftungsausschluss
 		</h2>
@@ -64,7 +64,7 @@
 			Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
 		</p>
 	</div>
-	<div class="text-justify font-montserrat">
+	<div class="text-justify">
 		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Haftung für Links</h3>
 		<p class="text-balance">
 			Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
@@ -77,7 +77,7 @@
 			Rechtsverletzungen werden wir derartige Links umgehend entfernen.
 		</p>
 	</div>
-	<div class="font-montserrat">
+	<div>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-500 my-2">Social Media</h2>
 		<p>Dieses Impressum gilt ebenfalls für folgende Social Media Präsenzen:</p>
 		<table>

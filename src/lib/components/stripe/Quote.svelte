@@ -18,12 +18,12 @@
 			/>
 		</svg>
 		<blockquote>
-			<p class="text-2xl italic font-medium font-poppins text-secondary-900 dark:text-grey-400">
+			<p class="text-2xl italic font-medium text-secondary-900 dark:text-grey-400">
 				{body}
 			</p>
 		</blockquote>
 		{#if name}
-			<figcaption class="flex items-center justofy-center mt-6 space-x-3 rtl:space-x-reverse font-montserrat">
+			<figcaption class="flex items-center justofy-center mt-6 space-x-3 rtl:space-x-reverse">
 				<div class="flex items-center divide-x rtl:divide-x-reverse divide-grey-600">
 					<cite class="pe-3 font-medium text-grey-800 dark:text-grey-300">{name}</cite>
 					{#if position}

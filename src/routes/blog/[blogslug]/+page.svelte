@@ -45,16 +45,16 @@
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
 
 	<!-- Inhalt: Titel + Content -->
-	<div class="container grow flex flex-col justify-between">
-		<!-- Platzhalter -->
+	<div class="container md:pt-30 grow flex flex-col justify-between">
+		<!-- Platzhalter notwendig -->
 		<div></div>
 		<!-- Titel und Datum -->
-		<div class="py-5 flex justify-center text-pretty mt-20 md:mt-0">
+		<div class="py-5 flex justify-center text-pretty hyphens-auto md:hyphens-none mt-20 md:mt-0">
 			<div class="md:max-w-[60%] grid gap-5">
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
 					{post.data.title}
 				</h1>
-				<div class="font-montserrat text-white dark:text-grey-300">
+				<div class="text-white dark:text-grey-300">
 					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
 					{FormatDate(post.data.createdAt, 'year')}
 				</div>
@@ -62,14 +62,14 @@
 		</div>
 
 		<!-- Blog-Content am unteren Rand -->
-		<div class="text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl">
+		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
-				<div class="float-right max-w-95 ml-8 mb-8 relative">
+				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative">
 					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 						<Image
 							{src}
 							alt={cover.alternativeText}
-							classNames="float-right w-96 ml-8 mb-8 rounded-lg"
+							classNames="rounded-lg"
 							copyright={[{ name: cp_name, url: cp_url }]}
 						/>
 					{/snippet}
@@ -91,7 +91,7 @@
 								)}
 							{/if}
 						{:else}
-							{@render image_blog(getCoverUrl(cover), cover.alternativeText, '', '')}
+							{@render image_blog(getCoverUrl(cover, true), cover.alternativeText, '', '')}
 						{/if}
 					{:else}
 						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}

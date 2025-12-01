@@ -115,7 +115,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="flex text-center font-montserrat justify-start my-2">
+		<div class="flex text-center justify-start my-2">
 			<InfoMessage message="Keine Bilder vorhanden."></InfoMessage>
 		</div>
 	{/if}

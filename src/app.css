@@ -7,79 +7,78 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Fonts */
-  --font-poppins: Poppins;
-  --font-montserrat: Montserrat;
+	/* Fonts */
+	--font-ubuntu: Ubuntu;
 
-  /* Colors */
-  /* Remove predefined colors by tailwind */
-  --color-*: initial;
-  /* Basic colors */
-  --color-transparent:     #00000000;
-  /* Grunddesign */
-  /* Klee */
-  --color-primary-50:      #E5F3EB;
-  --color-primary-100:     #CCE7D7;
-  --color-primary-200:     #B2DCC4;
-  --color-primary-300:     #99D0B0;
-  --color-primary-400:     #66B888;
-  --color-primary-500:     #33A161;
-  --color-primary-600:     #008939; /* Klee */
-  --color-primary-700:     #006E2E;
-  --color-primary-800:     #005222;
-  --color-primary-900:     #003717;
-  --color-primary-950:     #002911;
+	/* Colors */
+	/* Remove predefined colors by tailwind */
+	--color-*: initial;
+	/* Basic colors */
+	--color-transparent: #00000000;
+	/* Grunddesign */
+	/* Klee */
+	--color-primary-50: #e5f3eb;
+	--color-primary-100: #cce7d7;
+	--color-primary-200: #b2dcc4;
+	--color-primary-300: #99d0b0;
+	--color-primary-400: #66b888;
+	--color-primary-500: #33a161;
+	--color-primary-600: #008939; /* Klee */
+	--color-primary-700: #006e2e;
+	--color-primary-800: #005222;
+	--color-primary-900: #003717;
+	--color-primary-950: #002911;
 
-  /* Tanne */
-  --color-secondary-50:    #D5EEE6;
-  --color-secondary-100:   #BEDDD2;
-  --color-secondary-200:   #A6CCBF;
-  --color-secondary-300:   #8EBBAB;
-  --color-secondary-400:   #5F9885;
-  --color-secondary-500:   #2F765E;
-  --color-secondary-600:   #005538; /* Tanne */
-  --color-secondary-700:   #00432C;
-  --color-secondary-800:   #003221;
-  --color-secondary-900:   #002216;
+	/* Tanne */
+	--color-secondary-50: #d5eee6;
+	--color-secondary-100: #beddd2;
+	--color-secondary-200: #a6ccbf;
+	--color-secondary-300: #8ebbab;
+	--color-secondary-400: #5f9885;
+	--color-secondary-500: #2f765e;
+	--color-secondary-600: #005538; /* Tanne */
+	--color-secondary-700: #00432c;
+	--color-secondary-800: #003221;
+	--color-secondary-900: #002216;
 
-  /* Andere */
-  --color-white:           #FFFFFF;
-  --color-grey-50:         #F9FAFB;
-  --color-grey-100:        #F3FAF6;
-  --color-grey-200:        #E6ECEA;
-  --color-grey-300:        #D1DBDA;
-  --color-grey-400:        #9CABAF;
-  --color-grey-500:        #6B7A80;
-  --color-grey-600:        #4B5D63;
-  --color-grey-700:        #374951;
-  --color-grey-800:        #1F2F37;
-  --color-grey-900:        #111E27;
-  --color-grey-950:        #031112;
-  --color-black:           #000000;
+	/* Andere */
+	--color-white: #ffffff;
+	--color-grey-50: #f9fafb;
+	--color-grey-100: #f3faf6;
+	--color-grey-200: #e6ecea;
+	--color-grey-300: #d1dbda;
+	--color-grey-400: #9cabaf;
+	--color-grey-500: #6b7a80;
+	--color-grey-600: #4b5d63;
+	--color-grey-700: #374951;
+	--color-grey-800: #1f2f37;
+	--color-grey-900: #111e27;
+	--color-grey-950: #031112;
+	--color-black: #000000;
 
-  /* Sand */
-  --color-neutral-500:     #F7F4ED;
-  --color-neutral-600:     #F5F1E9; /* Sand */
-  --color-neutral-700:     #EFE8DB;
+	/* Sand */
+	--color-neutral-500: #f7f4ed;
+	--color-neutral-600: #f5f1e9; /* Sand */
+	--color-neutral-700: #efe8db;
 
-  /* Sonne */
-  --color-sun-600:         #FFF17A;
+	/* Sonne */
+	--color-sun-600: #fff17a;
 
-  /* Himmel */
-  --color-himmel-500:      #3CB4E4;
-  --color-himmel-600:      #0BA1DD; /* Himmel */
-  --color-himmel-700:      #0981B1;
+	/* Himmel */
+	--color-himmel-500: #3cb4e4;
+	--color-himmel-600: #0ba1dd; /* Himmel */
+	--color-himmel-700: #0981b1;
 
-  /* Grashalm */
-  --color-grashalm-500:    #A1CA50;
-  --color-grashalm-600:    #8ABD24; /* Grashalm */
-  --color-grashalm-700:    #6E971D;
+	/* Grashalm */
+	--color-grashalm-500: #a1ca50;
+	--color-grashalm-600: #8abd24; /* Grashalm */
+	--color-grashalm-700: #6e971d;
 
-  /* Grüne Jugen */
-  --color-gruene-jugend-hellgruen: #c7ff7a;
+	/* Grüne Jugen */
+	--color-gruene-jugend-hellgruen: #c7ff7a;
 
-  /* About custom colors */
-  --color-gingco-blau: #00dcfe;
+	/* About custom colors */
+	--color-gingco-blau: #00dcfe;
 }
 
 /*
@@ -91,19 +90,19 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
 }
 
 /* Grundlegende Stile */
-/* body {
-	@apply text-je-tanne;
-} */
+body {
+	@apply font-ubuntu;
+}
 
 /* Container für den Inhalt mit Abstand */
 .container {
@@ -129,31 +128,31 @@ a:hover {
 	all: initial;
 }
 
-
 /* Buttons */
 .button-m {
-  @apply py-[0.75rem];
-  @apply px-[1.5rem];
-  @apply rounded-full;
-  @apply font-bold;
-  @apply cursor-pointer;
+	@apply py-[0.75rem];
+	@apply px-[1.5rem];
+	@apply rounded-full;
+	@apply font-bold;
+	@apply cursor-pointer;
 }
 
 /* Theme Switch */
 @keyframes twinkle {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(0.9) translateY(0);
-    filter: drop-shadow(0 0 1px white);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.2) translateY(-0.5px);
-    filter: drop-shadow(0 0 3px white);
-  }
+	0%,
+	100% {
+		opacity: 0.3;
+		transform: scale(0.9) translateY(0);
+		filter: drop-shadow(0 0 1px white);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(1.2) translateY(-0.5px);
+		filter: drop-shadow(0 0 3px white);
+	}
 }
 
 .star {
-  animation: twinkle ease-in-out infinite alternate;
-  border-radius: 9999px;
+	animation: twinkle ease-in-out infinite alternate;
+	border-radius: 9999px;
 }

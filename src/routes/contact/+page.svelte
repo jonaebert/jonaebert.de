@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, contact, name, bb_base_url, bb_api_token, uri } from '$lib/store';
+	import { address, contact, name, bb_base_url, bb_api_token, uri, n8n_contact_url } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
@@ -59,7 +59,7 @@
 					message
 				};
 				const contactRes = await fetch(
-					`${bb_base_url}/tables/ta_a9684e4c10324f70be21f3b3b5676e1a/rows`,
+					`${n8n_contact_url}`,
 					{
 						method: 'POST',
 						headers: {
@@ -110,18 +110,14 @@
 		<div
 			class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container"
 		>
-			<h2
-				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins"
-			>
+			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Kontaktformular
 			</h2>
-			<h3
-				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1"
-			>
+			<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 pb-1">
 				Schreib mir doch gleich hier!
 			</h3>
 			<form
-				class="flex flex-col gap-3 py-5 mb-5 font-montserrat bg-grey-200 dark:bg-grey-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
+				class="flex flex-col gap-3 py-5 mb-5 bg-grey-200 dark:bg-grey-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
 				on:submit={submitForm}
 			>
 				<div class="relative">
@@ -226,9 +222,9 @@
 							</svg>
 						</span>
 					</div>
-					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300"
-						>Ich möchte eine Barriere melden.</label
-					>
+					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300">
+						Ich möchte eine Barriere melden.
+					</label>
 				</div>
 				<div class="inline-flex items-center">
 					<div class="flex items-center cursor-pointer relative">
@@ -349,23 +345,17 @@
 					</button>
 				{/if}
 			</form>
-			<h2
-				class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic font-poppins"
-			>
+			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Weitere Kontaktmöglichkeiten
 			</h2>
-			<h3
-				class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 italic font-poppins pb-1"
-			>
+			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 pb-1">
 				Ist das Formular nichts für dich?
 			</h3>
 			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
 				<div
 					class="bg-grey-200 dark:bg-grey-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
 				>
-					<h4
-						class="text-xl md:text-2xl font-bold text-black dark:text-grey-200 italic font-poppins"
-					>
+					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-grey-200">
 						Soziale Medien
 					</h4>
 					<Social />
@@ -373,14 +363,14 @@
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">E-Mail</h4>
-					<a href="mailto:{contact.mail}" class="font-montserrat">{contact.mail}</a>
+					<h4 class="text-xl md:text-2xl font-bold">E-Mail</h4>
+					<a href="mailto:{contact.mail}">{contact.mail}</a>
 				</div>
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">Post</h4>
-					<div class="font-montserrat">
+					<h4 class="text-xl md:text-2xl font-bold">Post</h4>
+					<div>
 						{name}<br />{address.street}<br />{address.zipcode}
 						{address.city}<br />{address.country}
 					</div>
@@ -388,8 +378,8 @@
 				<div
 					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold italic font-poppins">Fax</h4>
-					<a href="fax:{contact.fax}" class="font-montserrat">{contact.fax}</a>
+					<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
+					<a href="fax:{contact.fax}">{contact.fax}</a>
 				</div>
 			</div>
 		</div>

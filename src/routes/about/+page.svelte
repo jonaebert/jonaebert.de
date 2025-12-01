@@ -46,24 +46,38 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col">
+<div
+	class="min-h-[45vh] xl:min-h-[40vh] relative z-10 overflow-hidden py-30 container flex flex-col"
+>
 	<div class="grow flex flex-col justify-between">
 		<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-		<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
-			<source src="/home/herovideo.mp4" type="video/mp4"/>
+		<video
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="auto"
+			poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png"
+			class="absolute z-9 inset-0 w-full h-full object-cover"
+		>
+			<source src="/home/herovideo.mp4" type="video/mp4" />
 		</video>
 		<div class="text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
-					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full float-right"/>
+					<Image
+						src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png"
+						alt="Portrait {name}"
+						classNames="w-full h-full float-right"
+					/>
 				</div>
-				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7 font-poppins">
+				<div class="text-3xl md:text-4xl font-semibold text-primary-600 my-2 pb-7">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
-				<div class="text-white dark:text-grey-300 text-sm md:text-base font-montserrat">
+				<div class="text-white dark:text-grey-300 text-sm md:text-base">
 					<div class="">
 						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
 						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
@@ -92,11 +106,11 @@
 				</div>
 				<div class="grid grid-cols-2 xl:grid-cols-4 justify-between mt-10">
 					<div>
-						<div class="row-start-2 font-montserrat mt-6 md:mt-0">
+						<div class="row-start-2 mt-6 md:mt-0">
 							<Slogan />
 						</div>
-						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
-							<h1>{name}<br>({pronouns})</h1>
+						<div class="row-start-3 text-3xl xl:text-5xl font-extrabold text-primary-600 md:mb-6">
+							<h1>{name}<br />({pronouns})</h1>
 						</div>
 						<div class="row-start-4 max-w-[300px]">
 							<Social />
@@ -111,12 +125,12 @@
 <!-- Lebenslauf -->
 <div class="container py-5">
 	<div class="max-w-5xl">
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 italic">
+		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 			{headings.main}
 		</h2>
 		<div class="grid gap-4">
 			{#each headings.sections as section}
-				<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 italic">
+				<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300">
 					{section.title}
 				</h3>
 				{#if section.key !== 'skills'}
@@ -146,10 +160,8 @@
 										<div class="text-sm font-semibold text-black dark:text-grey-400">
 											{item.title}
 											<div class="font-normal text-grey-600 dark:text-grey-300">
-												<a
-													href={item.link}
-													target="_blank"
-													class="font-normal hover:underline">{item.company}</a
+												<a href={item.link} target="_blank" class="font-normal hover:underline"
+													>{item.company}</a
 												>
 											</div>
 										</div>
@@ -161,7 +173,7 @@
 									</div>
 									{#if item.description[0] || item.skills[0]}
 										<div
-											class="p-3 mt-3 gap-3 grid text-xs italic font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
+											class="p-3 mt-3 gap-3 grid text-xs font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
 										>
 											{#if item.description[0]}
 												<ul class="list-disc pl-2.5 md:pl-3.5">
@@ -171,7 +183,7 @@
 												</ul>
 											{/if}
 											{#if item.skills[0]}
-												<div class="flex flex-row flex-wrap gap-1 text-sm not-italic">
+												<div class="flex flex-row flex-wrap gap-1 text-sm">
 													{#each item.skills as skill}
 														<Tags text={skill} />
 													{/each}
@@ -188,7 +200,7 @@
 					<div class="grid gap-3">
 						{#each items[section.key] as item}
 							<div class="">
-								<h4 class="text-xl md:text-2xl font-semibold text-black dark:text-grey-400 italic">
+								<h4 class="text-xl md:text-2xl font-semibold text-black dark:text-grey-400">
 									{item.category}
 								</h4>
 								<div
@@ -198,10 +210,10 @@
 										<div class="grid gap-6">
 											{#each item.subcategories as subcategory}
 												<div>
-													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300 font-poppins italic">
+													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300">
 														{subcategory.title}
 													</h5>
-													<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+													<div class="flex flex-wrap flex-row gap-1 text-sm">
 														{#each subcategory.skills as skill}
 															<Tags text={skill} />
 														{/each}
@@ -210,7 +222,7 @@
 											{/each}
 										</div>
 									{:else}
-										<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+										<div class="flex flex-wrap flex-row gap-1 text-sm">
 											{#each item.skills as skill}
 												<Tags text={skill} />
 											{/each}
