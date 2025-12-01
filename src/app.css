@@ -8,8 +8,7 @@
 
 @theme {
   /* Fonts */
-  --font-poppins: Poppins;
-  --font-montserrat: Montserrat;
+  --font-ubuntu: Ubuntu;
 
   /* Colors */
   /* Remove predefined colors by tailwind */
@@ -101,9 +100,9 @@
 }
 
 /* Grundlegende Stile */
-/* body {
-	@apply text-je-tanne;
-} */
+body {
+	@apply font-ubuntu;
+}
 
 /* Container für den Inhalt mit Abstand */
 .container {

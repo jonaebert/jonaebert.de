@@ -60,10 +60,10 @@
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
 					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full float-right"/>
 				</div>
-				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7 font-poppins">
+				<div class="text-3xl md:text-4xl font-bold text-primary-600 italic my-2 pb-7">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
-				<div class="text-white dark:text-grey-300 text-sm md:text-base font-montserrat">
+				<div class="text-white dark:text-grey-300 text-sm md:text-base">
 					<div class="">
 						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
 						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
@@ -92,10 +92,10 @@
 				</div>
 				<div class="grid grid-cols-2 xl:grid-cols-4 justify-between mt-10">
 					<div>
-						<div class="row-start-2 font-montserrat mt-6 md:mt-0">
+						<div class="row-start-2 mt-6 md:mt-0">
 							<Slogan />
 						</div>
-						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6 font-poppins">
+						<div class="row-start-3 text-3xl xl:text-5xl font-bold text-primary-600 md:mb-6">
 							<h1>{name}<br>({pronouns})</h1>
 						</div>
 						<div class="row-start-4 max-w-[300px]">
@@ -198,10 +198,10 @@
 										<div class="grid gap-6">
 											{#each item.subcategories as subcategory}
 												<div>
-													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300 font-poppins italic">
+													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300 italic">
 														{subcategory.title}
 													</h5>
-													<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+													<div class="flex flex-wrap flex-row gap-1 text-sm">
 														{#each subcategory.skills as skill}
 															<Tags text={skill} />
 														{/each}
@@ -210,7 +210,7 @@
 											{/each}
 										</div>
 									{:else}
-										<div class="flex flex-wrap flex-row gap-1 text-sm font-montserrat">
+										<div class="flex flex-wrap flex-row gap-1 text-sm">
 											{#each item.skills as skill}
 												<Tags text={skill} />
 											{/each}

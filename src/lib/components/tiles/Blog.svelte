@@ -60,7 +60,7 @@
 							{/if}
 						</div>
 					</div>
-					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 dark:text-grey-300 font-montserrat">
+					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 dark:text-grey-300">
 						<div class="flex items-center hyphens-auto text-pretty">
 							<div class="flex items-center fill-secondary-600 dark:fill-grey-300">
 								{#if item.type == 'article'}
@@ -117,10 +117,10 @@
 							{/if}
 						</div>
 					</div>
-					<div class="hyphens-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3] font-poppins">
+					<div class="hyphens-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3]">
 						{item.title}
 					</div>
-					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base font-montserrat">
+					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base">
 						{FormatDate(item.createdAt, 'day')}. {FormatDate(item.createdAt, 'monthshort')}
 						{FormatDate(item.createdAt, 'year')}
 					</span>
@@ -129,5 +129,5 @@
 		{/each}
 	</div>
 {:else}
-	<div class="text-center py-8 font-montserrat">Es konnten keine Artikel gefunden werden!</div>
+	<div class="text-center py-8">Es konnten keine Artikel gefunden werden!</div>
 {/if}

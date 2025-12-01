@@ -14,10 +14,10 @@
 
 		<!-- Textbereich -->
 		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
-			<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 italic font-poppins">
+			<h1 class="text-3xl md:text-4xl font-bold text-secondary-900 italic">
 				{$page.status}
 			</h1>
-			<h2 class="text-2xl md:text-3xl font-bold text-black italic font-poppins">
+			<h2 class="text-2xl md:text-3xl font-bold text-black italic">
 				{#if $page.status == '404'}
 					Deine Seite gibt es nicht.<br />Was willst du hier?
 				{:else}

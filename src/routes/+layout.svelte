@@ -259,8 +259,8 @@
 				</a>
 			</div>
 			<div>
-				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">{name}</h2>
-				<ul class="text-grey-400 font-medium font-montserrat">
+				<h2 class="mb-6 text-md font-semibold text-white uppercase">{name}</h2>
+				<ul class="text-grey-400 font-medium">
 					{#each menuLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -269,8 +269,8 @@
 				</ul>
 			</div>
 			<div>
-				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">Rechtliches ⚖️</h2>
-				<ul class="text-grey-400 font-medium font-montserrat">
+				<h2 class="mb-6 text-md font-semibold text-white uppercase">Rechtliches ⚖️</h2>
+				<ul class="text-grey-400 font-medium">
 					{#each legalLinks as link}
 						<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -279,10 +279,10 @@
 				</ul>
 			</div>
 			<div>
-				<h2 class="mb-6 text-md font-semibold text-white uppercase font-poppins">
+				<h2 class="mb-6 text-md font-semibold text-white uppercase">
 					Schau mal hier vorbei 👀
 				</h2>
-				<ul class="text-grey-400 font-medium font-montserrat">
+				<ul class="text-grey-400 font-medium">
 					{#each footerLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>

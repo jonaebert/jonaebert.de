@@ -43,18 +43,18 @@
 
 	function getHeadingClass(level: number): string {
 		const classes: any = {
-			1: 'text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins',
-			2: 'text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins',
-			3: 'text-2xl md:text-3xl font-semibold text-black dark:text-grey-400 font-poppins',
-			4: 'text-xl md:text-2xl font-semibold text-black dark:text-grey-300 font-poppins',
-			5: 'text-md md:text-xl font-semibold text-black dark:text-grey-200 font-poppins',
-			6: 'text-md md:text-xl font-medium text-black dark:text-grey-100 font-poppins'
+			1: 'text-4xl font-bold text-secondary-900 dark:text-secondary-400',
+			2: 'text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400',
+			3: 'text-2xl md:text-3xl font-semibold text-black dark:text-grey-400',
+			4: 'text-xl md:text-2xl font-semibold text-black dark:text-grey-300',
+			5: 'text-md md:text-xl font-semibold text-black dark:text-grey-200',
+			6: 'text-md md:text-xl font-medium text-black dark:text-grey-100'
 		};
 		return classes[level] || '';
 	}
 </script>
 
-<div class="prose max-w-none mb-6 font-montserrat text-black dark:text-grey-300">
+<div class="prose max-w-none mb-6 text-black dark:text-grey-300">
 	{#each body as item}
 		{#if item.type === 'paragraph'}
 			{@html (() => {
@@ -85,15 +85,15 @@
 				})()}</pre>
 			</div>
 		{:else if item.type === 'image'}
-			<div class="my-3 flex text-center font-montserrat justify-start uppercase">
+			<div class="my-3 flex text-center justify-start uppercase">
 				<InfoMessage message="Bitte Image Komponente nutzen!"></InfoMessage>
 			</div>
 		{:else if item.type === 'quote'}
-			<div class="my-3 flex text-center font-montserrat justify-start uppercase">
+			<div class="my-3 flex text-center justify-start uppercase">
 				<InfoMessage message="Bitte Quote Komponente nutzen!"></InfoMessage>
 			</div>
 		{:else}
-			<div class="my-3 flex text-center font-montserrat justify-start uppercase">
+			<div class="my-3 flex text-center justify-start uppercase">
 				<InfoMessage message="Unbekannter Typ: {item.type}"></InfoMessage>
 			</div>
 		{/if}

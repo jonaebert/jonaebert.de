@@ -111,13 +111,13 @@
 					<!-- Titel -->
 					{#if event.state === 'cancelled'}
 						<span
-							class="self-start inline-block bg-red-500 text-white text-xs md:text-sm font-montserrat py-1 px-3 rounded-full font-bold mb-4"
+							class="self-start inline-block bg-red-500 text-white text-xs md:text-sm py-1 px-3 rounded-full font-bold mb-4"
 						>
 							ABGESAGT
 						</span>
 					{/if}
 					<h1
-						class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400 font-poppins"
+						class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400"
 					>
 						{event.subject}
 					</h1>
@@ -125,7 +125,7 @@
 
 				<!-- Beschreibung -->
 				<div
-					class="font-montserrat text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty"
+					class="text-grey-700 dark:text-grey-400 text-base md:text-lg leading-relaxed text-pretty"
 				>
 					{#if event.description}
 						<div>{@html event.description}</div>
@@ -140,7 +140,7 @@
 
 			<div class="pb-6">
 				<!-- Datum -->
-				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
+				<div class="text-base md:text-lg text-nowrap text-black dark:text-grey-300">
 					<div class="flex flex-row justify-start items-center">
 						<div class="mr-3">🗓️</div>
 						<div class="flex flex-row items-end gap-6">
@@ -174,7 +174,7 @@
 				</div>
 
 				<!-- Ort -->
-				<div class="text-base md:text-lg text-nowrap font-montserrat text-black dark:text-grey-300">
+				<div class="text-base md:text-lg text-nowrap text-black dark:text-grey-300">
 					{#if event.location}
 						<div class="flex flex-row items-center">
 							<div class="mr-3">📍</div>

@@ -82,7 +82,7 @@
 					</div>
 					{#if event.location}
 						<div
-							class="mb-1 flex items-center text-xs text-secondary-600 dark:text-grey-300 md:text-base hyphens-auto text-pretty font-montserrat"
+							class="mb-1 flex items-center text-xs text-secondary-600 dark:text-grey-300 md:text-base hyphens-auto text-pretty"
 						>
 							<div class="flex items-center">
 								<svg
@@ -100,7 +100,7 @@
 							</div>
 						</div>
 					{/if}
-					<div class="hyphense-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3] font-poppins">
+					<div class="hyphense-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3]">
 						{#if event.state === 'cancelled'}
 							<span class="flex justify-start">
 								<Tags text='ABGESAGT' />
@@ -108,7 +108,7 @@
 						{/if}
 						{event.subject}
 					</div>
-					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base font-montserrat">
+					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base">
 						<div class="flex flex-row items-end gap-6">
 							{#if event.datetype === 'date'}
 								<p>
@@ -143,5 +143,5 @@
 		{/each}
 	</div>
 {:else}
-	<div class="text-center py-8 font-montserrat">Es konnten keine Termine gefunden werden!</div>
+	<div class="text-center py-8">Es konnten keine Termine gefunden werden!</div>
 {/if}

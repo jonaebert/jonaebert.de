@@ -54,7 +54,7 @@
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
 					{post.data.title}
 				</h1>
-				<div class="font-montserrat text-white dark:text-grey-300">
+				<div class="text-white dark:text-grey-300">
 					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
 					{FormatDate(post.data.createdAt, 'year')}
 				</div>
