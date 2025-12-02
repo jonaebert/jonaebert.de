@@ -65,7 +65,7 @@
 		>
 			<source src="/home/herovideo.mp4" type="video/mp4" />
 		</video>
-		<div class="text-pretty rounded-t-xl z-30">
+		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
 				<div class="float-right max-w-95 ml-8 mb-8 relative">
 					<Image
@@ -74,7 +74,7 @@
 						classNames="w-full h-full float-right"
 					/>
 				</div>
-				<div class="text-3xl md:text-4xl font-semibold text-primary-600 my-2 pb-7">
+				<div class="text-3xl md:text-4xl font-extrabold text-primary-600 my-2 pb-7">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
 				<div class="text-white dark:text-grey-300 text-sm md:text-base">
@@ -104,7 +104,7 @@
 						ebnen.
 					</div>
 				</div>
-				<div class="grid grid-cols-2 xl:grid-cols-4 justify-between mt-10">
+				<div class="grid grid-cols-2 xl:grid-cols-3 justify-between mt-10">
 					<div>
 						<div class="row-start-2 mt-6 md:mt-0">
 							<Slogan />
@@ -123,7 +123,7 @@
 </div>
 
 <!-- Lebenslauf -->
-<div class="container py-5">
+<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-5">
 	<div class="max-w-5xl">
 		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 			{headings.main}
