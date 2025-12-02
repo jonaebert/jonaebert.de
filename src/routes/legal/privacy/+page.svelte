@@ -7,7 +7,7 @@
 	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="container py-12 grid gap-5 text-black dark:text-grey-400">
+<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-12 grid gap-5 text-black dark:text-grey-400">
 	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Datenschutz</h1>
 	<div class="text-balance mb-4">
 		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von

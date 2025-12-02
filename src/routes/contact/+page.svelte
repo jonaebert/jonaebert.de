@@ -97,7 +97,7 @@
 	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="flex min-h-screen items-center justify-center container py-5 pt-30">
+<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto flex min-h-screen items-center justify-center py-5 pt-30 px-4 md:px-0">
 	<div
 		class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
@@ -187,7 +187,7 @@
 						<label for="message" class="text-xs text-black dark:text-grey-300"
 							>Maximal 300 Zeichen</label
 						>
-						<label for="name, email, message" class="text-xs text-black dark:text-grey-300"
+						<label for="name, email, message" class="text-xs text-black dark:text-grey-300 font-semibold"
 							>* Pflichtfeld</label
 						>
 					</div>
