@@ -121,10 +121,14 @@
 
 		<!-- Event-Content am unteren Rand -->
 		<div
-			class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl"
+			class="min-w-[60vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl"
 		>
 			<div class="p-6 relative gap-8 container">
-				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative">
+				<div
+					class={`max-w-sm mb-8 md:mb-0 relative
+						${event.description ? 'float-left md:float-right mr-8 md:ml-8 md:mr-0' : 'mx-auto'}
+					`}
+				>
 					<div class="flex flex-col gap-5">
 						<div>
 							{#snippet image_event(src: any, alt: any, cp_name: any, cp_url: any)}
@@ -183,7 +187,7 @@
 								{:else}
 									<div class="flex flex-row items-center">
 										<div class="mr-3">📍</div>
-										<div class="text-balance">Aktuell kein Ort verfügbar🙃</div>
+										<div class="text-balance">Aktuell kein Ort angegeben🙃</div>
 									</div>
 								{/if}
 							</div>
@@ -240,18 +244,13 @@
 						</div>
 					</div>
 				</div>
-				<div
-					class="text-grey-700 dark:text-grey-400 text-left md:text-right md:text-lg leading-relaxed text-pretty"
-				>
-					{#if event.description}
-						<div>{@html event.description}</div>
-					{:else}
-						<div>
-							Keine Beschreibung gefunden 🫠 <br />
-							Lass dich überraschen 🎉
-						</div>
-					{/if}
-				</div>
+				{#if event.description}
+					<div
+						class="text-grey-700 dark:text-grey-400 text-left md:text-right md:text-lg leading-relaxed text-pretty"
+					>
+						{@html event.description}
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
