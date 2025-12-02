@@ -17,12 +17,12 @@
 	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="flex flex-col items-center justify-center min-h-screen relative z-10 p-30">
+<div class="flex flex-col items-center justify-center min-h-screen relative z-10">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
 	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
 		<source src="/home/herovideo.mp4" type="video/mp4"/>
 	</video>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto grid grid-cols-1 xl:grid-cols-2 grid-rows-1 w-full place-items-start z-30">
+	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto grid grid-cols-1 xl:grid-cols-2 grid-rows-1 place-items-start z-30">
 		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
 			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start pt-0 md:pt-[10vh]">
 				<div class="row-start-1 mt-6 md:mt-0">

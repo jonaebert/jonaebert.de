@@ -67,7 +67,7 @@
 		</video>
 		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty rounded-t-xl z-30">
 			<div class="p-6 relative">
-				<div class="float-right max-w-95 ml-8 mb-8 relative">
+				<div class="float-right max-w-95 ml-0 md:ml-8 mb-8 relative">
 					<Image
 						src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png"
 						alt="Portrait {name}"
@@ -123,7 +123,7 @@
 </div>
 
 <!-- Lebenslauf -->
-<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-5">
+<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-4 px-4 md:px-0">
 	<div class="max-w-5xl">
 		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 			{headings.main}
