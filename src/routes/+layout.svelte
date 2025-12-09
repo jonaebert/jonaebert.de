@@ -251,12 +251,12 @@
 					<Image
 						src={logo_clear}
 						alt="Logo von {name}"
-						classNames="w-fit max-w-54 h-full me-3 hidden lg:block"
+						classNames="w-fit max-w-54 h-full me-3 hidden md:block"
 					/>
 					<Image
 						src={logo_small_clear}
 						alt="Logo von {name}"
-						classNames="w-fit max-w-42 h-full me-3 block lg:hidden"
+						classNames="w-fit max-w-42 h-full me-3 block md:hidden"
 					/>
 				</a>
 			</div>
