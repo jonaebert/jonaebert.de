@@ -207,8 +207,10 @@
 	{/each}
 </div>
 
-<div class="flex flex-col grow min-h-screen bg-white dark:bg-grey-950 relative">
-	<main class="grow z-20">
+<div class="flex flex-col grow min-h-screen relative">
+	<main
+		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-white dark:bg-grey-950 shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
+	>
 		<slot />
 	</main>
 </div>
@@ -236,7 +238,7 @@
 	</div>
 </div>
 
-<footer class="z-30 bg-secondary-900">
+<footer class="z-30 bg-secondary-900 -mt-12 pt-12">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 		<div
 			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"
@@ -249,12 +251,12 @@
 					<Image
 						src={logo_clear}
 						alt="Logo von {name}"
-						classNames="w-fit max-w-54 h-full me-3 hidden lg:block"
+						classNames="w-fit max-w-54 h-full me-3 hidden md:block"
 					/>
 					<Image
 						src={logo_small_clear}
 						alt="Logo von {name}"
-						classNames="w-fit max-w-42 h-full me-3 block lg:hidden"
+						classNames="w-fit max-w-42 h-full me-3 block md:hidden"
 					/>
 				</a>
 			</div>
@@ -279,9 +281,7 @@
 				</ul>
 			</div>
 			<div>
-				<h2 class="mb-6 text-md font-semibold text-white uppercase">
-					Schau mal hier vorbei 👀
-				</h2>
+				<h2 class="mb-6 text-md font-semibold text-white uppercase">Schau mal hier vorbei 👀</h2>
 				<ul class="text-grey-400 font-medium">
 					{#each footerLinks as link}
 						<li class="mb-4 hover:text-white">
