@@ -238,7 +238,7 @@
 	</div>
 </div>
 
-<footer class="z-30 bg-secondary-900 -mt-[3rem] pt-[3rem]">
+<footer class="z-30 bg-secondary-900 -mt-12 pt-12">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 		<div
 			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"
