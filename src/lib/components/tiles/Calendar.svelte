@@ -82,7 +82,7 @@
 					</div>
 					{#if event.location}
 						<div
-							class="mb-1 flex items-center text-xs text-secondary-600 dark:text-grey-300 md:text-base hyphens-auto text-pretty"
+							class="mb-1 flex items-center text-xs text-secondary-600 dark:text-gray-300 md:text-base hyphens-auto text-pretty"
 						>
 							<div class="flex items-center">
 								<svg
@@ -90,7 +90,7 @@
 									x="0px"
 									y="0px"
 									viewBox="0 -960 960 960"
-									class="mr-1.5 shrink-0 inline h-5 w-5 fill-secondary-600 dark:fill-grey-300"
+									class="mr-1.5 shrink-0 inline h-5 w-5 fill-secondary-600 dark:fill-gray-300"
 								>
 									<path
 										d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"
@@ -100,7 +100,7 @@
 							</div>
 						</div>
 					{/if}
-					<div class="hyphense-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3]">
+					<div class="hyphense-auto font-bold text-secondary-900 dark:text-gray-400 text-lg md:text-2xl md:leading-[1.3]">
 						{#if event.state === 'cancelled'}
 							<span class="flex justify-start">
 								<Tags text='ABGESAGT' />
@@ -108,7 +108,7 @@
 						{/if}
 						{event.subject}
 					</div>
-					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base">
+					<span class="mt-3 text-xs text-gray-600 dark:text-gray-400 md:text-base">
 						<div class="flex flex-row items-end gap-6">
 							{#if event.datetype === 'date'}
 								<p>

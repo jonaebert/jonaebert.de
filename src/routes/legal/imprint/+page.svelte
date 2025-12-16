@@ -7,7 +7,7 @@
 	<link rel="canonical" href="{$uri.url.href}">
 </svelte:head>
 
-<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-12 grid gap-5 text-black dark:text-grey-400">
+<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-12 grid gap-5 text-black dark:text-gray-400">
 	<div>
 		<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Impressum</h1>
 		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">

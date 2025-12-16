@@ -54,7 +54,7 @@
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
 					{post.data.title}
 				</h1>
-				<div class="text-white dark:text-grey-300">
+				<div class="text-white dark:text-gray-300">
 					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
 					{FormatDate(post.data.createdAt, 'year')}
 				</div>
@@ -62,7 +62,7 @@
 		</div>
 
 		<!-- Blog-Content am unteren Rand -->
-		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl">
+		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-white dark:bg-gray-950 shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative">
 					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}

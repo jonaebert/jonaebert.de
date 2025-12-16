@@ -49,7 +49,7 @@
 <div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto px-4 py-12">
 	<div class="text-left">
 		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400 my-2">Termine</h2>
-		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 my-2 pb-10">
+		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-gray-300 my-2 pb-10">
 			Hier kannst du mich treffen!
 		</h3>
 	</div>
@@ -65,7 +65,7 @@
 
 <div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-grey-300">
+	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300">
 		<h2 class="text-3xl md:text-4xl font-extrabold my-2">
 			Politik für eine lebenswerte Welt
 		</h2>
@@ -109,7 +109,7 @@
 
 <div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-grey-300">
+	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300">
 		<h2 class="text-3xl md:text-4xl font-extrabold my-2">Politik in Braunschweig</h2>
 		<div class="text-lg grid gap-4">
 			<div>

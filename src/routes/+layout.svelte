@@ -209,7 +209,7 @@
 
 <div class="flex flex-col grow min-h-screen relative">
 	<main
-		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-white dark:bg-grey-950 shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
+		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-white dark:bg-gray-950 shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
 	>
 		<slot />
 	</main>
@@ -262,7 +262,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">{name}</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each menuLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -272,7 +272,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">Rechtliches ⚖️</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each legalLinks as link}
 						<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -282,7 +282,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">Schau mal hier vorbei 👀</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each footerLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
@@ -291,23 +291,23 @@
 				</ul>
 			</div>
 		</div>
-		<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
+		<hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte
 					vorbehalten.
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					<br />
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
 					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
 					gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit
 					<a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					Basisdesign von <a href="https://www.gruene.de" class="hover:underline" target="_blank"
 						>BÜNDNIS 90/DIE GRÜNEN</a
 					>.

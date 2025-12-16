@@ -99,7 +99,7 @@
 
 <div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto flex min-h-screen items-center justify-center py-5 pt-30 px-4 md:px-0">
 	<div
-		class="bg-grey-50 dark:bg-grey-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
+		class="bg-gray-50 dark:bg-gray-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
 		<div
@@ -108,16 +108,16 @@
 
 		<!-- Textbereich -->
 		<div
-			class="flex flex-col justify-center border border-grey-100 dark:border-none py-6 container"
+			class="flex flex-col justify-center border border-gray-100 dark:border-none py-6 container"
 		>
 			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Kontaktformular
 			</h2>
-			<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300 pb-1">
+			<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-gray-300 pb-1">
 				Schreib mir doch gleich hier!
 			</h3>
 			<form
-				class="flex flex-col gap-3 py-5 mb-5 bg-grey-200 dark:bg-grey-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
+				class="flex flex-col gap-3 py-5 mb-5 bg-gray-200 dark:bg-gray-700 w-full h-fit p-6 rounded-lg md:rounded-xl"
 				on:submit={submitForm}
 			>
 				<div class="relative">
@@ -125,14 +125,14 @@
 						type="name"
 						name="name"
 						id="name"
-						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-grey-600 rounded-lg border-2 border-secondary-600 dark:border-grey-500 focus:border-secondary-500 focus:dark:border-grey-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-grey-50"
+						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-gray-600 rounded-lg border-2 border-secondary-600 dark:border-gray-500 focus:border-secondary-500 focus:dark:border-gray-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-gray-50"
 						placeholder=" "
 						required
 						disabled={disable(submitting)}
 					/>
 					<label
 						for="name"
-						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-grey-500 peer-placeholder-shown:dark:text-grey-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
+						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:dark:text-gray-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
 						>Name*</label
 					>
 				</div>
@@ -141,13 +141,13 @@
 						type="text"
 						name="pronouns"
 						id="pronouns"
-						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-grey-600 rounded-lg border-2 border-secondary-600 dark:border-grey-500 focus:border-secondary-500 focus:dark:border-grey-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-grey-50"
+						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-gray-600 rounded-lg border-2 border-secondary-600 dark:border-gray-500 focus:border-secondary-500 focus:dark:border-gray-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-gray-50"
 						placeholder=" "
 						disabled={disable(submitting)}
 					/>
 					<label
 						for="pronouns"
-						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-grey-500 peer-placeholder-shown:dark:text-grey-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
+						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:dark:text-gray-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
 						>Pronomen</label
 					>
 				</div>
@@ -156,14 +156,14 @@
 						type="email"
 						name="email"
 						id="email"
-						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-grey-600 rounded-lg border-2 border-secondary-600 dark:border-grey-500 focus:border-secondary-500 focus:dark:border-grey-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-grey-50"
+						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-gray-600 rounded-lg border-2 border-secondary-600 dark:border-gray-500 focus:border-secondary-500 focus:dark:border-gray-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-gray-50"
 						placeholder=" "
 						required
 						disabled={disable(submitting)}
 					/>
 					<label
 						for="email"
-						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-grey-500 peer-placeholder-shown:dark:text-grey-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
+						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:dark:text-gray-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
 						>E-Mail*</label
 					>
 				</div>
@@ -171,7 +171,7 @@
 					<textarea
 						name="message"
 						id="message"
-						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-grey-600 rounded-lg border-2 border-secondary-600 dark:border-grey-500 focus:border-secondary-500 focus:dark:border-grey-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-grey-50"
+						class="block px-2.5 pb-2.5 pt-4 w-full bg-white dark:bg-gray-600 rounded-lg border-2 border-secondary-600 dark:border-gray-500 focus:border-secondary-500 focus:dark:border-gray-400 appearance-none focus:outline-hidden focus:ring-0 peer text-secondary-900 dark:text-gray-50"
 						placeholder=" "
 						rows="4"
 						maxlength="300"
@@ -180,14 +180,14 @@
 					></textarea>
 					<label
 						for="message"
-						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-grey-500 peer-placeholder-shown:dark:text-grey-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-5/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
+						class="absolute text-neutral-600 bg-himmel-600 peer-focus:bg-himmel-600 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:dark:text-gray-300 peer-placeholder-shown:bg-transparent peer-focus:text-neutral-600 duration-300 transform -translate-y-4 scale-75 top-2 origin-left px-2 peer-focus:px-2 rounded-full peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-5/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 peer-focus:rtl:translate-x-1/4 peer-focus:rtl:left-auto start-1.5 cursor-text peer-focus:cursor-default"
 						>Deine Nachricht*</label
 					>
 					<div class="flex justify-between">
-						<label for="message" class="text-xs text-black dark:text-grey-300"
+						<label for="message" class="text-xs text-black dark:text-gray-300"
 							>Maximal 300 Zeichen</label
 						>
-						<label for="name, email, message" class="text-xs text-black dark:text-grey-300 font-semibold"
+						<label for="name, email, message" class="text-xs text-black dark:text-gray-300 font-semibold"
 							>* Pflichtfeld</label
 						>
 					</div>
@@ -200,7 +200,7 @@
 							id="barrier"
 							value="true"
 							bind:checked={barrierChecked}
-							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 dark:border-grey-500 bg-white dark:bg-grey-600 checked:bg-sun-600 checked:border-secondary-900"
+							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 dark:border-gray-500 bg-white dark:bg-gray-600 checked:bg-sun-600 checked:border-secondary-900"
 							disabled={disable(submitting)}
 						/>
 						<span
@@ -222,7 +222,7 @@
 							</svg>
 						</span>
 					</div>
-					<label for="barrier" class="ms-3 text-secondary-900 dark:text-grey-300">
+					<label for="barrier" class="ms-3 text-secondary-900 dark:text-gray-300">
 						Ich möchte eine Barriere melden.
 					</label>
 				</div>
@@ -233,7 +233,7 @@
 							name="privacy"
 							id="privacy"
 							value="true"
-							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 dark:border-grey-500 bg-white dark:bg-grey-600 checked:bg-sun-600 checked:border-secondary-900"
+							class="peer h-5 w-5 cursor-pointer transition-all appearance-none rounded-md shadow-sm hover:shadow-md border-2 border-secondary-600 dark:border-gray-500 bg-white dark:bg-gray-600 checked:bg-sun-600 checked:border-secondary-900"
 							required
 							disabled={disable(submitting)}
 						/>
@@ -256,7 +256,7 @@
 							</svg>
 						</span>
 					</div>
-					<label for="privacy" class="ms-3 text-secondary-900 dark:text-grey-300"
+					<label for="privacy" class="ms-3 text-secondary-900 dark:text-gray-300"
 						>Ich bin mit der <a href="/legal/privacy" target="_blank">Datenschutzerklärung</a> einverstanden.</label
 					>
 				</div>
@@ -348,26 +348,26 @@
 			<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400">
 				Weitere Kontaktmöglichkeiten
 			</h2>
-			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-grey-300 pb-1">
+			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-gray-300 pb-1">
 				Ist das Formular nichts für dich?
 			</h3>
 			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
 				<div
-					class="bg-grey-200 dark:bg-grey-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
+					class="bg-gray-200 dark:bg-gray-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
 				>
-					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-grey-200">
+					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
 						Soziale Medien
 					</h4>
 					<Social />
 				</div>
 				<div
-					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
+					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
 				>
 					<h4 class="text-xl md:text-2xl font-bold">E-Mail</h4>
 					<a href="mailto:{contact.mail}">{contact.mail}</a>
 				</div>
 				<div
-					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
+					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
 				>
 					<h4 class="text-xl md:text-2xl font-bold">Post</h4>
 					<div>
@@ -376,7 +376,7 @@
 					</div>
 				</div>
 				<div
-					class="bg-grey-200 dark:bg-grey-700 text-black dark:text-grey-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
+					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
 				>
 					<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
 					<a href="fax:{contact.fax}">{contact.fax}</a>
