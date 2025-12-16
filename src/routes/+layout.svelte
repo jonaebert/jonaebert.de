@@ -5,7 +5,7 @@
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
-	// Initialisierung Variabeln
+	// Initialisierung Variablen
 	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let currentYear = new Date().getFullYear();
@@ -132,11 +132,11 @@
 			: 0;
 
 	// Header scroll animation
-	let headerisScrolled: boolean = false;
+	let headerIsScrolled: boolean = false;
 
 	onMount(() => {
 		const update = () => {
-			headerisScrolled = window.scrollY > 100;
+			headerIsScrolled = window.scrollY > 100;
 		};
 
 		window.addEventListener('scroll', update);
@@ -152,8 +152,8 @@
 
 <header
 	class="fixed left-1/2 -translate-x-1/2 transition-all duration-300 ease-out mx-auto w-fit z-40"
-	class:top-8={!headerisScrolled}
-	class:top-2={headerisScrolled}
+	class:top-8={!headerIsScrolled}
+	class:top-2={headerIsScrolled}
 >
 	<div class="items-center flex">
 		<div
@@ -302,10 +302,10 @@
 					<br />
 				</span>
 				<span class="text-sm text-gray-400 sm:text-center">
-					Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
-					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-					gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit
-					<a href="https://coolify.io/" target="_blank">Coolify</a>.
+					Entwickelt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
+					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. Server-Betrieb bei
+					<a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a>
+					mit <a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</span>
 				<span class="text-sm text-gray-400 sm:text-center">
 					Basisdesign von <a href="https://www.gruene.de" class="hover:underline" target="_blank"
