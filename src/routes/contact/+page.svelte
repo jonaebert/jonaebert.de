@@ -185,7 +185,6 @@
 							>Maximal 300 Zeichen</label
 						>
 						<label
-							for="name, email, message"
 							class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label
 						>
 					</div>
