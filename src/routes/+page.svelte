@@ -14,22 +14,34 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
 <div class="flex flex-col items-center justify-center min-h-screen relative z-10">
 	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
-	<video autoplay muted loop playsinline preload="auto" poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png" class="absolute z-9 inset-0 w-full h-full object-cover">
-		<source src="/home/herovideo.mp4" type="video/mp4"/>
+	<video
+		autoplay
+		muted
+		loop
+		playsinline
+		preload="auto"
+		poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png"
+		class="absolute z-9 inset-0 w-full h-full object-cover"
+	>
+		<source src="/home/herovideo.mp4" type="video/mp4" />
 	</video>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto grid grid-cols-1 xl:grid-cols-2 grid-rows-1 place-items-start z-30">
-		<div class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1">
+	<div
+		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto grid grid-cols-1 lg:grid-cols-2 grid-rows-1 place-items-start z-30"
+	>
+		<div
+			class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1"
+		>
 			<div class="relative grid grid-rows-[auto,auto,auto] place-items-start pt-0 md:pt-[10vh]">
 				<div class="row-start-1 mt-6 md:mt-0">
 					<Slogan />
 				</div>
 				<div class="row-start-2 text-3xl xl:text-5xl font-extrabold text-primary-600 md:mb-6">
-					<h1>{name}<br>({pronouns})</h1>
+					<h1>{name}<br />({pronouns})</h1>
 				</div>
 				<div class="row-start-3">
 					<Social />
@@ -39,7 +51,11 @@
 		<div class="flex justify-start row-start-2 col-start-1 lg:row-start-1 lg:col-start-2">
 			<div class="relative w-xs md:w-md">
 				<a href="/about" target="_self">
-					<Image src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png" alt="Portrait {name}" classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"/>
+					<Image
+						src="https://cms.jonaebert.de/uploads/small_Portrait_1000x1000_Cutout_7b47e25bf6.png"
+						alt="Portrait {name}"
+						classNames="w-full h-full hover:scale-105 duration-500 ease-in-out transform"
+					/>
 				</a>
 			</div>
 		</div>
@@ -48,7 +64,9 @@
 
 <div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto px-4 py-12">
 	<div class="text-left">
-		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400 my-2">Termine</h2>
+		<h2 class="text-3xl md:text-4xl font-extrabold text-secondary-900 dark:text-secondary-400 my-2">
+			Termine
+		</h2>
 		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-gray-300 my-2 pb-10">
 			Hier kannst du mich treffen!
 		</h3>
@@ -63,12 +81,14 @@
 	{/if}
 </div>
 
-<div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div
+	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
+>
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300">
-		<h2 class="text-3xl md:text-4xl font-extrabold my-2">
-			Politik für eine lebenswerte Welt
-		</h2>
+	<div
+		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300"
+	>
+		<h2 class="text-3xl md:text-4xl font-extrabold my-2">Politik für eine lebenswerte Welt</h2>
 		<div class="text-lg grid gap-4">
 			<div>
 				Unser Klima verändert sich rasant und mit jedem Kilogramm CO₂ mehr wird dieser Planet zu
@@ -96,7 +116,9 @@
 
 <div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto px-4 py-12">
 	<div class="text-left font-extrabold">
-		<h2 class="text-3xl md:text-4xl text-secondary-900 dark:text-secondary-400 my-2 pb-7">Aktuelles</h2>
+		<h2 class="text-3xl md:text-4xl text-secondary-900 dark:text-secondary-400 my-2 pb-7">
+			Aktuelles
+		</h2>
 	</div>
 	{#if posts && posts?.data?.length > 0}
 		<BlogTiles items={posts?.data} />
@@ -107,9 +129,13 @@
 	{/if}
 </div>
 
-<div class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center">
+<div
+	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
+>
 	<div class="absolute inset-0 bg-black opacity-55"></div>
-	<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300">
+	<div
+		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300"
+	>
 		<h2 class="text-3xl md:text-4xl font-extrabold my-2">Politik in Braunschweig</h2>
 		<div class="text-lg grid gap-4">
 			<div>
