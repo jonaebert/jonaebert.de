@@ -62,9 +62,9 @@
 		</div>
 
 		<!-- Blog-Content am unteren Rand -->
-		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-white dark:bg-gray-950 shadow-lg rounded-t-xl">
+		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
-				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative">
+				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative shadow-2xl">
 					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 						<Image
 							{src}

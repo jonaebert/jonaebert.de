@@ -26,7 +26,7 @@
 			<a class="group/teaser-image flex flex-col" href={`/blog/${item.documentId}`}>
 				<div class="flex h-full flex-col">
 					<div class="mb-6 flex">
-						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2">
+						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2 shadow-2xl">
 							{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 								<Image
 									{src}

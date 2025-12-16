@@ -12,9 +12,14 @@
 
 	/* Colors */
 	/* Remove predefined colors by tailwind */
-	--color-*: initial;
+	/*--color-*: initial;*/
 	/* Basic colors */
 	--color-transparent: #00000000;
+
+	/* Globale Farben */
+	--color-background-light: var(--color-neutral-500);
+	--color-background-dark: var(--color-secondary-800);
+	
 	/* Grunddesign */
 	/* Klee */
 	--color-primary-50: #e5f3eb;
@@ -40,21 +45,6 @@
 	--color-secondary-700: #00432c;
 	--color-secondary-800: #003221;
 	--color-secondary-900: #002216;
-
-	/* Andere */
-	--color-white: #ffffff;
-	--color-gray-50: #f9fafb;
-	--color-gray-100: #f3faf6;
-	--color-gray-200: #e6ecea;
-	--color-gray-300: #d1dbda;
-	--color-gray-400: #9cabaf;
-	--color-gray-500: #6b7a80;
-	--color-gray-600: #4b5d63;
-	--color-gray-700: #374951;
-	--color-gray-800: #1f2f37;
-	--color-gray-900: #111e27;
-	--color-gray-950: #031112;
-	--color-black: #000000;
 
 	/* Sand */
 	--color-neutral-500: #f7f4ed;

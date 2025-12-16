@@ -157,7 +157,7 @@
 >
 	<div class="items-center flex">
 		<div
-			class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110"
+			class="relative w-12 h-fit rounded-full p-1 bg-secondary-600 duration-500 ease-in-out transition-transform transform hover:scale-110"
 		>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
@@ -175,14 +175,14 @@
 					style:width={`${headerBgWidth}px`}
 				>
 					<div
-						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
+						class="absolute top-0 left-0 h-full rounded-full bg-secondary-600 transition-all duration-400"
 						style:width={`${headerBgWidth}px`}
 					></div>
 					{#each menuLinks as link, i}
 						<button
 							class="menu-item font-semibold {activeRoute === link.href
 								? 'bg-none'
-								: 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
+								: 'bg-primary-600'} hover:bg-sun-600 hover:text-secondary-900 opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
 							style:animation-delay={`${i * 400}ms`}
 							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
 						>
@@ -209,7 +209,7 @@
 
 <div class="flex flex-col grow min-h-screen relative">
 	<main
-		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-white dark:bg-gray-950 shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
+		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-background-light dark:bg-background-dark  shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
 	>
 		<slot />
 	</main>
@@ -238,7 +238,7 @@
 	</div>
 </div>
 
-<footer class="z-30 bg-secondary-900 -mt-12 pt-12">
+<footer class="z-30 bg-secondary-700 dark:bg-secondary-900 -mt-12 pt-12">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 		<div
 			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"

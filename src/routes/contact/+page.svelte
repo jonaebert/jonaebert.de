@@ -58,16 +58,13 @@
 					email,
 					message
 				};
-				const contactRes = await fetch(
-					`${n8n_contact_url}`,
-					{
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json'
-						},
-						body: JSON.stringify(payload)
-					}
-				);
+				const contactRes = await fetch(`${n8n_contact_url}`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(payload)
+				});
 
 				if (!contactRes.ok) {
 					throw new Error('Error when sending the message');
@@ -95,7 +92,9 @@
 	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto flex min-h-screen items-center justify-center py-5 pt-30 px-4 md:px-0">
+<div
+	class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto flex min-h-screen items-center justify-center py-5 pt-30 px-4 md:px-0"
+>
 	<div
 		class="bg-gray-50 dark:bg-gray-900 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
@@ -185,8 +184,9 @@
 						<label for="message" class="text-xs text-black dark:text-gray-300"
 							>Maximal 300 Zeichen</label
 						>
-						<label for="name, email, message" class="text-xs text-black dark:text-gray-300 font-semibold"
-							>* Pflichtfeld</label
+						<label
+							for="name, email, message"
+							class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label
 						>
 					</div>
 				</div>
