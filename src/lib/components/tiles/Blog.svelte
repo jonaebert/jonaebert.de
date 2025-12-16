@@ -6,7 +6,7 @@
 
 	function getCMSImageURL(image: any): string {
 		if (!image) {
-			return '/home/braunschweig_alte_waage.svg';
+			return `${je_cms_api_base_url}/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png`;
 		}
 
 		if (image.ext === '.svg') {
@@ -16,7 +16,7 @@
 		}
 
 		// Fallback
-		return '/home/braunschweig_alte_waage.svg';
+		return `${je_cms_api_base_url}/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png`;
 	}
 </script>
 
