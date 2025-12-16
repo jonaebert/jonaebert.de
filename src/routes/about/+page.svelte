@@ -77,7 +77,7 @@
 				<div class="text-3xl md:text-4xl font-extrabold text-primary-600 my-2 pb-7">
 					<h2>Vordenker:in im Einklang von Technik und Natur</h2>
 				</div>
-				<div class="text-white dark:text-grey-300 text-sm md:text-base">
+				<div class="text-white dark:text-gray-300 text-sm md:text-base">
 					<div class="">
 						In einer Ära, in der digitale Innovationen das Zeitalter prägen, sehe ich mich als
 						Verfechter einer Zukunft, in der technologischer Fortschritt und ökologische
@@ -130,15 +130,15 @@
 		</h2>
 		<div class="grid gap-4">
 			{#each headings.sections as section}
-				<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-grey-300">
+				<h3 class="text-2xl md:text-3xl font-semibold text-black dark:text-gray-300">
 					{section.title}
 				</h3>
 				{#if section.key !== 'skills'}
-					<ol class="relative border-s border-grey-300 dark:border-grey-400">
+					<ol class="relative border-s border-gray-300 dark:border-gray-400">
 						{#each items[section.key] as item}
 							<li class="mb-10 ms-11">
 								<span
-									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white dark:ring-grey-950"
+									class="absolute w-9 h-9 {item.bgcolor} shadow-lg transition-transform hover:scale-150 ease-in-out duration-500 flex items-center justify-center rounded-full -start-4.5 ring-7 ring-white dark:ring-secondary-700"
 								>
 									<a href={item.link} target="_blank">
 										<Image
@@ -154,26 +154,26 @@
 									{/if}
 								</span>
 								<div
-									class="p-4 rounded-lg shadow-lg bg-white dark:bg-grey-900 border border-solid border-grey-200 dark:border-grey-800"
+									class="p-4 rounded-lg shadow-lg bg-white dark:bg-gray-900 border border-solid border-gray-200 dark:border-gray-800"
 								>
 									<div class="items-center justify-between sm:flex">
-										<div class="text-sm font-semibold text-black dark:text-grey-400">
+										<div class="text-sm font-semibold text-black dark:text-gray-400">
 											{item.title}
-											<div class="font-normal text-grey-600 dark:text-grey-300">
+											<div class="font-normal text-gray-600 dark:text-gray-300">
 												<a href={item.link} target="_blank" class="font-normal hover:underline"
 													>{item.company}</a
 												>
 											</div>
 										</div>
 										<time
-											class="mb-1 text-xs font-normal text-grey-500 flex items-center justify-between"
+											class="mb-1 text-xs font-normal text-gray-500 flex items-center justify-between"
 										>
 											{valDate(item?.start, item?.end).date}
 										</time>
 									</div>
 									{#if item.description[0] || item.skills[0]}
 										<div
-											class="p-3 mt-3 gap-3 grid text-xs font-normal rounded-lg bg-grey-100 dark:bg-grey-700 border border-solid border-grey-300 dark:border-grey-600 text-grey-600 dark:text-grey-100"
+											class="p-3 mt-3 gap-3 grid text-xs font-normal rounded-lg bg-gray-100 dark:bg-gray-700 border border-solid border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-100"
 										>
 											{#if item.description[0]}
 												<ul class="list-disc pl-2.5 md:pl-3.5">
@@ -200,17 +200,17 @@
 					<div class="grid gap-3">
 						{#each items[section.key] as item}
 							<div class="">
-								<h4 class="text-xl md:text-2xl font-semibold text-black dark:text-grey-400">
+								<h4 class="text-xl md:text-2xl font-semibold text-black dark:text-gray-400">
 									{item.category}
 								</h4>
 								<div
-									class="p-4 mt-1 rounded-lg shadow-lg bg-white dark:bg-grey-900 border border-solid border-grey-200 dark:border-grey-800"
+									class="p-4 mt-1 rounded-lg shadow-lg bg-white dark:bg-gray-900 border border-solid border-gray-200 dark:border-gray-800"
 								>
 									{#if item.subcategories}
 										<div class="grid gap-6">
 											{#each item.subcategories as subcategory}
 												<div>
-													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-grey-300">
+													<h5 class="text-md xl:text-2xl font-bold text-black dark:text-gray-300">
 														{subcategory.title}
 													</h5>
 													<div class="flex flex-wrap flex-row gap-1 text-sm">

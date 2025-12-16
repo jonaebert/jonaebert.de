@@ -56,7 +56,7 @@
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2"
+		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2 shadow-xl"
 			on:touchstart={handleTouchStart}
 			on:touchend={handleTouchEnd}
 			on:pointerdown={handleTouchStart}

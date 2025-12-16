@@ -6,7 +6,7 @@
         default: {
             icon: "white",
             background: "secondary-900",
-            border: "grey-300",
+            border: "gray-300",
         },
         focus: {
             icon: "black",
@@ -20,7 +20,7 @@
         },
         disabled: {
             icon: "white",
-            background: "grey-300",
+            background: "gray-300",
             border: "transparent",
         },
     };

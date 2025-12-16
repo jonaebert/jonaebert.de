@@ -5,7 +5,7 @@
 	import Social from '$lib/components/blocks/Social.svelte';
 	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
-	// Initialisierung Variabeln
+	// Initialisierung Variablen
 	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
 	import Image from '$lib/components/image.svelte';
 	let currentYear = new Date().getFullYear();
@@ -132,11 +132,11 @@
 			: 0;
 
 	// Header scroll animation
-	let headerisScrolled: boolean = false;
+	let headerIsScrolled: boolean = false;
 
 	onMount(() => {
 		const update = () => {
-			headerisScrolled = window.scrollY > 100;
+			headerIsScrolled = window.scrollY > 100;
 		};
 
 		window.addEventListener('scroll', update);
@@ -152,12 +152,12 @@
 
 <header
 	class="fixed left-1/2 -translate-x-1/2 transition-all duration-300 ease-out mx-auto w-fit z-40"
-	class:top-8={!headerisScrolled}
-	class:top-2={headerisScrolled}
+	class:top-8={!headerIsScrolled}
+	class:top-2={headerIsScrolled}
 >
 	<div class="items-center flex">
 		<div
-			class="relative w-12 h-fit rounded-full p-1 bg-primary-600 dark:bg-secondary-800 duration-500 ease-in-out transition-transform transform hover:scale-110"
+			class="relative w-12 h-fit rounded-full p-1 bg-secondary-600 duration-500 ease-in-out transition-transform transform hover:scale-110"
 		>
 			<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
 				<Image
@@ -175,14 +175,14 @@
 					style:width={`${headerBgWidth}px`}
 				>
 					<div
-						class="absolute top-0 left-0 h-full rounded-full bg-primary-600 dark:bg-secondary-800 transition-all duration-400"
+						class="absolute top-0 left-0 h-full rounded-full bg-secondary-600 transition-all duration-400"
 						style:width={`${headerBgWidth}px`}
 					></div>
 					{#each menuLinks as link, i}
 						<button
 							class="menu-item font-semibold {activeRoute === link.href
 								? 'bg-none'
-								: 'bg-secondary-700'} hover:bg-secondary-none opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
+								: 'bg-primary-600'} hover:bg-sun-600 hover:text-secondary-900 opacity-0 transform animate-slide-in shrink-0 rounded-full hover:scale-105 transition-transform duration-500 ease-in-out"
 							style:animation-delay={`${i * 400}ms`}
 							on:animationstart={() => (headerVisibleLinks = Math.max(headerVisibleLinks, i + 1))}
 						>
@@ -209,7 +209,7 @@
 
 <div class="flex flex-col grow min-h-screen relative">
 	<main
-		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-white dark:bg-grey-950 shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
+		class="grow z-20 rounded-b-3xl overflow-hidden relative bg-background-light dark:bg-background-dark  shadow-[0_10px_25px_rgba(0,0,0,0.6),0_4px_10px_rgba(0,0,0,0.4)]"
 	>
 		<slot />
 	</main>
@@ -238,7 +238,7 @@
 	</div>
 </div>
 
-<footer class="z-30 bg-secondary-900 -mt-12 pt-12">
+<footer class="z-30 bg-secondary-700 dark:bg-secondary-900 -mt-12 pt-12">
 	<div class="mx-auto max-w-[95vw] xl:max-w-[60vw] p-4 py-6 lg:py-8">
 		<div
 			class="grid grid-cols-2 md:grid-cols-4 grid-rows-2 md:grid-rows-1 headerGap-8 sm:headerGap-6 text-balance"
@@ -262,7 +262,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">{name}</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each menuLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -272,7 +272,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">Rechtliches ⚖️</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each legalLinks as link}
 						<li class="mb-4 wrap-break-words hyphens-auto hover:text-white">
 							<a href={link.href} class="hover:underline">{link.title}</a>
@@ -282,7 +282,7 @@
 			</div>
 			<div>
 				<h2 class="mb-6 text-md font-semibold text-white uppercase">Schau mal hier vorbei 👀</h2>
-				<ul class="text-grey-400 font-medium">
+				<ul class="text-gray-400 font-medium">
 					{#each footerLinks as link}
 						<li class="mb-4 hover:text-white">
 							<a href={link.href} target="_blank" class="hover:underline">{link.title}</a>
@@ -291,23 +291,23 @@
 				</ul>
 			</div>
 		</div>
-		<hr class="my-6 border-grey-700 sm:mx-auto lg:my-8" />
+		<hr class="my-6 border-gray-700 sm:mx-auto lg:my-8" />
 		<div class="sm:flex sm:items-center sm:justify-between">
 			<div class="grid grid-rows-[auto] grid-cols-1 justify-items-start">
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					&copy; 2023 - {currentYear} <a href="/" class="hover:underline">{name}</a>. Alle Rechte
 					vorbehalten.
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					<br />
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
-					Erstellt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
-					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-					gehostet von <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit
-					<a href="https://coolify.io/" target="_blank">Coolify</a>.
+				<span class="text-sm text-gray-400 sm:text-center">
+					Entwickelt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
+					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. Server-Betrieb bei
+					<a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a>
+					mit <a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</span>
-				<span class="text-sm text-grey-400 sm:text-center">
+				<span class="text-sm text-gray-400 sm:text-center">
 					Basisdesign von <a href="https://www.gruene.de" class="hover:underline" target="_blank"
 						>BÜNDNIS 90/DIE GRÜNEN</a
 					>.

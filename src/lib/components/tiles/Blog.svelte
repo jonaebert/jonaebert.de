@@ -6,7 +6,7 @@
 
 	function getCMSImageURL(image: any): string {
 		if (!image) {
-			return '/home/braunschweig_alte_waage.svg';
+			return `${je_cms_api_base_url}/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png`;
 		}
 
 		if (image.ext === '.svg') {
@@ -16,7 +16,7 @@
 		}
 
 		// Fallback
-		return '/home/braunschweig_alte_waage.svg';
+		return `${je_cms_api_base_url}/uploads/small_Braunschweig_Alte_Waage_ced5cdd56e.png`;
 	}
 </script>
 
@@ -26,7 +26,7 @@
 			<a class="group/teaser-image flex flex-col" href={`/blog/${item.documentId}`}>
 				<div class="flex h-full flex-col">
 					<div class="mb-6 flex">
-						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2">
+						<div class="relative inline-block w-full overflow-hidden rounded-sm aspect-3/2 shadow-2xl">
 							{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
 								<Image
 									{src}
@@ -60,9 +60,9 @@
 							{/if}
 						</div>
 					</div>
-					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 dark:text-grey-300">
+					<div class="flex flex-row justify-between mb-1 text-xs md:text-base text-secondary-600 dark:text-gray-300">
 						<div class="flex items-center hyphens-auto text-pretty">
-							<div class="flex items-center fill-secondary-600 dark:fill-grey-300">
+							<div class="flex items-center fill-secondary-600 dark:fill-gray-300">
 								{#if item.type == 'article'}
 									<svg
 										version="1.1"
@@ -117,10 +117,10 @@
 							{/if}
 						</div>
 					</div>
-					<div class="hyphens-auto font-bold text-secondary-900 dark:text-grey-400 text-lg md:text-2xl md:leading-[1.3]">
+					<div class="hyphens-auto font-bold text-secondary-900 dark:text-gray-400 text-lg md:text-2xl md:leading-[1.3]">
 						{item.title}
 					</div>
-					<span class="mt-3 text-xs text-grey-600 dark:text-grey-400 md:text-base">
+					<span class="mt-3 text-xs text-gray-600 dark:text-gray-400 md:text-base">
 						{FormatDate(item.createdAt, 'day')}. {FormatDate(item.createdAt, 'monthshort')}
 						{FormatDate(item.createdAt, 'year')}
 					</span>

@@ -111,7 +111,7 @@
 					{/if}
 					{event.subject}
 				</h1>
-				<div class="text-white dark:text-grey-300">
+				<div class="text-white dark:text-gray-300">
 					<div class="flex flex-row justify-start items-center">
 						{@render eventDate()}
 					</div>
@@ -121,7 +121,7 @@
 
 		<!-- Event-Content am unteren Rand -->
 		<div
-			class="min-w-[60vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-white dark:bg-grey-950 shadow-lg rounded-t-xl"
+			class="min-w-[60vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl"
 		>
 			<div class="p-6 relative gap-8 container">
 				<div
@@ -135,7 +135,7 @@
 								<Image
 									{src}
 									alt={event.cover.alternativeText}
-									classNames="rounded-lg"
+									classNames="rounded-lg shadow-2xl"
 									copyright={[{ name: cp_name, url: cp_url }]}
 								/>
 							{/snippet}
@@ -169,7 +169,7 @@
 							{/if}
 						</div>
 						<!-- Termininformationen-->
-						<div class="flex flex-col gap-5 text-grey-700 dark:text-grey-400 text-base md:text-lg">
+						<div class="flex flex-col gap-5 text-gray-700 dark:text-gray-400 text-base md:text-lg">
 							<!-- Datum -->
 							<div class="text-base md:text-lg text-nowrap">
 								<div class="flex flex-row justify-start items-center">
@@ -246,7 +246,7 @@
 				</div>
 				{#if event.description}
 					<div
-						class="text-grey-700 dark:text-grey-400 text-left md:text-right md:text-lg leading-relaxed text-pretty"
+						class="text-gray-700 dark:text-gray-400 text-left md:text-right md:text-lg leading-relaxed text-pretty"
 					>
 						{@html event.description}
 					</div>

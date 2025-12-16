@@ -34,7 +34,7 @@
             default: {
                 icon: colors.default.icon ? "text-" + colors.default.icon : "text-black",
                 background: colors.default.background ? "bg-" + colors.default.background : "bg-white",
-                border: colors.default.border ? "border-" + colors.default.border : "border-grey-300",
+                border: colors.default.border ? "border-" + colors.default.border : "border-gray-300",
             },
             focus: {
                 icon: colors.focus.icon ? "focus:text-" + colors.focus.icon : "focus:text-black",
@@ -48,7 +48,7 @@
             },
             disabled: {
                 icon: colors.disabled.icon ? "disabled:text-" + colors.disabled.icon : "disabled:text-white",
-                background: colors.disabled.background ? "disabled:bg-" + colors.disabled.background : "disabled:bg-grey-300",
+                background: colors.disabled.background ? "disabled:bg-" + colors.disabled.background : "disabled:bg-gray-300",
                 border: colors.disabled.border ? "disabled:border-" + colors.disabled.border : "disabled:border-transparent",
             },
         };

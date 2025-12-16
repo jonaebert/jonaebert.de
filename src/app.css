@@ -12,9 +12,14 @@
 
 	/* Colors */
 	/* Remove predefined colors by tailwind */
-	--color-*: initial;
+	/*--color-*: initial;*/
 	/* Basic colors */
 	--color-transparent: #00000000;
+
+	/* Globale Farben */
+	--color-background-light: var(--color-neutral-500);
+	--color-background-dark: var(--color-secondary-800);
+	
 	/* Grunddesign */
 	/* Klee */
 	--color-primary-50: #e5f3eb;
@@ -41,21 +46,6 @@
 	--color-secondary-800: #003221;
 	--color-secondary-900: #002216;
 
-	/* Andere */
-	--color-white: #ffffff;
-	--color-grey-50: #f9fafb;
-	--color-grey-100: #f3faf6;
-	--color-grey-200: #e6ecea;
-	--color-grey-300: #d1dbda;
-	--color-grey-400: #9cabaf;
-	--color-grey-500: #6b7a80;
-	--color-grey-600: #4b5d63;
-	--color-grey-700: #374951;
-	--color-grey-800: #1f2f37;
-	--color-grey-900: #111e27;
-	--color-grey-950: #031112;
-	--color-black: #000000;
-
 	/* Sand */
 	--color-neutral-500: #f7f4ed;
 	--color-neutral-600: #f5f1e9; /* Sand */
@@ -74,7 +64,7 @@
 	--color-grashalm-600: #8abd24; /* Grashalm */
 	--color-grashalm-700: #6e971d;
 
-	/* Grüne Jugen */
+	/* Grüne Jugend */
 	--color-gruene-jugend-hellgruen: #c7ff7a;
 
 	/* About custom colors */
@@ -130,8 +120,8 @@ a:hover {
 
 /* Buttons */
 .button-m {
-	@apply py-[0.75rem];
-	@apply px-[1.5rem];
+	@apply py-3;
+	@apply px-6;
 	@apply rounded-full;
 	@apply font-bold;
 	@apply cursor-pointer;

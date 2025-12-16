@@ -5,7 +5,7 @@
 
 <div class="flex min-h-screen items-center justify-center container py-5">
 	<div
-		class="bg-grey-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
+		class="bg-gray-50 rounded-lg md:rounded-xl overflow-hidden max-w-8xl w-full grid grid-cols-1 md:grid-cols-2 shadow-lg"
 	>
 		<!-- Bildbereich -->
 		<div class="relative w-full h-64 md:h-auto">
@@ -13,7 +13,7 @@
 		</div>
 
 		<!-- Textbereich -->
-		<div class="flex flex-col justify-center border border-grey-100 py-6 container">
+		<div class="flex flex-col justify-center border border-gray-100 py-6 container">
 			<h1 class="text-3xl md:text-4xl font-extrabold text-secondary-900">
 				{$page.status}
 			</h1>

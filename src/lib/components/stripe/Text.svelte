@@ -45,16 +45,16 @@
 		const classes: any = {
 			1: 'text-4xl font-bold text-secondary-900 dark:text-secondary-400',
 			2: 'text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-400',
-			3: 'text-2xl md:text-3xl font-semibold text-black dark:text-grey-400',
-			4: 'text-xl md:text-2xl font-semibold text-black dark:text-grey-300',
-			5: 'text-md md:text-xl font-semibold text-black dark:text-grey-200',
-			6: 'text-md md:text-xl font-medium text-black dark:text-grey-100'
+			3: 'text-2xl md:text-3xl font-semibold text-black dark:text-gray-400',
+			4: 'text-xl md:text-2xl font-semibold text-black dark:text-gray-300',
+			5: 'text-md md:text-xl font-semibold text-black dark:text-gray-200',
+			6: 'text-md md:text-xl font-medium text-black dark:text-gray-100'
 		};
 		return classes[level] || '';
 	}
 </script>
 
-<div class="prose max-w-none mb-6 text-black dark:text-grey-300">
+<div class="prose max-w-none mb-6 text-black dark:text-gray-300">
 	{#each body as item}
 		{#if item.type === 'paragraph'}
 			{@html (() => {
