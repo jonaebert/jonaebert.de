@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { address, contact, name, bb_base_url, bb_api_token, uri, n8n_contact_url } from '$lib/store';
+	import { address, contact, name, uri, n8n_contact_url } from '$lib/store';
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
@@ -63,9 +63,7 @@
 					{
 						method: 'POST',
 						headers: {
-							'Content-Type': 'application/json',
-							'x-budibase-app-id': 'app_5b9a41e7a11f476cbf9239575f80ae90',
-							'x-budibase-api-key': bb_api_token
+							'Content-Type': 'application/json'
 						},
 						body: JSON.stringify(payload)
 					}
