@@ -179,6 +179,47 @@
 						{item.title}
 					</h3>
 
+					<!-- Typ-Icon + Bezeichnung -->
+					<div class="flex items-center fill-secondary-600 dark:fill-gray-300">
+						{#if item.type == 'article'}
+							<svg
+								version="1.1"
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								viewBox="0 0 119 119"
+								class="mr-1.5 shrink-0 inline h-4 w-4"
+							>
+								<path
+									fill="inherit"
+									d="M97.1,119H21.9C9.8,119,0,109.2,0,97.1V21.9C0,9.8,9.8,0,21.9,0h75.3C109.2,0,119,9.8,119,21.9v75.3 C119,109.2,109.2,119,97.1,119L97.1,119z M21.9,11c-6,0-10.9,4.9-10.9,10.9v75.3c0,6,4.9,10.9,10.9,10.9h75.3 c6,0,10.9-4.9,10.9-10.9V21.9c0-6-4.9-10.9-10.9-10.9H21.9z"
+								></path>
+								<rect x="26.3" y="26.5" fill="inherit" width="65.7" height="11"></rect>
+								<rect x="26.3" y="54" fill="inherit" width="65.7" height="11"></rect>
+								<rect x="26.3" y="81" fill="inherit" width="47.7" height="11"></rect>
+							</svg>
+							Artikel
+						{:else if item.type == 'comment'}
+							<svg
+								version="1.1"
+								xmlns="http://www.w3.org/2000/svg"
+								x="0px"
+								y="0px"
+								viewBox="0 -960 960 960"
+								class="mr-1.5 shrink-0 inline h-5.5 w-5.5"
+							>
+								<path
+									fill="inherit"
+									d="M880-80 720-240H160q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v720ZM160-320h594l46 45v-525H160v480Z"
+								/>
+								<rect x="240" y="-480" fill="inherit" width="480" height="70" />
+								<rect x="240" y="-590" fill="inherit" width="480" height="70" />
+								<rect x="240" y="-720" fill="inherit" width="480" height="70" />
+							</svg>
+							Kommentar
+						{/if}
+					</div>
+
 					<!-- Footer immer links, Copyright immer rechts -->
 					<div id={metaId} class="mt-3 flex items-center text-xs opacity-80">
 						<span>
