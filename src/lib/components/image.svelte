@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { contextMenuAction } from '$lib/store';
+
 	export let src: string;
 	export let alt: string = '';
 	export let classNames: string = '';
-	export let copyright: { name: string; url: string }[] = [{ name: '', url: '' }];
+	export let copyright: { enabled: boolean; name: string; url: string }[] | null | undefined = [];
+	export let loading: 'eager' | 'lazy' | null | undefined = undefined;
+	export let decoding: 'sync' | 'async' | 'auto' | null | undefined = undefined;
+	export let fetchpriority: 'high' | 'auto' | null | undefined = undefined;
 
 	function replacePaddingMarginWithZero(classes: string): string {
 		return classes
@@ -12,14 +16,8 @@
 				const normalMatch = /^(p|m)(t|b|l|r|x|y)?-\d+$/.test(cls);
 				const arbitraryMatch = /^(p|m)(t|b|l|r|x|y)?-\[.+\]$/.test(cls);
 
-				if (normalMatch) {
-					// Zahl durch 0 ersetzen
-					return cls.replace(/-\d+$/, '-0');
-				} else if (arbitraryMatch) {
-					// Arbitrary Value komplett durch 0 ersetzen
-					// z.B. p-[10px] -> p-0, mt-[3rem] -> mt-0
-					return cls.replace(/-\[.+\]$/, '-0');
-				}
+				if (normalMatch) return cls.replace(/-\d+$/, '-0');
+				if (arbitraryMatch) return cls.replace(/-\[.+\]$/, '-0');
 				return cls;
 			})
 			.join(' ');
@@ -31,18 +29,25 @@
 </script>
 
 <div class="relative w-full h-full">
-	<img {src} {alt} class={classNames} use:contextMenuAction />
-
-	{#if copyright.length > 0 && copyright[0].name !== ''}
-		<div class="absolute right-2 bottom-2 bg-gray-50 rounded p-1 text-xs text-black opacity-75">
-			{#if copyright[0].url && copyright[0].url.startsWith('https://')}
-				<a href={copyright[0].url} target="_blank" rel="noopener noreferrer">
-					<p class="text-end">&copy; {copyright[0].name}</p>
-				</a>
-			{:else}
-				<p class="text-end">&copy; {copyright[0].name}</p>
-			{/if}
-		</div>
+	<img {src} {alt} class={classNames} {loading} {decoding} {fetchpriority} use:contextMenuAction />
+	{#if copyright && copyright.length > 0}
+		{#if copyright[0].enabled === true}
+			<div
+				class="absolute right-2 bottom-2 z-20 rounded bg-white/95 px-2 py-1 text-[11px] text-black shadow"
+			>
+				{#if copyright[0].url && copyright[0].url.startsWith('https://')}
+					<a
+						href={copyright[0].url}
+						target="_blank"
+						rel="noopener noreferrer"
+						on:click|stopPropagation
+					>
+						&copy; {copyright[0].name}
+					</a>
+				{:else}
+					<span>&copy; {copyright[0].name}</span>
+				{/if}
+			</div>
+		{/if}
 	{/if}
 </div>
-

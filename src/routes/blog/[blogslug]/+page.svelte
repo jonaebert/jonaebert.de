@@ -65,12 +65,12 @@
 		<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto text-pretty bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl">
 			<div class="p-6 relative">
 				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative shadow-2xl">
-					{#snippet image_blog(src: any, alt: any, cp_name: any, cp_url: any)}
+					{#snippet image_blog(src: any, alt: any, cp_enabled: any, cp_name: any, cp_url: any)}
 						<Image
 							{src}
 							alt={cover.alternativeText}
 							classNames="rounded-lg"
-							copyright={[{ name: cp_name, url: cp_url }]}
+							copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url }]}
 						/>
 					{/snippet}
 					{#if cover}
@@ -79,6 +79,7 @@
 								{@render image_blog(
 									getCoverUrl(cover, true),
 									cover.alternativeText,
+									post.data.copyright[0].enabled,
 									post.data.copyright[0].name,
 									post.data.copyright[0].url
 								)}

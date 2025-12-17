@@ -131,12 +131,12 @@
 				>
 					<div class="flex flex-col gap-5">
 						<div>
-							{#snippet image_event(src: any, alt: any, cp_name: any, cp_url: any)}
+							{#snippet image_event(src: any, alt: any, cp_enabled: any, cp_name: any, cp_url: any)}
 								<Image
 									{src}
-									alt={event.cover.alternativeText}
-									classNames="rounded-lg shadow-2xl"
-									copyright={[{ name: cp_name, url: cp_url }]}
+									alt={alt}
+									classNames="rounded-lg"
+									copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url }]}
 								/>
 							{/snippet}
 							{#if event.cover}
@@ -145,6 +145,7 @@
 										{@render image_event(
 											getCoverUrl(event.cover, true),
 											event.cover.alternativeText,
+											event.copyright.enabled,
 											event.copyright.name,
 											event.copyright.url
 										)}
@@ -152,6 +153,7 @@
 										{@render image_event(
 											getCoverUrl(event.cover, true),
 											event.cover.alternativeText,
+											event.copyright.enabled,
 											event.copyright.name,
 											''
 										)}
@@ -161,11 +163,12 @@
 										getCoverUrl(event.cover, true),
 										event.cover.alternativeText,
 										'',
+										'',
 										''
 									)}
 								{/if}
 							{:else}
-								{@render image_event(img_alte_waage, `Teaser Bild ${event.title}`, '', '')}
+								{@render image_event(img_alte_waage, `Teaser Bild ${event.title}`, '', '', '')}
 							{/if}
 						</div>
 						<!-- Termininformationen-->
