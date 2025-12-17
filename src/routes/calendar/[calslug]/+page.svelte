@@ -131,12 +131,12 @@
 				>
 					<div class="flex flex-col gap-5">
 						<div>
-							{#snippet image_event(src: any, alt: any, cp_name: any, cp_url: any)}
+							{#snippet image_event(src: any, alt: any, cp_enabled: any, cp_name: any, cp_url: any)}
 								<Image
 									{src}
 									alt={event.cover.alternativeText}
-									classNames="rounded-lg shadow-2xl"
-									copyright={[{ name: cp_name, url: cp_url }]}
+									classNames="rounded-lg"
+									copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url }]}
 								/>
 							{/snippet}
 							{#if event.cover}

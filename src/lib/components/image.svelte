@@ -9,8 +9,6 @@
 	export let decoding: 'sync' | 'async' | 'auto' | null | undefined = undefined;
 	export let fetchpriority: 'high' | 'auto' | null | undefined = undefined;
 
-	console.log('copyright prop:', copyright);
-
 	function replacePaddingMarginWithZero(classes: string): string {
 		return classes
 			.split(' ')
