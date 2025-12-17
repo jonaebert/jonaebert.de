@@ -4,7 +4,7 @@
 	import { FormatDate } from '$lib/util/date';
 
 	export let items: any[] | null | undefined;
-	const events = items.map((event) => {
+	const events = items?.map((event) => {
 		return {
 			...event,
 			start: FormatDate(event.start, ''),
@@ -20,7 +20,7 @@
 			startDate: FormatDate(event.start, 'date'),
 			endDate: FormatDate(event.end, 'date')
 		};
-	});
+	}) ?? [];
 
 	function getCMSImageURL(image: any): string {
 		if (!image) {
@@ -134,7 +134,7 @@
 				role="article"
 				aria-posinset={i + 1}
 				aria-setsize={orderedItems.length}
-				aria-label={`Event: ${item.title}`}
+				aria-label={`Event: ${item.subject}`}
 				class="group relative overflow-hidden min-h-32 rounded-xl shadow-2xl transition-transform duration-300 hover:-translate-y-1 {spanClass(
 					i
 				)}"
@@ -168,16 +168,16 @@
 					class="absolute inset-0 z-10 pointer-events-none bg-linear-to-t from-black/75 via-black/35 to-transparent"
 				></div>
 				<!-- Copyright (separat interaktiv) -->
-				{#if item.copyright.enabled}
+				{#if item.copyright?.enabled}
 					<div class="absolute bottom-2 right-2 z-40 pointer-events-auto">
 						<button
 							type="button"
 							class="rounded bg-white/70 px-2 py-1 text-[11px] text-black shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-black/70"
-							on:click={() => openCopyright(item.copyright.url)}
-							aria-label={`Urheber: ${item.copyright.name} – externe Webseite öffnen`}
-							title={item.copyright.url}
+							on:click={() => openCopyright(item.copyright?.url)}
+							aria-label={`Urheber: ${item.copyright?.name} – externe Webseite öffnen`}
+							title={item.copyright?.url}
 						>
-							&copy; {item.copyright.name}
+							&copy; {item.copyright?.name}
 						</button>
 					</div>
 				{/if}

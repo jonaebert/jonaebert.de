@@ -152,16 +152,16 @@
 				></div>
 
 				<!-- Copyright (separat interaktiv) -->
-				{#if item.copyright[0]?.enabled}
+				{#if item.copyright?.[0]?.enabled}
 					<div class="absolute bottom-2 right-2 z-40 pointer-events-auto">
 						<button
 							type="button"
 							class="rounded bg-white/70 px-2 py-1 text-[11px] text-black shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-black/70"
-							on:click={() => openCopyright(item.copyright[0].url)}
-							aria-label={`Urheber: ${item.copyright[0].name} – externe Webseite öffnen`}
-							title={item.copyright[0].url}
+							on:click={() => openCopyright(item.copyright?.[0]?.url)}
+							aria-label={`Urheber: ${item.copyright?.[0]?.name} – externe Webseite öffnen`}
+							title={item.copyright?.[0]?.url}
 						>
-							&copy; {item.copyright[0].name}
+							&copy; {item.copyright?.[0]?.name}
 						</button>
 					</div>
 				{/if}
