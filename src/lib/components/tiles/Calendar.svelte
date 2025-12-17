@@ -153,7 +153,7 @@
 				<div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
 					<Image
 						src={getCMSImageURL(item.cover)}
-						alt={item.cover?.alternativeText || `Titelbild zu ${item.title}`}
+						alt={item.cover?.alternativeText || `Titelbild zu ${item.subject}`}
 						classNames="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
 						copyright={[]}
 						loading={i === 0 ? 'eager' : 'lazy'}
