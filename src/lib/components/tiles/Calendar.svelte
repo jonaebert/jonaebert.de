@@ -15,8 +15,8 @@
 			endMonth: FormatDate(event.end, 'month'),
 			startYear: FormatDate(event.start, 'year'),
 			endYear: FormatDate(event.end, 'year'),
-			starttime: FormatDate(event.start, 'time'),
-			endtime: FormatDate(event.end, 'time'),
+			startTime: FormatDate(event.start, 'time'),
+			endTime: FormatDate(event.end, 'time'),
 			startDate: FormatDate(event.start, 'date'),
 			endDate: FormatDate(event.end, 'date')
 		};
@@ -167,18 +167,17 @@
 					aria-hidden="true"
 					class="absolute inset-0 z-10 pointer-events-none bg-linear-to-t from-black/75 via-black/35 to-transparent"
 				></div>
-
 				<!-- Copyright (separat interaktiv) -->
-				{#if item.copyright[0]?.enabled}
+				{#if item.copyright.enabled}
 					<div class="absolute bottom-2 right-2 z-40 pointer-events-auto">
 						<button
 							type="button"
 							class="rounded bg-white/70 px-2 py-1 text-[11px] text-black shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-black/70"
-							on:click={() => openCopyright(item.copyright[0].url)}
-							aria-label={`Urheber: ${item.copyright[0].name} – externe Webseite öffnen`}
-							title={item.copyright[0].url}
+							on:click={() => openCopyright(item.copyright.url)}
+							aria-label={`Urheber: ${item.copyright.name} – externe Webseite öffnen`}
+							title={item.copyright.url}
 						>
-							&copy; {item.copyright[0].name}
+							&copy; {item.copyright.name}
 						</button>
 					</div>
 				{/if}
@@ -225,7 +224,7 @@
 					<div id={metaId} class="mt-1 flex items-center text-xs text-white/75">
 						<span>
 							{#if item.datetype === 'date'}
-								<div class="flex flex-row items-end gap-6">
+								<div class="flex flex-col items-end">
 									<p>
 										{item.startDate} - {item.endDate}
 									</p>
@@ -237,23 +236,17 @@
 										{item.startDate}
 									</p>
 									<p>
-										{item.starttime} - {item.endtime}
+										{item.startTime} - {item.endTime}
 									</p>
 								</div>
 							{:else}
-								<div class="flex flex-row items-end gap-6">
-									<p>
-										vom<br />
-										bis
-									</p>
-									<p>
-										{item.startDate}<br />
-										{item.endDate}
-									</p>
-									<p>
-										{item.starttime}<br />
-										{item.endtime}
-									</p>
+								<div class="grid grid-cols-[auto,auto,auto] grid-rows-2 gap-x-1 text-right">
+									<p class="col-start-1 row-start-1">vom</p>
+									<p class="col-start-2 row-start-1">{item.startDate}</p>
+									<p class="col-start-3 row-start-1">{item.startTime}</p>
+									<p class="col-start-1 row-start-2">bis</p>
+									<p class="col-start-2 row-start-2">{item.endDate}</p>
+									<p class="col-start-3 row-start-2">{item.endTime}</p>
 								</div>
 							{/if}
 						</span>
