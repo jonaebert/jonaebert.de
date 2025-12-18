@@ -156,7 +156,7 @@
 					<div class="absolute bottom-2 right-2 z-40 pointer-events-auto">
 						<button
 							type="button"
-							class="rounded bg-white/70 px-2 py-1 text-[11px] text-black shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-black/70"
+							class="rounded bg-white/60 px-2 py-1 text-[11px] text-black shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-black/70"
 							on:click={() => openCopyright(item.copyright?.[0]?.url)}
 							aria-label={`Urheber: ${item.copyright?.[0]?.name} – externe Webseite öffnen`}
 							title={item.copyright?.[0]?.url}
@@ -180,7 +180,7 @@
 					</h3>
 
 					<!-- Typ-Icon + Bezeichnung -->
-					<div class="flex items-center fill-secondary-600 dark:fill-gray-300">
+					<div class="flex items-center fill-white/90">
 						{#if item.type == 'article'}
 							<svg
 								version="1.1"
