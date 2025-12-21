@@ -18,7 +18,7 @@
 </svelte:head>
 
 <div class="flex flex-col items-center justify-center min-h-screen relative z-10">
-	<div class="absolute inset-0 bg-black opacity-55 z-10"></div>
+	<div class="absolute inset-0 bg-black opacity-55 z-10 rounded-b-3xl"></div>
 	<video
 		autoplay
 		muted
@@ -26,7 +26,7 @@
 		playsinline
 		preload="auto"
 		poster="https://cms.jonaebert.de/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png"
-		class="absolute z-9 inset-0 w-full h-full object-cover"
+		class="absolute z-9 inset-0 w-full h-full object-cover rounded-b-3xl"
 	>
 		<source src="/home/herovideo.mp4" type="video/mp4" />
 	</video>
@@ -82,9 +82,9 @@
 </div>
 
 <div
-	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
+	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_See_and_Wald_Hintergrund_b3d10959ff.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center rounded-3xl"
 >
-	<div class="absolute inset-0 bg-black opacity-55"></div>
+	<div class="absolute inset-0 bg-black opacity-55 rounded-3xl"></div>
 	<div
 		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300"
 	>
@@ -130,9 +130,9 @@
 </div>
 
 <div
-	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center"
+	class="relative bg-[url('https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png')] md:bg-fixed bg-no-repeat bg-center bg-cover flex flex-col items-center justify-center rounded-t-3xl"
 >
-	<div class="absolute inset-0 bg-black opacity-55"></div>
+	<div class="absolute inset-0 bg-black opacity-55 rounded-t-3xl"></div>
 	<div
 		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto relative py-7 text-start text-pretty text-white dark:text-gray-300"
 	>
