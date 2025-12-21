@@ -165,7 +165,7 @@
 				<!-- Overlay (dekorativ) -->
 				<div
 					aria-hidden="true"
-					class="absolute inset-0 z-10 pointer-events-none bg-linear-to-t from-black/75 via-black/35 to-transparent"
+					class="absolute inset-0 z-10 pointer-events-none bg-black/40"
 				></div>
 				<!-- Copyright (separat interaktiv) -->
 				{#if item.copyright?.enabled}
