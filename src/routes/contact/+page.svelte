@@ -184,9 +184,7 @@
 						<label for="message" class="text-xs text-black dark:text-gray-300"
 							>Maximal 300 Zeichen</label
 						>
-						<label
-							class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label
-						>
+						<label class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label>
 					</div>
 				</div>
 				<div class="inline-flex items-center">

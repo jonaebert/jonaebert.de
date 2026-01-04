@@ -111,7 +111,7 @@
 					<div class="row-start-2 text-3xl xl:text-5xl font-extrabold text-primary-600 md:mb-6">
 						<h1>{name}<br />({pronouns})</h1>
 					</div>
-					<div class="row-start-3 mt-5 md:mt-0">
+					<div class="row-start-3 mt-5 md:mt-0 w-fit">
 						<Social />
 					</div>
 				</div>
