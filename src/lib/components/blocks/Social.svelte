@@ -11,6 +11,20 @@
 		faBluesky,
 		faFacebookF
 	} from '@fortawesome/free-brands-svg-icons'; // For new Icons: https://fontawesome.com/search
+
+	// Social links
+	const socialLinks = [
+		{ href: 'https://www.instagram.com/jonaebertbs', icon: faInstagram },
+		{ href: 'https://www.threads.net/@jonaebertbs', icon: faThreads },
+		{ href: 'https://www.facebook.com/profile.php?id=61585717786862', icon: faFacebookF },
+		{ href: 'https://mastodon.social/@jonaebertbs', icon: faMastodon },
+		{ href: 'https://bsky.app/profile/jonaebertbs.bsky.social', icon: faBluesky },
+		{ href: 'https://www.youtube.com/@jonaebertbs', icon: faYoutube },
+		{ href: 'https://www.tiktok.com/@jonaebertbs', icon: faTiktok },
+		{ href: 'https://www.linkedin.com/in/jonaebert', icon: faLinkedinIn },
+		{ href: 'https://github.com/jonaebert', icon: faGithub }
+	];
+
 	// Farben
 	let colors = {
 		default: {
@@ -32,71 +46,7 @@
 </script>
 
 <div class="gap-x-3.5 gap-y-3.5 grid grid-cols-3 md:grid-cols-5">
-	<div>
-		<RoundedIcon
-			href="https://www.instagram.com/jonaebertbs"
-			icon={faInstagram}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://www.threads.net/@jonaebertbs"
-			icon={faThreads}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://www.facebook.com/profile.php?id=61585717786862"
-			icon={faFacebookF}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://mastodon.social/@jonaebertbs"
-			icon={faMastodon}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://bsky.app/profile/jonaebertbs.bsky.social"
-			icon={faBluesky}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://www.youtube.com/@jonaebertbs"
-			icon={faYoutube}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://www.tiktok.com/@jonaebertbs"
-			icon={faTiktok}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon
-			href="https://www.linkedin.com/in/jonaebert"
-			icon={faLinkedinIn}
-			target="_blank"
-			{colors}
-		/>
-	</div>
-	<div>
-		<RoundedIcon href="https://github.com/jonaebert" icon={faGithub} target="_blank" {colors} />
-	</div>
+	{#each socialLinks as { href, icon }}
+		<RoundedIcon {href} {icon} target="_blank" {colors} />
+	{/each}
 </div>
