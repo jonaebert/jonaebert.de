@@ -4,6 +4,8 @@
     export let href = "";
     export let target = "";
     export let icon;
+    // Colors prop expects complete Tailwind utility classes
+    // Example: { default: { icon: "text-red-500", background: "bg-blue-600", border: "border-gray-300" } }
     export let colors = {
         default: {
             icon:           "",
