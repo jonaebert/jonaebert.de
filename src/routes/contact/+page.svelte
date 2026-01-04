@@ -184,9 +184,7 @@
 						<label for="message" class="text-xs text-black dark:text-gray-300"
 							>Maximal 300 Zeichen</label
 						>
-						<label
-							class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label
-						>
+						<label class="text-xs text-black dark:text-gray-300 font-semibold">* Pflichtfeld</label>
 					</div>
 				</div>
 				<div class="inline-flex items-center">
@@ -348,35 +346,54 @@
 			<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-gray-300 pb-1">
 				Ist das Formular nichts für dich?
 			</h3>
-			<div class="grid grid-cols-[auto] md:grid-cols-2 grid-rows-[auto] gap-5">
+			<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+				<!-- Social (wide) -->
 				<div
-					class="bg-gray-200 dark:bg-gray-700 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-1 md:row-start-1 md:col-span-2 w-fit h-fit"
+					class="rounded-xl bg-gray-200 dark:bg-gray-700 p-6 text-black dark:text-gray-200 md:col-span-2"
 				>
-					<h4 class="text-xl md:text-2xl font-bold text-black dark:text-gray-200">
-						Soziale Medien
-					</h4>
-					<Social />
-				</div>
-				<div
-					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-2 md:row-start-2 w-fit h-fit"
-				>
-					<h4 class="text-xl md:text-2xl font-bold">E-Mail</h4>
-					<a href="mailto:{contact.mail}">{contact.mail}</a>
-				</div>
-				<div
-					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-2 row-start-3 md:row-start-2 md:row-span-2 w-fit h-fit"
-				>
-					<h4 class="text-xl md:text-2xl font-bold">Post</h4>
-					<div>
-						{name}<br />{address.street}<br />{address.zipcode}
-						{address.city}<br />{address.country}
+					<h4 class="text-xl md:text-2xl font-bold">Soziale Medien</h4>
+					<div class="mt-4 w-fit">
+						<Social />
 					</div>
 				</div>
+
+				<!-- Left column -->
+				<div class="flex flex-col gap-5 min-w-0">
+					<div
+						class="rounded-xl bg-gray-200 dark:bg-gray-700 p-6 text-black dark:text-gray-200 min-w-0"
+					>
+						<h4 class="text-xl md:text-2xl font-bold">E-Mail</h4>
+
+						<a
+							class="mt-3 block min-w-0 break-all underline underline-offset-4"
+							href="mailto:{contact.mail}"
+						>
+							{contact.mail}
+						</a>
+					</div>
+
+					<div
+						class="rounded-xl bg-gray-200 dark:bg-gray-700 p-6 text-black dark:text-gray-200 min-w-0"
+					>
+						<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
+						<a class="mt-3 block break-all underline underline-offset-4" href="tel:{contact.fax}">
+							{contact.fax}
+						</a>
+					</div>
+				</div>
+
+				<!-- Right column -->
 				<div
-					class="bg-gray-200 dark:bg-gray-700 text-black dark:text-gray-200 p-6 rounded-lg md:rounded-xl col-start-1 md:col-start-1 row-start-4 md:row-start-3 w-fit h-fit"
+					class="rounded-xl bg-gray-200 dark:bg-gray-700 p-6 text-black dark:text-gray-200 min-w-0"
 				>
-					<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
-					<a href="fax:{contact.fax}">{contact.fax}</a>
+					<h4 class="text-xl md:text-2xl font-bold">Post</h4>
+					<div class="mt-3 leading-relaxed">
+						{name}<br />
+						{address.street}<br />
+						{address.zipcode}
+						{address.city}<br />
+						{address.country}
+					</div>
 				</div>
 			</div>
 		</div>
