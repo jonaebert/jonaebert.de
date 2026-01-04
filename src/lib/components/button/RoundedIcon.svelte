@@ -69,7 +69,8 @@
 	{target}
 	rel={target === '_blank' ? 'noopener noreferrer' : undefined}
 	class={buttonClasses}
-	title={icon.iconName}
+	title={"Visit me on " + icon.iconName + "!"}
+	aria-label={"Visit me on " + icon.iconName + "!"}
 >
 	<div class="w-5 h-5 flex justify-center">
 		<Fa {icon} size="lg" />
