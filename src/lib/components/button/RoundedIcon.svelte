@@ -64,8 +64,15 @@
 	].join(' ');
 </script>
 
-<button class={buttonClasses} title={icon.iconName} on:click={() => window.open(href, target)}>
+<a
+	{href}
+	{target}
+	rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+	class={buttonClasses}
+	title={"Visit me on " + icon.iconName + "!"}
+	aria-label={"Visit me on " + icon.iconName + "!"}
+>
 	<div class="w-5 h-5 flex justify-center">
 		<Fa {icon} size="lg" />
 	</div>
-</button>
+</a>
