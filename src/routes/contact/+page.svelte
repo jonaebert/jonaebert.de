@@ -376,7 +376,7 @@
 						class="rounded-xl bg-gray-200 dark:bg-gray-700 p-6 text-black dark:text-gray-200 min-w-0"
 					>
 						<h4 class="text-xl md:text-2xl font-bold">Fax</h4>
-						<a class="mt-3 block break-all underline underline-offset-4" href="fax:{contact.fax}">
+						<a class="mt-3 block break-all underline underline-offset-4" href="tel:{contact.fax}">
 							{contact.fax}
 						</a>
 					</div>
