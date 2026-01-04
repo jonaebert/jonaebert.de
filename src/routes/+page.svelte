@@ -31,7 +31,7 @@
 		<source src="/home/herovideo.mp4" type="video/mp4" />
 	</video>
 	<div
-		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto grid grid-cols-1 lg:grid-cols-2 grid-rows-1 place-items-start z-30"
+		class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto mt-20 ög:mt-0 grid grid-cols-1 lg:grid-cols-2 grid-rows-1 place-items-start z-30"
 	>
 		<div
 			class="flex flex-col space-y-6 mb-0 md:mb-15 row-start-1 col-start-1 lg:row-start-1 lg:col-start-1"
