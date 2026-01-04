@@ -28,7 +28,7 @@
     };
 
     // Funktion zum Anwenden der Farbklassen
-    function applyColorClasses(colors: { default: any; focus: any; hover: any; disabled: any; }) {
+    function applyColorClasses(colors: { default: any; focus: any; hover: any; }) {
         return {
             default: {
                 icon: colors.default.icon ? "text-" + colors.default.icon : "text-black",
@@ -51,7 +51,7 @@
     const appliedColors = applyColorClasses(colors);
 </script>
 
-<button class="inline-flex items-center justify-center p-3 border focus:border-2 disabled:cursor-not-allowed rounded-full transition-transform duration-400 hover:scale-110 cursor-pointer {appliedColors.default.icon} {appliedColors.focus.icon} {appliedColors.hover.icon} {appliedColors.default.background} {appliedColors.focus.background} {appliedColors.hover.background} {appliedColors.default.border} {appliedColors.focus.border} {appliedColors.hover.border}" title={icon.iconName} on:click={() => window.open(href, target)}>
+<button class="inline-flex items-center justify-center p-3 border focus:border-2 rounded-full transition-transform duration-400 hover:scale-110 cursor-pointer {appliedColors.default.icon} {appliedColors.focus.icon} {appliedColors.hover.icon} {appliedColors.default.background} {appliedColors.focus.background} {appliedColors.hover.background} {appliedColors.default.border} {appliedColors.focus.border} {appliedColors.hover.border}" title={icon.iconName} on:click={() => window.open(href, target)}>
     <div class="w-5 h-5 flex justify-center">
         <Fa {icon} size="lg" />
     </div>
