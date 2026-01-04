@@ -4,25 +4,20 @@
     // Farben
     let colors = {
         default: {
-            icon: "white",
+            icon: "text-white",
             background: "bg-secondary-800",
-            border: "gray-300",
+            border: "border-gray-300",
         },
         focus: {
-            icon: "black",
+            icon: "text-black",
             background: "bg-white",
-            border: "himmel-600",
+            border: "border-himmel-600",
         },
         hover: {
-            icon: "secondary-900",
+            icon: "text-secondary-900",
             background: "bg-sun-600",
-            border: "transparent",
-        },
-        disabled: {
-            icon: "white",
-            background: "bg-gray-300",
-            border: "transparent",
-        },
+            border: "border-transparent",
+        }
     };
 </script>
 

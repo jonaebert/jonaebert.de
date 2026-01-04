@@ -19,31 +19,26 @@
             icon:           "",
             background:     "",
             border:         "",
-        },
-        disabled: {
-            icon:           "",
-            background:     "",
-            border:         "",
-        },
+        }
     };
 
     // Funktion zum Anwenden der Farbklassen
     function applyColorClasses(colors: { default: any; focus: any; hover: any; }) {
         return {
             default: {
-                icon: colors.default.icon ? "text-" + colors.default.icon : "text-black",
+                icon: colors.default.icon ? colors.default.icon : "text-black",
                 background: colors.default.background ? colors.default.background : "bg-white",
-                border: colors.default.border ? "border-" + colors.default.border : "border-gray-300",
+                border: colors.default.border ? colors.default.border : "border-gray-300",
             },
             focus: {
-                icon: colors.focus.icon ? "focus:text-" + colors.focus.icon : "focus:text-black",
+                icon: colors.focus.icon ? "focus:" + colors.focus.icon : "focus:text-black",
                 background: colors.focus.background ? "focus:" + colors.focus.background : "focus:bg-white",
-                border: colors.focus.border ? "focus:border-" + colors.focus.border : "focus:border-himmel-600",
+                border: colors.focus.border ? "focus:" + colors.focus.border : "focus:border-himmel-600",
             },
             hover: {
-                icon: colors.hover.icon ? "hover:text-" + colors.hover.icon : "hover:text-black",
+                icon: colors.hover.icon ? "hover:" + colors.hover.icon : "hover:text-black",
                 background: colors.hover.background ? "hover:" + colors.hover.background : "hover:bg-sun-600",
-                border: colors.hover.border ? "hover:border-" + colors.hover.border : "hover:border-transparent",
+                border: colors.hover.border ? "hover:" + colors.hover.border : "hover:border-transparent",
             }
         };
     }
