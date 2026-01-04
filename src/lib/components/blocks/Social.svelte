@@ -26,7 +26,7 @@
     };
 </script>
 
-<div class="gap-x-3.5 gap-y-3.5 grid grid-cols-4 md:grid-cols-4">
+<div class="gap-x-3.5 gap-y-3.5 grid grid-cols-3 md:grid-cols-5">
     <div><RoundedIcon href="https://www.instagram.com/jonaebertbs" icon={faInstagram} target="_blank" {colors} /></div>
     <div><RoundedIcon href="https://www.threads.net/@jonaebertbs" icon={faThreads} target="_blank" {colors} /></div>
     <div><RoundedIcon href="https://www.facebook.com/profile.php?id=61585717786862" icon={faFacebook} target="_blank" {colors} /></div>
