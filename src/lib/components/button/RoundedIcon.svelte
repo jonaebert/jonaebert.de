@@ -64,7 +64,13 @@
 	].join(' ');
 </script>
 
-<a {href} {target} rel={target === '_blank' ? 'noopener noreferrer' : undefined} class={buttonClasses} title={icon.iconName} role="button">
+<a
+	{href}
+	{target}
+	rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+	class={buttonClasses}
+	title={icon.iconName}
+>
 	<div class="w-5 h-5 flex justify-center">
 		<Fa {icon} size="lg" />
 	</div>
