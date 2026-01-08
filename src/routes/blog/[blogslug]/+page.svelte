@@ -74,7 +74,7 @@
 						/>
 					{/snippet}
 					{#if cover}
-						{#if post.copyright[0].enabled == true}
+						{#if post.copyright?.[0]?.enabled == true}
 							{#if post.copyright[0].name && post.copyright[0].url}
 								{@render image_blog(
 									getCoverUrl(cover, true),
@@ -87,8 +87,8 @@
 								{@render image_blog(
 									getCoverUrl(cover, true),
 									cover.alternativeText,
+									post.copyright[0].enabled,
 									post.copyright[0].name,
-									'',
 									''
 								)}
 							{/if}
