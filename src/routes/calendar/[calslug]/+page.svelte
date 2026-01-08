@@ -216,7 +216,7 @@
 										on:click={async () => {
 											try {
 												const response = await fetch(
-													`${je_api_base_url}?type=calendar&itemtype=single&eventid=${event.documentId}&download=true`
+													`${je_api_base_url}calendar/event/${event.documentId}/ics`
 												);
 
 												if (response.ok) {
@@ -225,7 +225,15 @@
 													const a = document.createElement('a');
 													a.style.display = 'none';
 													a.href = url;
-													a.download = `${event.subject}_${event.startyear}.ics`;
+													const contentDisposition = response.headers.get('content-disposition');
+													const fileNameMatch = contentDisposition?.match(
+														/filename\*?=(?:UTF-8'')?["']?([^"';\n]+)["']?/i
+													);
+													const fileNameFromHeader = fileNameMatch
+														? decodeURIComponent(fileNameMatch[1])
+														: '';
+													a.download =
+														fileNameFromHeader || `${event.subject}_${event.startyear}.ics`;
 													document.body.appendChild(a);
 													a.click();
 													window.URL.revokeObjectURL(url);
