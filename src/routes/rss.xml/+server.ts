@@ -6,7 +6,7 @@ async function fetchPosts() {
   let posts = [];
 
   try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all&maxitems=5`);
+    const postsRes = await fetch(`${je_api_base_url}blog/posts/?limit=24`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
@@ -27,8 +27,8 @@ export const GET: RequestHandler = async ({ url }) => {
   const { posts } = await fetchPosts();
   const baseUrl = `${url.protocol}//${url.host}`;
 
-  const itemsXml = posts.data
-    .map((post) => {
+  const itemsXml = posts
+    .map((post: any) => {
       const pubDate = new Date(post.createdAt).toUTCString();
       return `    <item>
       <title>${post.title}</title>

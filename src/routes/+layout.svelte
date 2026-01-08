@@ -196,7 +196,7 @@
 </header>
 
 <div class="z-30">
-	{#each tickers.data as ticker}
+	{#each tickers as ticker}
 		<Ticker
 			eventName={ticker.text}
 			eventStartDate={new Date(ticker.startAt)}

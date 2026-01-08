@@ -5,7 +5,7 @@ export async function load({ params, fetch }) {
   let posts = [];
 
   try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all&maxitems=8`);
+    const postsRes = await fetch(`${je_api_base_url}blog/posts/?limit=8`);
 
     if (postsRes.ok) {
       const postsData = await postsRes.json();
@@ -21,11 +21,11 @@ export async function load({ params, fetch }) {
   let events = [];
 
   try {
-    const eventsRes = await fetch(`${je_api_base_url}?type=calendar&itemtype=all&maxitems=8`);
+    const eventsRes = await fetch(`${je_api_base_url}calendar/events/?limit=8`);
 
     if (eventsRes.ok) {
       const eventsData = await eventsRes.json();
-      events = eventsData.data;
+      events = eventsData;
     } else {
       console.error('Error fetching events:', eventsRes.statusText);
     }

@@ -7,7 +7,7 @@ export async function load({ params, fetch }) {
   let tickers = [];
 
   try {
-    const tickersRes = await fetch(`${je_api_base_url}?type=ticker&itemtype=all`);
+    const tickersRes = await fetch(`${je_api_base_url}ticker/items/`);
 
     if (tickersRes.ok) {
       const tickersData = await tickersRes.json();

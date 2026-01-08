@@ -2,22 +2,22 @@ import { je_api_base_url } from '$lib/store';
 
 export async function load({ params, fetch }) {
   // Fetch events
-  let events = [];
+  let event = [];
 
   try {
-    const eventsRes = await fetch(`${je_api_base_url}?type=calendar&itemtype=single&eventid=${params.calslug}`);
+    const eventRes = await fetch(`${je_api_base_url}calendar/event/${params.calslug}`);
 
-    if (eventsRes.ok) {
-      const eventsData = await eventsRes.json();
-      events = eventsData.data;
+    if (eventRes.ok) {
+      const eventData = await eventRes.json();
+      event = eventData;
     } else {
-      console.error('Error fetching events:', eventsRes.statusText);
+      console.error('Error fetching events:', eventRes.statusText);
     }
   } catch (error) {
     console.error('Error fetching events:', error);
   }
 
   return {
-    event: events
+    event: event
   };
 }

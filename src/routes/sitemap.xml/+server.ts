@@ -18,7 +18,7 @@ const pages_08 = [
 let posts: string[] = [];
 
 try {
-    const postsRes = await fetch(`${je_api_base_url}?type=blog&itemtype=all`);
+    const postsRes = await fetch(`${je_api_base_url}blog/posts/?limit=8`);
 
     if (postsRes.ok) {
         const postsData = await postsRes.json();
@@ -38,7 +38,6 @@ export async function GET({ url }) {
     response.headers.set('Content-Type', 'application/xml');
     return response;
 }
-
 const sitemap = (pages_10: string[], pages_08: string[], posts: string[]) => `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
     xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -72,7 +71,7 @@ const sitemap = (pages_10: string[], pages_08: string[], posts: string[]) => `<?
         )
         .join('')
     }
-    ${posts.data
+    ${posts
         .map(
             (post) => `
                 <url>

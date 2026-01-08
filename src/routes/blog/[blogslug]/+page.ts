@@ -7,13 +7,13 @@ export async function load({ params, fetch }) {
   let cover = [];
 
   try {
-    const postRes = await fetch(`${je_api_base_url}?type=blog&itemtype=post&postid=${params.blogslug}`);
+    const postRes = await fetch(`${je_api_base_url}blog/post/${params.blogslug}`);
 
     if (postRes.ok) {
       const postData = await postRes.json();
       post = postData;
-      title = postData.data.title;
-      cover = postData.data.cover;
+      title = postData.title;
+      cover = postData.cover;
     } else {
       console.error('Error fetching posts:', postRes.statusText);
     }
