@@ -121,12 +121,12 @@
 
 		<!-- Event-Content am unteren Rand -->
 		<div
-			class="min-w-[60vw] max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl"
+			class="max-w-[95vw] xl:max-w-[60vw] mx-auto pb-6 text-pretty bg-background-light dark:bg-background-dark shadow-lg rounded-t-xl"
 		>
 			<div class="p-6 relative gap-8 container">
 				<div
 					class={`max-w-sm mb-8 md:mb-0 relative
-						${event.description ? 'float-left md:float-right mr-8 md:ml-8 md:mr-0' : 'mx-auto'}
+						${event.description ? 'float-left md:float-right mr-8 md:ml-8 md:mr-0' : 'mx-0 md:mx-10'}
 					`}
 				>
 					<div class="flex flex-col gap-5">
