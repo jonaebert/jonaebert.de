@@ -120,8 +120,8 @@
 			Aktuelles
 		</h2>
 	</div>
-	{#if posts && posts?.data?.length > 0}
-		<BlogTiles items={posts?.data} />
+	{#if posts && posts?.length > 0}
+		<BlogTiles items={posts} />
 	{:else}
 		<div class="flex text-center justify-start">
 			<InfoMessage message="Es konnten aktuell keine Beiträge gefunden werden!"></InfoMessage>

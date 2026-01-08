@@ -28,10 +28,10 @@
 </script>
 
 <svelte:head>
-	<title>{post.data.title} - {name} ({pronouns})</title>
+	<title>{post.title} - {name} ({pronouns})</title>
 	<meta name="robots" content="index,follow" />
 	<link rel="canonical" href={$uri.url.href} />
-	<meta property="og:title" content={post.data.title} />
+	<meta property="og:title" content={post.title} />
 	<meta property="og:image" content={getCoverUrl(cover, false)} />
 </svelte:head>
 
@@ -52,11 +52,11 @@
 		<div class="py-5 flex justify-center text-pretty hyphens-auto md:hyphens-none mt-20 md:mt-0">
 			<div class="md:max-w-[60%] grid gap-5">
 				<h1 class="text-5xl md:text-6xl font-bold text-neutral-600 dark:text-secondary-200 my-2">
-					{post.data.title}
+					{post.title}
 				</h1>
 				<div class="text-white dark:text-gray-300">
-					{FormatDate(post.data.createdAt, 'day')}. {FormatDate(post.data.createdAt, 'monthshort')}
-					{FormatDate(post.data.createdAt, 'year')}
+					{FormatDate(post.createdAt, 'day')}. {FormatDate(post.createdAt, 'monthshort')}
+					{FormatDate(post.createdAt, 'year')}
 				</div>
 			</div>
 		</div>
@@ -74,32 +74,33 @@
 						/>
 					{/snippet}
 					{#if cover}
-						{#if post.data.copyright[0].enabled == true}
-							{#if post.data.copyright[0].name && post.data.copyright[0].url}
+						{#if post.copyright[0].enabled == true}
+							{#if post.copyright[0].name && post.copyright[0].url}
 								{@render image_blog(
 									getCoverUrl(cover, true),
 									cover.alternativeText,
-									post.data.copyright[0].enabled,
-									post.data.copyright[0].name,
-									post.data.copyright[0].url
+									post.copyright[0].enabled,
+									post.copyright[0].name,
+									post.copyright[0].url
 								)}
-							{:else if post.data.copyright[0].name}
+							{:else if post.copyright[0].name}
 								{@render image_blog(
 									getCoverUrl(cover, true),
 									cover.alternativeText,
-									post.data.copyright[0].name,
+									post.copyright[0].name,
+									'',
 									''
 								)}
 							{/if}
 						{:else}
-							{@render image_blog(getCoverUrl(cover, true), cover.alternativeText, '', '')}
+							{@render image_blog(getCoverUrl(cover, true), cover.alternativeText, '', '', '')}
 						{/if}
 					{:else}
-						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.data.title}`, '', '')}
+						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.title}`, '', '', '')}
 					{/if}
 				</div>
 				<article>
-					<Renderer blocks={post.data.blocks} />
+					<Renderer blocks={post.blocks} />
 				</article>
 			</div>
 		</div>

@@ -13,7 +13,7 @@
 
 	export let data;
 	// Transform Event date
-	const rawEvent = data.event[0];
+	const rawEvent = data.event;
 	const event = {
 		...rawEvent,
 		start: FormatDate(rawEvent.start, ''),
@@ -134,7 +134,7 @@
 							{#snippet image_event(src: any, alt: any, cp_enabled: any, cp_name: any, cp_url: any)}
 								<Image
 									{src}
-									alt={alt}
+									{alt}
 									classNames="rounded-lg"
 									copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url }]}
 								/>
