@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { name, je_cms_api_base_url, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-	import Image from '$lib/components/image.svelte';
+	import Image from '$lib/components/Image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;

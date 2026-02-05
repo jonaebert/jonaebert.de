@@ -6,6 +6,8 @@
 	import Social from '$lib/components/blocks/Social.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
+	import Image from '$lib/components/Image.svelte';
+	import { FormatDate } from '$lib/util/date.js';
 
 	// Blog data
 	export let data;

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Social from '$lib/components/blocks/Social.svelte';
-	import Image from '$lib/components/image.svelte';
+	import Image from '$lib/components/Image.svelte';
 	import { name, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Tags from '$lib/components/blocks/Tags.svelte';

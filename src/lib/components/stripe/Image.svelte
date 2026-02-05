@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { je_cms_api_base_url } from '$lib/store.js'
-	import Image from '$lib/components/image.svelte';
+	import Image from '$lib/components/Image.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
 	export let file: array;
