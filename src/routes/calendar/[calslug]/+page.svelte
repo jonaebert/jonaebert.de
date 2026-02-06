@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {
 		name,
-		je_cms_api_base_url,
+		je_cms_base_url,
 		je_api_base_url,
 		pronouns,
 		uri,
@@ -36,12 +36,12 @@
 		}
 
 		if (cover.ext === '.svg') {
-			return je_cms_api_base_url + cover.url;
+			return je_cms_base_url + cover.url;
 		} else if (cover.formats?.thumbnail?.url) {
 			if (highresolution === true && cover.formats?.large?.url) {
-				return je_cms_api_base_url + cover.formats.large.url;
+				return je_cms_base_url + cover.formats.large.url;
 			} else if (cover.formats?.thumbnail?.url) {
-				return je_cms_api_base_url + cover.formats.thumbnail.url;
+				return je_cms_base_url + cover.formats.thumbnail.url;
 			}
 		}
 

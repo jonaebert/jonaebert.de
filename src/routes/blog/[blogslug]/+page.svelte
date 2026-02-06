@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { name, je_cms_api_base_url, pronouns, uri } from '$lib/store';
+	import { name, je_cms_base_url, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/Image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 
 	export let data;
-	let { post, cover } = data;
+	let { post } = data;
 
 	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) {
@@ -13,12 +13,12 @@
 		}
 
 		if (cover.ext === '.svg') {
-			return je_cms_api_base_url + cover.url;
+			return je_cms_base_url + cover.url;
 		} else if (cover.formats?.thumbnail?.url) {
 			if (highresolution === true && cover.formats?.large?.url) {
-				return je_cms_api_base_url + cover.formats.large.url;
+				return je_cms_base_url + cover.formats.large.url;
 			} else if (cover.formats?.thumbnail?.url) {
-				return je_cms_api_base_url + cover.formats.thumbnail.url;
+				return je_cms_base_url + cover.formats.thumbnail.url;
 			}
 		}
 
@@ -32,14 +32,14 @@
 	<meta name="robots" content="index,follow" />
 	<link rel="canonical" href={$uri.url.href} />
 	<meta property="og:title" content={post.title} />
-	<meta property="og:image" content={getCoverUrl(cover, false)} />
+	<meta property="og:image" content={getCoverUrl(post.cover, false)} />
 </svelte:head>
 
 <div class="relative min-h-screen flex flex-col">
 	<!-- Hintergrundbild -->
 	<div
 		class="absolute inset-0 -z-50 bg-cover bg-center bg-no-repeat bg-fixed"
-		style="background-image: url({getCoverUrl(cover, true)});"
+		style="background-image: url({getCoverUrl(post.cover, true)});"
 	></div>
 	<!-- Schwarzer Overlay -->
 	<div class="absolute inset-0 bg-black opacity-55 -z-40"></div>
@@ -66,41 +66,41 @@
 			<div class="p-6 relative">
 				<div class="float-left md:float-right max-w-sm mr-8 md:ml-8 md:mr-0 mb-8 md:mb-0 relative shadow-2xl">
 					{#snippet image_blog(src: any, alt: any, cp_enabled: any, cp_name: any, cp_url: any)}
-						<Image
+						<!--<Image
 							{src}
-							alt={cover.alternativeText}
+							alt={post.cover.alternativeText}
 							classNames="rounded-lg"
-							copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url }]}
-						/>
+							copyright={[{ enabled: cp_enabled, name: cp_name, url: cp_url, compact: false, size: 'md' }]}
+						/>-->
 					{/snippet}
-					{#if cover}
-						{#if post.copyright?.[0]?.enabled == true}
-							{#if post.copyright[0].name && post.copyright[0].url}
+					{#if post.cover}
+						{#if post.copyright.enabled == true}
+							{#if post.copyright.name && post.copyright.url}
 								{@render image_blog(
-									getCoverUrl(cover, true),
-									cover.alternativeText,
-									post.copyright[0].enabled,
-									post.copyright[0].name,
-									post.copyright[0].url
+									getCoverUrl(post.cover, true),
+									post.cover.alternativeText,
+									post.copyright.enabled,
+									post.copyright.name,
+									post.copyright.url
 								)}
-							{:else if post.copyright[0].name}
+							{:else if post.copyright.name}
 								{@render image_blog(
-									getCoverUrl(cover, true),
-									cover.alternativeText,
-									post.copyright[0].enabled,
-									post.copyright[0].name,
+									getCoverUrl(post.cover, true),
+									post.cover.alternativeText,
+									post.copyright.enabled,
+									post.copyright.name,
 									''
 								)}
 							{/if}
 						{:else}
-							{@render image_blog(getCoverUrl(cover, true), cover.alternativeText, '', '', '')}
+							{@render image_blog(getCoverUrl(post.cover, true), post.cover.alternativeText, '', '', '')}
 						{/if}
 					{:else}
 						{@render image_blog('/contact/teaser.svg', `Teaser Bild ${post.title}`, '', '', '')}
 					{/if}
 				</div>
 				<article>
-					<Renderer blocks={post.blocks} />
+					<!--<Renderer blocks={post.blocks} />-->
 				</article>
 			</div>
 		</div>
