@@ -6,14 +6,15 @@
 		"node": "^20.19 || ^22.12 || >=24"
 	},
 	"scripts": {
-		"dev": "vite dev --host",
-		"dev:local": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
+		"build": "npm run gen:api && vite build",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"dev": "npm run gen:api && vite dev --host",
+		"dev:local": "npm run gen:api && vite dev",
+		"format": "prettier --write .",
+		"gen:api": "node scripts/gen-openapi.mjs",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"preview": "npm run gen:api && vite preview"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "^5.5.2",
@@ -23,9 +24,11 @@
 		"@types/eslint": "^9.6.1",
 		"@typescript-eslint/parser": "^8.53.0",
 		"@typescript-eslint/eslint-plugin": "^8.54.0",
+		"dotenv": "^17.2.3",
 		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-svelte": "^3.14.0",
+		"openapi-typescript": "^7.10.1",
 		"postcss": "^8.5.6",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1",

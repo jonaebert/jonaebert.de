@@ -408,3 +408,6 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Ignore generated OpenAPI types
+src/lib/api/openapi.ts
