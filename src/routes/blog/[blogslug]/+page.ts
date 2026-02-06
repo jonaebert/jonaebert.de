@@ -1,29 +1,12 @@
-import { je_api_base_url } from '$lib/store';
+import type { PageLoad } from './$types';
+import { api } from '$lib/api';
 
-export async function load({ params, fetch }) {
-  // Fetch posts
-  let post = [];
-  let title = '';
-  let cover = [];
+export const load: PageLoad = ({ params, fetch }) => {
+	const client = api(fetch);
 
-  try {
-    const postRes = await fetch(`${je_api_base_url}blog/post/${params.blogslug}`);
-
-    if (postRes.ok) {
-      const postData = await postRes.json();
-      post = postData;
-      title = postData.title;
-      cover = postData.cover;
-    } else {
-      console.error('Error fetching posts:', postRes.statusText);
-    }
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-  }
-
-  return {
-    post: post,
-    title: title,
-    cover: cover
-  };
-}
+	return {
+		post: client.get('/blog/post/{post_id}', {
+			params: { post_id: params.blogslug }
+		})
+	};
+};
