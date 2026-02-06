@@ -148,7 +148,7 @@ export const load = () => {
                         title: 'Co-Koordination AG Digitales',
                         company: 'BÜNDNIS 90/DIE GRÜNEN Braunschweig',
                         start: '2023-11',
-                        end: '',
+                        end: '2026-02',
                         description: [],
                         skills: [],
                         image: 'logo_gruene.svg',
