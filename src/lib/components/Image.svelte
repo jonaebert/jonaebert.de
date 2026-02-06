@@ -23,6 +23,9 @@
 	export let fetchpriority: 'high' | 'auto' | null | undefined = undefined;
 
 	let open = false;
+	let hoverOpen = false;
+	let pinned = false;
+	let closeTimer: ReturnType<typeof setTimeout> | null = null;
 	let rootEl: HTMLDivElement | null = null;
 	let triggerEl: HTMLButtonElement | null = null;
 	let tooltipEl: HTMLDivElement | null = null;
@@ -46,7 +49,10 @@
 
 	$: copyrightItem = copyright?.[0];
 	$: show = Boolean(copyrightItem?.enabled);
-	$: hasUrl = Boolean(copyrightItem?.url && (copyrightItem.url.startsWith('https://') || copyrightItem.url.startsWith('http://')));
+	$: hasUrl = Boolean(
+		copyrightItem?.url &&
+		(copyrightItem.url.startsWith('https://') || copyrightItem.url.startsWith('http://'))
+	);
 
 	$: effectiveSize = copyrightItem?.compact ? 'xs' : (copyrightItem?.size ?? 'md');
 	$: sizeCls =
@@ -81,25 +87,64 @@
 		else tooltipEl.focus(); // tooltip container (tabindex=-1)
 	}
 
-	function toggle(e: MouseEvent) {
-		e.preventDefault();
-		e.stopPropagation();
+	function clearCloseTimer() {
+		if (closeTimer) {
+			clearTimeout(closeTimer);
+			closeTimer = null;
+		}
+	}
 
-		if (!open) {
-			lastFocused = document.activeElement;
-			open = true;
-			focusTooltip();
-		} else {
+	function openFromHover() {
+		if (!browser) return;
+		clearCloseTimer();
+		if (pinned) return;
+		hoverOpen = true;
+		open = true;
+	}
+
+	function scheduleCloseFromHover() {
+		if (!browser) return;
+		if (pinned) return;
+		clearCloseTimer();
+		closeTimer = setTimeout(() => {
+			hoverOpen = false;
 			open = false;
+		}, 250);
+	}
+
+	function openPinned() {
+		if (!browser) return;
+		clearCloseTimer();
+		pinned = true;
+		open = true;
+		lastFocused = document.activeElement;
+		focusTooltip();
+	}
+
+	function closeAll({ restoreFocus = true } = {}) {
+		clearCloseTimer();
+		open = false;
+		hoverOpen = false;
+		pinned = false;
+
+		if (restoreFocus) {
 			(triggerEl as HTMLElement | null)?.focus();
 		}
 	}
 
+	function toggle(e: MouseEvent) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		if (!open || !pinned) {
+			openPinned();
+		} else {
+			closeAll();
+		}
+	}
+
 	function close() {
-		open = false;
-		// zurück zum Trigger (oder zuletzt fokussiertem Element)
-		(triggerEl as HTMLElement | null)?.focus();
-		// optional: (lastFocused as HTMLElement | null)?.focus();
+		closeAll();
 	}
 
 	async function updatePosition() {
@@ -184,6 +229,7 @@
 	}
 
 	onDestroy(() => {
+		clearCloseTimer();
 		if (!browser) return;
 		document.removeEventListener('pointerdown', onDocPointerDown, true);
 		document.removeEventListener('keydown', onDocKeyDown, true);
@@ -220,6 +266,10 @@
 				aria-label={`Copyright anzeigen: ${copyrightItem?.name}`}
 				on:pointerdown|stopPropagation|preventDefault
 				on:click={toggle}
+				on:pointerenter|stopPropagation={() => openFromHover()}
+				on:pointerleave|stopPropagation={() => scheduleCloseFromHover()}
+				on:focus={() => openFromHover()}
+				on:blur={() => scheduleCloseFromHover()}
 			>
 				<svg viewBox="0 0 24 24" aria-hidden="true" class="block" width="1em" height="1em">
 					<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
@@ -245,6 +295,8 @@
 				role="dialog"
 				aria-labelledby={titleId}
 				on:pointerdown|stopPropagation
+				on:pointerenter|stopPropagation={() => openFromHover()}
+				on:pointerleave|stopPropagation={() => scheduleCloseFromHover()}
 			>
 				<div
 					role="dialog"
