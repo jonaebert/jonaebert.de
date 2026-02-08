@@ -14,6 +14,7 @@
 		"format": "prettier --write .",
 		"gen:api": "node scripts/gen-openapi.mjs",
 		"lint": "prettier --check . && eslint .",
+		"prepare": "svelte-kit sync",
 		"preview": "npm run gen:api && vite preview"
 	},
 	"devDependencies": {
