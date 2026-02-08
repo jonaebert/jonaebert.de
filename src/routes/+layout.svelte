@@ -6,8 +6,6 @@
 	// Import von Layout-Komponenten
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
-	import Social from '$lib/components/blocks/Social.svelte';
-	import Ticker from '$lib/components/blocks/Ticker.svelte';
 
 	//Import von Theme Store
 	import { applyTheme, getStoredTheme } from '$lib/util/theme';

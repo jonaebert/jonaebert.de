@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { name, pronouns } from '$lib/store';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
-	import Social from '../blocks/Social.svelte';
 	import SocialIcons from '../blocks/SocialIcons.svelte';
 
 	const legalLinks = [
