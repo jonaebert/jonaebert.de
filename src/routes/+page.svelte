@@ -123,7 +123,7 @@
 				class="rounded-2xl p-4 sm:p-5 bg-white/50 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
 			>
 				<div
-					class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
+					class="inline-flex scale-105 items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
 				>
 					<span class="h-2 w-2 rounded-full bg-accent"></span>
 					<span class="text-zinc-600 dark:text-zinc-400"><Slogan /></span>
@@ -226,9 +226,7 @@
 					</div>
 				{:then ps}
 					{@const latestPost = [...ps].sort(
-						(a, b) =>
-							new Date(b.createdAt ?? 0).getTime() -
-							new Date(a.createdAt ?? 0).getTime()
+						(a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime()
 					)[0]}
 					{#if latestPost}
 						<a
@@ -260,7 +258,7 @@
 							</div>
 
 							<div class="mt-2 text-xs text-zinc-500 dark:text-zinc-400">
-								{FormatDate(latestPost.publishedAt ?? latestPost.createdAt, 'date')}
+								{FormatDate(latestPost.createdAt, 'date')}
 							</div>
 						</a>
 					{:else}
