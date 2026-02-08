@@ -13,5 +13,5 @@ export type GetJson<
 	: never;
 
 export type EventsResponse = GetJson<'/calendar/events/', 'get'>;
+export type EventResponse = GetJson<'/calendar/event/{event_id}', 'get'>;
 export type PostsResponse = GetJson<'/blog/posts/', 'get'>;
-export type PostResponse = GetJson<'/blog/post/{post_id}', 'get'>;

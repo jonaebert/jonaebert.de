@@ -1,23 +1,12 @@
-import { je_api_base_url } from '$lib/store';
+import type { PageLoad } from './$types';
+import { api } from '$lib/api';
 
-export async function load({ params, fetch }) {
-  // Fetch events
-  let event = [];
+export const load: PageLoad = async ({ fetch, params }) => {
+	const client = api(fetch);
 
-  try {
-    const eventRes = await fetch(`${je_api_base_url}calendar/event/${params.calslug}`);
-
-    if (eventRes.ok) {
-      const eventData = await eventRes.json();
-      event = eventData;
-    } else {
-      console.error('Error fetching events:', eventRes.statusText);
-    }
-  } catch (error) {
-    console.error('Error fetching events:', error);
-  }
-
-  return {
-    event: event
-  };
-}
+	return {
+		event: await client.get('/calendar/event/{event_id}', {
+			params: { event_id: params.calslug }
+		})
+	};
+};
