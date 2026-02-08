@@ -139,7 +139,7 @@
 	<div class="max-w-5xl mx-auto space-y-6">
 		<!-- HEADER / HERO -->
 		<div
-			class="relative overflow-hidiven rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
+			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
 			<div
 				class="absolute inset-0 bg-cover bg-center"
@@ -207,7 +207,7 @@
 					<!-- Event image -->
 					{#if event.cover}
 						<div
-							class="overflow-hidiven rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
+							class="overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 						>
 							<Image
 								src={getCoverUrl(event.cover, true)}
