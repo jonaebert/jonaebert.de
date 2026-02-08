@@ -5,6 +5,7 @@
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import Image from '$lib/components/Image.svelte';
 	import { FormatDate } from '$lib/util/date.js';
+	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 
 	export let data;
 	const { posts, events } = data;
@@ -179,6 +180,9 @@
 							Kontakt
 						</a>
 					</div>
+				</div>
+				<div class="mt-6 w-fit">
+					<SocialIcons />
 				</div>
 			</div>
 
