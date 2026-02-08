@@ -35,7 +35,7 @@
 	];
 </script>
 
-<div class="grid grid-cols-3 gap-3 md:grid-cols-5">
+<div class="grid grid-cols-5 gap-3">
 	{#each socialLinks as { href, icon, label }}
 		<a
 			{href}
