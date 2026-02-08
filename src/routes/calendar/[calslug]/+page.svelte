@@ -9,7 +9,7 @@
 	} from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/Image.svelte';
-	import { Icon, IconName } from '$lib/components/icons';
+	import { Icon, type IconName } from '$lib/components/icons';
 
 	export let data;
 
