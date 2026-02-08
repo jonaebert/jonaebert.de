@@ -29,7 +29,7 @@
 	>
 		☀️</button
 	>
-    <button
+	<button
 		class="px-3 py-2 text-xs sm:text-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 transition {theme ===
 		'system'
 			? 'bg-zinc-100 dark:bg-zinc-900'
@@ -39,7 +39,7 @@
 	>
 		🖥️</button
 	>
-    <button
+	<button
 		class="px-3 py-2 text-xs sm:text-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 transition {theme ===
 		'dark'
 			? 'bg-zinc-100 dark:bg-zinc-900'

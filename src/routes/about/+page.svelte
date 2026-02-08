@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Social from '$lib/components/blocks/Social.svelte';
 	import Image from '$lib/components/Image.svelte';
 	import { name, pronouns, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Tags from '$lib/components/blocks/Tags.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
+	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	export let data;
 	const { headings, items } = data.props;
 
@@ -112,7 +112,7 @@
 						<h1>{name}<br />({pronouns})</h1>
 					</div>
 					<div class="row-start-3 mt-5 md:mt-0 w-fit">
-						<Social />
+						<SocialIcons />
 					</div>
 				</div>
 			</div>

@@ -2,6 +2,7 @@
 	import { name, pronouns } from '$lib/store';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import Social from '../blocks/Social.svelte';
+	import SocialIcons from '../blocks/SocialIcons.svelte';
 
 	const legalLinks = [
 		{ href: '/legal/imprint', label: 'Impressum' },
@@ -31,7 +32,10 @@
 				</div>
 
 				<p class="mt-5 text-xs text-zinc-500 dark:text-zinc-500 leading-relaxed text-balance">
-					Entwickelt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. Server-Betrieb bei <a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a> mit <a href="https://coolify.io/" target="_blank">Coolify</a>.
+					Entwickelt mit <a href="https://kit.svelte.dev/" target="_blank">SvelteKit</a> und
+					<a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. Server-Betrieb bei
+					<a href="https://www.hetzner.com/de/" target="_blank">Hetzner</a>
+					mit <a href="https://coolify.io/" target="_blank">Coolify</a>.
 				</p>
 			</div>
 
@@ -74,7 +78,7 @@
 				</div>
 
 				<div>
-					<Social />
+					<SocialIcons />
 				</div>
 			</div>
 		</div>

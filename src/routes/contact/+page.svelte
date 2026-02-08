@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { address, contact, name, uri, n8n_contact_url } from '$lib/store';
-	import Social from '$lib/components/blocks/Social.svelte';
+	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
 	import { page } from '$app/stores';
@@ -353,7 +353,7 @@
 				>
 					<h4 class="text-xl md:text-2xl font-bold">Soziale Medien</h4>
 					<div class="mt-4 w-fit">
-						<Social />
+						<SocialIcons />
 					</div>
 				</div>
 
