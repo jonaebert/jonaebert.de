@@ -7,6 +7,7 @@
 
 	export type IconName =
 		| 'arrow-left'
+		| 'arrow-right'
 		| 'meet'
 		| 'star'
 		| 'x'
@@ -35,6 +36,12 @@
 			case 'arrow-left':
 				return `
 					<path d="M10 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M3 12h18" stroke-linecap="round" stroke-linejoin="round"/>
+				`;
+
+			case 'arrow-right':
+				return `
+					<path d="M14 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
 					<path d="M3 12h18" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
 
