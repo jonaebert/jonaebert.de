@@ -13,15 +13,17 @@
 	import { goto } from '$app/navigation';
 
 	export let data;
+	let { event, previousEvent, nextEvent } = data;
 
 	/* -----------------------------
 	   Event Daten aufbereiten
 	----------------------------- */
-	let event: any;
 	let badge: any;
 
 	$: {
 		const rawEvent = data.event;
+		previousEvent = data.previousEvent;
+		nextEvent = data.nextEvent;
 
 		event = {
 			...rawEvent,
@@ -329,54 +331,103 @@
 		</div>
 	</div>
 
-	{#if data.previousEvent || data.nextEvent}
+	{#if previousEvent || nextEvent}
 		<div class="grid gap-4 sm:grid-cols-2 pt-6 sm:pt-8">
-			{#if data.previousEvent}
+			{#if previousEvent}
 				<a
-					href={`/calendar/${data.previousEvent.documentId}`}
-					on:click|preventDefault={() => goto(`/calendar/${data.previousEvent.documentId}`)}
+					href={`/calendar/${previousEvent.documentId}`}
+					on:click|preventDefault={() => goto(`/calendar/${previousEvent.documentId}`)}
 					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
 				>
-					<Icon
-						name="arrow-left"
-						classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
-					/>
-					<div class="min-w-0">
-						<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriges Event</div>
-						<div
-							class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
-						>
-							{data.previousEvent.subject}
+					<div class="flex items-center gap-3 min-w-0">
+						<div>
+							<Icon
+								name="arrow-left"
+								classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+							/>
 						</div>
-						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-							{FormatDate(data.previousEvent.start, 'date')}
+						<div>
+							<Image
+								src={getCoverUrl(previousEvent.cover, false)!}
+								alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
+								classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+								loading="lazy"
+								copyright={previousEvent.copyright?.enabled
+									? [
+											{
+												enabled: previousEvent.copyright?.enabled,
+												name: previousEvent.copyright?.name,
+												url: previousEvent.copyright?.url || '',
+												compact: true
+											}
+										]
+									: []}
+							/>
+						</div>
+
+						<div class="min-w-0">
+							<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriger Termin</div>
+							<div
+								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+							>
+								{previousEvent.subject}
+							</div>
+							<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+								{FormatDate(previousEvent.start, 'date')}
+							</div>
 						</div>
 					</div>
 				</a>
+			{:else}
+				<!-- Spacer, so nextEvent stays on the right on sm+ -->
+				<div class="hidden sm:block" aria-hidden="true"></div>
 			{/if}
 
-			{#if data.nextEvent}
+			{#if nextEvent}
 				<a
-					href={`/calendar/${data.nextEvent.documentId}`}
-					on:click|preventDefault={() => goto(`/calendar/${data.nextEvent.documentId}`)}
+					href={`/calendar/${nextEvent.documentId}`}
+					on:click|preventDefault={() => goto(`/calendar/${nextEvent.documentId}`)}
 					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
 				>
-					<div class="min-w-0">
-						<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächstes Event</div>
-						<div
-							class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
-						>
-							{data.nextEvent.subject}
+					<div class="flex items-center gap-3 min-w-0">
+						<div>
+							<Image
+								src={getCoverUrl(nextEvent.cover, false)!}
+								alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
+								classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+								loading="lazy"
+								copyright={nextEvent.copyright?.enabled
+									? [
+											{
+												enabled: nextEvent.copyright?.enabled,
+												name: nextEvent.copyright?.name,
+												url: nextEvent.copyright?.url || '',
+												compact: true
+											}
+										]
+									: []}
+							/>
 						</div>
-						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-							{FormatDate(data.nextEvent.start, 'date')}
+
+						<div class="min-w-0">
+							<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächster Termin</div>
+							<div
+								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+							>
+								{nextEvent.subject}
+							</div>
+							<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+								{FormatDate(nextEvent.start, 'date')}
+							</div>
 						</div>
 					</div>
 
-					<Icon
-						name="arrow-right"
-						classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
-					/>
+					<div>
+						<Icon
+							name="arrow-right"
+							classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+						/>
+					</div>
 				</a>
 			{/if}
 		</div>
