@@ -76,7 +76,7 @@
 					{name}. Alle Rechte vorbehalten.
 				</div>
 
-				<div>
+				<div class="w-fit">
 					<SocialIcons />
 				</div>
 			</div>
