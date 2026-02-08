@@ -10,24 +10,32 @@
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/Image.svelte';
 	import { Icon, type IconName } from '$lib/components/icons';
+	import { goto } from '$app/navigation';
 
 	export let data;
 
 	/* -----------------------------
 	   Event Daten aufbereiten
 	----------------------------- */
-	const rawEvent = data.event;
+	let event: any;
+	let badge: any;
 
-	const event = {
-		...rawEvent,
-		start: FormatDate(rawEvent.start, ''),
-		end: FormatDate(rawEvent.end, ''),
-		startDate: FormatDate(rawEvent.start, 'date'),
-		endDate: FormatDate(rawEvent.end, 'date'),
-		startTime: FormatDate(rawEvent.start, 'time'),
-		endTime: FormatDate(rawEvent.end, 'time'),
-		startYear: FormatDate(rawEvent.start, 'year')
-	};
+	$: {
+		const rawEvent = data.event;
+
+		event = {
+			...rawEvent,
+			start: FormatDate(rawEvent.start, ''),
+			end: FormatDate(rawEvent.end, ''),
+			startDate: FormatDate(rawEvent.start, 'date'),
+			endDate: FormatDate(rawEvent.end, 'date'),
+			startTime: FormatDate(rawEvent.start, 'time'),
+			endTime: FormatDate(rawEvent.end, 'time'),
+			startYear: FormatDate(rawEvent.start, 'year')
+		};
+
+		badge = stateBadge(event.state);
+	}
 
 	/* -----------------------------
 	   Cover Bild
@@ -89,8 +97,6 @@
 				};
 		}
 	}
-
-	$: badge = stateBadge(event.state);
 
 	/* -----------------------------
 	   ICS Download
@@ -322,4 +328,57 @@
 			</div>
 		</div>
 	</div>
+
+	{#if data.previousEvent || data.nextEvent}
+		<div class="grid gap-4 sm:grid-cols-2 pt-6 sm:pt-8">
+			{#if data.previousEvent}
+				<a
+					href={`/calendar/${data.previousEvent.documentId}`}
+					on:click|preventDefault={() => goto(`/calendar/${data.previousEvent.documentId}`)}
+					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+				>
+					<Icon
+						name="arrow-left"
+						classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+					/>
+					<div class="min-w-0">
+						<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriges Event</div>
+						<div
+							class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+						>
+							{data.previousEvent.subject}
+						</div>
+						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+							{FormatDate(data.previousEvent.start, 'date')}
+						</div>
+					</div>
+				</a>
+			{/if}
+
+			{#if data.nextEvent}
+				<a
+					href={`/calendar/${data.nextEvent.documentId}`}
+					on:click|preventDefault={() => goto(`/calendar/${data.nextEvent.documentId}`)}
+					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+				>
+					<div class="min-w-0">
+						<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächstes Event</div>
+						<div
+							class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+						>
+							{data.nextEvent.subject}
+						</div>
+						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+							{FormatDate(data.nextEvent.start, 'date')}
+						</div>
+					</div>
+
+					<Icon
+						name="arrow-right"
+						classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+					/>
+				</a>
+			{/if}
+		</div>
+	{/if}
 </section>
