@@ -10,8 +10,10 @@
 		| 'arrow-right'
 		| 'article'
 		| 'calendar'
+		| 'check'
 		| 'clock'
 		| 'comment'
+		| 'copy'
 		| 'info'
 		| 'link'
 		| 'meet'
@@ -45,6 +47,15 @@
 					<path d="M14 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
 					<path d="M3 12h18" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
+			case 'article':
+				return `
+						<path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke-linejoin="round"/>
+						<path d="M7.5 8h4" stroke-linecap="round"/>
+						<path d="M7.5 11.5h4" stroke-linecap="round"/>
+						<path d="M7.5 15h4" stroke-linecap="round"/>
+						<path d="M13.5 8h3.5" stroke-linecap="round"/>
+						<path d="M13.5 11.5h3.5" stroke-linecap="round"/>
+					`;
 			case 'calendar':
 				return `
 					<path d="M7 3v3" stroke-linecap="round"/>
@@ -52,14 +63,9 @@
 					<path d="M3.5 8h17" stroke-linecap="round"/>
 					<path d="M5 5h14a2 2 0 012 2v13a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" stroke-linejoin="round"/>
 				`;
-			case 'article':
+			case 'check':
 				return `
-					<path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke-linejoin="round"/>
-					<path d="M7.5 8h4" stroke-linecap="round"/>
-					<path d="M7.5 11.5h4" stroke-linecap="round"/>
-					<path d="M7.5 15h4" stroke-linecap="round"/>
-					<path d="M13.5 8h3.5" stroke-linecap="round"/>
-					<path d="M13.5 11.5h3.5" stroke-linecap="round"/>
+					<path d="M20 6.5L9.5 17 4 11.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
 			case 'clock':
 				return `
@@ -72,6 +78,11 @@
 					<rect x="7" y="10.5" width="2" height="1.5" rx="0.75"/>
 					<rect x="11" y="10.5" width="2" height="1.5" rx="0.75"/>
 					<rect x="15" y="10.5" width="2" height="1.5" rx="0.75"/>
+				`;
+			case 'copy':
+				return `
+					<rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
 			case 'info':
 				return `

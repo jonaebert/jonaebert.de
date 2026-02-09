@@ -11,6 +11,7 @@
 		faBluesky,
 		faFacebookF
 	} from '@fortawesome/free-brands-svg-icons';
+	import Icon from '../icons/Icon.svelte';
 
 	export let url: string;
 	export let title: string = '';
@@ -79,7 +80,7 @@
 				icon: faLinkedinIn,
 				href: `https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`,
 				mode: 'share'
-			},
+			}
 		];
 	}
 
@@ -133,33 +134,10 @@
 			title="Link in die Zwischenablage"
 		>
 			{#if copied}
-				<svg
-					viewBox="0 0 24 24"
-					class="h-4 w-4"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M20 6L9 17l-5-5" />
-				</svg>
+				<Icon name="check" classes="h-4 w-4" />
 				Kopiert
 			{:else}
-				<svg
-					viewBox="0 0 24 24"
-					class="h-4 w-4"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<rect x="9" y="9" width="13" height="13" rx="2" />
-					<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-				</svg>
+				<Icon name="copy" classes="h-4 w-4" />
 				Kopieren
 			{/if}
 		</button>
