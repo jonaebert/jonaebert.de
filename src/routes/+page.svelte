@@ -6,6 +6,7 @@
 	import Image from '$lib/components/Image.svelte';
 	import { FormatDate } from '$lib/util/date.js';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	export let data;
 	const { posts, events } = data;
@@ -631,43 +632,12 @@
 
 						<div class="p-5">
 							<div
-								class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/30 fill-accent"
+								class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-accent/10 text-accent border border-accent/30"
 							>
+								<Icon name={post.type} classes="h-4 w-4" />
 								{#if post.type == 'article'}
-									<svg
-										version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										x="0px"
-										y="0px"
-										viewBox="0 0 119 119"
-										class="mr-1.5 shrink-0 inline h-3.25 w-3.25"
-									>
-										<path
-											fill="inherit"
-											d="M97.1,119H21.9C9.8,119,0,109.2,0,97.1V21.9C0,9.8,9.8,0,21.9,0h75.3C109.2,0,119,9.8,119,21.9v75.3 C119,109.2,109.2,119,97.1,119L97.1,119z M21.9,11c-6,0-10.9,4.9-10.9,10.9v75.3c0,6,4.9,10.9,10.9,10.9h75.3 c6,0,10.9-4.9,10.9-10.9V21.9c0-6-4.9-10.9-10.9-10.9H21.9z"
-										></path>
-										<rect x="26.3" y="26.5" fill="inherit" width="65.7" height="11"></rect>
-										<rect x="26.3" y="54" fill="inherit" width="65.7" height="11"></rect>
-										<rect x="26.3" y="81" fill="inherit" width="47.7" height="11"></rect>
-									</svg>
 									Artikel
 								{:else if post.type == 'comment'}
-									<svg
-										version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										x="0px"
-										y="0px"
-										viewBox="0 -960 960 960"
-										class="mr-1.5 shrink-0 inline h-4 w-4"
-									>
-										<path
-											fill="inherit"
-											d="M880-80 720-240H160q-33 0-56.5-23.5T80-320v-480q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v720ZM160-320h594l46 45v-525H160v480Z"
-										/>
-										<rect x="240" y="-480" fill="inherit" width="480" height="70" />
-										<rect x="240" y="-590" fill="inherit" width="480" height="70" />
-										<rect x="240" y="-720" fill="inherit" width="480" height="70" />
-									</svg>
 									Kommentar
 								{:else}
 									<span>Beitrag</span>
@@ -687,19 +657,7 @@
 									class="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:underline"
 								>
 									Weiterlesen
-									<svg
-										viewBox="0 0 24 24"
-										class="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										aria-hidden="true"
-									>
-										<path d="M5 12h12" />
-										<path d="M13 6l6 6-6 6" />
-									</svg>
+									<Icon name="arrow-right" classes="w-4 h-4" />
 								</span>
 							</div>
 						</div>
