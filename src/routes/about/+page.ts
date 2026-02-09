@@ -116,7 +116,7 @@ export const load = () => {
                         link: 'https://gruene-braunschweig.de',
                     },
                     {
-                        title: 'Bürger:innenmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
+                        title: 'Bürger:inmitglied im Umwelt- und Grünflächenausschuss des Rates der Stadt Braunschweig',
                         company: 'Stadt Braunschweig',
                         start: '2025-04',
                         end: '',
