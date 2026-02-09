@@ -1,10 +1,19 @@
 <script lang="ts">
-	import { address, contact, name as siteName, uri, n8n_contact_url } from '$lib/store';
+	import {
+		address,
+		contact,
+		name as siteName,
+		uri,
+		n8n_contact_url,
+		je_cms_base_url
+	} from '$lib/store';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	import { page } from '$app/stores';
 
 	$: barrierParam = $page.url.searchParams.get('barrier');
 	$: barrierChecked = barrierParam === 'true';
+
+	let formEl: HTMLFormElement | null = null;
 
 	let response: any;
 	let submitting = 0; // 0 idle, 1 sending, 2 sent, 3 error
@@ -35,14 +44,7 @@
 
 			if (privacy !== 'true') throw new Error('Privacy not accepted');
 
-			const payload = {
-				privacy,
-				barrier,
-				name: senderName,
-				pronouns,
-				email,
-				message
-			};
+			const payload = { privacy, barrier, name: senderName, pronouns, email, message };
 
 			const contactRes = await fetch(`${n8n_contact_url}`, {
 				method: 'POST',
@@ -53,7 +55,12 @@
 			if (!contactRes.ok) throw new Error('Error when sending the message');
 
 			response = await contactRes.json();
+			formEl?.reset();
+			barrierChecked = barrierParam === 'true';
 			setTimeout(() => (submitting = 2), 500);
+			setTimeout(() => {
+				submitting = 0;
+			}, 8000);
 		} catch (error: any) {
 			console.error('Error when sending the message:', error);
 			formError = error;
@@ -69,35 +76,33 @@
 </svelte:head>
 
 <section class="container py-10 sm:py-14">
-	<!-- HERO (mit Bild als Hintergrund) -->
 	<div
 		class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70
-		bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
+		bg-zinc-950/5 dark:bg-zinc-950"
 	>
-		<!-- optionales Hintergrundbild -->
 		<div
-			class="absolute inset-0 bg-[url('https://cms.jonaebert.de/uploads/Kontakt_93eb0e428c.png')] bg-cover bg-center"
+			class="absolute inset-0 bg-cover bg-center"
+			style={`background-image: url(${je_cms_base_url}/uploads/Kontakt_93eb0e428c.png);`}
 			aria-hidden="true"
-		/>
-		<!-- Overlays für Lesbarkeit -->
-		<div class="absolute inset-0 bg-white/85 dark:bg-zinc-950/75" aria-hidden="true" />
+		></div>
+		<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
+
 		<div
-			class="absolute inset-0 bg-linear-to-r from-white/95 via-white/70 to-white/30
-			dark:from-zinc-950/90 dark:via-zinc-950/60 dark:to-zinc-950/20"
+			class="absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl opacity-25 bg-accent"
 			aria-hidden="true"
-		/>
+		></div>
 
 		<div class="relative p-6 sm:p-10">
 			<div
 				class="inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs
-				bg-zinc-100/90 dark:bg-zinc-900/70 border border-zinc-200/70 dark:border-zinc-800/70 backdrop-blur"
+				bg-white/10 border border-white/20 text-white backdrop-blur"
 			>
 				<span class="h-2 w-2 rounded-full bg-accent"></span>
-				<span class="text-zinc-700 dark:text-zinc-300">Kontakt</span>
+				<span class="text-white/90">Kontakt</span>
 
 				{#if barrierChecked}
 					<span
-						class="ml-2 rounded-full px-2 py-0.5 text-[11px] bg-accent/10 text-accent border border-accent/30"
+						class="ml-2 rounded-full px-2 py-0.5 text-[11px] bg-accent/20 text-white border border-white/15"
 					>
 						Barriere melden
 					</span>
@@ -106,18 +111,16 @@
 
 			<div class="mt-4 grid gap-6 lg:grid-cols-12 lg:items-end">
 				<div class="lg:col-span-8">
-					<h1
-						class="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50"
-					>
+					<h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
 						Schreib mir — kurz oder ausführlich.
 					</h1>
 
-					<p class="mt-3 max-w-2xl leading-relaxed text-zinc-700 dark:text-zinc-300">
+					<p class="mt-3 max-w-2xl leading-relaxed text-white/85">
 						Ob Termin, Feedback oder ein Hinweis (auch zu Barrieren): Ich lese alles und melde mich
 						zurück. Wenn es dringend ist, pack „DRINGEND“ in den Text.
 					</p>
 
-					<p class="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
+					<p class="mt-4 text-sm text-white/75">
 						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal 300 Zeichen.
 					</p>
 				</div>
@@ -130,7 +133,7 @@
 
 						<div
 							class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full
-							bg-accent/10 text-accent border border-accent/30"
+							bg-white/10 text-white border border-white/15 backdrop-blur"
 						>
 							<span class="h-2 w-2 rounded-full bg-accent"></span>
 							{submitting === 2 ? 'Versendet' : submitting === 1 ? 'Wird gesendet' : 'Bereit'}
@@ -141,7 +144,7 @@
 		</div>
 	</div>
 
-	<!-- CONTENT GRID: Form + Sidebar -->
+	<!-- CONTENT GRID -->
 	<div class="mt-6 grid gap-6 lg:grid-cols-12">
 		<!-- FORM -->
 		<div class="lg:col-span-8">
@@ -155,7 +158,7 @@
 					Ich antworte in der Regel zeitnah — je klarer dein Anliegen, desto schneller geht’s.
 				</p>
 
-				<form class="mt-6 space-y-4" on:submit={submitForm}>
+				<form class="mt-6 space-y-4" bind:this={formEl} on:submit={submitForm}>
 					<div class="grid gap-4 sm:grid-cols-2">
 						<div class="space-y-2">
 							<label class="text-sm font-medium text-zinc-800 dark:text-zinc-200" for="name">
@@ -246,7 +249,8 @@
 								bind:checked={barrierChecked}
 								disabled={disable(submitting)}
 								class="h-5 w-5 rounded-md border border-zinc-300 dark:border-zinc-700
-								bg-white dark:bg-zinc-950 checked:bg-accent checked:border-accent
+								bg-white dark:bg-zinc-950
+								accent-accent
 								focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200"
@@ -263,7 +267,8 @@
 								required
 								disabled={disable(submitting)}
 								class="h-5 w-5 rounded-md border border-zinc-300 dark:border-zinc-700
-								bg-white dark:bg-zinc-950 checked:bg-accent checked:border-accent
+								bg-white dark:bg-zinc-950
+								accent-accent
 								focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200">
@@ -324,6 +329,15 @@
 		<!-- SIDEBAR -->
 		<aside class="lg:col-span-4">
 			<div class="lg:sticky lg:top-24 space-y-6">
+				{#if barrierChecked}
+					<div class="rounded-2xl border border-accent/30 bg-accent/10 p-6">
+						<h3 class="text-base font-semibold text-accent">Barriere melden</h3>
+						<p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
+							Wenn du magst, nenne kurz Seite/Ort, was genau nicht funktioniert und welches
+							Gerät/Browser du nutzt.
+						</p>
+					</div>
+				{/if}
 				<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
 					<h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50">Kontaktwege</h3>
 
@@ -382,17 +396,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- Optional: kleine zweite Karte nur für Barriere-Meldung -->
-				{#if barrierChecked}
-					<div class="rounded-2xl border border-accent/30 bg-accent/10 p-6">
-						<h3 class="text-base font-semibold text-accent">Barriere melden</h3>
-						<p class="mt-2 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-							Wenn du magst, nenne kurz Seite/Ort, was genau nicht funktioniert und welches
-							Gerät/Browser du nutzt.
-						</p>
-					</div>
-				{/if}
 			</div>
 		</aside>
 	</div>
