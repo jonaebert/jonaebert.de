@@ -21,11 +21,13 @@
 
 	let formError: any = 'Keine Fehlermeldung vorhanden!';
 
+	// Disable form input
 	function disable(state: number) {
-		disabled = state !== 0;
+		disabled = state === 1 || state === 2;
 		return disabled;
 	}
 
+	// Send form data
 	async function submitForm(e: SubmitEvent) {
 		e.preventDefault();
 
@@ -307,7 +309,9 @@
 								Wird gesendet…
 							</button>
 						{:else if submitting === 2}
-							<div class="rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent">
+							<div
+								class="relative overflow-hidden rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent"
+							>
 								💚 Danke! Deine Nachricht wurde versendet.
 							</div>
 						{:else}
@@ -319,6 +323,23 @@
 								<div>Nachricht konnte nicht versendet werden.</div>
 								<pre class="mt-2 text-xs whitespace-pre-wrap opacity-90">{response?.error ??
 										formError}</pre>
+							</div>
+							<div class="mt-4 flex flex-wrap gap-3">
+								<button
+									type="button"
+									class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
+									on:click={() => formEl?.requestSubmit()}
+								>
+									Erneut senden
+								</button>
+
+								<button
+									type="button"
+									class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+									on:click={() => (submitting = 0)}
+								>
+									Zurück
+								</button>
 							</div>
 						{/if}
 					</div>
