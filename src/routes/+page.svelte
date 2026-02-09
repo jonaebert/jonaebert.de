@@ -205,7 +205,7 @@
 										<path d="M5 12h12" />
 										<path d="M13 6l6 6-6 6" />
 									</svg>
-									öffnen
+									Öffnen
 								</span>
 							</div>
 
