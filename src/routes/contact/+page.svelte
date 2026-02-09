@@ -18,6 +18,8 @@
 	let response: any;
 	let submitting = 0; // 0 idle, 1 sending, 2 sent, 3 error
 	let disabled = false;
+	$: messageMax = barrierChecked ? 1000 : 600;
+	let messageText: string = '';
 
 	let formError: any = 'Keine Fehlermeldung vorhanden!';
 
@@ -58,6 +60,7 @@
 
 			response = await contactRes.json();
 			formEl?.reset();
+			messageText = '';
 			barrierChecked = barrierParam === 'true';
 			setTimeout(() => (submitting = 2), 500);
 			setTimeout(() => {
@@ -123,7 +126,16 @@
 					</p>
 
 					<p class="mt-4 text-sm text-white/75">
-						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal 300 Zeichen.
+						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal
+						<span
+							class:text-amber-600={messageText.length >= messageMax - 30 &&
+								messageText.length < messageMax}
+							class:text-red-600={messageText.length >= messageMax}
+							class="transition-colors"
+						>
+							{messageText.length}/{messageMax} Zeichen
+						</span>
+						.
 					</p>
 				</div>
 
@@ -225,7 +237,8 @@
 							id="message"
 							required
 							rows="6"
-							maxlength="300"
+							maxlength={messageMax}
+							bind:value={messageText}
 							disabled={disable(submitting)}
 							placeholder={barrierChecked
 								? 'Beschreibe kurz die Barriere (Ort/Seite, was genau passiert, ggf. Gerät/Browser)…'
@@ -236,7 +249,15 @@
 							focus:outline-none focus:ring-2 ring-accent/40"
 						></textarea>
 						<div class="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
-							<span>Maximal 300 Zeichen</span>
+							<span
+								class:text-amber-600={messageText.length >= messageMax*0.9 &&
+									messageText.length < messageMax}
+								class:text-red-600={messageText.length >= messageMax}
+								class="transition-colors"
+							>
+								{messageText.length}/{messageMax} Zeichen
+							</span>
+
 							<span class="font-semibold">* Pflichtfeld</span>
 						</div>
 					</div>
