@@ -64,10 +64,21 @@
 						<span class="text-zinc-700 dark:text-zinc-300">({pronouns})</span>
 					</h1>
 
-					<p class="mt-3 text-zinc-800/85 dark:text-zinc-400 leading-relaxed">
-						Ich mache Politik und baue digitale Infrastruktur. Mein Fokus: Lösungen, die sozial
-						gerecht, klimafest und praktisch umsetzbar sind — verständlich kommuniziert und
-						transparent gemacht.
+					<h2
+						class="mt-4 text-zinc-900 dark:text-zinc-200 text-xl sm:text-2xl font-medium tracking-tight"
+					>
+						Politik für Klima, Umwelt und Mobilität
+					</h2>
+
+					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+						Ich setze mich für eine Stadt ein, die dem Klimawandel entschlossen begegnet und
+						Lebensqualität für alle sichert. Klimaschutz, der Schutz unserer Umwelt und eine
+						nachhaltige Mobilität gehören für mich untrennbar zusammen.
+					</p>
+
+					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+						In Braunschweig heißt das: weniger Emissionen, mehr Raum für Menschen und eine
+						Verkehrspolitik, die fair, sicher und zukunftsfähig ist.
 					</p>
 
 					<div class="mt-5 flex flex-wrap gap-3">
