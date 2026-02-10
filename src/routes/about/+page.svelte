@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, pronouns } from '$lib/store';
+	import { je_cms_base_url, name, pronouns } from '$lib/store';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	import Image from '$lib/components/Image.svelte';
 	import Tags from '$lib/components/blocks/Tags.svelte';
@@ -9,8 +9,6 @@
 	const props = data?.props;
 	const headings = props?.headings;
 	const items = props?.items;
-
-	// yyyy-mm for comparisons
 	const now = new Date();
 	const nowYM = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
 
@@ -22,7 +20,6 @@
 	}
 
 	function valDate(start?: string | null, end?: string | null) {
-		// normalize empty strings
 		const s = start?.trim() ? start : null;
 		const e = end?.trim() ? end : null;
 
@@ -40,18 +37,33 @@
 	}
 </script>
 
-<!-- PAGE -->
 <section class="grid gap-5 lg:grid-cols-12">
-	<!-- HERO -->
 	<div
-		class="lg:col-span-7 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950 p-6 sm:p-8"
+		class="relative overflow-hidden lg:col-span-7 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950 p-6 sm:p-8"
 	>
-		<div class="flex flex-col gap-6">
+		<video
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+			poster={`${je_cms_base_url}/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png`}
+			class="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
+		>
+			<source src="/home/herovideo.mp4" type="video/mp4" />
+		</video>
+
+		<div
+			class="absolute inset-0 z-1 bg-black/15 dark:bg-linear-to-b dark:from-zinc-950/85 dark:via-zinc-950/55 dark:to-zinc-950/85"
+		></div>
+
+		<div class="relative z-10 flex flex-col gap-6">
 			<div class="flex items-start justify-between gap-6">
-				<div class="max-w-2xl">
+				<div
+					class="max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/55 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+				>
 					<div
-						class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs
-						bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
+						class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
 					>
 						<span class="h-2 w-2 rounded-full bg-accent"></span>
 						<span class="text-zinc-700 dark:text-zinc-300">Über mich</span>
@@ -70,13 +82,13 @@
 						Politik für Klima, Umwelt und Mobilität
 					</h2>
 
-					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 leading-relaxed">
 						Ich setze mich für eine Stadt ein, die dem Klimawandel entschlossen begegnet und
 						Lebensqualität für alle sichert. Klimaschutz, der Schutz unserer Umwelt und eine
 						nachhaltige Mobilität gehören für mich untrennbar zusammen.
 					</p>
 
-					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+					<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 leading-relaxed">
 						In Braunschweig heißt das: weniger Emissionen, mehr Raum für Menschen und eine
 						Verkehrspolitik, die fair, sicher und zukunftsfähig ist.
 					</p>
@@ -84,14 +96,17 @@
 					<div class="mt-5 flex flex-wrap gap-3">
 						<a
 							href="/contact"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium
+						ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50/70 dark:hover:bg-zinc-900/40 transition"
 						>
 							Kontakt
 						</a>
 
 						<a
 							href="/blog"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 transition dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium
+						bg-zinc-900 text-white hover:bg-zinc-800 transition
+						dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
 						>
 							Blog
 						</a>
@@ -102,57 +117,50 @@
 					</div>
 				</div>
 
-				<!-- Portrait -->
-				<div class="hidden sm:block shrink-0">
+				<div class="hidden sm:block">
 					<div
-						class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-3 bg-white/60 dark:bg-zinc-950/30"
+						class="h-28 w-28 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center"
 					>
-						<div
-							class="h-28 w-28 rounded-2xl bg-accent/10 border border-accent/30 grid place-items-center"
-						>
-							<div class="h-24 w-24 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-900">
-								<Image
-									src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cropped_ab728114f8.png"
-									alt="Portrait"
-									classNames="h-full w-full object-cover"
-								/>
-							</div>
+						<div class="h-24 w-24 rounded-xl bg-accent overflow-hidden">
+							<Image
+								src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cropped_ab728114f8.png"
+								alt="Portrait von {name}"
+								classNames="h-full w-full"
+							></Image>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Quick tags -->
 			<div class="grid gap-3 sm:grid-cols-3">
-				<div
-					class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 bg-white/60 dark:bg-zinc-950/30"
-				>
-					<div class="text-xs text-zinc-500 dark:text-zinc-400">Rolle</div>
-					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
-						IT-Systemadministrator:in
-					</div>
-				</div>
 				<div
 					class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 bg-white/60 dark:bg-zinc-950/30"
 				>
 					<div class="text-xs text-zinc-500 dark:text-zinc-400">Fokus</div>
 					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
-						Kommune · Klima · Soziales
+						Klima · Umwelt · Mobilität
 					</div>
 				</div>
 				<div
 					class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 bg-white/60 dark:bg-zinc-950/30"
 				>
-					<div class="text-xs text-zinc-500 dark:text-zinc-400">Arbeitsweise</div>
+					<div class="text-xs text-zinc-500 dark:text-zinc-400">Ebene</div>
 					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
-						pragmatisch · transparent
+						Braunschweig · Kommune
+					</div>
+				</div>
+				<div
+					class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 bg-white/60 dark:bg-zinc-950/30"
+				>
+					<div class="text-xs text-zinc-500 dark:text-zinc-400">Ansatz</div>
+					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
+						fair · sicher · zukunftsfähig
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- RIGHT COLUMN -->
 	<div class="lg:col-span-5 grid gap-5">
 		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
 			<div class="flex items-start justify-between gap-3">
@@ -209,7 +217,6 @@
 </section>
 
 {#if headings && items}
-	<!-- CV -->
 	<section
 		class="mt-5 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-6 sm:p-8"
 	>
@@ -238,7 +245,6 @@
 								{@const isLast = i === list.length - 1}
 
 								<li class="relative">
-									<!-- connector (from marker center to next marker center) -->
 									{#if !isLast}
 										<div
 											class="absolute left-5 w-px bg-zinc-200 dark:bg-zinc-800"
@@ -246,7 +252,6 @@
 										></div>
 									{/if}
 
-									<!-- marker with cutout bg (prevents line through logo) -->
 									<div
 										class="absolute left-5 top-5 -translate-x-1/2 rounded-full bg-white dark:bg-zinc-950 ring-6 ring-white dark:ring-zinc-950 border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm"
 									>
@@ -268,7 +273,6 @@
 										</div>
 									</div>
 
-									<!-- card -->
 									<div
 										class="ms-12 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5"
 									>
@@ -335,7 +339,6 @@
 							{/each}
 						</ul>
 					{:else}
-						<!-- Skills -->
 						<div class="mt-6 grid gap-4 lg:grid-cols-2">
 							{#each items[section.key] as item}
 								<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-5">
