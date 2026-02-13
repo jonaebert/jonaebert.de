@@ -211,30 +211,30 @@ export const load: PageLoad = async ({ fetch, params }) => {
 							{
 								title: 'Infrastruktur',
 								skills: [
-									'Windowsclient',
-									'Windowsserver',
-									'Linuxserver',
-									'Microsoft Intune',
 									'Docker',
+									'Linuxserver',
+									'Monitoring',
+									'MSSQL',
+									'PostgreSQL',
 									'Telekommunikation',
 									'Telekommunikationssysteme',
-									'PostgreSQL',
-									'MSSQL'
+									'Windowsclient',
+									'Windowsserver'
 								]
 							},
 							{
 								title: 'Programmierung/Frameworks',
-								skills: ['PHP', 'CSS', 'HTML', 'TypeScript', 'SvelteKit']
+								skills: ['CSS', 'FastAPI', 'HTML', 'PHP', 'Python', 'SvelteKit', 'TypeScript']
 							},
 							{
 								title: 'Software',
 								skills: [
-									'Word',
 									'Excel',
-									'PowerPoint',
 									'Outlook',
+									'PowerPoint',
+									'SQL Server Management Studio',
 									'VS Code',
-									'SQL Server Management Studio'
+									'Word'
 								]
 							}
 						]

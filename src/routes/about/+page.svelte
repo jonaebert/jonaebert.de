@@ -2,7 +2,7 @@
 	import { je_cms_base_url, name, pronouns } from '$lib/store';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	import Image from '$lib/components/Image.svelte';
-	import Tags from '$lib/components/blocks/Tags.svelte';
+	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import { FormatDate } from '$lib/util/date.js';
 
 	export let data;
@@ -76,6 +76,13 @@
 		const end = endIso ? new Date(endIso) : new Date(start.getTime() + 90 * 60 * 1000);
 		return now >= start && now <= end;
 	}
+
+	// Helper function for label/tags
+	function chipClasses(variant: 'neutral' | 'accent' = 'neutral') {
+		return variant === 'accent'
+			? 'inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/30'
+			: 'inline-flex items-center text-xs px-2.5 py-1 rounded-full border border-zinc-200/70 dark:border-zinc-800/70 text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-950/20';
+	}
 </script>
 
 <section class="grid gap-5 lg:grid-cols-12">
@@ -107,7 +114,7 @@
 						class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
 					>
 						<span class="h-2 w-2 rounded-full bg-accent"></span>
-						<span class="text-zinc-700 dark:text-zinc-300">Über mich</span>
+						<span class="text-zinc-600 dark:text-zinc-400"><Slogan /></span>
 					</div>
 
 					<h1
@@ -137,19 +144,9 @@
 					<div class="mt-5 flex flex-wrap gap-3">
 						<a
 							href="/contact"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium
-						ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50/70 dark:hover:bg-zinc-900/40 transition"
+							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50/70 dark:hover:bg-zinc-900/40 transition"
 						>
 							Kontakt
-						</a>
-
-						<a
-							href="/blog"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium
-						bg-zinc-900 text-white hover:bg-zinc-800 transition
-						dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
-						>
-							Blog
 						</a>
 					</div>
 
@@ -428,126 +425,141 @@
 								{@const isLast = i === list.length - 1}
 
 								<li class="relative">
-									{#if !isLast}
-										<div
-											class="absolute left-5 w-px bg-zinc-200 dark:bg-zinc-800"
-											style="top: calc(1.25rem + 20px); height: calc(100% + var(--timeline-gap));"
-										></div>
-									{/if}
+									<!-- Row: marker + card aligned -->
+									<div class="grid grid-cols-[2.5rem_1fr] gap-4">
+										<!-- Marker column (contains connector so it can’t “leak” into card space) -->
+										<div class="relative">
+											<!-- connector (only if NOT last item) -->
+											{#if !isLast}
+												<div
+													class="absolute left-5 w-px bg-zinc-200 dark:bg-zinc-800"
+													style="top: calc(0.5rem + 20px);     /* marker top (top-2) + half marker (20px) */height: calc(100% + var(--timeline-gap));"
+												></div>
+											{/if}
 
-									<div
-										class="absolute left-5 top-5 -translate-x-1/2 rounded-full bg-white dark:bg-zinc-950 ring-6 ring-white dark:ring-zinc-950 border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm"
-									>
-										<div
-											class="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 grid place-items-center overflow-hidden"
-										>
-											<a
-												href={item.link}
-												target="_blank"
-												rel="noreferrer"
-												class="grid place-items-center h-full w-full"
+											<!-- marker -->
+											<div
+												class="absolute left-5 top-2 -translate-x-1/2 rounded-full bg-white dark:bg-zinc-950 ring-6 ring-white dark:ring-zinc-950 border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm"
 											>
-												<Image
-													classNames="h-8 w-8 rounded-full"
-													src={`/about_logos/${item.image}`}
-													alt={`Logo von ${item.company}`}
-												/>
-											</a>
-										</div>
-									</div>
-
-									<div
-										class="ms-12 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5"
-									>
-										<div class="flex flex-wrap items-start justify-between gap-3">
-											<div class="min-w-0">
-												<div class="text-sm font-semibold text-zinc-950 dark:text-zinc-100">
-													{item.title}
-												</div>
-												<div class="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+												<div
+													class="h-10 w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 grid place-items-center overflow-hidden"
+												>
 													<a
 														href={item.link}
 														target="_blank"
 														rel="noreferrer"
-														class="hover:underline"
+														class="grid place-items-center h-full w-full"
 													>
-														{item.company}
+														<Image
+															classNames="h-8 w-8 rounded-full"
+															src={`/about_logos/${item.image}`}
+															alt={`Logo von ${item.company}`}
+														/>
 													</a>
 												</div>
 											</div>
-
-											<div class="flex flex-wrap items-center gap-2">
-												{#if vd.active}
-													<span
-														class="inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/30"
-													>
-														<span class="h-2 w-2 rounded-full bg-accent"></span>
-														Aktuell
-													</span>
-												{/if}
-
-												<span
-													class="inline-flex items-center text-xs px-2.5 py-1 rounded-full border border-zinc-200/70 dark:border-zinc-800/70 text-zinc-600 dark:text-zinc-400 bg-white/60 dark:bg-zinc-950/20"
-												>
-													{vd.label}
-												</span>
-											</div>
 										</div>
 
-										{#if item.description?.length || item.skills?.length}
-											<div
-												class="mt-4 rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50 dark:bg-zinc-950/35 p-4"
-											>
-												{#if item.description?.length}
-													<ul
-														class="list-disc pl-5 text-sm text-zinc-700 dark:text-zinc-300 space-y-1"
-													>
-														{#each item.description as desc}
-															<li>{desc}</li>
-														{/each}
-													</ul>
-												{/if}
-
-												{#if item.skills?.length}
-													<div class="mt-3 flex flex-wrap gap-1.5">
-														{#each item.skills as skill}
-															<Tags text={skill} />
-														{/each}
+										<!-- Card column -->
+										<div
+											class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5"
+										>
+											<div class="flex flex-wrap items-start justify-between gap-3">
+												<div class="min-w-0">
+													<div class="text-sm font-semibold text-zinc-950 dark:text-zinc-100">
+														{item.title}
 													</div>
-												{/if}
+													<div class="mt-0.5 text-sm text-zinc-600 dark:text-zinc-400">
+														<a
+															href={item.link}
+															target="_blank"
+															rel="noreferrer"
+															class="hover:underline"
+														>
+															{item.company}
+														</a>
+													</div>
+												</div>
+
+												<div class="flex flex-wrap items-center gap-2">
+													{#if vd.active}
+														<span class={chipClasses('accent')}>
+															<span class="h-2 w-2 rounded-full bg-accent"></span>
+															Aktuell
+														</span>
+													{/if}
+													<span class={chipClasses('neutral')}>{vd.label}</span>
+												</div>
 											</div>
-										{/if}
+
+											{#if item.description?.length || item.skills?.length}
+												<div
+													class="mt-4 rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50 dark:bg-zinc-950/35 p-4"
+												>
+													{#if item.description?.length}
+														<ul
+															class="list-disc pl-5 text-sm text-zinc-700 dark:text-zinc-300 space-y-1"
+														>
+															{#each item.description as desc}
+																<li>{desc}</li>
+															{/each}
+														</ul>
+													{/if}
+
+													{#if item.skills?.length}
+														<div class="mt-3 flex flex-wrap gap-2">
+															{#each item.skills as skill}
+																<span class={chipClasses('neutral')}>{skill}</span>
+															{/each}
+														</div>
+													{/if}
+												</div>
+											{/if}
+										</div>
 									</div>
 								</li>
 							{/each}
 						</ul>
 					{:else}
+						<!-- Skills (modern cards) -->
 						<div class="mt-6 grid gap-4 lg:grid-cols-2">
 							{#each items[section.key] as item}
-								<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-5">
-									<div class="text-lg font-semibold text-zinc-950 dark:text-zinc-100">
-										{item.category}
+								<div
+									class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-5"
+								>
+									<div class="flex items-start justify-between gap-3">
+										<div>
+											<div class="text-lg font-semibold text-zinc-950 dark:text-zinc-100">
+												{item.category}
+											</div>
+											<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+												Schwerpunkte, Tools & Sprachen
+											</div>
+										</div>
+										<span class={chipClasses('neutral')}>Kompetenzen</span>
 									</div>
 
 									{#if item.subcategories}
-										<div class="mt-4 grid gap-5">
+										<div class="mt-5 grid gap-5">
 											{#each item.subcategories as subcategory}
-												<div>
-													<div class="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+												<div
+													class="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50 dark:bg-zinc-950/35 p-4"
+												>
+													<div class="text-sm font-medium text-zinc-800 dark:text-zinc-200">
 														{subcategory.title}
 													</div>
-													<div class="mt-2 flex flex-wrap gap-1.5">
+													<div class="mt-3 flex flex-wrap gap-2">
 														{#each subcategory.skills as skill}
-															<Tags text={skill} />
+															<span class={chipClasses('neutral')}>{skill}</span>
 														{/each}
 													</div>
 												</div>
 											{/each}
 										</div>
 									{:else}
-										<div class="mt-4 flex flex-wrap gap-1.5">
+										<div class="mt-5 flex flex-wrap gap-2">
 											{#each item.skills as skill}
-												<Tags text={skill} />
+												<span class={chipClasses('neutral')}>{skill}</span>
 											{/each}
 										</div>
 									{/if}
