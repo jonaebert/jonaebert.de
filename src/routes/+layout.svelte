@@ -11,13 +11,7 @@
 	import { applyTheme, getStoredTheme } from '$lib/util/theme';
 
 	// Initialisierung Variablen
-	import { name, logo_clear, logo_small_clear, uri, pronouns, slogan } from '$lib/store';
-	import Image from '$lib/components/Image.svelte';
-	let currentYear = new Date().getFullYear();
-
-	// Ticker data
-	export let data;
-	const { tickers } = data;
+	import { name, uri, pronouns, slogan } from '$lib/store';
 
 	// Seiten-Titel dynamisch setzen
 	$: activeRoute = $uri.url.pathname;
