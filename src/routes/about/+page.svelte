@@ -154,20 +154,6 @@
 						<SocialIcons />
 					</div>
 				</div>
-
-				<div class="hidden sm:block">
-					<div
-						class="h-28 w-28 rounded-2xl bg-accent/10 border border-accent/30 flex items-center justify-center"
-					>
-						<div class="h-24 w-24 rounded-xl bg-accent overflow-hidden">
-							<Image
-								src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cropped_ab728114f8.png"
-								alt="Portrait von {name}"
-								classNames="h-full w-full"
-							></Image>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<div class="grid gap-3 sm:grid-cols-3">
@@ -359,39 +345,13 @@
 			</div>
 		</div>
 
-		<!-- Quick Links -->
+		<!-- Portrait -->
 		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
-			<div class="text-sm font-medium">Schnellzugriff</div>
-			<div class="mt-4 grid gap-3 sm:grid-cols-2">
-				<a
-					href="/blog"
-					class="rounded-xl p-4 border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-				>
-					<div class="text-sm font-medium">Blog</div>
-					<div class="text-sm text-zinc-600 dark:text-zinc-400">Neueste Updates</div>
-				</a>
-				<a
-					href="/calendar"
-					class="rounded-xl p-4 border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-				>
-					<div class="text-sm font-medium">Kalender</div>
-					<div class="text-sm text-zinc-600 dark:text-zinc-400">Nächste Termine</div>
-				</a>
-				<a
-					href="/about"
-					class="rounded-xl p-4 border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-				>
-					<div class="text-sm font-medium">Über mich</div>
-					<div class="text-sm text-zinc-600 dark:text-zinc-400">Kurzprofil</div>
-				</a>
-				<a
-					href="/contact"
-					class="rounded-xl p-4 border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-				>
-					<div class="text-sm font-medium">Kontakt</div>
-					<div class="text-sm text-zinc-600 dark:text-zinc-400">Schreib mir</div>
-				</a>
-			</div>
+			<Image
+				src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png"
+				alt="Portrait von {name}"
+				classNames="h-full w-full"
+			></Image>
 		</div>
 	</div>
 </section>
