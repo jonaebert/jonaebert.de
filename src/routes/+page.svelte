@@ -3,7 +3,7 @@
 	import { FormatDate } from '$lib/util/date.js';
 	import Calendar from '$lib/components/blocks/Calendar.svelte';
 	import Blog from '$lib/components/blocks/Blog.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 

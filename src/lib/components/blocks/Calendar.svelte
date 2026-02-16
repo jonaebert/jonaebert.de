@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CalendarListSkeleton from '$lib/components/skeleton/CalendarListSkeleton.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import { FormatDate } from '$lib/util/date.js';
 	import { je_cms_base_url } from '$lib/store.js';
 

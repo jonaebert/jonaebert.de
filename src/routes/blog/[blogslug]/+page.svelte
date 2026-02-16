@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { name, pronouns, je_cms_base_url, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 	import { Icon } from '$lib/components/icons';
 	import SharePanel from '$lib/components/blocks/SharePanel.svelte';

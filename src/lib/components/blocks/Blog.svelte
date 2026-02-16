@@ -1,6 +1,6 @@
 <script lang="ts">
 	import BlogCardSkeleton from '$lib/components/skeleton/BlogCardSkeleton.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
 	import { je_cms_base_url } from '$lib/store.js';
 

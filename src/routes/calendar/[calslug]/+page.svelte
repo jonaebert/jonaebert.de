@@ -8,7 +8,7 @@
 		img_alte_waage
 	} from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import { Icon, type IconName } from '$lib/components/icons';
 	import { goto } from '$app/navigation';
 
