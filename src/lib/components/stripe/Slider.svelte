@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { je_cms_base_url } from '$lib/store.js'
+	import { je_cms_base_url } from '$lib/store.js';
 	import Image from '$lib/components/Image.svelte';
 	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
 	export let files: array;
 
-	function getMediaURL(media:type) {
+	function getMediaURL(media: type) {
 		if (media?.ext === '.svg') {
 			return je_cms_base_url + media?.url;
 		} else if (media?.formats?.large?.url) {
@@ -38,7 +38,8 @@
 	}
 	function handleTouchEnd(event: TouchEvent | PointerEvent) {
 		if (startX === null) return;
-		const endX = 'changedTouches' in event ? event.changedTouches[0].clientX : (event as PointerEvent).clientX;
+		const endX =
+			'changedTouches' in event ? event.changedTouches[0].clientX : (event as PointerEvent).clientX;
 		const diffX = startX - endX;
 
 		if (Math.abs(diffX) > 50) {
@@ -56,7 +57,8 @@
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2 shadow-xl"
+		<div
+			class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2 shadow-xl"
 			on:touchstart={handleTouchStart}
 			on:touchend={handleTouchEnd}
 			on:pointerdown={handleTouchStart}
@@ -79,25 +81,33 @@
 				{/each}
 			</div>
 			<!-- Steuerung -->
-			<button on:click={previousImage} class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110" aria-label="Vorheriges Bild">
+			<button
+				on:click={previousImage}
+				class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				aria-label="Vorheriges Bild"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-7 w-7 -rotate-90"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
-					>
+				>
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 				</svg>
 			</button>
-			<button on:click={nextImage} class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110" aria-label="Nächstes Bild">
+			<button
+				on:click={nextImage}
+				class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				aria-label="Nächstes Bild"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					class="h-7 w-7 rotate-90"
 					fill="none"
 					viewBox="0 0 24 24"
 					stroke="currentColor"
-					>
+				>
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
 				</svg>
 			</button>
