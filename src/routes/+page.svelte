@@ -10,6 +10,9 @@
 	export let data;
 	const { posts, events } = data;
 
+	// Hero expanded
+	let heroExpanded = false;
+
 	// Helper to check if two ISO date strings are on the same day
 	function sameDay(aIso?: string | null, bIso?: string | null): boolean {
 		if (!aIso || !bIso) return false;
@@ -50,11 +53,10 @@
 	}
 </script>
 
-<section class="grid gap-5 lg:grid-cols-12">
+<section class="grid grid-cols-1 gap-5 lg:grid-cols-12">
 	<!-- HERO -->
 	<div
-		class="relative overflow-hidden lg:col-span-7 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6 sm:p-8
-         bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
+		class="order-1 relative overflow-hidden lg:order-0 lg:col-span-7 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6 lg:p-8 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
 	>
 		<video
 			autoplay
@@ -63,17 +65,20 @@
 			playsinline
 			preload="metadata"
 			poster={`${je_cms_base_url}/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png`}
-			class="absolute inset-0 z-0 w-full h-full object-cover motion-reduce:hidden"
+			class="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
 		>
 			<source src="/home/herovideo.mp4" type="video/mp4" />
 		</video>
 		<div
-			class="absolute inset-0 z-1 bg-black/10 dark:bg-linear-to-b dark:from-zinc-950/80 dark:via-zinc-950/55 dark:to-zinc-950/85"
+			class="absolute inset-0 z-1 bg-black/15 dark:bg-linear-to-b dark:from-zinc-950/80 dark:via-zinc-950/55 dark:to-zinc-950/85"
 		></div>
 
-		<div class="relative z-10 flex items-start justify-between gap-6 mb-25">
+		<div class="relative z-10">
+			<!-- Glass Box -->
 			<div
-				class="rounded-2xl p-4 sm:p-5 bg-white/50 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+				class="w-full max-w-none rounded-2xl p-4 sm:p-5 lg:p-6
+				bg-white/55 backdrop-blur-md border border-white/40 shadow-sm
+				dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
 			>
 				<div
 					class="inline-flex scale-105 items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
@@ -96,38 +101,54 @@
 							Politik für eine lebenswerte Zukunft in Braunschweig
 						</h2>
 
-						<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
-							Der Klimawandel ist eine zentrale Herausforderung – auch auf kommunaler Ebene. In
-							Braunschweig zeigt er sich konkret: durch steigende Temperaturen, wachsende
-							Anforderungen an Infrastruktur und die Frage, wie wir Mobilität, Wohnen und
-							Lebensqualität sozial gerecht gestalten.
-						</p>
+						<div class:line-clamp-3={!heroExpanded} class:sm:line-clamp-none={true}>
+							<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+								Der Klimawandel ist eine zentrale Herausforderung – auch auf kommunaler Ebene. In
+								Braunschweig zeigt er sich konkret: durch steigende Temperaturen, wachsende
+								Anforderungen an Infrastruktur und die Frage, wie wir Mobilität, Wohnen und
+								Lebensqualität sozial gerecht gestalten.
+							</p>
 
-						<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
-							Ich setze mich für eine linke, solidarische Kommunalpolitik ein, die ökologische
-							Verantwortung und soziale Gerechtigkeit zusammen denkt. Ziel ist eine lebenswerte
-							Stadt mit langfristig tragfähigen Lösungen – gemeinsam mit den Menschen vor Ort.
-						</p>
+							<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
+								Ich setze mich für eine linke, solidarische Kommunalpolitik ein, die ökologische
+								Verantwortung und soziale Gerechtigkeit zusammen denkt. Ziel ist eine lebenswerte
+								Stadt mit langfristig tragfähigen Lösungen – gemeinsam mit den Menschen vor Ort.
+							</p>
+						</div>
+						<div class="mt-3 sm:hidden">
+							<button
+								type="button"
+								class="inline-flex items-center gap-2 text-sm font-medium text-accent
+           hover:underline underline-offset-4"
+								on:click={() => (heroExpanded = !heroExpanded)}
+								aria-expanded={heroExpanded}
+							>
+								{heroExpanded ? 'Weniger anzeigen' : 'Mehr anzeigen'}
+								<svg
+									class={`h-4 w-4 transition-transform ${heroExpanded ? 'rotate-180' : ''}`}
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									aria-hidden="true"
+								>
+									<path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+							</button>
+						</div>
 					</div>
 
-					<div class="mt-6 flex flex-wrap gap-3">
+					<div class="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:gap-3">
 						<a
 							href="/about"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 transition dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 transition dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
 						>
 							Über mich
 						</a>
 
-						<!--<a
-							href="/calendar"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-						>
-							Kalender ansehen
-						</a>-->
-
 						<a
 							href="/contact"
-							class="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
 						>
 							Kontakt
 						</a>
@@ -140,10 +161,10 @@
 		</div>
 	</div>
 
-	<!-- RIGHT COLUMN: STATUS + QUICK LINKS -->
-	<div class="lg:col-span-5 grid gap-5">
+	<!-- RIGHT COLUMN: STATUS + PORTRAIT -->
+	<div class="order-2 lg:order-0 lg:col-span-5 grid gap-5">
 		<!-- Status -->
-		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
+		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6">
 			<div class="flex items-center justify-between">
 				<div>
 					<div class="text-sm font-medium">Aktuell</div>
@@ -301,24 +322,26 @@
 		</div>
 
 		<!-- Portrait -->
-		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
-			<a href="/about" target="_self">
-				<Image
-					src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png"
-					alt="Portrait von {name}"
-					classNames="h-full w-full scale-95 hover:scale-100 ease-in-out transition-transform duration-500"
-				></Image>
+		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6">
+			<a href="/about" target="_self" class="block">
+				<div class="aspect-square overflow-hidden rounded-xl">
+					<Image
+						src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png"
+						alt="Portrait von {name}"
+						classNames="h-full w-full object-cover scale-100 sm:scale-95 hover:scale-100 ease-in-out transition-transform duration-500"
+					/>
+				</div>
 			</a>
 		</div>
 	</div>
 
 	<!-- Calendar Preview -->
-	<div class="lg:col-span-6">
+	<div class="order-4 lg:order-0 lg:col-span-6">
 		<Calendar {events} items={8} />
 	</div>
 
 	<!-- Blog Preview -->
-	<div class="lg:col-span-6">
+	<div class="order-5 lg:order-0 lg:col-span-6">
 		<Blog {posts} limit={4} />
 	</div>
 </section>
