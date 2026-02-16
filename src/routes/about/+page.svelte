@@ -399,7 +399,7 @@
 													></div>
 												{/if}
 												<div
-													class="absolute left-4 top-1 sm:left-5 sm:top-2 -translate-x-1/2 rounded-full bg-white dark:bg-zinc-950 ring-4 sm:ring-6 ring-white dark:ring-zinc-950 border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm"
+													class="absolute left-4 top-1 sm:left-5 sm:top-2 -translate-x-1/2 rounded-full bg-white dark:bg-zinc-950 ring-4 sm:ring-6 ring-white dark:ring-zinc-950 border border-zinc-200/70 dark:border-zinc-800/70 shadow-sm hover:scale-110 ease-in-out transition-transform duration-300"
 												>
 													<div
 														class="h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-zinc-50 dark:bg-zinc-900 grid place-items-center overflow-hidden"
