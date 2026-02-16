@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { je_cms_base_url, name, pronouns } from '$lib/store';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
-	import Image from '$lib/components/Image.svelte';
+	import Image from '$lib/components/ui/Image.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import { FormatDate } from '$lib/util/date.js';
 
