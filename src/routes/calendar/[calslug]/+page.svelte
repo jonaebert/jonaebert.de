@@ -147,14 +147,14 @@
 				class="absolute inset-0 bg-cover bg-center"
 				style="background-image: url({getCoverUrl(event.cover, true)});"
 			></div>
-			<div class="absolute inset-0 bg-white/80 dark:bg-zinc-950/80"></div>
+			<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 
 			<div class="relative p-6 sm:p-8 space-y-4">
 				<div class="flex items-center justify-between gap-4">
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:cursor-pointer"
+						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
@@ -168,11 +168,11 @@
 					</span>
 				</div>
 
-				<h1 class="text-2xl sm:text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+				<h1 class="text-2xl sm:text-3xl font-semibold text-white">
 					{event.subject}
 				</h1>
 
-				<div class="flex flex-wrap items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+				<div class="flex flex-wrap items-center gap-3 text-sm text-white/90">
 					<span class="inline-flex items-center gap-2">
 						<Icon name="calendar" classes="h-4 w-4" />
 						<span>
