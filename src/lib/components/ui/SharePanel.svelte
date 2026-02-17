@@ -166,7 +166,7 @@
 			{/each}
 		</div>
 
-		<div class="mt-3 text-xs text-zinc-700 dark:text-zinc-300 truncate select-all">
+		<div class="mt-3 text-xs text-zinc-700 dark:text-zinc-300 select-all wrap-anywhere">
 			{url}
 		</div>
 	</div>

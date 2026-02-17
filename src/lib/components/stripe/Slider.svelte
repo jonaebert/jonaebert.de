@@ -82,7 +82,7 @@
 			<!-- Steuerung -->
 			<button
 				on:click={previousImage}
-				class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
 				aria-label="Vorheriges Bild"
 			>
 				<svg
@@ -97,7 +97,7 @@
 			</button>
 			<button
 				on:click={nextImage}
-				class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
 				aria-label="Nächstes Bild"
 			>
 				<svg
@@ -114,7 +114,7 @@
 			<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
 				{#each files as _, index}
 					<button
-						class={`w-3 h-3 rounded-full transition-all duration-500 ${
+						class={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-500 ${
 							index === currentImage ? 'bg-white/90 scale-110' : 'bg-white/40 hover:bg-white/70'
 						}`}
 						aria-label={`Bild ${index + 1}`}
