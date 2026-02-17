@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { je_cms_base_url } from '$lib/store.js';
 	import Image from '$lib/components/ui/Image.svelte';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	export let files: array;
 
@@ -58,11 +59,26 @@
 	{#if files?.length > 0}
 		<div
 			class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2 shadow-xl"
-			on:touchstart={handleTouchStart}
-			on:touchend={handleTouchEnd}
-			on:pointerdown={handleTouchStart}
-			on:pointerup={handleTouchEnd}
+			role="region"
+			aria-roledescription="carousel"
+			aria-label="Bildergalerie"
 		>
+			<!-- Interactions-Layer: Swipe + Keyboard -->
+			<div
+				class="absolute inset-0 z-10"
+				role="button"
+				tabindex="0"
+				aria-label="Bildergalerie steuern (Links/Rechts oder Wischen)"
+				on:keydown={(e) => {
+					if (e.key === 'ArrowLeft') previousImage();
+					if (e.key === 'ArrowRight') nextImage();
+				}}
+				on:touchstart={handleTouchStart}
+				on:touchend={handleTouchEnd}
+				on:pointerdown={handleTouchStart}
+				on:pointerup={handleTouchEnd}
+			></div>
+
 			<!-- Wrapper für die verschiebbaren Slides -->
 			<div
 				class="flex transition-transform duration-1000 ease-in-out w-full h-full"
@@ -79,38 +95,24 @@
 					</div>
 				{/each}
 			</div>
+
 			<!-- Steuerung -->
 			<button
 				on:click={previousImage}
 				class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
 				aria-label="Vorheriges Bild"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-7 w-7 -rotate-90"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
-				</svg>
+				<Icon name="arrow-left" classes="w-5 h-5" />
 			</button>
+
 			<button
 				on:click={nextImage}
 				class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
 				aria-label="Nächstes Bild"
 			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-7 w-7 rotate-90"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
-				</svg>
+				<Icon name="arrow-right" classes="w-5 h-5" />
 			</button>
-			<!-- Punkte-Navigation im Bildbereich -->
+
 			<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
 				{#each files as _, index}
 					<button
@@ -126,8 +128,7 @@
 	{:else}
 		<div class="my-4">
 			<div
-				class="flex items-center gap-3 rounded-2xl border border-zinc-200/70 bg-zinc-50/80 px-4 py-3 text-sm text-zinc-700 shadow-sm backdrop-blur-sm
-		dark:border-zinc-800/70 dark:bg-zinc-900/50 dark:text-zinc-300"
+				class="flex items-center gap-3 rounded-2xl border border-zinc-200/70 bg-zinc-50/80 px-4 py-3 text-sm text-zinc-700 shadow-sm backdrop-blur-sm dark:border-zinc-800/70 dark:bg-zinc-900/50 dark:text-zinc-300"
 			>
 				<!-- Icon -->
 				<svg
