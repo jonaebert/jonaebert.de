@@ -369,7 +369,7 @@
 				{headings.main}
 			</h2>
 			<p class="mt-2 text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-				Stationen & Kompetenzen — scannbar, ruhig, CI/CD-konform.
+				Verantwortung übernehmen. Wandel gestalten. Zukunft ermöglichen.
 			</p>
 		</header>
 
