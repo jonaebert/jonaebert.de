@@ -4,8 +4,8 @@
 	import Calendar from '$lib/components/ui/Calendar.svelte';
 	import Blog from '$lib/components/ui/Blog.svelte';
 	import Image from '$lib/components/ui/Image.svelte';
-	import Slogan from '$lib/components/blocks/Slogan.svelte';
-	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
+	import Slogan from '$lib/components/ui/Slogan.svelte';
+	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
 
 	export let data;
 	const { posts, events } = data;

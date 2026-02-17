@@ -2,7 +2,7 @@
 	import ThemeToggle from '$lib/components/theme/ThemeToggle.svelte';
 	import Image from '$lib/components/ui/Image.svelte';
 	import { logo_small_clear, name, pronouns } from '$lib/store';
-	import Slogan from '$lib/components/blocks/Slogan.svelte';
+	import Slogan from '$lib/components/ui/Slogan.svelte';
 	import { onMount } from 'svelte';
 
 	const navItems = [

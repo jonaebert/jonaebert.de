@@ -6,7 +6,7 @@
 	import Image from '$lib/components/ui/Image.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 	import { Icon } from '$lib/components/icons';
-	import SharePanel from '$lib/components/blocks/SharePanel.svelte';
+	import SharePanel from '$lib/components/ui/SharePanel.svelte';
 
 	export let data;
 	let { post, previousPost, nextPost } = data;

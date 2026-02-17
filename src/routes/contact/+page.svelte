@@ -8,7 +8,7 @@
 		je_cms_base_url,
 		cf_public_turnstile_site_key
 	} from '$lib/store';
-	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
+	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
 	import { page } from '$app/stores';
 	import Turnstile from '$lib/components/security/Turnstile.svelte';
 	import Error from '../+error.svelte';
