@@ -10,7 +10,8 @@
 		faMastodon,
 		faBluesky,
 		faFacebookF
-	} from '@fortawesome/free-brands-svg-icons';
+	} from '@fortawesome/free-brands-svg-icons'; // For new Icons: https://fontawesome.com/search
+	import { faRss } from '@fortawesome/free-solid-svg-icons';
 
 	type SocialLink = {
 		href: string;
@@ -31,7 +32,8 @@
 		{ href: 'https://www.youtube.com/@jonaebertbs', icon: faYoutube, label: 'YouTube' },
 		{ href: 'https://www.tiktok.com/@jonaebertbs', icon: faTiktok, label: 'TikTok' },
 		{ href: 'https://www.linkedin.com/in/jonaebert', icon: faLinkedinIn, label: 'LinkedIn' },
-		{ href: 'https://github.com/jonaebert', icon: faGithub, label: 'GitHub' }
+		{ href: 'https://github.com/jonaebert', icon: faGithub, label: 'GitHub' },
+		{ href: '/rss.xml', icon: faRss, label: 'RSS Feed' }
 	];
 </script>
 
