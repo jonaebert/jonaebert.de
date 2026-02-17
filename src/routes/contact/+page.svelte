@@ -354,7 +354,8 @@
 
 								{#if !turnstileToken}
 									<p id="turnstile-help" class="text-xs text-zinc-600 dark:text-zinc-400">
-										Zum Schutz vor automatisierten Nachrichten. Kein Captcha-Rätsel – nur ein kurzer Check.
+										Zum Schutz vor automatisierten Nachrichten. Kein Captcha-Rätsel – nur ein kurzer
+										Check.
 									</p>
 								{/if}
 							</div>
@@ -364,11 +365,7 @@
 									<button
 										type="submit"
 										disabled={!turnstileToken}
-										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
-			px-6 py-3 rounded-xl text-sm font-medium
-			bg-accent text-white bg-accent-hover transition
-			disabled:opacity-50 disabled:cursor-not-allowed
-			sm:h-full"
+										class="inline-flex w-full sm:w-auto sm:min-w-40 items-center justify-center px-6 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition disabled:opacity-50 disabled:cursor-not-allowed sm:h-full"
 									>
 										Senden
 									</button>
@@ -376,10 +373,7 @@
 									<button
 										type="button"
 										disabled
-										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
-			px-6 py-3 rounded-xl text-sm font-medium
-			bg-accent/20 text-accent border border-accent/30 cursor-not-allowed
-			sm:h-full"
+										class="inline-flex w-full sm:w-auto sm:min-w-40 items-center justify-center px-6 py-3 rounded-xl text-sm font-medium bg-accent/20 text-accent border border-accent/30 cursor-not-allowed sm:h-full"
 									>
 										<span
 											class="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin mr-3"
@@ -388,18 +382,15 @@
 									</button>
 								{:else if submitting === 2}
 									<div
-										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
-			rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent
-			sm:h-full"
+										class="inline-flex w-full sm:w-auto sm:min-w-40 items-center justify-center rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent sm:h-full"
 									>
 										💚 Versendet
 									</div>
 								{:else}
 									<!-- Error-State darf ruhig "auto" sein, sonst wird's zu hoch -->
-									<div class="w-full sm:w-[280px]">
+									<div class="w-full sm:w-70">
 										<div
-											class="rounded-xl border border-red-200/70 dark:border-red-900/60
-				bg-red-50/70 dark:bg-red-950/30 p-4 text-sm text-red-700 dark:text-red-300"
+											class="rounded-xl border border-red-200/70 dark:border-red-900/60 bg-red-50/70 dark:bg-red-950/30 p-4 text-sm text-red-700 dark:text-red-300"
 										>
 											<div class="font-semibold">Fehler!</div>
 											<div>Nachricht konnte nicht versendet werden.</div>
