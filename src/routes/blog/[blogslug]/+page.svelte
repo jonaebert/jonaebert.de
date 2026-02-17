@@ -134,7 +134,7 @@
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 dark:hover:text-zinc-100 hover:cursor-pointer"
+						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
