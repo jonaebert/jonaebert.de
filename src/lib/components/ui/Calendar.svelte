@@ -95,7 +95,9 @@
 		<div class="flex items-center justify-between">
 			<div>
 				<div class="text-sm font-medium">Nächste Termine</div>
-				<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Öffentliche Einträge</div>
+				<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+					Begegnungen, Veranstaltungen und Impulse für eine nachhaltige Zukunft.
+				</div>
 			</div>
 		</div>
 
