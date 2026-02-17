@@ -17,8 +17,11 @@
 		| 'info'
 		| 'link'
 		| 'meet'
+		| 'monitor'
+		| 'moon'
 		| 'pin'
 		| 'star'
+		| 'sun'
 		| 'x';
 
 	export let name: IconName;
@@ -102,6 +105,16 @@
 					<path d="M19 8v6" />
 					<path d="M22 11h-6" />
 				`;
+			case 'monitor':
+				return `
+					<rect x="3" y="4" width="18" height="14" rx="2" stroke-linejoin="round"/>
+					<path d="M8 20h8" stroke-linecap="round"/>
+					<path d="M12 18v2" stroke-linecap="round"/>
+				`;
+			case 'moon':
+				return `
+					<path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" stroke-linejoin="round"/>
+				`;
 			case 'pin':
 				return `
 					<path d="M12 22c-4-4.2-7-7.6-7-11a7 7 0 1114 0c0 3.4-3 6.8-7 11z" stroke-linejoin="round"/>
@@ -110,6 +123,18 @@
 			case 'star':
 				return `
 					<path d="M12 2.7l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.8 6.4 19.9l1.1-6.2L3 9.3l6.2-.9L12 2.7z" stroke-linejoin="round"/>
+				`;
+			case 'sun':
+				return `
+					<circle cx="12" cy="12" r="4" />
+					<path d="M12 2v2" stroke-linecap="round"/>
+					<path d="M12 20v2" stroke-linecap="round"/>
+					<path d="M4.93 4.93l1.41 1.41" stroke-linecap="round"/>
+					<path d="M17.66 17.66l1.41 1.41" stroke-linecap="round"/>
+					<path d="M2 12h2" stroke-linecap="round"/>
+					<path d="M20 12h2" stroke-linecap="round"/>
+					<path d="M4.93 19.07l1.41-1.41" stroke-linecap="round"/>
+					<path d="M17.66 6.34l1.41-1.41" stroke-linecap="round"/>
 				`;
 			case 'x':
 				return `
