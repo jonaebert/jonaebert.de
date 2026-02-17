@@ -110,16 +110,15 @@
 							</p>
 
 							<p class="mt-3 text-zinc-900/80 dark:text-zinc-400 max-w-2xl leading-relaxed">
-								Ich setze mich für eine linke, solidarische Kommunalpolitik ein, die ökologische
-								Verantwortung und soziale Gerechtigkeit zusammen denkt. Ziel ist eine lebenswerte
-								Stadt mit langfristig tragfähigen Lösungen – gemeinsam mit den Menschen vor Ort.
+								Ich setze mich für eine Kommunalpolitik ein, die ökologische Verantwortung und
+								soziale Gerechtigkeit zusammen denkt. Ziel ist eine lebenswerte Stadt mit
+								langfristig tragfähigen Lösungen – gemeinsam mit den Menschen vor Ort.
 							</p>
 						</div>
 						<div class="mt-3 sm:hidden">
 							<button
 								type="button"
-								class="inline-flex items-center gap-2 text-sm font-medium text-accent
-           hover:underline underline-offset-4"
+								class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline underline-offset-4"
 								on:click={() => (heroExpanded = !heroExpanded)}
 								aria-expanded={heroExpanded}
 							>
@@ -141,14 +140,14 @@
 					<div class="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:gap-3">
 						<a
 							href="/about"
-							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 transition dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white"
+							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white hover:scale-105 transition-transform duration-300"
 						>
 							Über mich
 						</a>
 
 						<a
 							href="/contact"
-							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+							class="inline-flex w-full sm:w-auto items-center justify-center px-4 py-2.5 rounded-xl text-sm font-medium ring-1 ring-inset ring-accent/40 text-accent hover:bg-zinc-50 dark:hover:bg-zinc-900/40 hover:scale-105 transition-transform duration-300"
 						>
 							Kontakt
 						</a>
