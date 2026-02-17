@@ -250,7 +250,7 @@
 						></textarea>
 						<div class="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
 							<span
-								class:text-amber-600={messageText.length >= messageMax*0.9 &&
+								class:text-amber-600={messageText.length >= messageMax * 0.9 &&
 									messageText.length < messageMax}
 								class:text-red-600={messageText.length >= messageMax}
 								class="transition-colors"
@@ -271,10 +271,7 @@
 								value="true"
 								bind:checked={barrierChecked}
 								disabled={disable(submitting)}
-								class="h-5 w-5 rounded-md border border-zinc-300 dark:border-zinc-700
-								bg-white dark:bg-zinc-950
-								accent-accent
-								focus:outline-none focus:ring-2 ring-accent/40"
+								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200"
 								>Ich möchte eine Barriere melden.</span
@@ -289,10 +286,7 @@
 								value="true"
 								required
 								disabled={disable(submitting)}
-								class="h-5 w-5 rounded-md border border-zinc-300 dark:border-zinc-700
-								bg-white dark:bg-zinc-950
-								accent-accent
-								focus:outline-none focus:ring-2 ring-accent/40"
+								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200">
 								Ich bin mit der
@@ -312,7 +306,7 @@
 						{#if submitting === 0}
 							<button
 								type="submit"
-								class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
+								class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
 								bg-accent text-white bg-accent-hover transition"
 							>
 								Senden
@@ -321,7 +315,7 @@
 							<button
 								type="button"
 								disabled
-								class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
+								class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
 								bg-accent/20 text-accent border border-accent/30 cursor-not-allowed"
 							>
 								<span
@@ -331,13 +325,13 @@
 							</button>
 						{:else if submitting === 2}
 							<div
-								class="relative overflow-hidden rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent"
+								class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent"
 							>
 								💚 Danke! Deine Nachricht wurde versendet.
 							</div>
 						{:else}
 							<div
-								class="rounded-xl border border-red-200/70 dark:border-red-900/60
+								class="w-full sm:w-auto rounded-xl border border-red-200/70 dark:border-red-900/60
 								bg-red-50/70 dark:bg-red-950/30 p-4 text-sm text-red-700 dark:text-red-300"
 							>
 								<div class="font-semibold">Fehler!</div>
@@ -348,7 +342,7 @@
 							<div class="mt-4 flex flex-wrap gap-3">
 								<button
 									type="button"
-									class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
+									class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
 									on:click={() => formEl?.requestSubmit()}
 								>
 									Erneut senden
@@ -356,7 +350,7 @@
 
 								<button
 									type="button"
-									class="inline-flex items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+									class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
 									on:click={() => (submitting = 0)}
 								>
 									Zurück
