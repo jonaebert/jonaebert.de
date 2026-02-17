@@ -272,47 +272,51 @@
 
 	<!-- Prev/Next Post -->
 	{#if previousPost || nextPost}
-		<div class="grid gap-4 sm:grid-cols-2 pt-6 sm:pt-8">
+		<div class="grid gap-4 pt-6 sm:pt-8 sm:grid-cols-2">
 			{#if previousPost}
 				<a
 					href={`/blog/${previousPost.documentId}`}
 					on:click|preventDefault={() => goto(`/blog/${previousPost.documentId}`)}
-					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+					class="group rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70
+				       bg-white dark:bg-zinc-950 p-4 sm:p-5
+				       hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition
+				       min-w-0"
 				>
-					<div class="flex items-center gap-3 min-w-0">
-						<div>
-							<Icon
-								name="arrow-left"
-								classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
-							/>
-						</div>
+					<div class="grid min-w-0 grid-cols-[auto_auto_1fr] items-center gap-3">
+						<Icon
+							name="arrow-left"
+							classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400
+						         group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+						/>
 
-						<div>
-							<Image
-								src={getCoverUrl(previousPost.cover, false) ?? ''}
-								alt={previousPost.cover?.alternativeText ?? previousPost.title}
-								classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-								loading="lazy"
-								copyright={previousPost.copyright?.enabled
-									? [
-											{
-												enabled: true,
-												name: previousPost.copyright?.name,
-												url: previousPost.copyright?.url || '',
-												compact: true
-											}
-										]
-									: []}
-							/>
-						</div>
+						<Image
+							src={getCoverUrl(previousPost.cover, false)!}
+							alt={previousPost.cover?.alternativeText ?? previousPost.title}
+							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+							loading="lazy"
+							copyright={previousPost.copyright?.enabled
+								? [
+										{
+											enabled: previousPost.copyright?.enabled,
+											name: previousPost.copyright?.name,
+											url: previousPost.copyright?.url || '',
+											compact: true
+										}
+									]
+								: []}
+						/>
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriger Beitrag</div>
+
 							<div
-								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100
+							       group-hover:underline
+							       min-w-0 wrap-break-word line-clamp-2"
 							>
 								{previousPost.title}
 							</div>
+
 							<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
 								{FormatDate(previousPost.createdAt, 'date')}
 							</div>
@@ -327,45 +331,49 @@
 				<a
 					href={`/blog/${nextPost.documentId}`}
 					on:click|preventDefault={() => goto(`/blog/${nextPost.documentId}`)}
-					class="group flex items-center justify-between gap-4 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+					class="group rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70
+				       bg-white dark:bg-zinc-950 p-4 sm:p-5
+				       hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition
+				       min-w-0"
 				>
-					<div class="flex items-center gap-3 min-w-0">
-						<div>
-							<Image
-								src={getCoverUrl(nextPost.cover, false) ?? ''}
-								alt={nextPost.cover?.alternativeText ?? nextPost.title}
-								classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-								loading="lazy"
-								copyright={nextPost.copyright?.enabled
-									? [
-											{
-												enabled: true,
-												name: nextPost.copyright?.name,
-												url: nextPost.copyright?.url || '',
-												compact: true
-											}
-										]
-									: []}
-							/>
-						</div>
+					<div class="grid min-w-0 grid-cols-[auto_auto_1fr_auto] items-center gap-3">
+						<Image
+							src={getCoverUrl(nextPost.cover, false)!}
+							alt={nextPost.cover?.alternativeText ?? nextPost.title}
+							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+							loading="lazy"
+							copyright={nextPost.copyright?.enabled
+								? [
+										{
+											enabled: nextPost.copyright?.enabled,
+											name: nextPost.copyright?.name,
+											url: nextPost.copyright?.url || '',
+											compact: true
+										}
+									]
+								: []}
+						/>
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächster Beitrag</div>
+
 							<div
-								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100 group-hover:underline truncate"
+								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100
+							       group-hover:underline
+							       min-w-0 wrap-break-word line-clamp-2"
 							>
 								{nextPost.title}
 							</div>
+
 							<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
 								{FormatDate(nextPost.createdAt, 'date')}
 							</div>
 						</div>
-					</div>
 
-					<div>
 						<Icon
 							name="arrow-right"
-							classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
+							classes="h-5 w-5 shrink-0 text-zinc-500 dark:text-zinc-400
+						         group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
 						/>
 					</div>
 				</a>

@@ -371,7 +371,7 @@
 							<div
 								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100
 							       group-hover:underline
-							       min-w-0 break-words line-clamp-2"
+							       min-w-0 wrap-break-word line-clamp-2"
 							>
 								{previousEvent.subject}
 							</div>
@@ -419,7 +419,7 @@
 							<div
 								class="mt-1 font-semibold text-zinc-900 dark:text-zinc-100
 							       group-hover:underline
-							       min-w-0 break-words line-clamp-2"
+							       min-w-0 wrap-break-word line-clamp-2"
 							>
 								{nextEvent.subject}
 							</div>
