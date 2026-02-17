@@ -2,13 +2,19 @@
 	import {
 		address,
 		contact,
-		name as siteName,
+		name,
 		uri,
 		n8n_contact_url,
-		je_cms_base_url
+		je_cms_base_url,
+		cf_public_turnstile_site_key
 	} from '$lib/store';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
 	import { page } from '$app/stores';
+	import Turnstile from '$lib/components/security/Turnstile.svelte';
+	import Error from '../+error.svelte';
+
+	let turnstileToken = '';
+	let turnstileRef: Turnstile | null = null;
 
 	$: barrierParam = $page.url.searchParams.get('barrier');
 	$: barrierChecked = barrierParam === 'true';
@@ -47,8 +53,17 @@
 			const message = formData.get('message');
 
 			if (privacy !== 'true') throw new Error('Privacy not accepted');
+			if (!turnstileToken) throw new Error('Bitte Spam-Schutz abschließen.');
 
-			const payload = { privacy, barrier, name: senderName, pronouns, email, message };
+			const payload = {
+				privacy,
+				barrier,
+				name: senderName,
+				pronouns,
+				email,
+				message,
+				turnstileToken
+			};
 
 			const contactRes = await fetch(`${n8n_contact_url}`, {
 				method: 'POST',
@@ -66,11 +81,15 @@
 			setTimeout(() => {
 				submitting = 0;
 			}, 8000);
+			turnstileRef?.reset();
+			turnstileToken = '';
 		} catch (error: any) {
 			console.error('Error when sending the message:', error);
 			formError = error;
 			submitting = 3;
 			response = { error: error?.message ?? String(error) };
+			turnstileRef?.reset();
+			turnstileToken = '';
 		}
 	}
 </script>
@@ -302,61 +321,113 @@
 						</label>
 					</div>
 
-					<div class="pt-3">
-						{#if submitting === 0}
-							<button
-								type="submit"
-								class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
-								bg-accent text-white bg-accent-hover transition"
-							>
-								Senden
-							</button>
-						{:else if submitting === 1}
-							<button
-								type="button"
-								disabled
-								class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium
-								bg-accent/20 text-accent border border-accent/30 cursor-not-allowed"
-							>
-								<span
-									class="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin mr-3"
-								></span>
-								Wird gesendet…
-							</button>
-						{:else if submitting === 2}
-							<div
-								class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent"
-							>
-								💚 Danke! Deine Nachricht wurde versendet.
-							</div>
-						{:else}
-							<div
-								class="w-full sm:w-auto rounded-xl border border-red-200/70 dark:border-red-900/60
-								bg-red-50/70 dark:bg-red-950/30 p-4 text-sm text-red-700 dark:text-red-300"
-							>
-								<div class="font-semibold">Fehler!</div>
-								<div>Nachricht konnte nicht versendet werden.</div>
-								<pre class="mt-2 text-xs whitespace-pre-wrap opacity-90">{response?.error ??
-										formError}</pre>
-							</div>
-							<div class="mt-4 flex flex-wrap gap-3">
-								<button
-									type="button"
-									class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
-									on:click={() => formEl?.requestSubmit()}
+					<div class="pt-4">
+						<div class="grid gap-3 sm:gap-4 sm:grid-cols-[minmax(0,1fr)_auto]">
+							<!-- Row 1: Label + Status (span both columns on desktop) -->
+							<div class="flex items-center justify-between sm:col-span-2">
+								<div
+									id="turnstile-label"
+									class="text-sm font-medium text-zinc-800 dark:text-zinc-200"
 								>
-									Erneut senden
-								</button>
+									Kurze Sicherheitsbestätigung <span class="font-semibold">*</span>
+								</div>
 
-								<button
-									type="button"
-									class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-									on:click={() => (submitting = 0)}
-								>
-									Zurück
-								</button>
+								{#if turnstileToken}
+									<span
+										class="inline-flex items-center gap-2 rounded-full px-2.5 py-1 text-[11px] bg-accent/10 text-accent border border-accent/20"
+									>
+										<span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+										Bestätigt
+									</span>
+								{/if}
 							</div>
-						{/if}
+
+							<!-- Row 2: Widget left, Button right (aligned nicely) -->
+							<div class="space-y-2">
+								<Turnstile
+									bind:this={turnstileRef}
+									siteKey={cf_public_turnstile_site_key}
+									theme="auto"
+									compact
+									on:token={(e) => (turnstileToken = e.detail)}
+								/>
+
+								{#if !turnstileToken}
+									<p id="turnstile-help" class="text-xs text-zinc-600 dark:text-zinc-400">
+										Zum Schutz vor automatisierten Nachrichten. Kein Captcha-Rätsel – nur ein kurzer Check.
+									</p>
+								{/if}
+							</div>
+
+							<div class="sm:self-stretch">
+								{#if submitting === 0}
+									<button
+										type="submit"
+										disabled={!turnstileToken}
+										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
+			px-6 py-3 rounded-xl text-sm font-medium
+			bg-accent text-white bg-accent-hover transition
+			disabled:opacity-50 disabled:cursor-not-allowed
+			sm:h-full"
+									>
+										Senden
+									</button>
+								{:else if submitting === 1}
+									<button
+										type="button"
+										disabled
+										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
+			px-6 py-3 rounded-xl text-sm font-medium
+			bg-accent/20 text-accent border border-accent/30 cursor-not-allowed
+			sm:h-full"
+									>
+										<span
+											class="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin mr-3"
+										></span>
+										Wird gesendet…
+									</button>
+								{:else if submitting === 2}
+									<div
+										class="inline-flex w-full sm:w-auto sm:min-w-[160px] items-center justify-center
+			rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-accent
+			sm:h-full"
+									>
+										💚 Versendet
+									</div>
+								{:else}
+									<!-- Error-State darf ruhig "auto" sein, sonst wird's zu hoch -->
+									<div class="w-full sm:w-[280px]">
+										<div
+											class="rounded-xl border border-red-200/70 dark:border-red-900/60
+				bg-red-50/70 dark:bg-red-950/30 p-4 text-sm text-red-700 dark:text-red-300"
+										>
+											<div class="font-semibold">Fehler!</div>
+											<div>Nachricht konnte nicht versendet werden.</div>
+											<pre class="mt-2 text-xs whitespace-pre-wrap opacity-90">{response?.error ??
+													formError}</pre>
+										</div>
+
+										<div class="mt-3 flex flex-wrap gap-3">
+											<button
+												type="button"
+												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
+												on:click={() => formEl?.requestSubmit()}
+											>
+												Erneut senden
+											</button>
+
+											<button
+												type="button"
+												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
+												on:click={() => (submitting = 0)}
+											>
+												Zurück
+											</button>
+										</div>
+									</div>
+								{/if}
+							</div>
+						</div>
 					</div>
 				</form>
 			</div>
@@ -416,7 +487,7 @@
 						>
 							<div class="text-sm font-medium text-zinc-900 dark:text-zinc-100">Post</div>
 							<div class="mt-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
-								{siteName}<br />
+								{name}<br />
 								{address.street}<br />
 								{address.zipcode}
 								{address.city}<br />
