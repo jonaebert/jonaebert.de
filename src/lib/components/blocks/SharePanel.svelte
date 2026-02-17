@@ -130,7 +130,7 @@
 			on:click={copyToClipboard}
 			disabled={copyBusy}
 			class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-medium
-			       bg-accent text-white hover:bg-accent-hover disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer"
+			       bg-accent text-white hover:bg-accent-hover disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer hover:scale-105 transition-transform ease-in-out duration-300"
 			title="Link in die Zwischenablage"
 		>
 			{#if copied}
