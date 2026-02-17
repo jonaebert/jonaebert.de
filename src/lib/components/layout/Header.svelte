@@ -47,12 +47,12 @@
 				<div class="min-w-0 leading-tight">
 					<div class="font-semibold tracking-tight text-[15px] sm:text-base">
 						{name}
-						<span class="hidden sm:block text-zinc-500 dark:text-zinc-400 font-medium"
+						<span class="hidden sm:inline text-zinc-500 dark:text-zinc-400 font-medium"
 							>({pronouns})</span
 						>
 					</div>
 					<!-- Auf sehr kleinen Screens optional ausblenden -->
-					<div class="hidden xs:block text-xs text-zinc-500 dark:text-zinc-400 truncate">
+					<div class="hidden sm:block text-xs text-zinc-500 dark:text-zinc-400 truncate">
 						<Slogan />
 					</div>
 				</div>
@@ -133,7 +133,7 @@
 		>
 			<div class="pt-2">
 				<!-- Slogan auf mobile sichtbar (unter Menü) -->
-				<div class="xs:hidden text-xs text-zinc-500 dark:text-zinc-400 px-2 pb-3">
+				<div class="sm:hidden text-xs text-zinc-500 dark:text-zinc-400 px-2 pb-3">
 					<Slogan />
 				</div>
 
