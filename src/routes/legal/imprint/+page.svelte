@@ -8,7 +8,7 @@
 		{ label: 'LinkedIn', handle: '@jonaebert' },
 		{ label: 'Mastodon', handle: '@jonaebertbs' },
 		{ label: 'Threads', handle: '@jonaebertbs' },
-		{ label: 'TikTok', handle: '@jona_ebert' },
+		{ label: 'TikTok', handle: '@jonaebertbs' },
 		{ label: 'YouTube', handle: '@jonaebert' }
 	];
 
