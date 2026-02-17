@@ -473,9 +473,11 @@
 							<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
 								{#each items[section.key] as item}
 									<div
-										class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5 w-fit max-w-52 sm:max-w-none mx-auto sm:mx-0 ml-6 sm:ml-0"
+										class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5 w-full max-w-full min-w-0 mx-0"
 									>
-										<div class="flex items-start justify-between gap-3">
+										<div
+											class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 min-w-0"
+										>
 											<div>
 												<div class="text-lg font-semibold text-zinc-950 dark:text-zinc-100">
 													{item.category}
@@ -484,7 +486,6 @@
 													Schwerpunkte, Tools & Sprachen
 												</div>
 											</div>
-											<span class={chipClasses('neutral')}>Kompetenzen</span>
 										</div>
 
 										{#if item.subcategories}
