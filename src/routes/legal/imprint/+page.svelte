@@ -27,7 +27,7 @@
 	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="container mx-auto py-10 sm:py-14">
+<div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
 	<header class="mx-auto max-w-5xl">
 		<p class="text-sm tracking-wide text-zinc-600 dark:text-zinc-400">Rechtliches</p>
 		<h1 class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
@@ -35,7 +35,9 @@
 		</h1>
 	</header>
 
-	<div class="mx-auto mt-8 grid max-w-5xl gap-6 lg:grid-cols-[18rem_1fr] lg:items-start">
+	<div
+		class="mt-8 grid w-full max-w-5xl mx-auto gap-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start"
+	>
 		<!-- TOC -->
 		<aside class="lg:sticky lg:top-24">
 			<details
@@ -70,10 +72,10 @@
 		</aside>
 
 		<!-- Content -->
-		<div class="grid gap-6">
+		<div class="grid gap-6 min-w-0">
 			<section
 				id="tmg"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Angaben gemäß § 5 Telemediengesetz
@@ -89,7 +91,7 @@
 
 			<section
 				id="contact"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">Kontakt</h2>
 
@@ -105,7 +107,7 @@
 						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">Web</div>
 						<div class="mt-1">
 							<a
-								class="text-accent underline underline-offset-4"
+								class="text-accent underline underline-offset-4 break-all"
 								href={contact.web}
 								rel="me noopener noreferrer"
 							>
@@ -129,7 +131,7 @@
 
 			<section
 				id="responsible"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
@@ -145,7 +147,7 @@
 
 			<section
 				id="disclaimer"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Haftungsausschluss
@@ -168,7 +170,7 @@
 
 			<section
 				id="links"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h3 class="text-base sm:text-lg font-semibold text-zinc-950 dark:text-zinc-50">
 					Haftung für Links
@@ -187,7 +189,7 @@
 
 			<section
 				id="social"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Social Media
