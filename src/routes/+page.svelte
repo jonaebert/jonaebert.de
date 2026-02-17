@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { je_cms_base_url, name, pronouns } from '$lib/store.js';
 	import { FormatDate } from '$lib/util/date.js';
-	import Calendar from '$lib/components/blocks/Calendar.svelte';
-	import Blog from '$lib/components/blocks/Blog.svelte';
+	import Calendar from '$lib/components/ui/Calendar.svelte';
+	import Blog from '$lib/components/ui/Blog.svelte';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Slogan from '$lib/components/blocks/Slogan.svelte';
 	import SocialIcons from '$lib/components/blocks/SocialIcons.svelte';
