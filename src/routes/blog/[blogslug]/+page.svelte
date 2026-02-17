@@ -202,9 +202,9 @@
 		<div
 			class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-6 sm:p-8"
 		>
-			<div class="grid gap-8 lg:grid-cols-12">
+			<div class="grid gap-8 lg:grid-cols-12 min-w-0">
 				<!-- Left column -->
-				<div class="lg:col-span-8 space-y-6">
+				<div class="lg:col-span-8 min-w-0 space-y-6">
 					{#if post?.cover}
 						<div
 							class="md:float-right md:ml-6 md:mb-4 mb-4 overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 w-full md:w-64"
