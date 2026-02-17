@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { je_cms_base_url } from '$lib/store.js';
 	import Image from '$lib/components/ui/Image.svelte';
-	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
 
 	export let files: array;
 
@@ -125,8 +124,29 @@
 			</div>
 		</div>
 	{:else}
-		<div class="flex text-center justify-start my-2">
-			<InfoMessage message="Keine Bilder vorhanden."></InfoMessage>
+		<div class="my-4">
+			<div
+				class="flex items-center gap-3 rounded-2xl border border-zinc-200/70 bg-zinc-50/80 px-4 py-3 text-sm text-zinc-700 shadow-sm backdrop-blur-sm
+		dark:border-zinc-800/70 dark:bg-zinc-900/50 dark:text-zinc-300"
+			>
+				<!-- Icon -->
+				<svg
+					class="h-5 w-5 shrink-0 text-zinc-400 dark:text-zinc-500"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<rect x="3" y="5" width="18" height="14" rx="2" />
+					<circle cx="8.5" cy="10.5" r="1.5" />
+					<path d="M21 15l-5-5L5 21" />
+				</svg>
+
+				<p>Aktuell sind hier keine Bilder hinterlegt.</p>
+			</div>
 		</div>
 	{/if}
 </div>
