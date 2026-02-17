@@ -21,7 +21,7 @@
 	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="container mx-auto py-10 sm:py-14">
+<div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
 	<!-- Header -->
 	<header class="mx-auto max-w-5xl">
 		<p class="text-sm tracking-wide text-zinc-600 dark:text-zinc-400">Rechtliches</p>
@@ -31,11 +31,13 @@
 	</header>
 
 	<!-- Layout: TOC + Content -->
-	<div class="mx-auto mt-8 grid max-w-5xl gap-6 lg:grid-cols-[18rem_1fr] lg:items-start">
+	<div
+		class="mt-8 grid w-full max-w-5xl mx-auto gap-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start"
+	>
 		<!-- TOC -->
-		<aside class="lg:sticky lg:top-24">
+		<aside class="lg:sticky lg:top-24 min-w-0">
 			<details
-				class="rounded-3xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 lg:open"
+				class="w-full min-w-0 rounded-3xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 lg:open"
 				open
 			>
 				<summary class="cursor-pointer select-none list-none">
@@ -55,7 +57,7 @@
 							<li>
 								<a
 									href={`#${item.id}`}
-									class="block rounded-2xl px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100/70 dark:text-zinc-300 dark:hover:bg-zinc-900/40"
+									class="block rounded-2xl px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100/70 dark:text-zinc-300 dark:hover:bg-zinc-900/40 break-all"
 								>
 									<span class="text-accent">#</span>
 									{item.label}
@@ -68,11 +70,11 @@
 		</aside>
 
 		<!-- Content -->
-		<div class="grid gap-6">
+		<div class="grid gap-6 min-w-0">
 			<!-- Intro -->
 			<section
 				id="intro"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<p class="leading-relaxed text-zinc-700 dark:text-zinc-300">
 					Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der
@@ -88,7 +90,7 @@
 			<!-- Controller -->
 			<section
 				id="controller"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Wer bei uns für die Datenverarbeitung verantwortlich ist
@@ -109,14 +111,14 @@
 
 					<div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href={`mailto:${contact.mail}`}
 						>
 							{contact.mail}
 						</a>
 
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="/legal/imprint"
 						>
 							{$uri.url.protocol}//{$uri.url.host}/legal/imprint
@@ -128,7 +130,7 @@
 			<!-- Rights -->
 			<section
 				id="rights"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<div class="flex items-start justify-between gap-4">
 					<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
@@ -231,7 +233,7 @@
 			<!-- Deletion -->
 			<section
 				id="deletion"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Wann löschen wir Ihre Daten?
@@ -292,7 +294,7 @@
 			<!-- Hosting -->
 			<section
 				id="hosting"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Webhosting
@@ -318,9 +320,9 @@
 				</ul>
 
 				<p class="mt-5 text-zinc-700 dark:text-zinc-300">
-					protokolliert werden. Die vorgenannten Daten werden als Logfiles auf den Servern unseres Anbieters gespeichert.
-					Dies ist erforderlich, um die Stabilität und Sicherheit des Betriebs unserer Internetseite
-					zu gewährleisten.
+					protokolliert werden. Die vorgenannten Daten werden als Logfiles auf den Servern unseres
+					Anbieters gespeichert. Dies ist erforderlich, um die Stabilität und Sicherheit des
+					Betriebs unserer Internetseite zu gewährleisten.
 				</p>
 
 				<div class="mt-6 grid gap-4 sm:grid-cols-2">
@@ -358,7 +360,7 @@
 					</p>
 					<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="https://www.hetzner.de/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -366,7 +368,7 @@
 							Internetseite
 						</a>
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="https://www.hetzner.de/rechtliches/datenschutz"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -380,7 +382,7 @@
 			<!-- CDN -->
 			<section
 				id="cdn"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Content-Delivery-Network
@@ -435,19 +437,19 @@
 
 						<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
 							<a
-								class="text-accent underline underline-offset-4"
+								class="text-accent underline underline-offset-4 break-all"
 								href="https://www.cloudflare.com/"
 								target="_blank"
 								rel="noopener noreferrer">Internetseite</a
 							>
 							<a
-								class="text-accent underline underline-offset-4"
+								class="text-accent underline underline-offset-4 break-all"
 								href="https://www.cloudflare.com/privacypolicy/"
 								target="_blank"
 								rel="noopener noreferrer">Datenschutzerklärung</a
 							>
 							<a
-								class="text-accent underline underline-offset-4"
+								class="text-accent underline underline-offset-4 break-all"
 								href="https://blog.cloudflare.com/what-cloudflare-logs/"
 								target="_blank"
 								rel="noopener noreferrer">Umfang der Datenerfassung</a
@@ -460,7 +462,7 @@
 			<!-- Contact -->
 			<section
 				id="contact"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Kontaktaufnahme
@@ -501,7 +503,7 @@
 
 					<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="https://www.cloudflare.com/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -509,7 +511,7 @@
 							Internetseite
 						</a>
 						<a
-							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700"
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="https://www.cloudflare.com/privacypolicy/"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -559,7 +561,7 @@
 
 					<div class="mt-3">
 						<a
-							class="text-accent underline underline-offset-4"
+							class="text-accent underline underline-offset-4 break-all"
 							href="https://www.hetzner.de/rechtliches/datenschutz"
 							target="_blank"
 							rel="noopener noreferrer"
@@ -573,7 +575,7 @@
 			<!-- Content services -->
 			<section
 				id="content-services"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Content-Dienste
@@ -610,7 +612,7 @@
 			<!-- Social -->
 			<section
 				id="social"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Unsere Onlinepräsenzen bei sozialen Netzwerken
@@ -628,7 +630,7 @@
 			<!-- Security -->
 			<section
 				id="security"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Sicherheitsmaßnahmen
@@ -643,15 +645,16 @@
 			<!-- Updates -->
 			<section
 				id="updates"
-				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
 				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
 					Aktualität und Änderung dieser Datenschutzerklärung
 				</h2>
 
 				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
-					Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong>17. Februar 2026</strong>.
-					Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden,
+					Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong
+						>17. Februar 2026</strong
+					>. Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden,
 					diese Datenschutzerklärung anzupassen.
 				</p>
 			</section>

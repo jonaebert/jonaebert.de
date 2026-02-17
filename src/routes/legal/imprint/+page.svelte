@@ -39,9 +39,9 @@
 		class="mt-8 grid w-full max-w-5xl mx-auto gap-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start"
 	>
 		<!-- TOC -->
-		<aside class="lg:sticky lg:top-24">
+		<aside class="lg:sticky lg:top-24 min-w-0">
 			<details
-				class="rounded-3xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 lg:open"
+				class="w-full min-w-0 rounded-3xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 lg:open"
 				open
 			>
 				<summary class="cursor-pointer select-none list-none">
