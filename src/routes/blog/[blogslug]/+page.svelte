@@ -12,7 +12,7 @@
 	let { post, previousPost, nextPost } = data;
 
 	/* -----------------------------
-	   Post Daten aufbereiten
+	   Prepare post data
 	----------------------------- */
 	$: {
 		post = data.post;
@@ -21,7 +21,7 @@
 	}
 
 	/* -----------------------------
-	   Cover URL (wie Events)
+	   Cover URL
 	----------------------------- */
 	function getCoverUrl(cover: any, highresolution: boolean): string | null {
 		if (!cover) return null;
@@ -78,7 +78,7 @@
 	}
 
 	/* -----------------------------
-	   Teilen / Clipboard
+	   Share / Clipboard
 	----------------------------- */
 	let shared = false;
 	let busy = false;
@@ -113,7 +113,7 @@
 
 <section class="container py-10 sm:py-14">
 	<div class="max-w-5xl mx-auto space-y-6">
-		<!-- HEADER / HERO (wie Eventseite) -->
+		<!-- HEADER / HERO -->
 		<div
 			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
@@ -122,7 +122,7 @@
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(post.cover, true)});"
 				></div>
-				<div class="absolute inset-0 bg-white/80 dark:bg-zinc-950/80"></div>
+				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 			{:else}
 				<div
 					class="absolute inset-0 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
@@ -134,23 +134,23 @@
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:cursor-pointer"
+						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 dark:hover:text-zinc-100 hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
 					</button>
 
-					<!-- Meta rechts: Typ + Autor + Datum -->
+					<!-- Meta right: Typ + Author + Date -->
 					<div class="flex flex-wrap items-center justify-end gap-2">
 						<!-- Posttyp -->
 						<span
-							class="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-accent/10 text-accent border-accent/30"
+							class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
 						>
 							<Icon name={post.type} classes="h-4 w-4" />
 							<span>{typeLabel(post?.type)}</span>
 						</span>
 
-						<!-- Autor -->
+						<!-- Author -->
 						{#if post?.author?.name}
 							<span
 								class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
@@ -174,7 +174,7 @@
 							</span>
 						{/if}
 
-						<!-- Datum -->
+						<!-- Date -->
 						{#if post?.createdAt}
 							<span
 								class="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
@@ -186,19 +186,19 @@
 					</div>
 				</div>
 
-				<h1 class="text-2xl sm:text-3xl font-semibold text-zinc-950 dark:text-zinc-50">
+				<h1 class="text-2xl sm:text-3xl font-semibold text-white">
 					{post?.title}
 				</h1>
 
 				{#if post?.description}
-					<p class="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 max-w-3xl">
+					<p class="text-sm sm:text-base text-white/90 max-w-3xl">
 						{post.description}
 					</p>
 				{/if}
 			</div>
 		</div>
 
-		<!-- Content (wie Eventseite) -->
+		<!-- Content -->
 		<div
 			class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-6 sm:p-8"
 		>
@@ -238,14 +238,14 @@
 
 				<!-- Right column (sticky) -->
 				<aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-24 self-start">
-					<!-- Teilen -->
+					<!-- Share -->
 					<SharePanel
 						url={$page.url.href}
 						title={post?.title ?? ''}
 						text={post?.description ?? ''}
 					/>
 
-					<!-- Infos (nur sinnvoll, nicht doppelt zum Hero) -->
+					<!-- Infos -->
 					<div
 						class="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white dark:bg-zinc-950 p-4"
 					>
@@ -270,7 +270,7 @@
 		</div>
 	</div>
 
-	<!-- Prev/Next (unten exakt wie Eventseite) -->
+	<!-- Prev/Next Post -->
 	{#if previousPost || nextPost}
 		<div class="grid gap-4 sm:grid-cols-2 pt-6 sm:pt-8">
 			{#if previousPost}
