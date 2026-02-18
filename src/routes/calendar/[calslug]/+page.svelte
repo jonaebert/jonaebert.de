@@ -103,7 +103,7 @@
 	   ICS Download
 	----------------------------- */
 	async function downloadICS() {
-		const response = await fetch(`${je_api_base_url}calendar/event/${event.documentId}/ics`);
+		const response = await fetch(`${je_api_base_url}/calendar/event/${event.documentId}/ics`);
 		if (!response.ok) return;
 
 		const blob = await response.blob();
