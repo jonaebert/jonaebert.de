@@ -672,7 +672,7 @@
 
 				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
 					Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong
-						>17. Februar 2026</strong
+						>18. Februar 2026</strong
 					>. Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden,
 					diese Datenschutzerklärung anzupassen.
 				</p>
