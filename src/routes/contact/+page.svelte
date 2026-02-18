@@ -11,7 +11,6 @@
 	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
 	import { page } from '$app/stores';
 	import Turnstile from '$lib/components/security/Turnstile.svelte';
-	import Error from '../+error.svelte';
 
 	let turnstileToken = '';
 	let turnstileRef: Turnstile | null = null;
