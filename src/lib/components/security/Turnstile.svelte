@@ -54,13 +54,20 @@
 		if (!el) return;
 		await loadScript();
 
-		widgetId = window.turnstile?.render(el, {
-			sitekey: siteKey,
-			theme,
-			callback: (token: string) => dispatch('token', token),
-			'expired-callback': () => dispatch('token', ''),
-			'error-callback': () => dispatch('token', '')
-		});
+		widgetId =
+			window.turnstile?.render(el, {
+				sitekey: siteKey,
+				theme,
+				callback: (token: string) => dispatch('token', token),
+				'expired-callback': () => dispatch('token', ''),
+				'error-callback': () => dispatch('token', '')
+			}) ?? null;
+
+		return () => {
+			if (widgetId != null && window.turnstile) {
+				window.turnstile.remove(widgetId);
+			}
+		};
 	});
 </script>
 
