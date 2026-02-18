@@ -594,15 +594,14 @@
 					Union übertragen und verarbeitet werden können.
 				</p>
 
-				<!-- (Hier bleibt dein restlicher Content-Services Block wie bisher – nur im Card-Stil) -->
 				<div class="mt-6 grid gap-4">
 					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
-						<p class="font-semibold text-zinc-950 dark:text-zinc-50">Stripe</p>
+						<p class="font-semibold text-zinc-950 dark:text-zinc-50">Strapi</p>
 						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
 							Für die redaktionelle Verwaltung und Ausspielung von Blogbeiträgen sowie weiteren
-							multimedialen Inhalten verwenden wir das Content-Management-System (CMS) von Stripe.
-							Es handelt sich um eine selbst betriebene, bei Hetzner (Deutschland) gehostete
-							Installation. Eine Übermittlung personenbezogener Daten an Stripe oder Dritte findet
+							multimedialen Inhalten verwenden wir das Content-Management-System (CMS) von Strapi.
+							Es handelt sich um eine selbst betriebene, bei Hetzner (Deutschland) betriebene
+							Installation. Eine Übermittlung personenbezogener Daten an Strapi oder Dritte findet
 							im Rahmen der CMS-Verwendung nicht statt.
 						</p>
 					</div>
