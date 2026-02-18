@@ -5,7 +5,7 @@
 
 	export let files: array;
 
-	function getMediaURL(media: type) {
+	function getMediaURL(media: any) {
 		if (media?.ext === '.svg') {
 			return je_cms_base_url + media?.url;
 		} else if (media?.formats?.large?.url) {
