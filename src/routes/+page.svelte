@@ -325,7 +325,7 @@
 			<a href="/about" target="_self" class="block">
 				<div class="aspect-square overflow-hidden rounded-xl">
 					<Image
-						src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png"
+						src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
 						alt="Portrait von {name}"
 						classNames="h-full w-full object-cover scale-100 sm:scale-95 hover:scale-100 ease-in-out transition-transform duration-500"
 					/>
