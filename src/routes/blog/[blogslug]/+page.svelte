@@ -76,30 +76,6 @@
 		if (history.length > 1) history.back();
 		else window.location.href = '/';
 	}
-
-	/* -----------------------------
-	   Share / Clipboard
-	----------------------------- */
-	let shared = false;
-	let busy = false;
-
-	async function onShare() {
-		if (busy) return;
-		busy = true;
-
-		const ok = await share({
-			title: post?.title,
-			text: post?.description ?? '',
-			url: $page.url.href
-		});
-
-		if (ok) {
-			shared = true;
-			setTimeout(() => (shared = false), 1400);
-		}
-
-		busy = false;
-	}
 </script>
 
 <svelte:head>
