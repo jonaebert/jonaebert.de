@@ -365,7 +365,7 @@
 									<button
 										type="submit"
 										disabled={!turnstileToken}
-										class="inline-flex w-full sm:w-auto sm:min-w-40 items-center justify-center px-6 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition disabled:opacity-50 disabled:cursor-not-allowed sm:h-full"
+										class="inline-flex w-full sm:w-auto sm:min-w-40 items-center justify-center px-6 py-3 rounded-xl text-sm font-medium bg-accent text-white hover:bg-accent-hover transition disabled:opacity-50 disabled:cursor-not-allowed sm:h-full"
 									>
 										Senden
 									</button>
@@ -402,7 +402,7 @@
 											<button
 												type="button"
 												disabled={!turnstileToken}
-												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
+												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white hover:bg-accent-hover transition"
 												on:click={() => formEl?.requestSubmit()}
 											>
 												Erneut senden
