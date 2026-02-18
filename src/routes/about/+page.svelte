@@ -471,7 +471,7 @@
 						{:else}
 							<!-- Skills (modern cards) -->
 							<div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-2">
-								{#each items[section.key] as item}
+								{#each items[section.key] ?? [] as item}
 									<div
 										class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/35 backdrop-blur-sm p-4 sm:p-5 w-full max-w-full min-w-0 mx-0"
 									>
