@@ -54,62 +54,6 @@
 		matchMedia.addEventListener?.('change', handlerTheme);
 		return () => matchMedia.removeEventListener?.('change', handlerTheme);
 	});
-
-	// Header loading animation
-	import { tick } from 'svelte';
-
-	let headerShowLinks: boolean = false;
-	let headerVisibleLinks: number = 0;
-	let headerLinkWidths: number[] = [];
-	let headerContainerEl: HTMLElement;
-	let headerMeasured: boolean = false;
-	const headerGap: number = 4;
-	const headerContainerPaddingPerSide: number = 4;
-
-	onMount(() => {
-		setTimeout(() => {
-			headerShowLinks = true;
-		}, 200);
-	});
-	$: if (headerShowLinks && headerContainerEl && !headerMeasured) {
-		tick().then(() => {
-			const items = headerContainerEl.querySelectorAll('.menu-item');
-			if (items.length > 0) {
-				headerLinkWidths = Array.from(items).map((el) =>
-					Math.round(el.getBoundingClientRect().width)
-				);
-
-				headerMeasured = true;
-			}
-		});
-	}
-	$: if (headerMeasured) {
-		headerLinkWidths.forEach((_, i) => {
-			setTimeout(() => {
-				headerVisibleLinks = i + 1;
-			}, i * 400);
-		});
-	}
-	$: headerBgWidth =
-		headerLinkWidths.length && headerVisibleLinks > 0
-			? headerLinkWidths.slice(0, headerVisibleLinks).reduce((acc, w) => acc + w, 0) +
-				Math.max(0, headerVisibleLinks - 1) * headerGap +
-				headerContainerPaddingPerSide * 2
-			: 0;
-
-	// Header scroll animation
-	let headerIsScrolled: boolean = false;
-
-	onMount(() => {
-		const update = () => {
-			headerIsScrolled = window.scrollY > 100;
-		};
-
-		window.addEventListener('scroll', update);
-		update();
-
-		return () => window.removeEventListener('scroll', update);
-	});
 </script>
 
 <svelte:head>
