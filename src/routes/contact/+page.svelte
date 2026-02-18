@@ -12,7 +12,7 @@
 	import { page } from '$app/stores';
 	import Turnstile from '$lib/components/security/Turnstile.svelte';
 
-	let turnstileToken = '';
+	let turnstileToken: string = '';
 	let turnstileRef: Turnstile | null = null;
 
 	$: barrierParam = $page.url.searchParams.get('barrier');
@@ -91,6 +91,7 @@
 			turnstileToken = '';
 		}
 	}
+	console.log(turnstileToken);
 </script>
 
 <svelte:head>
@@ -400,6 +401,7 @@
 										<div class="mt-3 flex flex-wrap gap-3">
 											<button
 												type="button"
+												disabled={!turnstileToken}
 												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-accent text-white bg-accent-hover transition"
 												on:click={() => formEl?.requestSubmit()}
 											>
