@@ -91,7 +91,6 @@
 			turnstileToken = '';
 		}
 	}
-	console.log(turnstileToken);
 </script>
 
 <svelte:head>
