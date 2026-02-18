@@ -1,6 +1,17 @@
 <script lang="ts">
 	import { name, address, contact, uri } from '$lib/store';
 
+	const social = [
+		{ label: 'Facebook', handle: '@jonaebertbs' },
+		{ label: 'GitHub', handle: '@jonaebert' },
+		{ label: 'Instagram', handle: '@jonaebertbs' },
+		{ label: 'LinkedIn', handle: '@jonaebert' },
+		{ label: 'Mastodon', handle: '@jonaebertbs' },
+		{ label: 'Threads', handle: '@jonaebertbs' },
+		{ label: 'TikTok', handle: '@jonaebertbs' },
+		{ label: 'YouTube', handle: '@jonaebert' }
+	];
+
 	const toc = [
 		{ id: 'intro', label: 'Einleitung' },
 		{ id: 'controller', label: 'Verantwortliche Stelle' },
@@ -623,7 +634,16 @@
 					verarbeitet.
 				</p>
 
-				<!-- (Dein großer Social-Block kann hier 1:1 weiterlaufen; Layout ggf. wie in der vorherigen Version) -->
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{#each social as s}
+						<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+							<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+								{s.label}
+							</div>
+							<div class="mt-1 font-medium text-zinc-950 dark:text-zinc-50">{s.handle}</div>
+						</li>
+					{/each}
+				</ul>
 			</section>
 
 			<!-- Security -->
