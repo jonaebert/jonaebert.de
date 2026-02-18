@@ -265,22 +265,24 @@
 						         group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
 						/>
 
-						<Image
-							src={getCoverUrl(previousPost.cover, false)!}
-							alt={previousPost.cover?.alternativeText ?? previousPost.title}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={previousPost.copyright?.enabled
-								? [
-										{
-											enabled: previousPost.copyright?.enabled,
-											name: previousPost.copyright?.name,
-											url: previousPost.copyright?.url || '',
-											compact: true
-										}
-									]
-								: []}
-						/>
+						{#if getCoverUrl(previousPost.cover, false)}
+							<Image
+								src={getCoverUrl(previousPost.cover, false)!}
+								alt={previousPost.cover?.alternativeText ?? previousPost.title}
+								classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+								loading="lazy"
+								copyright={previousPost.copyright?.enabled
+									? [
+											{
+												enabled: previousPost.copyright?.enabled,
+												name: previousPost.copyright?.name,
+												url: previousPost.copyright?.url || '',
+												compact: true
+											}
+										]
+									: []}
+							/>
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriger Beitrag</div>
