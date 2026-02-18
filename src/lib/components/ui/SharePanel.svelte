@@ -1,12 +1,8 @@
 <script lang="ts">
 	import Fa from 'svelte-fa';
 	import {
-		faInstagram,
 		faThreads,
-		faYoutube,
-		faTiktok,
 		faLinkedinIn,
-		faGithub,
 		faMastodon,
 		faBluesky,
 		faFacebookF
@@ -23,18 +19,6 @@
 		href: string;
 		mode: 'share' | 'profile';
 	};
-
-	const profiles = {
-		instagram: 'https://www.instagram.com/jonaebertbs',
-		threads: 'https://www.threads.net/@jonaebertbs',
-		facebook: 'https://www.facebook.com/profile.php?id=61585717786862',
-		mastodon: 'https://mastodon.social/@jonaebertbs',
-		bluesky: 'https://bsky.app/profile/jonaebertbs.bsky.social',
-		youtube: 'https://www.youtube.com/@jonaebertbs',
-		tiktok: 'https://www.tiktok.com/@jonaebertbs',
-		linkedin: 'https://www.linkedin.com/in/jonaebert',
-		github: 'https://github.com/jonaebert'
-	} as const;
 
 	function enc(v: string) {
 		return encodeURIComponent(v);
