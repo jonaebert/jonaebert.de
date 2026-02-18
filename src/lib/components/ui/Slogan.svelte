@@ -1,27 +1,31 @@
-<script>
+<script lang="ts">
+	import { onDestroy } from 'svelte';
+
 	export let words = ['Queer', 'Solidarisch', 'Gerecht', 'Sozial', 'Fair', 'Stark', 'Klar'];
 
 	let currentWord = words[3];
 	let nextWord = '';
 	let isTransitioning = false;
-	const timeout = 1750;
+	const INTERVAL = 1750;
+	let timerId: ReturnType<typeof setTimeout>;
 	let i = 0;
 
 	function updateWords() {
 		isTransitioning = true;
 		nextWord = words[i];
-		setTimeout(() => {
+		timerId = setTimeout(() => {
 			currentWord = nextWord;
 			i++;
 			if (i === words.length) {
 				i = 0;
 			}
 			isTransitioning = false;
-			setTimeout(updateWords, timeout);
+			timerId = setTimeout(updateWords, INTERVAL);
 		}, 750);
 	}
 
-	setTimeout(updateWords, timeout);
+	timerId = setTimeout(updateWords, INTERVAL);
+	onDestroy(() => clearTimeout(timerId));
 </script>
 
 <h2 class="text-nowrap text-zinc-600 dark:text-zinc-400">
