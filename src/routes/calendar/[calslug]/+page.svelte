@@ -11,9 +11,11 @@
 	import Image from '$lib/components/ui/Image.svelte';
 	import { Icon, type IconName } from '$lib/components/icons';
 	import { goto } from '$app/navigation';
+	import DOMPurify from 'isomorphic-dompurify';
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
+	$: sanitizedDescription = DOMPurify.sanitize(String(event?.description ?? ''))
 
 	/* -----------------------------
 	   Event Daten aufbereiten
@@ -223,7 +225,7 @@
 
 					{#if event.description}
 						<div class="prose prose-zinc dark:prose-invert max-w-none">
-							{@html event.description}
+							{@html sanitizedDescription}
 						</div>
 					{:else}
 						<p class="text-zinc-600 dark:text-zinc-400">Keine Beschreibung vorhanden.</p>
