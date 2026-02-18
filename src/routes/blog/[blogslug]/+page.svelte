@@ -32,9 +32,9 @@
 		// Formate aus Strapi
 		const rel =
 			(highresolution && cover.formats?.large?.url) ||
-			cover.formats?.thumbnail?.url ||
 			cover.formats?.medium?.url ||
 			cover.formats?.small?.url ||
+			cover.formats?.thumbnail?.url ||
 			cover.url ||
 			null;
 
