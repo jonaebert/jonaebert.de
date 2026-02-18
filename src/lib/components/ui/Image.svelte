@@ -17,6 +17,7 @@
 		  }[]
 		| null
 		| undefined = [];
+	export let fill: boolean = false;
 
 	export let loading: 'eager' | 'lazy' | null | undefined = undefined;
 	export let decoding: 'sync' | 'async' | 'auto' | null | undefined = undefined;
@@ -238,12 +239,15 @@
 	});
 </script>
 
-<div class="relative inline-block align-middle" bind:this={rootEl}>
-	<div class="overflow-hidden">
+<div
+	class={`relative ${fill ? 'block w-full h-full' : 'inline-block align-middle'}`}
+	bind:this={rootEl}
+>
+	<div class={`overflow-hidden ${fill ? 'w-full h-full' : ''}`}>
 		<img
 			{src}
 			{alt}
-			class={`block max-w-full ${classNames}`}
+			class={`block ${fill ? 'w-full h-full' : 'max-w-full'} ${classNames}`}
 			{loading}
 			{decoding}
 			{fetchpriority}
