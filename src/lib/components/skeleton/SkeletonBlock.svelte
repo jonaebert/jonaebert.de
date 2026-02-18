@@ -9,7 +9,7 @@
 </div>
 
 <style>
-	@keyframes shimmer {
+	@keyframes -global-shimmer {
 		100% {
 			transform: translateX(100%);
 		}
