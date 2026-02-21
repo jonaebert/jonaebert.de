@@ -52,7 +52,13 @@
 
 	onMount(async () => {
 		if (!el) return;
-		await loadScript();
+		try {
+			await loadScript();
+		} catch (err) {
+			console.error('Turnstile failed to load:', err);
+			dispatch('token', '');
+			return;
+		}
 
 		widgetId =
 			window.turnstile?.render(el, {
