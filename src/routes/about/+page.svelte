@@ -508,7 +508,7 @@
 															{subcategory.title}
 														</div>
 														<div class="mt-3 flex flex-wrap gap-2">
-															{#each subcategory.skills as skill}
+															{#each subcategory.skills ?? [] as skill}
 																<span class={chipClasses('neutral')}>{skill}</span>
 															{/each}
 														</div>
@@ -517,7 +517,7 @@
 											</div>
 										{:else}
 											<div class="mt-5 flex flex-wrap gap-2">
-												{#each item.skills as skill}
+												{#each item.skills ?? [] as skill}
 													<span class={chipClasses('neutral')}>{skill}</span>
 												{/each}
 											</div>
