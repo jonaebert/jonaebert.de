@@ -2,6 +2,7 @@
 	import { je_cms_base_url } from '$lib/store.js';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
+	import { onDestroy } from 'svelte';
 
 	export let files: any[];
 
@@ -14,9 +15,11 @@
 	}
 
 	// Auto slide
+	let autoSlideTimer: ReturnType<typeof setTimeout>;
+
 	const intervalSlide = 5000;
 	function autoSlide() {
-		setTimeout(() => {
+		autoSlideTimer = setTimeout(() => {
 			nextImage();
 			autoSlide();
 		}, intervalSlide);
@@ -53,6 +56,7 @@
 	}
 
 	autoSlide();
+	onDestroy(() => clearTimeout(autoSlideTimer));
 </script>
 
 <div class="prose max-w-none mb-6">
