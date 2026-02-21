@@ -303,7 +303,6 @@
 				on:pointerleave|stopPropagation={() => scheduleCloseFromHover()}
 			>
 				<div
-					role="dialog"
 					class="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 					       bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100
 					       shadow-lg px-3 py-2 text-xs leading-snug
