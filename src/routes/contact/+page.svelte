@@ -349,6 +349,7 @@
 									theme="auto"
 									compact
 									on:token={(e) => (turnstileToken = e.detail)}
+									ariaLabel="turnstile-label"
 								/>
 
 								{#if !turnstileToken}

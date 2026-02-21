@@ -4,6 +4,8 @@
 	export let siteKey: string;
 	export let theme: 'auto' | 'light' | 'dark' = 'auto';
 
+	export let ariaLabel: string = 'turnstile-label';
+
 	// Design
 	export let classes: string = '';
 	export let compact: boolean = false;
@@ -82,7 +84,7 @@
 	<link rel="preconnect" href="https://challenges.cloudflare.com" />
 </svelte:head>
 
-<div class={`w-full ${classes}`} role="group" aria-labelledby="turnstile-label">
+<div class={`w-full ${classes}`} role="group" aria-labelledby={ariaLabel}>
 	<div class="w-full overflow-x-auto">
 		<div class={`flex ${compact ? 'justify-start' : 'justify-center'} min-w-75`}>
 			<div bind:this={el}></div>
