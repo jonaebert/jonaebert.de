@@ -1,24 +1,29 @@
 <script lang="ts">
-	import { je_cms_api_base_url } from '$lib/store.js'
-	import Image from '$lib/components/image.svelte';
-	import InfoMessage from '$lib/components/blocks/InfoMessage.svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { je_cms_base_url } from '$lib/store.js';
+	import Image from '$lib/components/ui/Image.svelte';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
-	export let files: array;
+	export let files: any[];
 
-	function getMediaURL(media:type) {
+	function getMediaURL(media: any) {
 		if (media?.ext === '.svg') {
-			return je_cms_api_base_url + media?.url;
+			return je_cms_base_url + media?.url;
 		} else if (media?.formats?.large?.url) {
-			return je_cms_api_base_url + media?.formats?.large?.url;
+			return je_cms_base_url + media?.formats?.large?.url;
 		}
 	}
 
 	// Auto slide
+	let autoSlideTimer: ReturnType<typeof setTimeout>;
+
 	const intervalSlide = 5000;
-	function autoSlide() {
-		setTimeout(() => {
+	let slideTimer: ReturnType<typeof setTimeout> | null = null;
+
+	function scheduleNextSlide() {
+		slideTimer = setTimeout(() => {
 			nextImage();
-			autoSlide();
+			scheduleNextSlide();
 		}, intervalSlide);
 	}
 
@@ -38,7 +43,8 @@
 	}
 	function handleTouchEnd(event: TouchEvent | PointerEvent) {
 		if (startX === null) return;
-		const endX = 'changedTouches' in event ? event.changedTouches[0].clientX : (event as PointerEvent).clientX;
+		const endX =
+			'changedTouches' in event ? event.changedTouches[0].clientX : (event as PointerEvent).clientX;
 		const diffX = startX - endX;
 
 		if (Math.abs(diffX) > 50) {
@@ -51,17 +57,39 @@
 		startX = null; // Reset startX after handling
 	}
 
-	autoSlide();
+	onMount(() => {
+		scheduleNextSlide();
+	});
+
+	onDestroy(() => {
+		if (slideTimer !== null) clearTimeout(slideTimer);
+	});
 </script>
 
 <div class="prose max-w-none mb-6">
 	{#if files?.length > 0}
-		<div class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2 shadow-xl"
-			on:touchstart={handleTouchStart}
-			on:touchend={handleTouchEnd}
-			on:pointerdown={handleTouchStart}
-			on:pointerup={handleTouchEnd}
+		<div
+			class="relative max-w-lg overflow-hidden rounded-lg aspect-3/2"
+			role="region"
+			aria-roledescription="carousel"
+			aria-label="Bildergalerie"
 		>
+			<!-- Interactions-Layer: Swipe + Keyboard -->
+			<div
+				class="absolute inset-0 z-10"
+				role="button"
+				tabindex="0"
+				aria-label="Bildergalerie steuern (Links/Rechts oder Wischen)"
+				on:keydown={(e) => {
+					if (e.key === 'ArrowLeft') previousImage();
+					if (e.key === 'ArrowRight') nextImage();
+				}}
+				on:touchstart={handleTouchStart}
+				on:touchend={handleTouchEnd}
+				on:pointerdown={handleTouchStart}
+				on:pointerup={handleTouchEnd}
+			></div>
+
 			<!-- Wrapper für die verschiebbaren Slides -->
 			<div
 				class="flex transition-transform duration-1000 ease-in-out w-full h-full"
@@ -78,34 +106,28 @@
 					</div>
 				{/each}
 			</div>
+
 			<!-- Steuerung -->
-			<button on:click={previousImage} class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110" aria-label="Vorheriges Bild">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-7 w-7 -rotate-90"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
-				</svg>
+			<button
+				on:click={previousImage}
+				class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				aria-label="Vorheriges Bild"
+			>
+				<Icon name="arrow-left" classes="w-5 h-5" />
 			</button>
-			<button on:click={nextImage} class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110" aria-label="Nächstes Bild">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-7 w-7 rotate-90"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					>
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
-				</svg>
+
+			<button
+				on:click={nextImage}
+				class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/40 text-white p-1.5 sm:p-2 rounded-full hover:bg-black/70 transition-all duration-500 ease-in-out hover:scale-110"
+				aria-label="Nächstes Bild"
+			>
+				<Icon name="arrow-right" classes="w-5 h-5" />
 			</button>
-			<!-- Punkte-Navigation im Bildbereich -->
+
 			<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
 				{#each files as _, index}
 					<button
-						class={`w-3 h-3 rounded-full transition-all duration-500 ${
+						class={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-500 ${
 							index === currentImage ? 'bg-white/90 scale-110' : 'bg-white/40 hover:bg-white/70'
 						}`}
 						aria-label={`Bild ${index + 1}`}
@@ -115,8 +137,28 @@
 			</div>
 		</div>
 	{:else}
-		<div class="flex text-center justify-start my-2">
-			<InfoMessage message="Keine Bilder vorhanden."></InfoMessage>
+		<div class="my-4">
+			<div
+				class="flex items-center gap-3 rounded-2xl border border-zinc-200/70 bg-zinc-50/80 px-4 py-3 text-sm text-zinc-700 shadow-sm backdrop-blur-sm dark:border-zinc-800/70 dark:bg-zinc-900/50 dark:text-zinc-300"
+			>
+				<!-- Icon -->
+				<svg
+					class="h-5 w-5 shrink-0 text-zinc-400 dark:text-zinc-500"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+				>
+					<rect x="3" y="5" width="18" height="14" rx="2" />
+					<circle cx="8.5" cy="10.5" r="1.5" />
+					<path d="M21 15l-5-5L5 21" />
+				</svg>
+
+				<p>Aktuell sind hier keine Bilder hinterlegt.</p>
+			</div>
 		</div>
 	{/if}
 </div>

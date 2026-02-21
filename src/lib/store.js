@@ -25,20 +25,23 @@ export const uri = page;
 export const je_api_base_url = import.meta.env.VITE_JE_API_BASE_URL;
 
 // CMS
-export const je_cms_api_base_url = import.meta.env.VITE_JE_CMS_API_BASE_URL;
+export const je_cms_base_url = import.meta.env.VITE_JE_CMS_BASE_URL;
 export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN;
 
 // N8N
 export const n8n_contact_url = import.meta.env.VITE_JE_N8N_CONTACT_URL;
 
+// Cloudflare Turnstile
+export const cf_public_turnstile_site_key = import.meta.env.VITE_JE_PUBLIC_TURNSTILE_SITE_KEY;
+
 // Pictures
 // Logo
-export const logo = 'https://cms.jonaebert.de/uploads/Logo_310x100_c17dfefe52.svg';
-export const logo_clear = 'https://cms.jonaebert.de/uploads/Logo_310x100_Clear_2769e089a9.svg';
-export const logo_small = 'https://cms.jonaebert.de/uploads/Logo_500x500_67fca42684.svg';
-export const logo_small_clear = 'https://cms.jonaebert.de/uploads/Logo_500x500_Clear_dce31db3d5.svg';
+export const logo = `${je_cms_base_url}/uploads/Logo_310x100_c17dfefe52.svg`;
+export const logo_clear = `${je_cms_base_url}/uploads/Logo_310x100_Clear_2769e089a9.svg`;
+export const logo_small = `${je_cms_base_url}/uploads/Logo_500x500_67fca42684.svg`;
+export const logo_small_clear = `${je_cms_base_url}/uploads/Logo_500x500_Clear_dce31db3d5.svg`;
 // Alte Waage
-export const img_alte_waage = 'https://cms.jonaebert.de/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png';
+export const img_alte_waage = `${je_cms_base_url}/uploads/medium_Braunschweig_Alte_Waage_ced5cdd56e.png`;
 
 // Block image copy and context menu
 export function contextMenuAction(node) {
