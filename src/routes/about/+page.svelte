@@ -360,7 +360,7 @@
 		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6">
 			<div class="aspect-square overflow-hidden rounded-xl">
 				<Image
-					src="https://cms.jonaebert.de/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png"
+					src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
 					alt="Portrait von {name}"
 					classNames="h-full w-full object-cover"
 				/>
