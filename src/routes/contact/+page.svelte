@@ -155,7 +155,7 @@
 					<p class="mt-4 text-sm text-white/75">
 						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal
 						<span
-							class:text-amber-600={messageText.length >= messageMax - 30 &&
+							class:text-amber-600={messageText.length >= messageMax * 0.9 &&
 								messageText.length < messageMax}
 							class:text-red-600={messageText.length >= messageMax}
 							class="transition-colors"
