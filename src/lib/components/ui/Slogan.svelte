@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 
-	export let words = ['Queer', 'Solidarisch', 'Gerecht', 'Sozial', 'Fair', 'Stark', 'Klar'];
+	const words = ['Queer', 'Solidarisch', 'Gerecht', 'Sozial', 'Fair', 'Stark', 'Klar'];
 
 	let currentWord = words[3];
 	let nextWord = '';
