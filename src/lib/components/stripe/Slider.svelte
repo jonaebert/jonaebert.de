@@ -3,7 +3,7 @@
 	import Image from '$lib/components/ui/Image.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
 
-	export let files: array;
+	export let files: any[];
 
 	function getMediaURL(media: any) {
 		if (media?.ext === '.svg') {
