@@ -236,7 +236,9 @@
 						class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 					>
 						<div class="text-sm font-medium">Neuester Beitrag</div>
-						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Beitrag konnte nicht geladen werden.</div>
+						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+							Beitrag konnte nicht geladen werden.
+						</div>
 					</div>
 				{/await}
 
@@ -251,7 +253,13 @@
 				{:then es}
 					{@const now = new Date()}
 					{@const upcoming = [...es]
-						.filter((e) => e?.start && new Date(e.start) >= now)
+						.filter((e) => {
+							if (!e?.start) return false;
+							const end = e.end
+								? new Date(e.end)
+								: new Date(new Date(e.start).getTime() + 90 * 60 * 1000);
+							return end >= now;
+						})
 						.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())[0]}
 					{@const latestByStart = [...es].sort(
 						(a, b) => new Date(b.start ?? 0).getTime() - new Date(a.start ?? 0).getTime()
@@ -314,7 +322,9 @@
 						class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 					>
 						<div class="text-sm font-medium">Nächster Termin</div>
-						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Termin konnte nicht geladen werden.</div>
+						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+							Termin konnte nicht geladen werden.
+						</div>
 					</div>
 				{/await}
 			</div>
