@@ -67,7 +67,7 @@
 				turnstileToken
 			};
 
-			const contactRes = await fetch(`${n8n_contact_url}`, {
+			const contactRes = await fetch(n8n_contact_url, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)
