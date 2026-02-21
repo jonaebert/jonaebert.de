@@ -2,14 +2,42 @@
 	import { name, address, contact, uri } from '$lib/store';
 
 	const social = [
-		{ label: 'Facebook', handle: '@jonaebertbs' },
-		{ label: 'GitHub', handle: '@jonaebert' },
-		{ label: 'Instagram', handle: '@jonaebertbs' },
-		{ label: 'LinkedIn', handle: '@jonaebert' },
-		{ label: 'Mastodon', handle: '@jonaebertbs' },
-		{ label: 'Threads', handle: '@jonaebertbs' },
-		{ label: 'TikTok', handle: '@jonaebertbs' },
-		{ label: 'YouTube', handle: '@jonaebert' }
+		{
+			label: 'Facebook',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://www.facebook.com/privacy/policy/'
+		},
+		{
+			label: 'GitHub',
+			handle: '@jonaebert',
+			privacyUrl: 'https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement'
+		},
+		{
+			label: 'Instagram',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://privacycenter.instagram.com/policy'
+		},
+		{
+			label: 'LinkedIn',
+			handle: 'jonaebert',
+			privacyUrl: 'https://www.linkedin.com/legal/privacy-policy'
+		},
+		{
+			label: 'Mastodon',
+			handle: '@jonaebertbs@mastodon.social',
+			privacyUrl: 'https://mastodon.social/privacy-policy'
+		},
+		{
+			label: 'Threads',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://privacycenter.instagram.com/policy'
+		},
+		{
+			label: 'TikTok',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://www.tiktok.com/legal/page/eea/privacy-policy/en'
+		},
+		{ label: 'YouTube', handle: '@jonaebert', privacyUrl: 'https://policies.google.com/privacy' }
 	];
 
 	const toc = [
@@ -635,12 +663,20 @@
 				</p>
 
 				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
-					{#each social as s}
+					{#each social as item}
 						<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
 							<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
-								{s.label}
+								{item.label}
 							</div>
-							<div class="mt-1 font-medium text-zinc-950 dark:text-zinc-50">{s.handle}</div>
+							<div class="mt-1 font-medium text-zinc-950 dark:text-zinc-50">{item.handle}</div>
+							<div class="mt-4 text-xs">
+								<a
+									class="text-accent underline underline-offset-4 break-all"
+									href={item.privacyUrl}
+									target="_blank"
+									rel="noopener noreferrer">Zur Datenschutzerklärung von {item.label}</a
+								>
+							</div>
 						</li>
 					{/each}
 				</ul>
@@ -672,7 +708,7 @@
 
 				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
 					Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong
-						>18. Februar 2026</strong
+						>21. Februar 2026</strong
 					>. Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden,
 					diese Datenschutzerklärung anzupassen.
 				</p>
