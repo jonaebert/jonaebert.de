@@ -184,8 +184,9 @@
 
 				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
 					Nach der DSGVO stehen Ihnen die nachfolgend aufgeführten Rechte zu, die Sie jederzeit bei
-					dem in Ziffer 1 dieser Datenschutzerklärung genannten Verantwortlichen geltend machen
-					können:
+					dem unter <a href="#controller" class="text-accent underline underline-offset-4"
+						>Verantwortliche Stelle</a
+					> genannten Verantwortlichen geltend machen können:
 				</p>
 
 				<ul class="mt-5 grid gap-3">
