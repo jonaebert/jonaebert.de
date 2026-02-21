@@ -293,7 +293,7 @@
 						<ul class="mt-3 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
 							<li class="mt-1">
 								nach Beendigung der zwischen uns bestehenden vertraglichen oder mitgliedschaftlichen
-								Beziehungen (Art. 6 Abs. 1 lit. a DSGVO) oder
+								Beziehungen (Art. 6 Abs. 1 lit. b DSGVO) oder
 							</li>
 							<li class="mt-1">
 								nach Wegfall unseres berechtigten Interesses an der weiteren Verarbeitung oder
