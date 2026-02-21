@@ -27,18 +27,6 @@
 						: activeRoute === '/legal/imprint'
 							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
 							: name + ' (' + pronouns + ') - ' + slogan;
-
-	// Funktion, um zum Seitenanfang zu scrollen
-	function scrollToTop() {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}
-	let isVisible = false;
-	onMount(() => {
-		window.addEventListener('scroll', () => {
-			isVisible = window.scrollY > 100;
-		});
-	});
-
 	// Theme Toggle
 	onMount(() => {
 		const storedTheme = getStoredTheme();
