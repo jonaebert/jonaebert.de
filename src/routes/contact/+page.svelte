@@ -11,6 +11,7 @@
 	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
 	import { page } from '$app/stores';
 	import Turnstile from '$lib/components/security/Turnstile.svelte';
+	import { onDestroy } from 'svelte';
 
 	let turnstileToken: string = '';
 	let turnstileRef: Turnstile | null = null;
@@ -35,6 +36,14 @@
 	}
 
 	// Send form data
+	let successTimer1: ReturnType<typeof setTimeout>;
+	let successTimer2: ReturnType<typeof setTimeout>;
+
+	onDestroy(() => {
+		clearTimeout(successTimer1);
+		clearTimeout(successTimer2);
+	});
+
 	async function submitForm(e: SubmitEvent) {
 		e.preventDefault();
 
@@ -76,8 +85,8 @@
 			formEl?.reset();
 			messageText = '';
 			barrierChecked = barrierParam === 'true';
-			setTimeout(() => (submitting = 2), 500);
-			setTimeout(() => {
+			successTimer1 = setTimeout(() => (submitting = 2), 500);
+			successTimer2 = setTimeout(() => {
 				submitting = 0;
 			}, 8000);
 			turnstileRef?.reset();
@@ -457,11 +466,9 @@
 							class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 						>
 							<div class="text-sm font-medium text-zinc-900 dark:text-zinc-100">Fax</div>
-							<span
-								class="mt-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed"
-							>
+							<span class="mt-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed">
 								{contact.fax}
-					</span>
+							</span>
 						</div>
 
 						<div
