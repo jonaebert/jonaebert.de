@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { je_cms_base_url } from '$lib/store.js';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
-	import { onDestroy } from 'svelte';
 
 	export let files: any[];
 
@@ -18,10 +18,12 @@
 	let autoSlideTimer: ReturnType<typeof setTimeout>;
 
 	const intervalSlide = 5000;
-	function autoSlide() {
-		autoSlideTimer = setTimeout(() => {
+	let slideTimer: ReturnType<typeof setTimeout> | null = null;
+
+	function scheduleNextSlide() {
+		slideTimer = setTimeout(() => {
 			nextImage();
-			autoSlide();
+			scheduleNextSlide();
 		}, intervalSlide);
 	}
 
@@ -55,8 +57,13 @@
 		startX = null; // Reset startX after handling
 	}
 
-	autoSlide();
-	onDestroy(() => clearTimeout(autoSlideTimer));
+	onMount(() => {
+		scheduleNextSlide();
+	});
+
+	onDestroy(() => {
+		if (slideTimer !== null) clearTimeout(slideTimer);
+	});
 </script>
 
 <div class="prose max-w-none mb-6">
