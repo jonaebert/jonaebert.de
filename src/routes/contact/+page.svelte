@@ -457,12 +457,11 @@
 							class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 						>
 							<div class="text-sm font-medium text-zinc-900 dark:text-zinc-100">Fax</div>
-							<a
-								class="mt-1 block break-all text-accent hover:underline underline-offset-4 text-sm"
-								href="tel:{contact.fax}"
+							<span
+								class="mt-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed"
 							>
 								{contact.fax}
-							</a>
+					</span>
 						</div>
 
 						<div
