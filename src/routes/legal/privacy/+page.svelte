@@ -1,588 +1,719 @@
 <script lang="ts">
 	import { name, address, contact, uri } from '$lib/store';
+
+	const social = [
+		{
+			label: 'Facebook',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://www.facebook.com/privacy/policy/'
+		},
+		{
+			label: 'GitHub',
+			handle: '@jonaebert',
+			privacyUrl: 'https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement'
+		},
+		{
+			label: 'Instagram',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://privacycenter.instagram.com/policy'
+		},
+		{
+			label: 'LinkedIn',
+			handle: 'jonaebert',
+			privacyUrl: 'https://www.linkedin.com/legal/privacy-policy'
+		},
+		{
+			label: 'Mastodon',
+			handle: '@jonaebertbs@mastodon.social',
+			privacyUrl: 'https://mastodon.social/privacy-policy'
+		},
+		{
+			label: 'Threads',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://privacycenter.instagram.com/policy'
+		},
+		{
+			label: 'TikTok',
+			handle: '@jonaebertbs',
+			privacyUrl: 'https://www.tiktok.com/legal/page/eea/privacy-policy/en'
+		},
+		{ label: 'YouTube', handle: '@jonaebert', privacyUrl: 'https://policies.google.com/privacy' }
+	];
+
+	const toc = [
+		{ id: 'intro', label: 'Einleitung' },
+		{ id: 'controller', label: 'Verantwortliche Stelle' },
+		{ id: 'rights', label: 'Ihre Rechte (DSGVO)' },
+		{ id: 'deletion', label: 'Löschung von Daten' },
+		{ id: 'hosting', label: 'Webhosting' },
+		{ id: 'cdn', label: 'CDN (Cloudflare)' },
+		{ id: 'contact', label: 'Kontaktaufnahme' },
+		{ id: 'content-services', label: 'Content-Dienste' },
+		{ id: 'social', label: 'Soziale Netzwerke' },
+		{ id: 'security', label: 'Sicherheitsmaßnahmen' },
+		{ id: 'updates', label: 'Aktualität & Änderungen' }
+	];
 </script>
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href="{$uri.url.href}">
+	<link rel="canonical" href={$uri.url.href} />
 </svelte:head>
 
-<div class="min-w-[48vw] max-w-[95vw] xl:max-w-[60vw] mx-auto py-12 grid gap-5 text-black dark:text-gray-400">
-	<h1 class="text-4xl md:text-5xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Datenschutz</h1>
-	<div class="text-balance mb-4">
-		Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der Verarbeitung von
-		personenbezogenen Daten (im Folgenden auch nur als "Daten" bezeichnet) aufklären.
-		Personenbezogene Daten sind alle Daten, die einen persönlichen Bezug zu Ihnen aufweisen, z.B.
-		Name, Adresse, E-Mail-Adresse oder Ihr Nutzerverhalten. Die Datenschutzerklärung gilt für alle
-		von uns vorgenommene Daten-Verarbeitungsvorgänge sowohl im Rahmen unserer Kerntätigkeit als auch
-		für die von uns vorgehaltenen Online-Medien.
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Wer bei uns für die Datenverarbeitung verantwortlich ist
-		</h2>
-		<div class="text-balance mb-4">
-			Verantwortlich für die Datenverarbeitung ist:
-		</div>
-		<div class="text-balance mb-4">
-			{name} <br />
-			{address.street} <br />
-			{address.zipcode}
-			{address.city} <br />
-			{address.country} <br /> <a href="mailto:{contact.mail}"> {contact.mail} </a> <br />
-			<a href="/legal/imprint"> {$uri.url.protocol}//{$uri.url.host}/legal/imprint </a>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Ihre Rechte nach der DSGVO
-		</h2>
-		<div class="text-balance mb-4">
-			Nach der DSGVO stehen Ihnen die nachfolgend aufgeführten Rechte zu, die Sie jederzeit bei dem
-			in Ziffer 1. dieser Datenschutzerklärung genannten Verantwortlichen geltend machen können:
-		</div>
-		<div class="text-balance mb-4">
-			<ul class="list-disc">
-				<li class="mb-2">
-					<strong>Recht auf Auskunft:</strong> Sie haben das Recht, von uns Auskunft darüber zu verlangen,
-					ob und welche Daten wir von Ihnen verarbeiten.
-				</li>
-				<li class="mb-2">
-					<strong>Recht auf Berichtigung:</strong> Sie haben das Recht, die Berichtigung unrichtiger
-					oder Vervollständigung unvollständiger Daten zu verlangen.
-				</li>
-				<li class="mb-2">
-					<strong>Recht auf Löschung:</strong> Sie haben das Recht, die Löschung Ihrer Daten zu verlangen.
-				</li>
-				<li class="mb-2">
-					<strong>Recht auf Einschränkung:</strong> Sie haben in bestimmten Fällen das Recht zu verlangen,
-					dass wir Ihre Daten nur noch eingeschränkt bearbeiten.
-				</li>
-				<li class="mb-2">
-					<strong>Recht auf Datenübertragbarkeit:</strong> Sie haben das Recht zu verlangen, dass wir
-					Ihnen oder einem anderen Verantwortlichen Ihre Daten in einem strukturierten, gängigen und
-					maschinenlesebaren Format übermitteln.
-				</li>
-				<li class="mb-2">
-					<strong>Beschwerderecht</strong>: Sie haben das Recht, sich bei einer Aufsichtsbehörde zu
-					beschweren. Zuständig ist die Aufsichtsbehörde Ihres üblichen Aufenthaltsortes, Ihres
-					Arbeitsplatzes oder unseres Firmensitzes.
-				</li>
-			</ul>
-		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerrufsrecht</h3>
-		<div class="text-balance mb-4">
-			Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung jederzeit zu
-			widerrufen.
-		</div>
-		<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">Widerspruchsrecht</h3>
-		<div class="text-balance mb-4">
-			Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
-			berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch einzulegen. Sofern
-			Sie von Ihrem Widerspruchsrecht Gebrauch machen, bitten wir Sie um die Darlegung der Gründe.
-			Wir werden Ihre personenbezogenen Daten dann nicht mehr verarbeiten, es sei denn, wir können
-			Ihnen gegenüber nachweisen, dass zwingende schutzwürdige Gründe an der Datenverarbeitung Ihre
-			Interessen und Rechte überwiegen.
-		</div>
-		<div class="text-balance mb-4 font-bold underline">
-			Unabhängig vom vorstehend Gesagten, haben Sie das jederzeitige Recht, der Verarbeitung Ihrer
-			personenbezogenen Daten für Zwecke der Werbung und Datenanalyse zu widersprechen.
-		</div>
-		<div class="text-balance mb-4">
-			Ihren Widerspruch richten Sie bitte an die oben angegebene Kontaktadresse des
-			Verantwortlichen.
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Wann löschen wir Ihre Daten?
-		</h2>
-		<div class="text-balance mb-4">
-			Wir löschen Ihre Daten dann, wenn wir diese nicht mehr brauchen oder Sie uns dies vorgeben.
-			Das bedeutet, dass - sofern sich aus den einzelnen Datenschutzhinweisen dieser
-			Datenschutzerklärung nichts anderes ergibt - wir Ihre Daten löschen,
-		</div>
-		<div class="text-balance mb-4">
-			<ul class="list-disc">
-				<li class="mb-2">
-					wenn der Zweck der Datenverarbeitung weggefallen ist und damit die jeweilige in den
-					einzelnen Datenschutzhinweisen genannte Rechtsgrundlage nicht mehr besteht, also bspw.
-					<ul class="list-disc">
-						<li class="mb-2">
-							nach Beendigung der zwischen uns bestehenden vertraglichen oder mitgliedschaftlichen
-							Beziehungen (Art. 6 Abs. 1 lit. a DSGVO) oder
-						</li>
-						<li class="mb-2">
-							nach Wegfall unseres berechtigten Interesses an der weiteren Verarbeitung oder
-							Speicherung Ihrer Daten (Art. 6 Abs. 1 lit. f DSGVO),
-						</li>
+<div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+	<!-- Header -->
+	<header class="mx-auto max-w-5xl">
+		<p class="text-sm tracking-wide text-zinc-600 dark:text-zinc-400">Rechtliches</p>
+		<h1 class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50">
+			Datenschutz
+		</h1>
+	</header>
+
+	<!-- Layout: TOC + Content -->
+	<div
+		class="mt-8 grid w-full max-w-5xl mx-auto gap-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start"
+	>
+		<!-- TOC -->
+		<aside class="lg:sticky lg:top-24 min-w-0">
+			<details
+				class="w-full min-w-0 rounded-3xl border border-zinc-200/70 bg-white/70 p-4 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 lg:open"
+				open
+			>
+				<summary class="cursor-pointer select-none list-none">
+					<div class="flex items-center justify-between gap-3">
+						<div>
+							<p class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+								Datenschutzerklärung
+							</p>
+							<p class="mt-0.5 font-semibold text-zinc-950 dark:text-zinc-50">Inhalt</p>
+						</div>
+					</div>
+				</summary>
+
+				<nav class="mt-4">
+					<ul class="grid gap-1.5">
+						{#each toc as item}
+							<li>
+								<a
+									href={`#${item.id}`}
+									class="block rounded-2xl px-3 py-2 text-sm text-zinc-700 hover:bg-zinc-100/70 dark:text-zinc-300 dark:hover:bg-zinc-900/40 break-all"
+								>
+									<span class="text-accent">#</span>
+									{item.label}
+								</a>
+							</li>
+						{/each}
 					</ul>
-				</li>
-				<li class="mb-2">
-					wenn Sie von Ihrem Widerrufsrecht Gebrauch machen und keine anderweitige gesetzliche
-					Rechtsgrundlage für die Verarbeitung im Sinne von Art. 6 Abs. 1 lit. b-f DSGVO eingreift,
-				</li>
-				<li class="mb-2">
-					wenn Sie vom Ihrem Widerspruchsrecht Gebrauch machen und der Löschung keine zwingenden
-					schutzwürdigen Gründe entgegenstehen.
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			Sofern wir (bestimmte Teile) Ihre(r) Daten jedoch noch für andere Zwecke vorhalten müssen,
-			weil dies etwa steuerliche Aufbewahrungsfristen (in der Regel 6 Jahre für
-			Geschäftskorrespondenz bzw. 10 Jahre für Buchungsbelege) oder die Geltendmachung, Ausübung
-			oder Verteidigung von Rechtsansprüchen aus vertraglichen Beziehungen (bis zu vier Jahren)
-			erforderlich machen oder die Daten zum Schutz der Rechte einer anderen natürlichen oder
-			juristischen Person gebraucht werden, löschen wir (den Teil) Ihre(r) Daten erst nach Ablauf
-			dieser Fristen. Bis zum Ablauf dieser Fristen beschränken wir die Verarbeitung dieser Daten
-			jedoch auf diese Zwecke (Erfüllung der Aufbewahrungspflichten).
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Webhosting</h2>
-		<div class="text-balance mb-4">
-			Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
-			unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
-			(Hosting). Die von uns angemieteten Server befinden sich ausschließlich innerhalb Deutschlands. Hierbei können von dem Anbieter all diejenigen über den von Ihnen genutzten Browser
-			übertragenen Daten verarbeitet werden, die bei der Nutzung unserer Internetseiten anfallen.
-			Hierzu gehören insbesondere Ihre IP-Adresse, die der Anbieter benötigt, um unser
-			Online-Angebot an den von Ihnen genutzten Browser ausliefern zu können sowie sämtliche von
-			Ihnen über unsere Internetseite getätigten Eingaben. Daneben kann der von uns genutzte
-			Anbieter
-		</div>
-		<div class="text-balance mb-4">
-			<ul class="list-disc">
-				<li class="mb-2">das Datum und die Uhrzeit des Zugriffs auf unsere Internetseite</li>
-				<li class="mb-2">Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
-				<li class="mb-2">Zugriffsstatus (HTTP-Status)</li>
-				<li class="mb-2">die übertragene Datenmenge</li>
-				<li class="mb-2">der Internet-Service-Provider des zugreifenden Systems</li>
-				<li class="mb-2">der von Ihnen verwendete Browsertyp und dessen Version</li>
-				<li class="mb-2">das von Ihnen verwendete Betriebssystem</li>
-				<li class="mb-2">
-					die Internetseite, von welcher Sie gegebenenfalls auf unsere Internetseite gelangt sind
-				</li>
-				<li class="mb-2">
-					die Seiten bzw. Unterseiten, welche Sie auf unserer Internetseite besuchen.
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			erheben. Die vorgenannten Daten werden als Logfiles auf den Servern unseres Anbieters
-			gespeichert. Dies ist erforderlich, um die Stabilität und Sicherheit des Betriebs unserer
-			Internetseite zu gewährleisten.
-		</div>
-		<div class="text-balance mb-4 font-bold">Betroffene Daten:</div>
-		<div class="text-balance mb-4">
-			<ul class="list-disc">
-				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
-				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">
-					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Betroffene Personen: </strong>Nutzer unserer Internetpräsenz
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Verarbeitungszweck: </strong>Ausspielen unserer Internetseiten, Gewährleistung des
-			Betriebs unserer Internetseiten
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
-		</div>
-		<div class="text-balance mb-4 font-bold">Von uns beauftragte(r) Webhoster:</div>
-		<div class="text-balance mb-4 font-bold">Hetzner Online</div>
-		<div class="text-balance mb-4">
-			Dienstanbieter: Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen<br />
-			<a href="https://www.hetzner.de/" target="_blank" class="externalLink">Internetseite</a>
-			<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
-				>Datenschutzerklärung</a
+				</nav>
+			</details>
+		</aside>
+
+		<!-- Content -->
+		<div class="grid gap-6 min-w-0">
+			<!-- Intro -->
+			<section
+				id="intro"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Content-Delivery-Network
-		</h2>
-		<div class="text-balance mb-4">
-			Wir benutzen zum Ausspielen unserer Internetseiten ein Content-Delivery-Network (CDN). Ein CDN
-			ist ein Netz regional verteilter und über das Internet verbundener Server. Über das CDN werden
-			skalierende Speicher- und Auslieferungskapazitäten zur Verfügung gestellt. Hierdurch werden
-			die Ladezeiten unserer Internetseiten optimiert und auch bei großen Lastspitzen ein optimaler
-			Datendurchsatz gewährleistet. Nutzeranfragen auf unseren Internetseiten werden über Server des
-			CDN geleitet. Aus diesen Datenströmen werden Statistiken erstellt. Dies dient zum einen dazu,
-			potentielle Bedrohungen für unsere Internetseiten durch Schadsoftware frühzeitig zu erkennen
-			und zum anderen unser Angebot stetig zu verbessern und unsere Internetseiten für Sie als
-			Nutzer nutzerfreundlicher auszugestalten.
-		</div>
-		<div class="text-balance mb-4">
-			Wir möchten Sie darauf hinweisen, dass je nach Sitzland des unten genannten Diensteanbieters
-			die über den Dienst erfassten Daten außerhalb des Raumes der Europäischen Union übertragen und
-			verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von der DSGVO
-			vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer Rechte nicht
-			oder nur erschwert erfolgen kann.
-		</div>
-		<div class="text-balance mb-4 font-bold">Betroffene Daten:</div>
-		<div class="text-balance mb-4">
-			<ul class="list-disc">
-				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
-				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">
-					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
-				</li>
-			</ul>
-			<div class="text-balance mb-4">
-				<strong>Verarbeitungszweck: </strong>Technische Optimierung der Internetpräsenz, Analyse von
-				Fehlern und Nutzerverhalten
-			</div>
-			<div class="text-balance mb-4">
-				<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
-			</div>
-			<div class="text-balance mb-4">
-				<strong>Eingesetze CDN-Dienstleister:</strong>
-			</div>
-			<div class="text-balance mb-4">
-				<p class="font-bold">Cloudflare</p>
-				<div>
-					Diensteanbieter: Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, United States<br />
-					<a href="https://www.cloudflare.com/" class="externalLink">Internetseite</a><br />
-					<a href="https://www.cloudflare.com/privacypolicy/" class="externalLink"
-						>Datenschutzerklärung</a
-					><br />
-					<a href="https://blog.cloudflare.com/what-cloudflare-logs/" class="externalLink"
-						>Umfang der Datenerfassung</a
+				<p class="leading-relaxed text-zinc-700 dark:text-zinc-300">
+					Mit dieser Datenschutzerklärung möchten wir Sie über Art, Umfang und Zweck der
+					Verarbeitung von personenbezogenen Daten (im Folgenden auch nur als „Daten“ bezeichnet)
+					aufklären. Personenbezogene Daten sind alle Daten, die einen persönlichen Bezug zu Ihnen
+					aufweisen, z. B. Name, Adresse, E-Mail-Adresse oder Ihr Nutzerverhalten. Die
+					Datenschutzerklärung gilt für alle von uns vorgenommenen Daten-Verarbeitungsvorgänge
+					sowohl im Rahmen unserer Kerntätigkeit als auch für die von uns vorgehaltenen
+					Online-Medien.
+				</p>
+			</section>
+
+			<!-- Controller -->
+			<section
+				id="controller"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Wer bei uns für die Datenverarbeitung verantwortlich ist
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Verantwortlich für die Datenverarbeitung ist:
+				</p>
+
+				<div class="mt-5 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<p class="font-medium text-zinc-950 dark:text-zinc-50">{name}</p>
+					<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+						{address.street}<br />
+						{address.zipcode}
+						{address.city}<br />
+						{address.country}
+					</p>
+
+					<div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href={`mailto:${contact.mail}`}
+						>
+							{contact.mail}
+						</a>
+
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href="/legal/imprint"
+						>
+							{$uri.url.protocol}//{$uri.url.host}/legal/imprint
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Rights -->
+			<section
+				id="rights"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<div class="flex items-start justify-between gap-4">
+					<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+						Ihre Rechte nach der DSGVO
+					</h2>
+					<span
+						class="hidden sm:inline-flex rounded-full px-3 py-1 text-xs ring-1 ring-inset ring-accent/40 text-accent"
 					>
+						Betroffenenrechte
+					</span>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Kontaktaufnahme</h2>
-		<div class="text-balance mb-4">
-			Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
-			sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre Telefonnummer
-			oder Ihre E-Mail-Adresse zur Verfügung stellen oder weitere Angaben zur Ihrer Person oder
-			Ihrem Anliegen machen, verarbeiten wir diese Daten zur Beantwortung Ihrer Anfrage im Rahmen
-			des zwischen uns bestehenden vorvertraglichen oder vertraglichen Beziehungen.
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Betroffene Daten:</p>
-			<ul>
-				<li>Bestandsdaten (bspw. Namen, Adressen)</li>
-				<li>Kontakdaten (bspw. E-Mail-Adresse, Telefonnummer, Postanschrift)</li>
-				<li>Inhaltsdaten (Texte, Fotos, Videos)</li>
-				<li>Vertragsdaten (bspw. Vertragsgegenstand, Vertragsdauer)</li>
-			</ul>
-			<div class="text-balance mb-4">
-				<strong>Betroffene Personen: </strong>Interessenten, Kunden, Geschäfts- und Vertragspartner
-			</div>
-			<div class="text-balance mb-4">
-				<strong>Verarbeitungszweck: </strong>Kommunikation sowie Beantwortung von Kontaktanfragen,
-				Büro und Organisationsverfahren
-			</div>
-			<div class="text-balance mb-4">
-				<strong>Rechtsgrundlage:</strong> Vertragserfüllung und vorvertragliche Anfragen, Art. 6 Abs.
-				1 lit. b DSGVO, berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
-			</div>
-			<div>
-				<h3 class="text-2xl md:text-3xl font-bold text-black dark:text-secondary-500 my-2">
-					Angaben zu dem von uns genutzten Drittanbieter:
-				</h3>
-				<div class="text-balance mb-4">
-					Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von N8N bei Hetzner. Die erhaltenen
-					Nachrichten und Daten werden von unserer Seite umgehend nach der Bearbeitung gelöscht.
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Nach der DSGVO stehen Ihnen die nachfolgend aufgeführten Rechte zu, die Sie jederzeit bei
+					dem unter <a href="#controller" class="text-accent underline underline-offset-4"
+						>Verantwortliche Stelle</a
+					> genannten Verantwortlichen geltend machen können:
+				</p>
+
+				<ul class="mt-5 grid gap-3">
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">Recht auf Auskunft</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, von uns Auskunft darüber zu verlangen, ob und welche Daten wir
+							von Ihnen verarbeiten.
+						</div>
+					</li>
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">Recht auf Berichtigung</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, die Berichtigung unrichtiger oder die Vervollständigung
+							unvollständiger Daten zu verlangen.
+						</div>
+					</li>
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">Recht auf Löschung</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, die Löschung Ihrer Daten zu verlangen.
+						</div>
+					</li>
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">Recht auf Einschränkung</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben in bestimmten Fällen das Recht zu verlangen, dass wir Ihre Daten nur noch
+							eingeschränkt bearbeiten.
+						</div>
+					</li>
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">
+							Recht auf Datenübertragbarkeit
+						</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht zu verlangen, dass wir Ihnen oder einem anderen Verantwortlichen
+							Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format übermitteln.
+						</div>
+					</li>
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="font-semibold text-zinc-950 dark:text-zinc-50">Beschwerderecht</div>
+						<div class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, sich bei einer Aufsichtsbehörde zu beschweren. Zuständig ist die
+							Aufsichtsbehörde Ihres üblichen Aufenthaltsortes, Ihres Arbeitsplatzes oder unseres
+							Firmensitzes.
+						</div>
+					</li>
+				</ul>
+
+				<div class="mt-6 grid gap-4 sm:grid-cols-2">
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50">Widerrufsrecht</h3>
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, die von Ihnen erteilte Einwilligung zur Datenverarbeitung
+							jederzeit zu widerrufen.
+						</p>
+					</div>
+
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50">
+							Widerspruchsrecht
+						</h3>
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							Sie haben das Recht, jederzeit gegen die Verarbeitung Ihrer Daten, die wir auf unser
+							berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO stützen, Widerspruch
+							einzulegen. Sofern Sie von Ihrem Widerspruchsrecht Gebrauch machen, bitten wir Sie um
+							die Darlegung der Gründe.
+						</p>
+					</div>
 				</div>
-				<a href="https://www.hetzner.de/rechtliches/datenschutz" target="_blank" class="externalLink"
-				>Zur Datenschutzerklärung von Hetzner</a
+
+				<div class="mt-5 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<p class="font-semibold text-zinc-950 dark:text-zinc-50">
+						Unabhängig vom vorstehend Gesagten haben Sie jederzeit das Recht, der Verarbeitung Ihrer
+						personenbezogenen Daten für Zwecke der Werbung und Datenanalyse zu widersprechen.
+					</p>
+					<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+						Ihren Widerspruch richten Sie bitte an die oben angegebene Kontaktadresse des
+						Verantwortlichen.
+					</p>
+				</div>
+			</section>
+
+			<!-- Deletion -->
+			<section
+				id="deletion"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
 			>
-			</div>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">Content-Dienste</h2>
-		<div class="text-balance mb-4">
-			Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder Grafiken
-			(Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei verarbeiten
-			die von uns eingesetzten Dienste die Ihnen zum Zeitpunkt Ihres Besuchs auf unseren
-			Internetseiten zugeordnete IP-Adresse, da nur so der jeweilige Inhalt in dem von Ihnen
-			verwendeten Browser dargestellt werden kann. Darüber hinaus können die Anbieter dieser Dienste
-			weitere Cookies auf Ihr Endgerät setzen, über die Informationen über Ihr Nutzungsverhalten,
-			Ihre Interessen, das von Ihnen verwendete Gerät und den verwendeten Browser sowie Zeitpunkt
-			und Dauer Ihrer Sitzung erhoben werden. Diese Daten verwenden die Anbieter regelmäßig für
-			Analyse-, Statistik- und Marketingzwecke. Zudem können diese Informationen können auch mit
-			Informationen aus anderen Quellen verbunden werden. Dies gilt insbesondere dann, wenn Sie
-			selbst einen Account bei dem Dienstanbieter unterhalten und zum Zeitpunkt der Sitzung dort
-			eingeloggt sind.
-		</div>
-		<div class="text-balance mb-4">
-			Wir weisen darauf hin, dass je nach Sitzland des nachstehend genannten Diensteanbieters die
-			nachfolgend näher benannten Daten auf Server außerhalb des Raumes der Europäischen Union
-			übertragen und verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von
-			der DSGVO vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer
-			Rechte nicht oder nur erschwert erfolgen kann.
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Betroffene Daten:</p>
-			<ul class="list-disc">
-				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">
-					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse)
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Betroffene Personen:</p>
-			<ul class="list-disc">
-				<li class="mb-2">Nutzer unserer Internetpräsenz</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Verarbeitungszweck:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					Ausspielen unserer Internetseiten, Anbieten von Inhalten, Gewährleistung des Betriebs
-					unserer Internetseiten
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Rechtsgrundlage:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					Einwilligung über Cookie-Consent-Banner, Art. 6 Abs. 1 lit. a DSGVO, berechtigte
-					Interessen, Art. 6 Abs. 1 lit. f DSGVO
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Wir nutzen folgende Content-Dienste:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					<p class="font-bold">Stripe</p>
-					<div>
-						<div class="mb-2">
-							Für die redaktionelle Verwaltung und Ausspielung von Blogbeiträgen sowie weiteren multimedialen Inhalten auf unserer Internetpräsenz verwenden wir das Content-Management-System (CMS) von Stripe. Es handelt sich hierbei um eine von uns selbst betriebene und auf unseren eigenen Servern gehostete Installation, die bei unserem Webhosting-Dienstleister Hetzner Online GmbH in Deutschland betrieben wird.
-							Die Nutzung des Stripe CMS erfolgt vollständig lokal auf den von uns gemieteten Servern. Eine Übermittlung personenbezogener Daten an Stripe oder Dritte findet im Rahmen der CMS-Verwendung nicht statt.
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Wann löschen wir Ihre Daten?
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir löschen Ihre Daten dann, wenn wir diese nicht mehr brauchen oder Sie uns dies
+					vorgeben. Das bedeutet, dass – sofern sich aus den einzelnen Datenschutzhinweisen dieser
+					Datenschutzerklärung nichts anderes ergibt – wir Ihre Daten löschen,
+				</p>
+
+				<ul class="mt-5 grid gap-3">
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<p class="text-zinc-700 dark:text-zinc-300">
+							wenn der Zweck der Datenverarbeitung weggefallen ist und damit die jeweilige
+							Rechtsgrundlage nicht mehr besteht, also bspw.
+						</p>
+						<ul class="mt-3 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+							<li class="mt-1">
+								nach Beendigung der zwischen uns bestehenden vertraglichen oder mitgliedschaftlichen
+								Beziehungen (Art. 6 Abs. 1 lit. b DSGVO) oder
+							</li>
+							<li class="mt-1">
+								nach Wegfall unseres berechtigten Interesses an der weiteren Verarbeitung oder
+								Speicherung Ihrer Daten (Art. 6 Abs. 1 lit. f DSGVO),
+							</li>
+						</ul>
+					</li>
+
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<p class="text-zinc-700 dark:text-zinc-300">
+							wenn Sie von Ihrem Widerrufsrecht Gebrauch machen und keine anderweitige gesetzliche
+							Rechtsgrundlage für die Verarbeitung im Sinne von Art. 6 Abs. 1 lit. b–f DSGVO
+							eingreift,
+						</p>
+					</li>
+
+					<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<p class="text-zinc-700 dark:text-zinc-300">
+							wenn Sie von Ihrem Widerspruchsrecht Gebrauch machen und der Löschung keine zwingenden
+							schutzwürdigen Gründe entgegenstehen.
+						</p>
+					</li>
+				</ul>
+
+				<p class="mt-5 text-zinc-700 dark:text-zinc-300">
+					Sofern wir (bestimmte Teile) Ihrer Daten jedoch noch für andere Zwecke vorhalten müssen,
+					weil dies etwa steuerliche Aufbewahrungsfristen (in der Regel 6 Jahre für
+					Geschäftskorrespondenz bzw. 10 Jahre für Buchungsbelege) oder die Geltendmachung, Ausübung
+					oder Verteidigung von Rechtsansprüchen aus vertraglichen Beziehungen (bis zu vier Jahren)
+					erforderlich machen oder die Daten zum Schutz der Rechte einer anderen natürlichen oder
+					juristischen Person gebraucht werden, löschen wir (den Teil) Ihrer Daten erst nach Ablauf
+					dieser Fristen. Bis zum Ablauf dieser Fristen beschränken wir die Verarbeitung dieser
+					Daten jedoch auf diese Zwecke (Erfüllung der Aufbewahrungspflichten).
+				</p>
+			</section>
+
+			<!-- Hosting -->
+			<section
+				id="hosting"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Webhosting
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir bedienen uns zum Vorhalten unserer Internetseiten eines Anbieters, auf dessen Server
+					unsere Internetseiten gespeichert und für den Abruf im Internet verfügbar gemacht werden
+					(Hosting). Die von uns angemieteten Server befinden sich ausschließlich innerhalb
+					Deutschlands. Hierbei können von dem Anbieter
+				</p>
+
+				<ul class="mt-5 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+					<li>das Datum und die Uhrzeit des Zugriffs auf unsere Internetseite</li>
+					<li>Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
+					<li>Zugriffsstatus (HTTP-Status)</li>
+					<li>die übertragene Datenmenge</li>
+					<li>der Internet-Service-Provider des zugreifenden Systems</li>
+					<li>der von Ihnen verwendete Browsertyp und dessen Version</li>
+					<li>das von Ihnen verwendete Betriebssystem</li>
+					<li>die Internetseite, von welcher Sie ggf. auf unsere Internetseite gelangt sind</li>
+					<li>die Seiten bzw. Unterseiten, welche Sie auf unserer Internetseite besuchen</li>
+				</ul>
+
+				<p class="mt-5 text-zinc-700 dark:text-zinc-300">
+					protokolliert werden. Die vorgenannten Daten werden als Logfiles auf den Servern unseres
+					Anbieters gespeichert. Dies ist erforderlich, um die Stabilität und Sicherheit des
+					Betriebs unserer Internetseite zu gewährleisten.
+				</p>
+
+				<div class="mt-6 grid gap-4 sm:grid-cols-2">
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Betroffene Daten
 						</div>
-						<div>
-							Dienstanbieter: Hetzner Online GmbH, Industriestr. 25, 91710 Gunzenhausen
-						</div>
-						<div><a href="https://www.hetzner.de/">Internetseite</a></div>
-						<div><a href="https://www.hetzner.de/rechtliches/datenschutz">Datenschutzerklärung</a></div>
+						<ul class="mt-2 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+							<li>Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
+							<li>Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
+							<li>Kommunikationsdaten (bspw. Geräteinfos, IP-Adresse)</li>
+						</ul>
 					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">YouTube</p>
-					<div>
-						<div class="mb-2">
-							Wir nutzen auf dieser Webseite Komponenten von YouTube, um hierüber Videos auf unseren
-							Internetseiten einzubinden, so dass diese über Ihren Internetbrowser abgespielt werden
-							können, wenn Sie unsere Internetseiten besuchen. Während Ihres Besuchs unseren
-							Internetseiten werden sowohl YouTube als auch Google darüber informiert welche Seite
-							bzw. Unterseite Sie aufgerufen haben, indem Ihre IP-Adresse an die externen Server von
-							Google in den United States übermittelt wird. Diese Informationsübermittlung erfolgt unabhängig
-							davon, ob die angezeigten Videos tatsächlich betrachtet oder angeklickt werden oder
-							Sie in Ihrem YouTube oder Google Account eingeloggt sind. Diese Informationen werden
-							gesammelt und Ihrem Google-Account zugeordnet, sofern Sie dort eingeloggt sind, wenn
-							Sie unsere Internetseiten aufrufen.
+
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Einordnung
 						</div>
-						<div>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, United States</div>
-						<div>
-							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							<strong>Betroffene Personen:</strong> Nutzer unserer Internetpräsenz<br />
+							<strong>Verarbeitungszweck:</strong> Ausspielen der Internetseiten, Gewährleistung des
+							Betriebs<br />
+							<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
+						</p>
+					</div>
+				</div>
+
+				<div class="mt-6 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<p class="font-semibold text-zinc-950 dark:text-zinc-50">
+						Von uns beauftragter Webhoster
+					</p>
+					<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+						<strong>Hetzner Online GmbH</strong><br />
+						Industriestr. 25, 91710 Gunzenhausen
+					</p>
+					<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href="https://www.hetzner.de/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Internetseite
+						</a>
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href="https://www.hetzner.de/rechtliches/datenschutz"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Datenschutzerklärung
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- CDN -->
+			<section
+				id="cdn"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Content-Delivery-Network
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir benutzen zum Ausspielen unserer Internetseiten ein Content-Delivery-Network (CDN). Ein
+					CDN ist ein Netz regional verteilter und über das Internet verbundener Server.
+				</p>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir möchten Sie darauf hinweisen, dass je nach Sitzland des unten genannten
+					Diensteanbieters die über den Dienst erfassten Daten außerhalb des Raumes der Europäischen
+					Union übertragen und verarbeitet werden können.
+				</p>
+
+				<div class="mt-6 grid gap-4 sm:grid-cols-2">
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Betroffene Daten
 						</div>
-						<div><a href="https://www.youtube.com/">Internetseite</a></div>
-						<div><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></div>
-						<div>
-							<a href="https://tools.google.com/dlpage/gaoptout?hl=de" class="font-bold"
-								>Opt-Out-Möglichkeit</a
+						<ul class="mt-2 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+							<li>Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
+							<li>Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
+							<li>Kommunikationsdaten (bspw. Geräteinfos, IP-Adresse)</li>
+						</ul>
+					</div>
+
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Einordnung
+						</div>
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							<strong>Verarbeitungszweck:</strong> Technische Optimierung, Analyse von Fehlern und
+							Nutzerverhalten<br />
+							<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse, Art. 6 Abs. 1 lit. f DSGVO
+						</p>
+					</div>
+				</div>
+
+				<div class="mt-6 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<p class="font-semibold text-zinc-950 dark:text-zinc-50">
+						Eingesetzter CDN-Dienstleister
+					</p>
+
+					<div class="mt-3">
+						<p class="font-medium text-zinc-950 dark:text-zinc-50">Cloudflare</p>
+						<p class="mt-1 text-zinc-700 dark:text-zinc-300">
+							Diensteanbieter: Cloudflare Inc., 101 Townsend St., San Francisco, CA 94107, United
+							States
+						</p>
+
+						<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+							<a
+								class="text-accent underline underline-offset-4 break-all"
+								href="https://www.cloudflare.com/"
+								target="_blank"
+								rel="noopener noreferrer">Internetseite</a
+							>
+							<a
+								class="text-accent underline underline-offset-4 break-all"
+								href="https://www.cloudflare.com/privacypolicy/"
+								target="_blank"
+								rel="noopener noreferrer">Datenschutzerklärung</a
+							>
+							<a
+								class="text-accent underline underline-offset-4 break-all"
+								href="https://blog.cloudflare.com/what-cloudflare-logs/"
+								target="_blank"
+								rel="noopener noreferrer">Umfang der Datenerfassung</a
 							>
 						</div>
 					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Unsere Onlinepräsenzen bei sozialen Netzwerken
-		</h2>
-		<div class="text-balance mb-4">
-			Wir betreiben Onlinepräsenzen innerhalb der nachfolgend aufgelisteten sozialen Netzwerke.
-			Besuchen Sie eine dieser Präsenzen, werden durch den jeweiligen Anbieter die unten näher
-			aufgeführten Daten erhoben und verarbeitet. In der Regel werden diese Daten zur Werbe- und
-			Marktforschungszwecke erhoben und hiermit Nutzungsprofile angelegt. In den Nutzungsprofilen
-			können Daten unabhängig des von Ihnen verwendeten Gerätes gespeichert werden. Dies ist
-			insbesondere dann der Fall, wenn Sie Mitglied der jeweiligen Plattform und bei dieser
-			eingeloggt sind. Die Nutzungsprofile können von den Anbietern dazu verwendet werden, um Ihnen
-			interessenbezogene Werbung auszuspielen. Gegen die Erstellung von Nutzerprofilen steht Ihnen
-			ein Widerrufsrecht zu. Um dieses auszuüben, müssen Sie sich an den jeweiligen Anbieter wenden.
-		</div>
-		<div class="text-balance mb-4">
-			Wenn Sie einen Account bei einem der unten aufgeführten Anbieter besitzen und beim Besuch
-			unserer Webseite dort eingeloggt sind, kann der jeweilige Anbieter Daten über Ihr
-			Nutzungsverhalten auf unserer Webseite erheben. Um eine solche Verknüpfung Ihrer Daten zu
-			verhindern, können Sie sich vor dem Besuch unserer Seite bei dem Dienst des Anbieters
-			ausloggen.
-		</div>
-		<div class="text-balance mb-4">
-			Zu welchem Zweck und in welchem Umfang Daten von dem Anbieter erhoben werden, können Sie den
-			jeweiligen, im Folgenden mitgeteilten, Datenschutzerklärungen der Anbieter entnehmen.
-		</div>
-		<div class="text-balance mb-4">
-			Wir möchten Sie darauf hinweisen, dass je nach Sitzland des unten genannten Anbieters die über
-			dessen Plattform erfassten Daten außerhalb des Raumes der Europäischen Union übertragen und
-			verarbeitet werden können. Es besteht in diesem Fall das Risiko, dass das von der DSGVO
-			vorgeschriebene Datenschutzniveau nicht eingehalten und die Durchsetzung Ihrer Rechte nicht
-			oder nur erschwert erfolgen kann.
-		</div>
-		<div class="text-balance mb-4">
-			<p class="font-bold">Betroffene Daten:</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					Bestands- und Kontaktdaten (bspw. Name, Adresse, Telefonnummer, E-Mail-Adresse)
-				</li>
-				<li class="mb-2">Inhaltsdaten (bspw. Posts, Fotos, Videos)</li>
-				<li class="mb-2">Nutzungsdaten (bspw. Zugriffszeiten, angeklickte Webseiten)</li>
-				<li class="mb-2">
-					Kommunikationsdaten (bspw. Informationen über das genutzte Gerät, IP-Adresse).
-				</li>
-			</ul>
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Verarbeitungszweck: </strong>Kommunikation und Marketing, Verfolgen und Anaylse von
-			Nutzerverhalten
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Rechtsgrundlage:</strong> Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, berechtigtes Interessen
-			Art. 6 Abs. 1 lit. f DSGVO
-		</div>
-		<div class="text-balance mb-4">
-			<strong>Widerspruchsmöglichkeiten: </strong>Zu den jeweiligen Widerspruchsmöglichkeiten
-			(Opt-Out) verweisen wir auf die nachfolgend verlinkten Angaben der Anbieter.
-		</div>
-		<div class="text-balance mb-4">
-			<p class="mb-2">
-				<strong>Wir unterhalten Onlinepräsenzen auf folgenden sozialen Netzwerken:</strong>
-			</p>
-			<ul class="list-disc">
-				<li class="mb-2">
-					<p class="font-bold">Facebook</p>
-					<div>
-						<p>Dienstanbieter: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, United States</p>
-						<p>
-							Sitz in der EU: Facebook Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour,
-							Dublin 2, Irland
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section
+				id="contact"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Kontaktaufnahme
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Soweit Sie uns über E-Mail, Soziale Medien, Telefon, Fax, Post, unser Kontaktformular oder
+					sonstwie ansprechen und uns hierbei personenbezogene Daten wie Ihren Namen, Ihre
+					Telefonnummer oder Ihre E-Mail-Adresse zur Verfügung stellen oder weitere Angaben zu Ihrer
+					Person oder Ihrem Anliegen machen, verarbeiten wir diese Daten zur Beantwortung Ihrer
+					Anfrage.
+				</p>
+
+				<!-- Turnstile Hinweis -->
+				<div class="mt-5 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<p class="font-semibold text-zinc-950 dark:text-zinc-50">
+						Spam-Schutz im Kontaktformular
+					</p>
+
+					<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+						Zum Schutz vor automatisierten Anfragen (Spam) nutzen wir <strong
+							>Cloudflare Turnstile</strong
+						>. Turnstile wird beim Aufruf der Kontaktseite geladen und verarbeitet dabei technische
+						Informationen (z.&nbsp;B. IP-Adresse, Browser-/Geräteinformationen sowie Zeitstempel),
+						um menschliche von automatisierten Anfragen zu unterscheiden und Missbrauch zu
+						verhindern.
+					</p>
+
+					<p class="mt-3 text-zinc-700 dark:text-zinc-300">
+						<strong>Rechtsgrundlage:</strong> Berechtigtes Interesse an der Sicherung unserer Systeme
+						und dem Schutz vor Missbrauch/Spam, Art. 6 Abs. 1 lit. f DSGVO.
+					</p>
+
+					<p class="mt-3 text-zinc-700 dark:text-zinc-300">
+						<strong>Dienstanbieter:</strong> Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107,
+						United States
+					</p>
+
+					<div class="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href="https://www.cloudflare.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Internetseite
+						</a>
+						<a
+							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
+							href="https://www.cloudflare.com/privacypolicy/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Datenschutzerklärung
+						</a>
+					</div>
+				</div>
+
+				<div class="mt-6 grid gap-4 sm:grid-cols-2">
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Betroffene Daten
+						</div>
+						<ul class="mt-2 list-disc pl-5 text-zinc-700 dark:text-zinc-300">
+							<li>Bestandsdaten (bspw. Namen, Adressen)</li>
+							<li>Kontaktdaten (bspw. E-Mail-Adresse, Telefonnummer, Postanschrift)</li>
+							<li>Inhaltsdaten (Texte, Fotos, Videos)</li>
+							<li>Vertragsdaten (bspw. Vertragsgegenstand, Vertragsdauer)</li>
+						</ul>
+					</div>
+
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+							Einordnung
+						</div>
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							<strong>Betroffene Personen:</strong> Interessenten, Kunden, Geschäfts- und
+							Vertragspartner<br />
+							<strong>Verarbeitungszweck:</strong> Kommunikation, Beantwortung von Kontaktanfragen,
+							Büro- und Organisationsverfahren<br />
+							<strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO sowie berechtigtes Interesse,
+							Art. 6 Abs. 1 lit. f DSGVO
 						</p>
-						<p><a href="https://www.facebook.com/">Internetseite</a></p>
-						<p><a href="https://www.facebook.com/about/privacy/">Datenschutzerklärung</a></p>
-						<p>
-							<a href="https://www.facebook.com/legal/terms/information_about_page_insights_data"
-								>Datenschutzerklärung für Facebook-Seiten</a
-							>
+					</div>
+				</div>
+
+				<div class="mt-6 rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+					<h3 class="text-base font-semibold text-zinc-950 dark:text-zinc-50">
+						Angaben zu dem von uns genutzten Drittanbieter
+					</h3>
+					<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+						Das Kontaktformular übermittelt Daten an eine selbstgehostete Instanz von n8n bei
+						Hetzner. Die erhaltenen Nachrichten und Daten werden von unserer Seite umgehend nach der
+						Bearbeitung gelöscht.
+					</p>
+
+					<div class="mt-3">
+						<a
+							class="text-accent underline underline-offset-4 break-all"
+							href="https://www.hetzner.de/rechtliches/datenschutz"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Zur Datenschutzerklärung von Hetzner
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Content services -->
+			<section
+				id="content-services"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Content-Dienste
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir nutzen bestimmte Dienste, um über unsere Internetpräsenz bestimmte Inhalte oder
+					Grafiken (Videos, Bilder, Musik, Schriftarten, Kartenmaterial) ausspielen zu können. Dabei
+					verarbeiten die von uns eingesetzten Dienste die Ihnen zum Zeitpunkt Ihres Besuchs auf
+					unseren Internetseiten zugeordnete IP-Adresse.
+				</p>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir weisen darauf hin, dass je nach Sitzland des nachstehend genannten Diensteanbieters
+					die nachfolgend näher benannten Daten auf Server außerhalb des Raumes der Europäischen
+					Union übertragen und verarbeitet werden können.
+				</p>
+
+				<div class="mt-6 grid gap-4">
+					<div class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+						<p class="font-semibold text-zinc-950 dark:text-zinc-50">Strapi</p>
+						<p class="mt-2 text-zinc-700 dark:text-zinc-300">
+							Für die redaktionelle Verwaltung und Ausspielung von Blogbeiträgen sowie weiteren
+							multimedialen Inhalten verwenden wir das Content-Management-System (CMS) von Strapi.
+							Es handelt sich um eine selbst betriebene, bei Hetzner (Deutschland) betriebene
+							Installation. Eine Übermittlung personenbezogener Daten an Strapi oder Dritte findet
+							im Rahmen der CMS-Verwendung nicht statt.
 						</p>
 					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">GitHub</p>
-					<div>
-						<p>Dienstanbieter: GitHub, Inc. 88 Colin P. Kelly Jr. St. San Francisco, CA 94107 United States</p>
-						<p>
-							Sitz in der EU: GitHub B.V Prins Bernhardplein 200, Amsterdam 1097JB, Niederlande
-						</p>
-						<p><a href="https://github.com/">Internetseite</a></p>
-						<p><a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement/">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">Instagram</p>
-					<div>
-						<p>Dienstanbieter: Instagram Inc., 1601 Willow Road, Menlo Park CA 94025, United States</p>
-						<p>Mutterunternehmen: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, United States</p>
-						<p>Sitz in der EU: Facebook Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland</p>
-						<p><a href="https://www.instagram.com/">Internetseite</a></p>
-						<p><a href="https://instagram.com/about/legal/privacy">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">LinkedIn</p>
-					<div>
-						<p>Dienstanbieter: LinkedIn Corporation, 1000 W Maude Avenue, Sunnyvale, Canada</p>
-						<p>Sitz in der EU: LinkedIn Irland Unlimited Company, Wilton Place, Dublin 2, Ireland</p>
-						<p><a href="https://www.linkedin.com/">Internetseite</a></p>
-						<p><a href="https://de.linkedin.com/legal/privacy/eu">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">Mastodon</p>
-					<div>
-						<p>Dienstanbieter: Mastodon gGmbH, Mühlenstraße 8a, 14167 Berlin, Germany</p>
-						<p><a href="https://mastodon.social/about">Internetseite</a></p>
-						<p><a href="https://mastodon.social/privacy-policy">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">Threads</p>
-					<div>
-						<p>Dienstanbieter: Instagram Inc., 1601 Willow Road, Menlo Park CA 94025, USA</p>
-						<p>Mutterunternehmen: Facebook Inc., 1 Hacker Way, Menlo Park, CA 94025, USA</p>
-						<p>Sitz in der EU: Facebook Ireland Limited, 4 Grand Canal Square, Dublin 2, Ireland</p>
-						<p><a href="https://www.threads.net/">Internetseite</a></p>
-						<p><a href="https://instagram.com/about/legal/privacy">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">TikTok</p>
-					<div>
-						<p>Dienstanbieter: TIKTOK PTE. LTD., RAFFLES QUAY, #26-10, Singapore 48583, Singapore</p>
-						<p>Sitz in der EU: TikTok Technology Limited, The Sorting Office, Ropemaker Place, Dublin 2, Dublin, D02 HD23, Ireland</p>
-						<p><a href="https://www.tiktok.com/de-DE/">Internetseite</a></p>
-						<p><a href="https://www.tiktok.com/legal/page/eea/privacy-policy/de">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-				<li class="mb-2">
-					<p class="font-bold">YouTube</p>
-					<div>
-						<p>Dienstanbieter: YouTube, LLC, 901 Cherry Ave., San Bruno, CA 94066, United States</p>
-						<p>
-							Mutterunternehmen: Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043,
-							United States
-						</p>
-						<p>
-							Sitz in der EU: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
-						</p>
-						<p><a href="https://www.youtube.com/">Internetseite</a></p>
-						<p><a href="https://policies.google.com/privacy">Datenschutzerklärung</a></p>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Sicherheits Maßnahmen
-		</h2>
-		<div class="text-balance mb-4">
-			Wir treffen im Übrigen technische und organisatorische Sicherheitsmaßnahmen nach dem Stand der
-			Technik, um die Vorschriften der Datenschutzgesetze einzuhalten und Ihre Daten gegen zufällige
-			oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen
-			den unbefugten Zugriff Dritter zu schützen.
-		</div>
-	</div>
-	<div>
-		<h2 class="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-secondary-600 my-2">
-			Aktualität und Änderung dieser Datenschutzerklärung
-		</h2>
-		<div class="text-balance mb-4">
-			Diese Datenschutzerklärung ist aktuell gültig und hat den Stand 01. Dezember 2025. Aufgrund geänderter
-			gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
-			anzupassen.
-		</div>
-		<div class="text-balance mb-4 font-bold">
-			Diese Datenschutzerklärung wurde mit Hilfe des Datenschutz-Generators von SOS Recht erstellt.
-			SOS Recht ist ein Angebot der Mueller.legal Rechtsanwälte Partnerschaft mit Sitz in Berlin.
+				</div>
+			</section>
+
+			<!-- Social -->
+			<section
+				id="social"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Unsere Onlinepräsenzen bei sozialen Netzwerken
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir betreiben Onlinepräsenzen innerhalb der nachfolgend aufgelisteten sozialen Netzwerke.
+					Besuchen Sie eine dieser Präsenzen, werden durch den jeweiligen Anbieter Daten erhoben und
+					verarbeitet.
+				</p>
+
+				<ul class="mt-5 grid gap-3 sm:grid-cols-2">
+					{#each social as item}
+						<li class="rounded-2xl border border-zinc-200/60 p-4 dark:border-zinc-800/60">
+							<div class="text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
+								{item.label}
+							</div>
+							<div class="mt-1 font-medium text-zinc-950 dark:text-zinc-50">{item.handle}</div>
+							<div class="mt-4 text-xs">
+								<a
+									class="text-accent underline underline-offset-4 break-all"
+									href={item.privacyUrl}
+									target="_blank"
+									rel="noopener noreferrer">Zur Datenschutzerklärung von {item.label}</a
+								>
+							</div>
+						</li>
+					{/each}
+				</ul>
+			</section>
+
+			<!-- Security -->
+			<section
+				id="security"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Sicherheitsmaßnahmen
+				</h2>
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Wir treffen technische und organisatorische Sicherheitsmaßnahmen nach dem Stand der
+					Technik, um die Vorschriften der Datenschutzgesetze einzuhalten und Ihre Daten gegen
+					unbefugten Zugriff zu schützen.
+				</p>
+			</section>
+
+			<!-- Updates -->
+			<section
+				id="updates"
+				class="scroll-mt-28 rounded-3xl border border-zinc-200/70 bg-white/70 p-5 sm:p-6 backdrop-blur dark:border-zinc-800/70 dark:bg-zinc-950/40 min-w-0 overflow-hidden"
+			>
+				<h2 class="text-xl sm:text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+					Aktualität und Änderung dieser Datenschutzerklärung
+				</h2>
+
+				<p class="mt-4 text-zinc-700 dark:text-zinc-300">
+					Diese Datenschutzerklärung ist aktuell gültig und hat den Stand <strong
+						>21. Februar 2026</strong
+					>. Aufgrund geänderter gesetzlicher bzw. behördlicher Vorgaben kann es notwendig werden,
+					diese Datenschutzerklärung anzupassen.
+				</p>
+			</section>
 		</div>
 	</div>
 </div>
