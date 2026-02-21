@@ -262,7 +262,7 @@
 						class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 					>
 						<div class="text-sm font-medium">Neuester Beitrag</div>
-						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{String(err)}</div>
+						<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Beitrag konnte nicht geladen werden.</div>
 					</div>
 				{/await}
 
