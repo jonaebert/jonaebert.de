@@ -28,6 +28,7 @@
 			if (window.turnstile) return resolve();
 			const existing = document.querySelector<HTMLScriptElement>('script[data-turnstile="1"]');
 			if (existing) {
+				if (window.turnstile) return resolve();
 				existing.addEventListener('load', () => resolve(), { once: true });
 				existing.addEventListener('error', () => reject(new Error('Turnstile script failed')), {
 					once: true
