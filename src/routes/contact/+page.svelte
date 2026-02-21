@@ -23,17 +23,11 @@
 
 	let response: any;
 	let submitting = 0; // 0 idle, 1 sending, 2 sent, 3 error
-	let disabled = false;
+	$: disabled = submitting === 1 || submitting === 2;
 	$: messageMax = barrierChecked ? 1000 : 600;
 	let messageText: string = '';
 
 	let formError: any = 'Keine Fehlermeldung vorhanden!';
-
-	// Disable form input
-	function disable(state: number) {
-		disabled = state === 1 || state === 2;
-		return disabled;
-	}
 
 	// Send form data
 	let successTimer1: ReturnType<typeof setTimeout>;
@@ -210,7 +204,7 @@
 								name="name"
 								id="name"
 								required
-								disabled={disable(submitting)}
+								disabled={disabled}
 								placeholder="Dein Name"
 								class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 								bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -227,7 +221,7 @@
 								type="text"
 								name="pronouns"
 								id="pronouns"
-								disabled={disable(submitting)}
+								disabled={disabled}
 								placeholder="z. B. sie/ihr, they/them …"
 								class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 								bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -246,7 +240,7 @@
 							name="email"
 							id="email"
 							required
-							disabled={disable(submitting)}
+							disabled={disabled}
 							placeholder="name@domain.de"
 							class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 							bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -266,7 +260,7 @@
 							rows="6"
 							maxlength={messageMax}
 							bind:value={messageText}
-							disabled={disable(submitting)}
+							disabled={disabled}
 							placeholder={barrierChecked
 								? 'Beschreibe kurz die Barriere (Ort/Seite, was genau passiert, ggf. Gerät/Browser)…'
 								: 'Schreib mir ein paar Zeilen…'}
@@ -297,7 +291,7 @@
 								id="barrier"
 								value="true"
 								bind:checked={barrierChecked}
-								disabled={disable(submitting)}
+								disabled={disabled}
 								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200"
@@ -312,7 +306,7 @@
 								id="privacy"
 								value="true"
 								required
-								disabled={disable(submitting)}
+								disabled={disabled}
 								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200">
