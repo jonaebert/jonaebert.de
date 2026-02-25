@@ -2,6 +2,7 @@
 	import { name, pronouns } from '$lib/store';
 	import Slogan from '$lib/components/ui/Slogan.svelte';
 	import SocialIcons from '../ui/SocialIcons.svelte';
+	import Icon from '../icons/Icon.svelte';
 
 	const legalLinks = [
 		{ href: '/legal/imprint', label: 'Impressum' },
@@ -39,7 +40,11 @@
 			</div>
 
 			<div class="lg:col-span-3">
-				<div class="text-sm font-medium">Rechtliches ⚖️</div>
+				<div class="text-sm font-medium inline-flex items-center gap-2">
+					<span>Rechtliches</span>
+					<Icon name="scale" classes="h-4 w-4" />
+				</div>
+
 				<div class="mt-3 flex flex-col gap-2">
 					{#each legalLinks as item}
 						<a
@@ -53,7 +58,11 @@
 			</div>
 
 			<div class="lg:col-span-4 lg:justify-self-end">
-				<div class="text-sm font-medium">Schau mal hier vorbei 👀</div>
+				<div class="text-sm font-medium inline-flex items-center gap-2">
+					<span>Schau mal hier vorbei</span>
+					<Icon name="compass" classes="h-4 w-4" />
+				</div>
+
 				<div class="mt-3 flex flex-col gap-2">
 					{#each recLinks as item}
 						<a
