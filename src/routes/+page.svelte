@@ -351,6 +351,6 @@
 
 	<!-- Blog Preview -->
 	<div class="order-5 lg:order-0 lg:col-span-6">
-		<Blog {posts} limit={4} />
+		<Blog {posts} limit={6} />
 	</div>
 </section>
