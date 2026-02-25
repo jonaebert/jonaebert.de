@@ -346,7 +346,7 @@
 
 	<!-- Calendar Preview -->
 	<div class="order-4 lg:order-0 lg:col-span-6">
-		<Calendar {events} items={8} />
+		<Calendar {events} limit={7} />
 	</div>
 
 	<!-- Blog Preview -->

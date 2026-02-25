@@ -5,7 +5,7 @@
 	import { je_cms_base_url } from '$lib/store.js';
 
 	export let events: Promise<any[]>;
-	export let items: number = 8;
+	export let limit: number = 8;
 
 	function coverUrl(item: any): string | null {
 		const cover = item?.cover;
@@ -89,7 +89,7 @@
 </script>
 
 {#await events}
-	<CalendarListSkeleton {items} />
+	<CalendarListSkeleton {limit} />
 {:then eventsLoaded}
 	<section class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
 		<div class="flex items-center justify-between">
@@ -102,7 +102,7 @@
 		</div>
 
 		<div class="mt-5 space-y-3">
-			{#each eventsLoaded as event (event.id)}
+			{#each eventsLoaded.slice(0, limit) as event (event.id ?? event.documentId)}
 				{@const eventState = stateLabel(event.state)}
 				{@const today = isTodayEvent(event.start, event.end)}
 				{@const live = isLiveNow(event.start, event.end)}
