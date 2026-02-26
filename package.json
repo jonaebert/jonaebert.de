@@ -18,7 +18,7 @@
 		"preview": "npm run gen:api && vite preview"
 	},
 	"devDependencies": {
-		"@fortawesome/free-brands-svg-icons": "^7.1.0",
+		"@fortawesome/free-brands-svg-icons": "^7.2.0",
 		"@fortawesome/free-solid-svg-icons": "^7.2.0",
 		"@sveltejs/adapter-node": "^5.5.2",
 		"@sveltejs/kit": "^2.53.0",
