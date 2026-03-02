@@ -509,8 +509,8 @@
 				</h3>
 
 				<div class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-					Listenplatz <span class="font-semibold">14</span> für den Rat<br />
-					Listenplatz <span class="font-semibold">1</span> für den{' '}
+					Listenplatz <span class="font-semibold">14</span> auf der Gesamtliste für den Rat. In dem Gemeindewahlbereich Südost (21) Listenplatz <span class="font-semibold">2</span> für den Rat.<br><br>
+					Listenplatz <span class="font-semibold">1</span> in dem{' '}
 					<span class="relative inline-flex" bind:this={rootEl}>
 						<button
 							bind:this={triggerEl}
@@ -610,6 +610,7 @@
 							</div>
 						{/if}
 					</span>
+					für den Stadtbezirksrat 322.
 				</div>
 			</div>
 
