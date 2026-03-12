@@ -21,74 +21,63 @@
 </script>
 
 <div
-	class="relative inline-flex rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
-		bg-white/70 dark:bg-zinc-900/60 backdrop-blur-md overflow-hidden"
+	class="relative inline-flex rounded-xl border border-zinc-200/70 bg-white/70 p-1
+		dark:border-zinc-800/70 dark:bg-zinc-900/70"
+	role="group"
+	aria-label="Darstellungsmodus wählen"
 >
-	<!-- Active indicator -->
 	<div
-		class="absolute inset-y-0 w-1/3 transition-transform duration-300 ease-out
-			bg-linear-to-b from-white/70 to-zinc-100/70 dark:from-zinc-800/70 dark:to-zinc-900/20
-			ring-1 ring-inset ring-zinc-900/5 dark:ring-white/10"
-		style="transform: translateX({idx * 100}%);"
+		class="pointer-events-none absolute left-1 top-1 h-9 w-9 sm:h-7 sm:w-9 rounded-lg
+			bg-zinc-100 dark:bg-zinc-800/90
+			transition-transform duration-200 ease-[cubic-bezier(.4,0,.2,1)]"
+		style="transform: translateX(calc({idx} * 2.25rem));"
 	></div>
 
 	<button
-		class="group relative px-3 py-2 flex items-center justify-center transition
-			text-zinc-600 dark:text-zinc-400
-			hover:text-zinc-900 dark:hover:text-zinc-100
-			hover:bg-zinc-100/40 dark:hover:bg-zinc-800/40
-			active:scale-[0.98]"
+		type="button"
+		class="relative z-10 flex h-9 w-9 sm:h-7 sm:w-9 items-center justify-center rounded-lg
+			text-zinc-500 transition-colors duration-200
+			hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100
+			focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300/80
+			dark:focus-visible:ring-zinc-700/80"
 		class:text-zinc-900={theme === 'light'}
 		class:dark:text-zinc-100={theme === 'light'}
 		on:click={() => setTheme('light')}
 		aria-label="Hellmodus"
+		aria-pressed={theme === 'light'}
 	>
-		<span
-			class="transition-transform duration-200
-				group-hover:scale-110
-				{theme === 'light' ? 'scale-110' : ''}"
-		>
-			<Icon name="sun" classes="h-4 w-4" strokeWidth={1.8} />
-		</span>
+		<Icon name="sun" classes="h-4 w-4 sm:h-3.5 sm:w-3.5 stroke-[1.8] sm:stroke-[1.3]" />
 	</button>
 
 	<button
-		class="group relative px-3 py-2 flex items-center justify-center transition
-			text-zinc-600 dark:text-zinc-400
-			hover:text-zinc-900 dark:hover:text-zinc-100
-			hover:bg-zinc-100/40 dark:hover:bg-zinc-800/40
-			active:scale-[0.98]"
+		type="button"
+		class="relative z-10 flex h-9 w-9 sm:h-7 sm:w-9 items-center justify-center rounded-lg
+			text-zinc-500 transition-colors duration-200
+			hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100
+			focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300/80
+			dark:focus-visible:ring-zinc-700/80"
 		class:text-zinc-900={theme === 'system'}
 		class:dark:text-zinc-100={theme === 'system'}
 		on:click={() => setTheme('system')}
 		aria-label="Systemmodus"
+		aria-pressed={theme === 'system'}
 	>
-		<span
-			class="transition-transform duration-200
-				group-hover:scale-110
-				{theme === 'system' ? 'scale-110' : ''}"
-		>
-			<Icon name="monitor" classes="h-4 w-4" strokeWidth={1.8} />
-		</span>
+		<Icon name="monitor" classes="h-4 w-4 sm:h-3.5 sm:w-3.5 stroke-[1.8] sm:stroke-[1.3]" />
 	</button>
 
 	<button
-		class="group relative px-3 py-2 flex items-center justify-center transition
-			text-zinc-600 dark:text-zinc-400
-			hover:text-zinc-900 dark:hover:text-zinc-100
-			hover:bg-zinc-100/40 dark:hover:bg-zinc-800/40
-			active:scale-[0.98]"
+		type="button"
+		class="relative z-10 flex h-9 w-9 sm:h-7 sm:w-9 items-center justify-center rounded-lg
+			text-zinc-500 transition-colors duration-200
+			hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100
+			focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300/80
+			dark:focus-visible:ring-zinc-700/80"
 		class:text-zinc-900={theme === 'dark'}
 		class:dark:text-zinc-100={theme === 'dark'}
 		on:click={() => setTheme('dark')}
 		aria-label="Dunkelmodus"
+		aria-pressed={theme === 'dark'}
 	>
-		<span
-			class="transition-transform duration-200
-				group-hover:scale-110
-				{theme === 'dark' ? 'scale-110' : ''}"
-		>
-			<Icon name="moon" classes="h-4 w-4" strokeWidth={1.8} />
-		</span>
+		<Icon name="moon" classes="h-4 w-4 sm:h-3.5 sm:w-3.5 stroke-[1.8] sm:stroke-[1.3]" />
 	</button>
 </div>
