@@ -4,7 +4,6 @@ import { defineConfig, loadEnv } from 'vite';
 const REQUIRED = [
 	'VITE_JE_API_BASE_URL',
 	'VITE_JE_CMS_BASE_URL',
-	'VITE_JE_CMS_API_TOKEN',
 	'VITE_JE_N8N_CONTACT_URL',
 	'VITE_JE_PUBLIC_TURNSTILE_SITE_KEY'
 ] as const;
