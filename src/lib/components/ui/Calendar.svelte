@@ -1,11 +1,12 @@
 <script lang="ts">
+	import { je_cms_base_url } from '$lib/store.js';
+	import { FormatDate } from '$lib/util/date.js';
 	import CalendarListSkeleton from '$lib/components/skeleton/CalendarListSkeleton.svelte';
 	import Image from '$lib/components/ui/Image.svelte';
-	import { FormatDate } from '$lib/util/date.js';
-	import { je_cms_base_url } from '$lib/store.js';
+	import Icon from '$lib/components/icons/Icon.svelte';
 
 	export let events: Promise<any[]>;
-	export let items: number = 8;
+	export let limit: number = 8;
 
 	function coverUrl(item: any): string | null {
 		const cover = item?.cover;
@@ -89,7 +90,7 @@
 </script>
 
 {#await events}
-	<CalendarListSkeleton {items} />
+	<CalendarListSkeleton {limit} />
 {:then eventsLoaded}
 	<section class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-6">
 		<div class="flex items-center justify-between">
@@ -102,7 +103,7 @@
 		</div>
 
 		<div class="mt-5 space-y-3">
-			{#each eventsLoaded as event (event.id)}
+			{#each eventsLoaded.slice(0, limit) as event (event.id ?? event.documentId)}
 				{@const eventState = stateLabel(event.state)}
 				{@const today = isTodayEvent(event.start, event.end)}
 				{@const live = isLiveNow(event.start, event.end)}
@@ -153,44 +154,11 @@
 						<div class="min-w-0 flex-1">
 							<span class={`${eventState.class} float-right ml-3 mt-0.5`} title={eventState.label}>
 								{#if eventState.icon === 'meet'}
-									<svg
-										class="h-3.5 w-3.5"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										aria-hidden="true"
-									>
-										<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-										<circle cx="9" cy="7" r="4" />
-										<path d="M19 8v6" />
-										<path d="M22 11h-6" />
-									</svg>
+									<Icon name="meet" classes="h-4 w-4 stroke-2" />
 								{:else if eventState.icon === 'recommend'}
-									<svg
-										class="h-3.5 w-3.5"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										aria-hidden="true"
-									>
-										<path
-											d="M12 17.3l-6.2 3.3 1.2-6.9L1.8 9l7-1L12 1.7 15.2 8l7 1-5.2 4.7 1.2 6.9z"
-										/>
-									</svg>
+									<Icon name="star" classes="h-4 w-4 stroke-2" />
 								{:else if eventState.icon === 'cancelled'}
-									<svg
-										class="h-3.5 w-3.5"
-										viewBox="0 0 24 24"
-										fill="none"
-										stroke="currentColor"
-										stroke-width="2"
-										aria-hidden="true"
-									>
-										<path d="M18 6L6 18" />
-										<path d="M6 6l12 12" />
-									</svg>
+									<Icon name="x" classes="h-4 w-4 stroke-2" />
 								{:else}
 									<svg
 										class="h-3.5 w-3.5"

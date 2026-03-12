@@ -357,13 +357,41 @@
 		</div>
 
 		<!-- Portrait -->
-		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6">
-			<div class="aspect-square overflow-hidden rounded-xl">
-				<Image
-					src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
-					alt="Portrait von {name}"
-					classNames="h-full w-full object-cover"
-				/>
+		<div
+			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6"
+		>
+			<div class="space-y-3">
+				<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+					Kommunalwahl • September 2026
+				</p>
+
+				<h3 class="text-lg sm:text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
+					Für euch in Braunschweig
+				</h3>
+
+				<div class="text-zinc-600 dark:text-zinc-400 space-y-3">
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Rat der Stadt Braunschweig<br />Wahlbereich 21 (Braunschweig Südost) •
+						<strong>Platz 2</strong>
+					</div>
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Stadtbezirksrat 322<br />Nördliche Schunter-/Okeraue • <strong>Platz 1</strong>
+					</div>
+				</div>
+			</div>
+
+			<div class="block mt-5">
+				<div class="aspect-square overflow-hidden">
+					<Image
+						src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
+						alt="Portrait von {name}"
+						classNames="h-full w-full object-cover scale-100 sm:scale-95"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>

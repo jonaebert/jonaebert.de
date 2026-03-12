@@ -22,17 +22,17 @@ export const contact = {
 export const uri = page;
 
 // API
-export const je_api_base_url = import.meta.env.VITE_JE_API_BASE_URL;
+export const je_api_base_url = import.meta.env.VITE_JE_API_BASE_URL ?? '';
 
 // CMS
-export const je_cms_base_url = import.meta.env.VITE_JE_CMS_BASE_URL;
-export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN;
+export const je_cms_base_url = import.meta.env.VITE_JE_CMS_BASE_URL ?? '';
+export const je_cms_api_token = import.meta.env.VITE_JE_CMS_API_TOKEN ?? '';
 
 // N8N
-export const n8n_contact_url = import.meta.env.VITE_JE_N8N_CONTACT_URL;
+export const n8n_contact_url = import.meta.env.VITE_JE_N8N_CONTACT_URL ?? '';
 
 // Cloudflare Turnstile
-export const cf_public_turnstile_site_key = import.meta.env.VITE_JE_PUBLIC_TURNSTILE_SITE_KEY;
+export const cf_public_turnstile_site_key = import.meta.env.VITE_JE_PUBLIC_TURNSTILE_SITE_KEY ?? '';
 
 // Pictures
 // Logo

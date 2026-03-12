@@ -331,13 +331,39 @@
 		</div>
 
 		<!-- Portrait -->
-		<div class="rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6">
-			<a href="/about" target="_self" class="block">
-				<div class="aspect-square overflow-hidden rounded-xl">
+		<div
+			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6"
+		>
+			<div class="space-y-3">
+				<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+					Kommunalwahl • September 2026
+				</p>
+
+				<h3 class="text-lg sm:text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
+					Für euch in Braunschweig
+				</h3>
+
+				<div class="text-zinc-600 dark:text-zinc-400 space-y-3">
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Rat der Stadt Braunschweig<br />Wahlbereich 21 (Braunschweig Südost) •
+						<strong>Platz 2</strong>
+					</div>
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Stadtbezirksrat 322<br />Nördliche Schunter-/Okeraue • <strong>Platz 1</strong>
+					</div>
+				</div>
+			</div>
+
+			<a href="/about" target="_self" class="block mt-5">
+				<div class="aspect-square overflow-hidden">
 					<Image
 						src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
 						alt="Portrait von {name}"
-						classNames="h-full w-full object-cover scale-100 sm:scale-95 hover:scale-100 ease-in-out transition-transform duration-500"
+						classNames="h-full w-full object-cover scale-100 sm:scale-95 hover:scale-100 transition-transform duration-500 ease-in-out"
 					/>
 				</div>
 			</a>
@@ -346,11 +372,11 @@
 
 	<!-- Calendar Preview -->
 	<div class="order-4 lg:order-0 lg:col-span-6">
-		<Calendar {events} items={8} />
+		<Calendar {events} limit={7} />
 	</div>
 
 	<!-- Blog Preview -->
 	<div class="order-5 lg:order-0 lg:col-span-6">
-		<Blog {posts} limit={4} />
+		<Blog {posts} limit={6} />
 	</div>
 </section>
