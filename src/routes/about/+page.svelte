@@ -83,171 +83,6 @@
 			? 'inline-flex items-center gap-2 text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/30'
 			: 'inline-flex items-center text-xs px-2.5 py-1 rounded-full border border-zinc-200/70 dark:border-zinc-800/70 text-zinc-700 dark:text-zinc-300 bg-white/60 dark:bg-zinc-950/20';
 	}
-
-	// Tooltip component
-	import { browser } from '$app/environment';
-	import { portal } from '$lib/actions/portal';
-	import { tick, onDestroy } from 'svelte';
-	import { ClassificationType } from 'typescript';
-
-	let open = false;
-	let hoverOpen = false;
-	let pinned = false;
-	let closeTimer: ReturnType<typeof setTimeout> | null = null;
-
-	let rootEl: HTMLSpanElement | null = null;
-	let triggerEl: HTMLButtonElement | null = null;
-	let tooltipEl: HTMLDivElement | null = null;
-
-	let pos = { top: 0, left: 0, placement: 'top' as 'top' | 'bottom', arrowLeft: 0 };
-
-	// eindeutige ID
-	const uid =
-		typeof crypto !== 'undefined' && 'randomUUID' in crypto
-			? crypto.randomUUID()
-			: `tt-${Math.random().toString(36).slice(2)}`;
-
-	const tooltipId = `bz322-tooltip-${uid}`;
-	const titleId = `bz322-title-${uid}`;
-
-	function clearCloseTimer() {
-		if (closeTimer) {
-			clearTimeout(closeTimer);
-			closeTimer = null;
-		}
-	}
-
-	function openFromHover() {
-		if (!browser) return;
-		clearCloseTimer();
-		if (pinned) return;
-		hoverOpen = true;
-		open = true;
-	}
-
-	function scheduleCloseFromHover() {
-		if (!browser) return;
-		if (pinned) return;
-		clearCloseTimer();
-		closeTimer = setTimeout(() => {
-			hoverOpen = false;
-			open = false;
-		}, 250);
-	}
-
-	function openPinned() {
-		if (!browser) return;
-		clearCloseTimer();
-		pinned = true;
-		open = true;
-		tick().then(updatePosition);
-	}
-
-	function closeAll({ restoreFocus = true } = {}) {
-		clearCloseTimer();
-		open = false;
-		hoverOpen = false;
-		pinned = false;
-		if (restoreFocus) triggerEl?.focus();
-	}
-
-	function toggle(e: MouseEvent) {
-		e.preventDefault();
-		e.stopPropagation();
-
-		if (!open || !pinned) openPinned();
-		else closeAll();
-	}
-
-	function close() {
-		closeAll();
-	}
-
-	async function updatePosition() {
-		if (!browser || !triggerEl || !tooltipEl) return;
-
-		const r = triggerEl.getBoundingClientRect();
-
-		const tw = tooltipEl.offsetWidth;
-		const th = tooltipEl.offsetHeight;
-
-		const gap = 8;
-		const pad = 8;
-
-		const triggerCenterX = r.left + r.width / 2;
-
-		// horizontal zentriert
-		let left = triggerCenterX - tw / 2;
-
-		// default oben
-		let top = r.top - th - gap;
-		let placement: 'top' | 'bottom' = 'top';
-
-		// flip nach unten
-		if (top < pad) {
-			placement = 'bottom';
-			top = r.bottom + gap;
-		}
-
-		// clamp viewport
-		const minLeft = pad;
-		const maxLeft = window.innerWidth - tw - pad;
-		const clampedLeft = Math.max(minLeft, Math.min(left, maxLeft));
-
-		// arrow position relativ zur Tooltip-Box
-		let arrowLeft = triggerCenterX - clampedLeft;
-		const arrowPad = 12;
-		arrowLeft = Math.max(arrowPad, Math.min(arrowLeft, tw - arrowPad));
-
-		// vertical clamp fallback
-		top = Math.max(pad, Math.min(top, window.innerHeight - th - pad));
-
-		pos = { top, left: clampedLeft, placement, arrowLeft };
-	}
-
-	function onDocPointerDown(e: PointerEvent) {
-		if (!open) return;
-		const t = e.target as Node | null;
-		if (rootEl && t && rootEl.contains(t)) return;
-		if (tooltipEl && t && tooltipEl.contains(t)) return;
-		close();
-	}
-
-	function onDocKeyDown(e: KeyboardEvent) {
-		if (!open) return;
-		if (e.key === 'Escape') close();
-	}
-
-	function onReflow() {
-		if (!open) return;
-		updatePosition();
-	}
-
-	$: if (browser) {
-		if (open) {
-			tick().then(updatePosition);
-
-			document.addEventListener('pointerdown', onDocPointerDown, true);
-			document.addEventListener('keydown', onDocKeyDown, true);
-
-			window.addEventListener('scroll', onReflow, true);
-			window.addEventListener('resize', onReflow);
-		} else {
-			document.removeEventListener('pointerdown', onDocPointerDown, true);
-			document.removeEventListener('keydown', onDocKeyDown, true);
-			window.removeEventListener('scroll', onReflow, true);
-			window.removeEventListener('resize', onReflow);
-		}
-	}
-
-	onDestroy(() => {
-		clearCloseTimer();
-		if (!browser) return;
-		document.removeEventListener('pointerdown', onDocPointerDown, true);
-		document.removeEventListener('keydown', onDocKeyDown, true);
-		window.removeEventListener('scroll', onReflow, true);
-		window.removeEventListener('resize', onReflow);
-	});
 </script>
 
 <section class="grid grid-cols-1 gap-5 lg:grid-cols-12">
@@ -523,130 +358,40 @@
 
 		<!-- Portrait -->
 		<div
-			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/70 dark:bg-zinc-900/60 backdrop-blur-md p-5 sm:p-6"
+			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6"
 		>
 			<div class="space-y-3">
 				<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-					Kommunalwahl Braunschweig
+					Kommunalwahl • September 2026
 				</p>
 
 				<h3 class="text-lg sm:text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100">
 					Für euch in Braunschweig
 				</h3>
 
-				<div class="text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-					Listenplatz <span class="font-semibold">14</span> auf der Gesamtliste für den Rat. In dem
-					Gemeindewahlbereich Südost (21) Listenplatz <span class="font-semibold">2</span> für den
-					Rat.<br /><br />
-					Listenplatz <span class="font-semibold">1</span> in dem{' '}
-					<span class="relative inline-flex" bind:this={rootEl}>
-						<button
-							bind:this={triggerEl}
-							type="button"
-							class="inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 font-medium text-zinc-800 dark:text-zinc-200 hover:bg-zinc-900/5 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-accent/40 leading-none"
-							aria-haspopup="dialog"
-							aria-expanded={open}
-							aria-controls={tooltipId}
-							aria-describedby={open ? tooltipId : undefined}
-							on:pointerdown|stopPropagation|preventDefault
-							on:click={toggle}
-							on:pointerenter|stopPropagation={() => openFromHover()}
-							on:pointerleave|stopPropagation={() => scheduleCloseFromHover()}
-							on:focus={() => openFromHover()}
-							on:blur={() => scheduleCloseFromHover()}
-						>
-							Stadtbezirk <span class="font-semibold text-primary-600">322</span>
-						</button>
-
-						{#if open}
-							<div
-								bind:this={tooltipEl}
-								use:portal
-								class="fixed z-9999"
-								style={`top:${pos.top}px; left:${pos.left}px;`}
-								id={tooltipId}
-								tabindex="-1"
-								role="dialog"
-								aria-labelledby={titleId}
-								on:pointerdown|stopPropagation
-								on:pointerenter|stopPropagation={() => openFromHover()}
-								on:pointerleave|stopPropagation={() => scheduleCloseFromHover()}
-							>
-								<div
-									class="rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 shadow-lg px-3 py-2 text-xs leading-snug w-fit max-w-[min(22rem,calc(100vw-2rem))]"
-								>
-									<div class="font-medium" id={titleId}>Stadtbezirk 322</div>
-									<div class="mt-1 wrap-break-word">
-										Wenden · Thune · Veltenhof · Rhüme · Harxbüttel
-									</div>
-									<div class="mt-2">
-										<a
-											href="https://www.braunschweig.de/politik_verwaltung/politik/ratderstadt/stadtbezirksraete/karten/_2021_Stadtbezirk_322.pdf"
-											target="_blank"
-											rel="noopener noreferrer"
-											class="text-accent underline-offset-2 hover:underline cursor-pointer"
-											on:click|stopPropagation
-										>
-											Karte Stadtbezirk 322
-											<!-- Link icon -->
-											<svg
-												viewBox="0 0 24 24"
-												class="ml-1 inline-block h-3.5 w-3.5 align-text-bottom"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												aria-hidden="true"
-											>
-												<path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13" />
-												<path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11" />
-											</svg>
-										</a>
-									</div>
-
-									<div class="mt-2 flex justify-end">
-										<button
-											type="button"
-											class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 cursor-pointer"
-											on:click|stopPropagation={() => close()}
-										>
-											Schließen
-										</button>
-									</div>
-								</div>
-
-								{#if pos.placement === 'top'}
-									<div
-										class="absolute top-full w-0 h-0 border-l-6 border-l-transparent border-r-6 border-r-transparent border-t-6 border-t-white dark:border-t-zinc-950"
-										style={`left:${pos.arrowLeft}px; transform:translateX(-50%);`}
-									></div>
-									<div
-										class="absolute top-full -mt-px w-0 h-0 border-l-6 border-l-transparent border-r-6 border-r-transparent border-t-6 border-t-zinc-200/70 dark:border-t-zinc-800/70"
-										style={`left:${pos.arrowLeft}px; transform:translateX(-50%);`}
-									></div>
-								{:else}
-									<div
-										class="absolute bottom-full w-0 h-0 border-l-6 border-l-transparent border-r-6 border-r-transparent border-b-6 border-b-white dark:border-b-zinc-950"
-										style={`left:${pos.arrowLeft}px; transform:translateX(-50%);`}
-									></div>
-									<div
-										class="absolute bottom-full -mb-px w-0 h-0 border-l-6 border-l-transparent border-r-6 border-r-transparent border-b-6 border-b-zinc-200/70 dark:border-b-zinc-800/70"
-										style={`left:${pos.arrowLeft}px; transform:translateX(-50%);`}
-									></div>
-								{/if}
-							</div>
-						{/if}
-					</span>
-					für den Stadtbezirksrat 322.
+				<div class="text-zinc-600 dark:text-zinc-400 space-y-3">
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Rat der Stadt Braunschweig<br />Wahlbereich 21 (Braunschweig Südost) •
+						<strong>Platz 2</strong>
+					</div>
+					<div
+						class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+					>
+						Stadtbezirksrat 322<br />Nördliche Schunter-/Okeraue • <strong>Platz 1</strong>
+					</div>
 				</div>
 			</div>
-			<div class="aspect-square overflow-hidden">
-				<Image
-					src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
-					alt="Portrait von {name}"
-					classNames="h-full w-full object-cover scale-100 sm:scale-95"
-				/>
+
+			<div class="block mt-5">
+				<div class="aspect-square overflow-hidden">
+					<Image
+						src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
+						alt="Portrait von {name}"
+						classNames="h-full w-full object-cover scale-100 sm:scale-95"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
