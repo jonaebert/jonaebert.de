@@ -13,6 +13,7 @@
 		| 'check'
 		| 'clock'
 		| 'comment'
+		| 'compass'
 		| 'copy'
 		| 'info'
 		| 'link'
@@ -20,6 +21,7 @@
 		| 'monitor'
 		| 'moon'
 		| 'pin'
+		| 'scale'
 		| 'star'
 		| 'sun'
 		| 'x';
@@ -82,6 +84,12 @@
 					<rect x="11" y="10.5" width="2" height="1.5" rx="0.75"/>
 					<rect x="15" y="10.5" width="2" height="1.5" rx="0.75"/>
 				`;
+			case 'compass':
+				return `
+					<circle cx="12" cy="12" r="9" />
+					<g transform="rotate(30 12 12)"> <path d="M12 7l3 5-3 5-3-5z" stroke-linejoin="round"/></g>
+					<circle cx="12" cy="12" r="1.2" />
+				`;
 			case 'copy':
 				return `
 					<rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -120,6 +128,23 @@
 					<path d="M12 22c-4-4.2-7-7.6-7-11a7 7 0 1114 0c0 3.4-3 6.8-7 11z" stroke-linejoin="round"/>
 					<circle cx="12" cy="11" r="2.5" />
 				`;
+			case 'scale':
+				return `
+					<path d="M12 3v18" stroke-linecap="round" />
+					<path d="M6 7h12" stroke-linecap="round" />
+					<path d="M9 21h6" stroke-linecap="round" />
+
+					<path d="M8 7l-3 5" stroke-linecap="round" />
+					<path d="M8 7l3 5" stroke-linecap="round" />
+					<path d="M5 12h6" stroke-linecap="round" />
+					<path d="M5 12c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+
+					<path d="M16 7l-3 5" stroke-linecap="round" />
+					<path d="M16 7l3 5" stroke-linecap="round" />
+					<path d="M13 12h6" stroke-linecap="round" />
+					<path d="M13 12c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+				`;
+
 			case 'star':
 				return `
 					<path d="M12 2.7l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.8 6.4 19.9l1.1-6.2L3 9.3l6.2-.9L12 2.7z" stroke-linejoin="round"/>
