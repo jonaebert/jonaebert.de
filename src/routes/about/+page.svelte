@@ -482,13 +482,13 @@
 													</div>
 
 													<div class="flex flex-wrap items-center gap-2 sm:justify-end">
+														<span class={chipClasses('neutral')}>{vd.label}</span>
 														{#if vd.active}
 															<span class={chipClasses('accent')}>
 																<span class="h-2 w-2 rounded-full bg-accent"></span>
 																Aktuell
 															</span>
 														{/if}
-														<span class={chipClasses('neutral')}>{vd.label}</span>
 													</div>
 												</div>
 
