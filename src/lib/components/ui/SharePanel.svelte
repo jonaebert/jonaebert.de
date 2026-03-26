@@ -121,7 +121,7 @@
 				<Icon name="check" classes="h-4 w-4" />
 				Kopiert
 			{:else}
-				<Icon name="copy" classes="h-4 w-4" />
+				<Icon name="copy" classes="h-4 w-4" strokeWidth={2} />
 				Kopieren
 			{/if}
 		</button>
