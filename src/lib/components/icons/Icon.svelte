@@ -70,7 +70,7 @@
 				`;
 			case 'check':
 				return `
-					<path d="M20 6.5L9.5 17 4 11.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M20 6.5L9.5 17 4 11.5" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
 			case 'clock':
 				return `
@@ -79,7 +79,7 @@
 				`;
 			case 'comment':
 				return `
-					<path d="M8 13.5h8m-8-5h4M6.099 19q-1.949-.192-2.927-1.172C2 16.657 2 14.771 2 11v-.5c0-3.771 0-5.657 1.172-6.828S6.229 2.5 10 2.5h4c3.771 0 5.657 0 6.828 1.172S22 6.729 22 10.5v.5c0 3.771 0 5.657-1.172 6.828S17.771 19 14 19c-.56.012-1.007.055-1.445.155c-1.199.276-2.309.89-3.405 1.424c-1.563.762-2.344 1.143-2.834.786c-.938-.698-.021-2.863.184-3.865" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
+					<path d="M8 13.5h8m-8-5h4M6.099 19q-1.949-.192-2.927-1.172C2 16.657 2 14.771 2 11v-.5c0-3.771 0-5.657 1.172-6.828S6.229 2.5 10 2.5h4c3.771 0 5.657 0 6.828 1.172S22 6.729 22 10.5v.5c0 3.771 0 5.657-1.172 6.828S17.771 19 14 19c-.56.012-1.007.055-1.445.155c-1.199.276-2.309.89-3.405 1.424c-1.563.762-2.344 1.143-2.834.786c-.938-.698-.021-2.863.184-3.865" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
 				`;
 			case 'compass':
 				return `
@@ -89,8 +89,8 @@
 				`;
 			case 'copy':
 				return `
-					<rect x="9" y="9" width="11" height="11" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-					<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<rect x="9" y="9" width="11" height="11" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-linecap="round" stroke-linejoin="round"/>
 				`;
 			case 'info':
 				return `
@@ -165,7 +165,7 @@
 	viewBox="0 0 24 24"
 	fill="none"
 	stroke="currentColor"
-	{strokeWidth}
+	stroke-width={strokeWidth}
 	aria-hidden={label ? undefined : 'true'}
 	aria-label={label}
 	role={label ? 'img' : undefined}
