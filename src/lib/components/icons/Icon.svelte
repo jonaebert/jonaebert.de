@@ -79,10 +79,7 @@
 				`;
 			case 'comment':
 				return `
-					<path d="M21 11.5a7 7 0 0 1-7 7H9l-5 3v-5.2A7 7 0 0 1 3 11.5V9a6 6 0 0 1 6-6h5a7 7 0 0 1 7 7v1.5z" stroke-linejoin="round"/>
-					<rect x="7" y="10.5" width="2" height="1.5" rx="0.75"/>
-					<rect x="11" y="10.5" width="2" height="1.5" rx="0.75"/>
-					<rect x="15" y="10.5" width="2" height="1.5" rx="0.75"/>
+					<path d="M8 13.5h8m-8-5h4M6.099 19q-1.949-.192-2.927-1.172C2 16.657 2 14.771 2 11v-.5c0-3.771 0-5.657 1.172-6.828S6.229 2.5 10 2.5h4c3.771 0 5.657 0 6.828 1.172S22 6.729 22 10.5v.5c0 3.771 0 5.657-1.172 6.828S17.771 19 14 19c-.56.012-1.007.055-1.445.155c-1.199.276-2.309.89-3.405 1.424c-1.563.762-2.344 1.143-2.834.786c-.938-.698-.021-2.863.184-3.865" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"/>
 				`;
 			case 'compass':
 				return `
@@ -130,19 +127,7 @@
 				`;
 			case 'scale':
 				return `
-					<path d="M12 3v18" stroke-linecap="round" />
-					<path d="M6 7h12" stroke-linecap="round" />
-					<path d="M9 21h6" stroke-linecap="round" />
-
-					<path d="M8 7l-3 5" stroke-linecap="round" />
-					<path d="M8 7l3 5" stroke-linecap="round" />
-					<path d="M5 12h6" stroke-linecap="round" />
-					<path d="M5 12c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke-linecap="round" stroke-linejoin="round"/>
-
-					<path d="M16 7l-3 5" stroke-linecap="round" />
-					<path d="M16 7l3 5" stroke-linecap="round" />
-					<path d="M13 12h6" stroke-linecap="round" />
-					<path d="M13 12c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+					<path d="m16 16l3-8l3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1ZM2 16l3-8l3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Zm5 5h10M12 3v18M3 7h2c2 0 5-1 7-2c2 1 5 2 7 2h2" />
 				`;
 
 			case 'star':
