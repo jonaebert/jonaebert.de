@@ -1,6 +1,6 @@
 {
 	"name": "jonaebert.de",
-	"version": "26.3.1",
+	"version": "26.3.3",
 	"private": true,
 	"engines": {
 		"node": ">=20.19 || >=22.13 || >=24 || >=25"
@@ -28,13 +28,14 @@
 		"@tailwindcss/vite": "^4.2.2",
 		"@types/eslint": "^9.6.1",
 		"@typescript-eslint/eslint-plugin": "^8.56.1",
-		"@typescript-eslint/parser": "^8.57.1",
+"@typescript-eslint/eslint-plugin": "^8.57.2",
+"@typescript-eslint/parser": "^8.57.2",
 		"dotenv": "^17.2.4",
 		"eslint": "^10.0.3",
 		"eslint-config-prettier": "^10.1.5",
-		"eslint-plugin-svelte": "^3.15.2",
-		"globals": "^17.3.0",
-		"isomorphic-dompurify": "^3.6.0",
+		"eslint-plugin-svelte": "^3.16.0",
+		"globals": "^17.4.0",
+		"isomorphic-dompurify": "^3.7.1",
 		"openapi-typescript": "^7.13.0",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.5.1",
