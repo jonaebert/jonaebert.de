@@ -4,6 +4,7 @@
 	import Image from '$lib/components/ui/Image.svelte';
 	import Slogan from '$lib/components/ui/Slogan.svelte';
 	import { FormatDate } from '$lib/util/date.js';
+	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	const { posts, events } = data;
@@ -105,6 +106,8 @@
 		<div
 			class="absolute inset-0 z-1 bg-black/15 dark:bg-linear-to-b dark:from-zinc-950/85 dark:via-zinc-950/55 dark:to-zinc-950/85"
 		></div>
+
+		<BubbleBackground preset="hero" className="z-2" />
 
 		<div class="relative z-10 flex flex-col gap-6">
 			<div class="flex items-start justify-between gap-6">
