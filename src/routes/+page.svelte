@@ -74,7 +74,7 @@
 			class="absolute inset-0 z-1 bg-black/15 dark:bg-linear-to-b dark:from-zinc-950/80 dark:via-zinc-950/55 dark:to-zinc-950/85"
 		></div>
 
-		<BubbleBackground preset="hero" className="z-[2]" opacity="10" />
+		<BubbleBackground preset="hero" className="z-2" />
 
 		<div class="relative z-10">
 			<!-- Glass Box -->
