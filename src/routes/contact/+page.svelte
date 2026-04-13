@@ -147,16 +147,7 @@
 					</p>
 
 					<p class="mt-4 text-sm text-white/75">
-						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal
-						<span
-							class:text-amber-600={messageText.length >= messageMax * 0.9 &&
-								messageText.length < messageMax}
-							class:text-red-600={messageText.length >= messageMax}
-							class="transition-colors"
-						>
-							{messageText.length}/{messageMax} Zeichen
-						</span>
-						.
+						Felder mit <span class="font-semibold">*</span> sind erforderlich. Maximal {messageMax} Zeichen.
 					</p>
 				</div>
 
@@ -204,7 +195,7 @@
 								name="name"
 								id="name"
 								required
-								disabled={disabled}
+								{disabled}
 								placeholder="Dein Name"
 								class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 								bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -221,7 +212,7 @@
 								type="text"
 								name="pronouns"
 								id="pronouns"
-								disabled={disabled}
+								{disabled}
 								placeholder="z. B. sie/ihr, they/them …"
 								class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 								bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -240,7 +231,7 @@
 							name="email"
 							id="email"
 							required
-							disabled={disabled}
+							{disabled}
 							placeholder="name@domain.de"
 							class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 							bg-white dark:bg-zinc-950 px-4 py-3 text-sm
@@ -260,7 +251,7 @@
 							rows="6"
 							maxlength={messageMax}
 							bind:value={messageText}
-							disabled={disabled}
+							{disabled}
 							placeholder={barrierChecked
 								? 'Beschreibe kurz die Barriere (Ort/Seite, was genau passiert, ggf. Gerät/Browser)…'
 								: 'Schreib mir ein paar Zeilen…'}
@@ -291,7 +282,7 @@
 								id="barrier"
 								value="true"
 								bind:checked={barrierChecked}
-								disabled={disabled}
+								{disabled}
 								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200"
@@ -306,7 +297,7 @@
 								id="privacy"
 								value="true"
 								required
-								disabled={disabled}
+								{disabled}
 								class="h-5 w-5 shrink-0 rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 accent-accent focus:outline-none focus:ring-2 ring-accent/40"
 							/>
 							<span class="text-sm text-zinc-800 dark:text-zinc-200">
