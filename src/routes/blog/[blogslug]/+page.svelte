@@ -108,7 +108,7 @@
 
 			<BubbleBackground preset="section" />
 
-			<div class="relative flex min-h-[18vh] flex-col p-6 sm:p-8 gap-6">
+			<div class="relative flex min-h-[18rem] flex-col p-6 sm:p-8 gap-6">
 				<!-- TOP ROW -->
 				<div class="flex items-start justify-between gap-4">
 					<!-- Back -->
