@@ -6,6 +6,7 @@
 	import Image from '$lib/components/ui/Image.svelte';
 	import Slogan from '$lib/components/ui/Slogan.svelte';
 	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
+	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	const { posts, events } = data;
@@ -73,6 +74,8 @@
 			class="absolute inset-0 z-1 bg-black/15 dark:bg-linear-to-b dark:from-zinc-950/80 dark:via-zinc-950/55 dark:to-zinc-950/85"
 		></div>
 
+		<BubbleBackground preset="hero" className="z-[2]" opacity="10" />
+
 		<div class="relative z-10">
 			<!-- Glass Box -->
 			<div
@@ -83,7 +86,6 @@
 				<div
 					class="inline-flex scale-105 items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
 				>
-					<span class="h-2 w-2 rounded-full bg-accent"></span>
 					<span class="text-zinc-600 dark:text-zinc-400"><Slogan /></span>
 				</div>
 				<div>
@@ -332,7 +334,7 @@
 
 		<!-- Portrait -->
 		<div
-			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6"
+			class="group relative rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6 overflow-hidden"
 		>
 			<div class="space-y-3">
 				<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
