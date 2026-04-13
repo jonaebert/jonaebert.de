@@ -109,7 +109,7 @@
 		<div class="relative z-10 flex flex-col gap-6">
 			<div class="flex items-start justify-between gap-6">
 				<div
-					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/55 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/60 backdrop-blur-md border border-white/50 shadow-sm dark:bg-zinc-950/20 dark:backdrop-blur-sm dark:border-white/10 dark:shadow-none"
 				>
 					<div
 						class="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/70 dark:border-zinc-800/70"
@@ -159,7 +159,7 @@
 
 			<div class="grid gap-3 grid-cols-1 sm:grid-cols-3">
 				<div
-					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/55 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/60 backdrop-blur-md border border-white/50 shadow-sm dark:bg-zinc-950/20 dark:backdrop-blur-sm dark:border-white/10 dark:shadow-none"
 				>
 					<div class="text-xs text-zinc-500 dark:text-zinc-400">Fokus</div>
 					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
@@ -167,7 +167,7 @@
 					</div>
 				</div>
 				<div
-					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/55 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/60 backdrop-blur-md border border-white/50 shadow-sm dark:bg-zinc-950/20 dark:backdrop-blur-sm dark:border-white/10 dark:shadow-none"
 				>
 					<div class="text-xs text-zinc-500 dark:text-zinc-400">Ebene</div>
 					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
@@ -175,7 +175,7 @@
 					</div>
 				</div>
 				<div
-					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/55 backdrop-blur-md border border-white/40 shadow-sm dark:bg-transparent dark:backdrop-blur-0 dark:border-transparent dark:shadow-none"
+					class="w-full sm:max-w-2xl rounded-2xl p-4 sm:p-5 bg-white/60 backdrop-blur-md border border-white/50 shadow-sm dark:bg-zinc-950/20 dark:backdrop-blur-sm dark:border-white/10 dark:shadow-none"
 				>
 					<div class="text-xs text-zinc-500 dark:text-zinc-400">Ansatz</div>
 					<div class="mt-1 text-sm font-semibold text-zinc-950 dark:text-zinc-100">
