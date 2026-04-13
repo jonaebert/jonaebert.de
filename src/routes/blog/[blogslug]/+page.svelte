@@ -115,7 +115,7 @@
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70"
+						class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/90 backdrop-blur-sm transition hover:bg-white/15 hover:text-white hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
@@ -124,21 +124,21 @@
 					<!-- Meta Pills -->
 					<div class="flex flex-wrap items-center justify-end gap-2 max-w-[60%]">
 						<span
-							class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-white/85 text-zinc-800 border-white/60 backdrop-blur-xs dark:bg-zinc-900/50 dark:text-zinc-200 dark:border-zinc-700/70"
+							class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 						>
-							<Icon name={post.type} classes="h-4 w-4" />
+							<Icon name={post.type} classes="h-4 w-4 shrink-0" />
 							<span>{typeLabel(post?.type)}</span>
 						</span>
 
 						{#if post?.author?.name}
 							<span
-								class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-white/85 text-zinc-800 border-white/60 backdrop-blur-xs dark:bg-zinc-900/50 dark:text-zinc-200 dark:border-zinc-700/70"
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 							>
 								{#if authorAvatarUrl(post.author)}
 									<Image
 										src={authorAvatarUrl(post.author)}
 										alt={post.author.name}
-										classNames="h-5 w-5 rounded-full object-cover"
+										classNames="h-5 w-5 shrink-0 rounded-full object-cover"
 										loading="lazy"
 									/>
 								{/if}
@@ -148,9 +148,9 @@
 
 						{#if post?.createdAt}
 							<span
-								class="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-white/85 text-zinc-800 border-white/60 backdrop-blur-xs dark:bg-zinc-900/50 dark:text-zinc-200 dark:border-zinc-700/70"
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 							>
-								<Icon name="calendar" classes="h-4 w-4" />
+								<Icon name="calendar" classes="h-4 w-4 shrink-0" />
 								<span>{FormatDate(post.createdAt, 'date')}</span>
 							</span>
 						{/if}
