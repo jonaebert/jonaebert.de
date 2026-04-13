@@ -12,6 +12,7 @@
 	import { page } from '$app/stores';
 	import Turnstile from '$lib/components/security/Turnstile.svelte';
 	import { onDestroy } from 'svelte';
+	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	let turnstileToken: string = '';
 	let turnstileRef: Turnstile | null = null;
@@ -112,6 +113,8 @@
 			aria-hidden="true"
 		></div>
 		<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
+
+		<BubbleBackground preset="section" />
 
 		<div
 			class="absolute -top-24 -right-24 h-80 w-80 rounded-full blur-3xl opacity-25 bg-accent"
