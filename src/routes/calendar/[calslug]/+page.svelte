@@ -12,10 +12,11 @@
 	import { Icon, type IconName } from '$lib/components/icons';
 	import { goto } from '$app/navigation';
 	import DOMPurify from 'isomorphic-dompurify';
+	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
-	$: sanitizedDescription = DOMPurify.sanitize(String(event?.description ?? ''))
+	$: sanitizedDescription = DOMPurify.sanitize(String(event?.description ?? ''));
 
 	/* -----------------------------
 	   Event Daten aufbereiten
@@ -67,7 +68,8 @@
 		class: string;
 		iconName?: IconName;
 	} {
-		const base = 'inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full border';
+		const base =
+			'inline-flex max-w-full items-center gap-1.5 text-xs px-2 py-1 rounded-full border';
 
 		switch (state) {
 			case 'confirmed':
@@ -144,59 +146,75 @@
 		<div
 			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
-			<div
-				class="absolute inset-0 bg-cover bg-center"
-				style="background-image: url({getCoverUrl(event.cover, true)});"
-			></div>
-			<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
+			{#if getCoverUrl(event?.cover, true)}
+				<div
+					class="absolute inset-0 bg-cover bg-center"
+					style="background-image: url({getCoverUrl(event.cover, true)});"
+				></div>
+				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
+			{:else}
+				<div
+					class="absolute inset-0 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
+				></div>
+			{/if}
 
-			<div class="relative p-6 sm:p-8 space-y-4">
-				<div class="flex items-center justify-between gap-4">
+			<BubbleBackground preset="section" />
+
+			<div class="relative z-10 flex min-h-[18rem] flex-col p-6 sm:p-8 gap-6">
+				<div class="flex flex-col items-start gap-4 sm:flex-row sm:items-start sm:justify-between">
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 hover:cursor-pointer"
+						class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/90 backdrop-blur-sm transition hover:bg-white/15 hover:text-white hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
 					</button>
 
-					<span class={badge.class}>
-						{#if badge.iconName}
-							<Icon name={badge.iconName} classes="h-4 w-4" />
+					<div class="flex w-full flex-wrap gap-2 sm:w-auto sm:justify-end">
+						<span class={badge.class}>
+							{#if badge.iconName}
+								<Icon name={badge.iconName} classes="h-4 w-4" />
+							{/if}
+							{badge.label}
+						</span>
+
+						<span
+							class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
+						>
+							<Icon name="calendar" classes="h-4 w-4 shrink-0" />
+							<span class="min-w-0 wrap-break-word">
+								{event.startDate}{#if event.endDate && event.endDate !== event.startDate}
+									– {event.endDate}{/if}
+							</span>
+						</span>
+
+						{#if event.datetype !== 'date'}
+							<span
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
+							>
+								<Icon name="clock" classes="h-4 w-4 shrink-0" />
+								<span class="min-w-0 wrap-break-word">{event.startTime} – {event.endTime} Uhr</span>
+							</span>
 						{/if}
-						{badge.label}
-					</span>
+
+						{#if event.location}
+							<span
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
+							>
+								<Icon name="pin" classes="h-4 w-4 shrink-0" />
+								<span class="min-w-0 wrap-break-word truncate">{event.location}</span>
+							</span>
+						{/if}
+					</div>
 				</div>
 
-				<h1 class="text-2xl sm:text-3xl font-semibold text-white">
-					{event.subject}
-				</h1>
-
-				<div class="flex flex-wrap items-center gap-3 text-sm text-white/90">
-					<span class="inline-flex items-center gap-2">
-						<Icon name="calendar" classes="h-4 w-4" />
-						<span>
-							{event.startDate}{#if event.endDate && event.endDate !== event.startDate}
-								– {event.endDate}{/if}
-						</span>
-					</span>
-
-					{#if event.datetype !== 'date'}
-						<span class="text-zinc-400 dark:text-zinc-600">•</span>
-						<span class="inline-flex items-center gap-2">
-							<Icon name="clock" classes="h-4 w-4" />
-							<span>{event.startTime} – {event.endTime} Uhr</span>
-						</span>
-					{/if}
-
-					{#if event.location}
-						<span class="text-zinc-400 dark:text-zinc-600">•</span>
-						<span class="inline-flex items-center gap-2">
-							<Icon name="pin" classes="h-4 w-4" />
-							<span>{event.location}</span>
-						</span>
-					{/if}
+				<div class="mt-auto max-w-3xl">
+					<h1
+						class="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white text-balance"
+					>
+						{event.subject}
+					</h1>
 				</div>
 			</div>
 		</div>
@@ -279,7 +297,9 @@
 						<h2 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Details</h2>
 
 						<dl class="mt-3 space-y-3 text-sm">
-							<div class="flex items-start justify-between gap-4">
+							<div
+								class="flex flex-col items-start gap-4 sm:flex-row sm:items-start sm:justify-between"
+							>
 								<div class="text-zinc-600 dark:text-zinc-400 inline-flex items-center gap-2">
 									<Icon name="calendar" classes="h-4 w-4" />
 									<span>Datum</span>
@@ -295,7 +315,9 @@
 							</div>
 
 							{#if event.datetype !== 'date'}
-								<div class="flex items-start justify-between gap-4">
+								<div
+									class="flex flex-col items-start gap-4 sm:flex-row sm:items-start sm:justify-between"
+								>
 									<div class="text-zinc-600 dark:text-zinc-400 inline-flex items-center gap-2">
 										<Icon name="clock" classes="h-4 w-4" />
 										<span>Uhrzeit</span>
@@ -305,7 +327,9 @@
 									</div>
 								</div>
 							{:else}
-								<div class="flex items-start justify-between gap-4">
+								<div
+									class="flex flex-col items-start gap-4 sm:flex-row sm:items-start sm:justify-between"
+								>
 									<div class="text-zinc-600 dark:text-zinc-400 inline-flex items-center gap-2">
 										<Icon name="clock" classes="h-4 w-4" />
 										<span>Uhrzeit</span>
@@ -315,7 +339,9 @@
 							{/if}
 
 							{#if event.location}
-								<div class="flex items-start justify-between gap-4">
+								<div
+									class="flex flex-col items-start gap-4 sm:flex-row sm:items-start sm:justify-between"
+								>
 									<div class="text-zinc-600 dark:text-zinc-400 inline-flex items-center gap-2">
 										<Icon name="pin" classes="h-4 w-4" />
 										<span>Ort</span>
