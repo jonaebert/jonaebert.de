@@ -153,9 +153,7 @@
 				></div>
 				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 			{:else}
-				<div
-					class="absolute inset-0 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-950 dark:to-zinc-950"
-				></div>
+				<div class="absolute inset-0 bg-emerald-900 dark:bg-emerald-950"></div>
 			{/if}
 
 			<BubbleBackground preset="section" />
