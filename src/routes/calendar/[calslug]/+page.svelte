@@ -146,7 +146,7 @@
 		<div
 			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
-			{#if getCoverUrl(event?.cover, true)}
+			{#if event?.cover}
 				<div
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(event.cover, true)});"
