@@ -16,38 +16,38 @@
 	> = {
 		hero: {
 			topRight:
-				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[var(--bubble-size-sm)/2] -right-[var(--bubble-size-sm)/2]',
+				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[calc(var(--bubble-size-sm)/2)] -right-[calc(var(--bubble-size-sm)/2)]',
 			bottomRight:
-				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] md:h-[var(--bubble-size-xl)] md:w-[var(--bubble-size-xl)] -bottom-[var(--bubble-size-lg)/2] -right-[var(--bubble-size-lg)/2] md:-bottom-[var(--bubble-size-xl)/2] md:-right-[var(--bubble-size-xl)/2]',
+				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] md:h-[var(--bubble-size-xl)] md:w-[var(--bubble-size-xl)] -bottom-[calc(var(--bubble-size-lg)/2)] -right-[calc(var(--bubble-size-lg)/2)] md:-bottom-[calc(var(--bubble-size-xl)/2)] md:-right-[calc(var(--bubble-size-xl)/2)]',
 			bottomLeft:
-				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] md:h-[var(--bubble-size-lg)] md:w-[var(--bubble-size-lg)] -bottom-[var(--bubble-size-md)/2] -left-[var(--bubble-size-md)/2] md:-bottom-[var(--bubble-size-lg)/2] md:-left-[var(--bubble-size-lg)/2]',
+				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] md:h-[var(--bubble-size-lg)] md:w-[var(--bubble-size-lg)] -bottom-[calc(var(--bubble-size-md)/2)] -left-[calc(var(--bubble-size-md)/2)] md:-bottom-[calc(var(--bubble-size-lg)/2)] md:-left-[calc(var(--bubble-size-lg)/2)]',
 			opacity: 'opacity-80'
 		},
 		section: {
 			topRight:
-				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[var(--bubble-size-sm)/2] -right-[var(--bubble-size-sm)/2]',
+				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[calc(var(--bubble-size-sm)/2)] -right-[calc(var(--bubble-size-sm)/2)]',
 			bottomRight:
-				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[var(--bubble-size-lg)/2] -right-[var(--bubble-size-lg)/2]',
+				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[calc(var(--bubble-size-lg)/2)] -right-[calc(var(--bubble-size-lg)/2)]',
 			bottomLeft:
-				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[var(--bubble-size-md)/2] -left-[var(--bubble-size-md)/2]',
+				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[calc(var(--bubble-size-md)/2)] -left-[calc(var(--bubble-size-md)/2)]',
 			opacity: 'opacity-90'
 		},
 		cta: {
 			topRight:
-				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[var(--bubble-size-sm)/2] -right-[var(--bubble-size-sm)/2]',
+				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[calc(var(--bubble-size-sm)/2)] -right-[calc(var(--bubble-size-sm)/2)]',
 			bottomRight:
-				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[var(--bubble-size-lg)/2] -right-[var(--bubble-size-lg)/2]',
+				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[calc(var(--bubble-size-lg)/2)] -right-[calc(var(--bubble-size-lg)/2)]',
 			bottomLeft:
-				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[var(--bubble-size-md)/2] -left-[var(--bubble-size-md)/2]',
+				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[calc(var(--bubble-size-md)/2)] -left-[calc(var(--bubble-size-md)/2)]',
 			opacity: 'opacity-100'
 		},
 		subtle: {
 			topRight:
-				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[var(--bubble-size-sm)/2] -right-[var(--bubble-size-sm)/2]',
+				'h-[var(--bubble-size-sm)] w-[var(--bubble-size-sm)] -top-[calc(var(--bubble-size-sm)/2)] -right-[calc(var(--bubble-size-sm)/2)]',
 			bottomRight:
-				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[var(--bubble-size-lg)/2] -right-[var(--bubble-size-lg)/2]',
+				'h-[var(--bubble-size-lg)] w-[var(--bubble-size-lg)] -bottom-[calc(var(--bubble-size-lg)/2)] -right-[calc(var(--bubble-size-lg)/2)]',
 			bottomLeft:
-				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[var(--bubble-size-md)/2] -left-[var(--bubble-size-md)/2]',
+				'h-[var(--bubble-size-md)] w-[var(--bubble-size-md)] -bottom-[calc(var(--bubble-size-md)/2)] -left-[calc(var(--bubble-size-md)/2)]',
 			opacity: 'opacity-60'
 		}
 	};
