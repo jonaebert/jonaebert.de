@@ -48,7 +48,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"marked": "^18.0.0",
+		"marked": "^18.0.2",
 		"node-fetch": "^3.3.2",
 		"svelte-fa": "^4.0.4"
 	}
