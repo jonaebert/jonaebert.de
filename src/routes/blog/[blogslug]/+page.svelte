@@ -7,6 +7,7 @@
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 	import { Icon } from '$lib/components/icons';
 	import SharePanel from '$lib/components/ui/SharePanel.svelte';
+	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	let { post, previousPost, nextPost } = data;
@@ -105,72 +106,69 @@
 				></div>
 			{/if}
 
-			<div class="relative p-6 sm:p-8 space-y-4">
-				<div class="flex items-center justify-between gap-4">
+			<BubbleBackground preset="section" />
+
+			<div class="relative flex min-h-[18rem] flex-col p-6 sm:p-8 gap-6">
+				<!-- TOP ROW -->
+				<div class="flex items-start justify-between gap-4">
+					<!-- Back -->
 					<button
 						type="button"
 						on:click={goBack}
-						class="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white/70 hover:cursor-pointer"
+						class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-sm text-white/90 backdrop-blur-sm transition hover:bg-white/15 hover:text-white hover:cursor-pointer"
 					>
 						<Icon name="arrow-left" classes="h-4 w-4" />
 						<span>Zurück</span>
 					</button>
 
-					<!-- Meta right: Typ + Author + Date -->
-					<div class="flex flex-wrap items-center justify-end gap-2">
-						<!-- Posttyp -->
+					<!-- Meta Pills -->
+					<div class="flex flex-wrap items-center justify-end gap-2 max-w-[60%]">
 						<span
-							class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
+							class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 						>
-							<Icon name={post.type} classes="h-4 w-4" />
+							<Icon name={post.type} classes="h-4 w-4 shrink-0" />
 							<span>{typeLabel(post?.type)}</span>
 						</span>
 
-						<!-- Author -->
 						{#if post?.author?.name}
 							<span
-								class="inline-flex items-center gap-2 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 							>
 								{#if authorAvatarUrl(post.author)}
 									<Image
 										src={authorAvatarUrl(post.author)}
 										alt={post.author.name}
-										classNames="h-5 w-5 rounded-full object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+										classNames="h-5 w-5 shrink-0 rounded-full object-cover"
 										loading="lazy"
 									/>
-								{:else}
-									<span
-										class="grid place-items-center h-5 w-5 rounded-full bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-200"
-										aria-hidden="true"
-									>
-										{post.author.name.slice(0, 1).toUpperCase()}
-									</span>
 								{/if}
 								<span>{post.author.name}</span>
 							</span>
 						{/if}
 
-						<!-- Date -->
 						{#if post?.createdAt}
 							<span
-								class="inline-flex items-center gap-1.5 text-xs px-2 py-1 rounded-full border whitespace-nowrap bg-zinc-50 text-zinc-700 border-zinc-200 dark:bg-zinc-900/40 dark:text-zinc-300 dark:border-zinc-800"
+								class="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs sm:text-sm text-white/90 backdrop-blur-sm"
 							>
-								<Icon name="calendar" classes="h-4 w-4" />
+								<Icon name="calendar" classes="h-4 w-4 shrink-0" />
 								<span>{FormatDate(post.createdAt, 'date')}</span>
 							</span>
 						{/if}
 					</div>
 				</div>
 
-				<h1 class="text-2xl sm:text-3xl font-semibold text-white">
-					{post?.title}
-				</h1>
+				<!-- BOTTOM CONTENT -->
+				<div class="mt-auto max-w-3xl">
+					<h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white">
+						{post?.title}
+					</h1>
 
-				{#if post?.description}
-					<p class="text-sm sm:text-base text-white/90 max-w-3xl">
-						{post.description}
-					</p>
-				{/if}
+					{#if post?.description}
+						<p class="mt-3 text-sm sm:text-base text-white/90 leading-relaxed">
+							{post.description}
+						</p>
+					{/if}
+				</div>
 			</div>
 		</div>
 

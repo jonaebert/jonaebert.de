@@ -15,12 +15,28 @@
 }
 
 :root {
+	/* Hauptfarben */
 	--accent: #105e40;
 	--accent-hover: #0b4630;
+
+	/* Bubbles */
+	--bubble-dark: #005f3b;
+	--bubble-accent: #95c11f;
+	--bubble-highlight: #eadf6a;
+	--bubble-size-sm: 4rem;
+	--bubble-size-md: 12rem;
+	--bubble-size-lg: 20rem;
+	--bubble-size-xl: 34rem;
 }
 .dark {
+	/* Hauptfarben */
 	--accent: #5ac896;
 	--accent-hover: #3caa78;
+
+	/* Bubbles */
+	--bubble-dark: #0b6b47;
+	--bubble-accent: #7fb61c;
+	--bubble-highlight: #d8c95e;
 }
 
 @layer utilities {
