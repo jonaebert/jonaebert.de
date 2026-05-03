@@ -4,6 +4,7 @@
 	import { name, pronouns, je_cms_base_url, uri } from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/ui/Image.svelte';
+	import Copyright from '$lib/components/ui/Copyright.svelte';
 	import Renderer from '$lib/components/stripe/Renderer.svelte';
 	import { Icon } from '$lib/components/icons';
 	import SharePanel from '$lib/components/ui/SharePanel.svelte';
@@ -41,6 +42,11 @@
 
 		return rel ? (rel.startsWith('http') ? rel : je_cms_base_url + rel) : null;
 	}
+
+	/* -----------------------------
+	   Root Element (für Copyright-Portal)
+	----------------------------- */
+	let rootEl: HTMLDivElement | null = null;
 
 	/* -----------------------------
 	 * Blog type helper
@@ -98,7 +104,25 @@
 				<div
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(post.cover, true)});"
-				></div>
+					bind:this={rootEl}
+				>
+					{#if post?.copyright?.enabled}
+						<Copyright
+							copyright={post.copyright?.enabled
+								? [
+										{
+											enabled: true,
+											name: post.copyright.name,
+											url: post.copyright.url,
+											size: 'sm'
+										}
+									]
+								: undefined}
+							fill={true}
+							{rootEl}
+						/>
+					{/if}
+				</div>
 				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 			{:else}
 				<div
@@ -179,30 +203,6 @@
 			<div class="grid gap-8 lg:grid-cols-12 min-w-0">
 				<!-- Left column -->
 				<div class="lg:col-span-8 min-w-0 space-y-6">
-					{#if post?.cover}
-						<div
-							class="md:float-right md:ml-6 md:mb-4 mb-4 overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 w-full md:w-64"
-						>
-							<Image
-								src={getCoverUrl(post.cover, true) ?? ''}
-								alt={post.cover?.alternativeText ?? post.title}
-								classNames="w-full aspect-square object-cover"
-								loading="lazy"
-								copyright={post.copyright?.enabled
-									? [
-											{
-												enabled: true,
-												name: post.copyright.name,
-												url: post.copyright.url,
-												compact: true,
-												size: 'xs'
-											}
-										]
-									: undefined}
-							/>
-						</div>
-					{/if}
-
 					{#if post?.blocks?.length}
 						<Renderer blocks={post.blocks} />
 					{:else}
@@ -275,7 +275,7 @@
 												enabled: previousPost.copyright?.enabled,
 												name: previousPost.copyright?.name,
 												url: previousPost.copyright?.url || '',
-												compact: true
+												size: 'xs'
 											}
 										]
 									: []}
@@ -324,7 +324,7 @@
 											enabled: nextPost.copyright?.enabled,
 											name: nextPost.copyright?.name,
 											url: nextPost.copyright?.url || '',
-											compact: true
+											size: 'xs'
 										}
 									]
 								: []}

@@ -144,7 +144,7 @@
 													enabled: event.copyright?.enabled,
 													name: event.copyright?.name,
 													url: event.copyright?.url || '',
-													compact: true
+													size: 'xs'
 												}
 											]
 										: []}
@@ -250,7 +250,8 @@
 				</div>
 
 				<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-					Der Kalender konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten erneut oder lade die Seite neu.
+					Der Kalender konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten
+					erneut oder lade die Seite neu.
 				</div>
 
 				<!-- Actions -->

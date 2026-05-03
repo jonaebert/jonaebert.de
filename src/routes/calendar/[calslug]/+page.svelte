@@ -9,6 +9,7 @@
 	} from '$lib/store';
 	import { FormatDate } from '$lib/util/date';
 	import Image from '$lib/components/ui/Image.svelte';
+	import Copyright from '$lib/components/ui/Copyright.svelte';
 	import { Icon, type IconName } from '$lib/components/icons';
 	import { goto } from '$app/navigation';
 	import DOMPurify from 'isomorphic-dompurify';
@@ -59,6 +60,11 @@
 
 		return img_alte_waage;
 	}
+
+	/* -----------------------------
+	   Root Element (für Copyright-Portal)
+	----------------------------- */
+	let rootEl: HTMLDivElement | null = null;
 
 	/* -----------------------------
 	   Status Badge
@@ -150,7 +156,25 @@
 				<div
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(event.cover, true)});"
-				></div>
+					bind:this={rootEl}
+				>
+					{#if event?.copyright?.enabled}
+						<Copyright
+							copyright={event.copyright?.enabled
+								? [
+										{
+											enabled: true,
+											name: event.copyright.name,
+											url: event.copyright.url,
+											size: 'sm'
+										}
+									]
+								: undefined}
+							fill={true}
+							{rootEl}
+						/>
+					{/if}
+				</div>
 				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 			{:else}
 				<div class="absolute inset-0 bg-emerald-900 dark:bg-emerald-950"></div>
@@ -224,7 +248,7 @@
 			<div class="grid gap-8 lg:grid-cols-12">
 				<div class="lg:col-span-8 space-y-6">
 					<!-- Event image -->
-					{#if event.cover}
+					{#if event.cover && !event.description}
 						<div
 							class="overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 						>
@@ -385,7 +409,7 @@
 											enabled: previousEvent.copyright?.enabled,
 											name: previousEvent.copyright?.name,
 											url: previousEvent.copyright?.url || '',
-											compact: true
+											size: 'xs'
 										}
 									]
 								: []}
@@ -433,7 +457,7 @@
 											enabled: nextEvent.copyright?.enabled,
 											name: nextEvent.copyright?.name,
 											url: nextEvent.copyright?.url || '',
-											compact: true
+											size: 'xs'
 										}
 									]
 								: []}
