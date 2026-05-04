@@ -7,11 +7,11 @@
 		uri,
 		img_alte_waage
 	} from '$lib/store';
+	import { goto } from '$app/navigation';
 	import { FormatDate } from '$lib/util/date';
+	import { Icon, type IconName } from '$lib/components/icons';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Copyright from '$lib/components/ui/Copyright.svelte';
-	import { Icon, type IconName } from '$lib/components/icons';
-	import { goto } from '$app/navigation';
 	import DOMPurify from 'isomorphic-dompurify';
 	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
@@ -158,19 +158,16 @@
 					style="background-image: url({getCoverUrl(event.cover, true)});"
 					bind:this={rootEl}
 				>
-					{#if event?.copyright?.enabled}
+					{#if event?.copyright !== null}
 						<Copyright
-							copyright={event.copyright?.enabled
-								? [
-										{
-											enabled: true,
-											name: event.copyright.name,
-											url: event.copyright.url,
-											size: 'sm'
-										}
-									]
-								: undefined}
-							fill={true}
+							copyright={[
+								{
+									enabled: true,
+									name: event.copyright.label,
+									url: event.copyright.url,
+									size: 'sm'
+								}
+							]}
 							{rootEl}
 						/>
 					{/if}
