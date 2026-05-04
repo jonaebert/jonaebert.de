@@ -256,7 +256,7 @@
 					{@const now = new Date()}
 					{@const upcoming = [...es]
 						.filter((e) => {
-							if (!e?.start) return false;
+							if (!e?.start || e.state === 'cancelled' || e.state === 'tentative') return false;
 							const end = e.end
 								? new Date(e.end)
 								: new Date(new Date(e.start).getTime() + 90 * 60 * 1000);
