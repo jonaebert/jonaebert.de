@@ -1,6 +1,6 @@
 {
 	"name": "jonaebert.de",
-	"version": "26.4.0",
+	"version": "26.5.0",
 	"private": true,
 	"engines": {
 		"node": ">=20.19 || >=22.13 || >=24 || >=25"
