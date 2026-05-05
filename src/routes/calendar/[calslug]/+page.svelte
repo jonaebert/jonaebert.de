@@ -12,10 +12,12 @@
 	import { Icon, type IconName } from '$lib/components/icons';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Copyright from '$lib/components/ui/Copyright.svelte';
+	import DOMPurify from 'isomorphic-dompurify';
 	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
+	const sanitizedDescription: string = DOMPurify.sanitize(String(event?.description ?? ''));
 
 	/* -----------------------------
 	   Event Daten aufbereiten
@@ -274,7 +276,7 @@
 
 					{#if event.description}
 						<div class="prose prose-zinc dark:prose-invert max-w-none">
-							{event?.description}
+							{@html sanitizedDescription}
 						</div>
 					{:else}
 						<p class="text-zinc-600 dark:text-zinc-400">Keine Beschreibung vorhanden.</p>
