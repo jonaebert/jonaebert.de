@@ -12,12 +12,17 @@
 	import { Icon, type IconName } from '$lib/components/icons';
 	import Image from '$lib/components/ui/Image.svelte';
 	import Copyright from '$lib/components/ui/Copyright.svelte';
-	import DOMPurify from 'isomorphic-dompurify';
 	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import sanitizeHtml from 'sanitize-html';
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
-	const sanitizedDescription: string = DOMPurify.sanitize(String(event?.description ?? ''));
+	const sanitizedDescription: string = sanitizeHtml(String(event?.description ?? ''), {
+		allowedTags: ['b', 'i', 'em', 'strong', 'a', 'p', 'br'],
+		allowedAttributes: {
+			a: ['href', 'target', 'rel']
+		}
+	});
 
 	/* -----------------------------
 	   Event Daten aufbereiten
