@@ -22,6 +22,9 @@
 		allowedTags: ['b', 'i', 'em', 'strong', 'a', 'p', 'br'],
 		allowedAttributes: {
 			a: ['href', 'target', 'rel']
+		},
+		transformTags: {
+			a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }, true)
 		}
 	});
 
