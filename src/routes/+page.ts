@@ -12,11 +12,11 @@ export const load: PageLoad = async ({ fetch }) => {
 	const events = await Promise.all(
 		eventsSource.map(async (event: any) => {
 			if (event?.cover?.documentId) {
-				const eventCopyright: any[] = await getCopyright(event?.cover?.documentId ?? '');
+				const eventCopyright: any[] = await getCopyright(event?.cover?.documentId ?? '', fetch);
 
 				return {
 					...event,
-					copyright: eventCopyright
+					copyright: eventCopyright || null
 				};
 			}
 		})
@@ -29,11 +29,11 @@ export const load: PageLoad = async ({ fetch }) => {
 	const posts = await Promise.all(
 		postsSource.map(async (post: any) => {
 			if (post?.cover?.documentId) {
-				const postCopyright: any[] = await getCopyright(post?.cover?.documentId ?? '');
+				const postCopyright: any[] = await getCopyright(post?.cover?.documentId ?? '', fetch);
 
 				return {
 					...post,
-					copyright: postCopyright
+					copyright: postCopyright || null
 				};
 			}
 		})
