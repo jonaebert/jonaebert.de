@@ -152,7 +152,7 @@
 		<div
 			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
-			{#if event?.cover}
+			{#if getCoverUrl(event?.cover, true)}
 				<div
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(event.cover, true)});"
@@ -249,14 +249,28 @@
 						<div
 							class="overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 						>
-							<Image
-								src={getCoverUrl(event.cover, true)}
-								alt={event.cover.alternativeText}
-								classNames="w-full h-auto"
-								copyright={event.copyright?.enabled
-									? [{ enabled: true, name: event.copyright.name, url: event.copyright.url }]
-									: undefined}
-							/>
+							{#if event.copyright !== null}
+								<Image
+									src={getCoverUrl(event.cover, true)}
+									alt={event.cover.alternativeText}
+									classNames="w-full h-auto"
+									copyright={[
+										{
+											enabled: true,
+											name: event.copyright.label,
+											url: event.copyright.url,
+											size: 'md'
+										}
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(event.cover, true)}
+									alt={event.cover.alternativeText}
+									classNames="w-full h-auto"
+									copyright={[{ enabled: false, name: '', url: '', size: '' }]}
+								/>
+							{/if}
 						</div>
 					{/if}
 
