@@ -17,7 +17,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	});
 
 	// 1.1) Copyright laden (wenn cover vorhanden)
-	const eventCopyright: any[] = await getCopyright(eventSource?.cover?.documentId ?? '');
+	const eventCopyright: any[] = eventSource?.cover?.documentId
+		? await getCopyright(eventSource?.cover?.documentId, fetch)
+		: [null];
 
 	// 1.2) Event mit Copyright anreichern (eventCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
 	const event: any = {
@@ -45,8 +47,35 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const currentId = String(event.documentId ?? params.calslug);
 	const idx = sorted.findIndex((e: any) => String(e.documentId) === currentId);
 
-	const previousEvent = idx > 0 ? sorted[idx - 1] : null;
-	const nextEvent = idx >= 0 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
+	const previousEventSource = idx > 0 ? sorted[idx - 1] : null;
+	const nextEventSource = idx >= 0 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
+
+	// 5) prev/next mit Copyright anreichern (wenn cover vorhanden)
+	if (previousEventSource?.id !== undefined) {
+		const previousEventCopyright: any[] = previousEventSource?.cover?.documentId
+			? await getCopyright(previousEventSource?.cover?.documentId, fetch)
+			: [null];
+
+		var previousEvent: any = {
+			...previousEventSource,
+			copyright: previousEventCopyright
+		};
+	} else {
+		var previousEvent: any = null;
+	}
+
+	if (nextEventSource?.id !== undefined) {
+		const nextEventCopyright: any[] = nextEventSource?.cover?.documentId
+			? await getCopyright(nextEventSource?.cover?.documentId, fetch)
+			: [null];
+
+		var nextEvent: any = {
+			...nextEventSource,
+			copyright: nextEventCopyright
+		};
+	} else {
+		var nextEvent: any = null;
+	}
 
 	return {
 		event,

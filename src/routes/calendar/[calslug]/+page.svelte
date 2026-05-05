@@ -414,22 +414,39 @@
 						         group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
 						/>
 
-						<Image
-							src={getCoverUrl(previousEvent.cover, false)!}
-							alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={previousEvent.copyright?.enabled
-								? [
+						{#if getCoverUrl(previousEvent.cover, false)}
+							{#if previousEvent?.copyright !== null}
+								<Image
+									src={getCoverUrl(previousEvent.cover, false)!}
+									alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
 										{
-											enabled: previousEvent.copyright?.enabled,
-											name: previousEvent.copyright?.name,
+											enabled: true,
+											name: previousEvent.copyright?.label,
 											url: previousEvent.copyright?.url || '',
 											size: 'xs'
 										}
-									]
-								: []}
-						/>
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(previousEvent.cover, false)!}
+									alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriger Termin</div>
@@ -462,22 +479,39 @@
 				       min-w-0"
 				>
 					<div class="grid min-w-0 grid-cols-[auto_auto_1fr_auto] items-center gap-3">
-						<Image
-							src={getCoverUrl(nextEvent.cover, false)!}
-							alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={nextEvent.copyright?.enabled
-								? [
+						{#if getCoverUrl(nextEvent.cover, false)}
+							{#if nextEvent?.copyright !== null}
+								<Image
+									src={getCoverUrl(nextEvent.cover, false)!}
+									alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
 										{
-											enabled: nextEvent.copyright?.enabled,
-											name: nextEvent.copyright?.name,
+											enabled: true,
+											name: nextEvent.copyright?.label,
 											url: nextEvent.copyright?.url || '',
 											size: 'xs'
 										}
-									]
-								: []}
-						/>
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(nextEvent.cover, false)!}
+									alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächster Termin</div>
