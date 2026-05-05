@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { contextMenuAction } from '$lib/store';
-	import { browser } from '$app/environment';
-	import { portal } from '$lib/actions/portal';
-	import { tick, onDestroy } from 'svelte';
 	import Copyright from '$lib/components/ui/Copyright.svelte';
 
 	export let src: string;
@@ -13,7 +10,7 @@
 				enabled: boolean;
 				name: string;
 				url: string;
-				size: 'xs' | 'sm' | 'md';
+				size: 'xs' | 'sm' | 'md' | '';
 		  }[]
 		| null
 		| undefined = [];
