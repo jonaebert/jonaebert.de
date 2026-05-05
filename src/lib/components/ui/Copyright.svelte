@@ -9,7 +9,7 @@
 				enabled: boolean;
 				name: string;
 				url: string;
-				size: 'xs' | 'sm' | 'md';
+				size: 'xs' | 'sm' | 'md' | '';
 		  }[]
 		| null
 		| undefined = [];
@@ -33,7 +33,7 @@
 
 	$: sizeCls =
 		copyrightItem?.size === 'xs'
-			? 'h-4 w-4 text-[9px]'
+			? 'h-4 w-4 text-[10px]'
 			: copyrightItem?.size === 'sm'
 				? 'h-5 w-5 text-[10px]'
 				: 'h-6 w-6 text-xs';
@@ -220,8 +220,7 @@
 			<button
 				bind:this={triggerEl}
 				type="button"
-				class={`grid place-items-center ${sizeCls} rounded-full bg-white/95 text-black shadow
-				        border border-zinc-200/70 cursor-pointer hover:bg-white
+				class={`grid place-items-center ${sizeCls} rounded-full bg-white/95 text-black shadow border border-zinc-200/70 cursor-pointer hover:bg-white
 				        focus:outline-none focus:ring-2 focus:ring-accent/40 leading-none`}
 				aria-haspopup="dialog"
 				aria-expanded={open}
