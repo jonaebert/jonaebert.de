@@ -17,7 +17,8 @@
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
-	const sanitizedDescription: string = sanitizeHtml(String(event?.description ?? ''), {
+	let sanitizedDescription: string = '';
+	$: sanitizedDescription = sanitizeHtml(String(event?.description ?? ''), {
 		allowedTags: ['b', 'i', 'em', 'strong', 'a', 'p', 'br'],
 		allowedAttributes: {
 			a: ['href', 'target', 'rel']
