@@ -72,9 +72,11 @@
 					<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">Lädt…</div>
 				</div>
 			{:then ps}
-				{@const latestPost = [...ps].sort(
-					(a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime()
-				)[0]}
+				{@const latestPost = [...ps]
+					.filter(Boolean)
+					.sort(
+						(a, b) => new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime()
+					)[0]}
 				{#if latestPost}
 					<a
 						href={`/blog/${latestPost.documentId}`}
@@ -146,9 +148,9 @@
 						return end >= now;
 					})
 					.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())[0]}
-				{@const latestByStart = [...es].sort(
-					(a, b) => new Date(b.start ?? 0).getTime() - new Date(a.start ?? 0).getTime()
-				)[0]}
+				{@const latestByStart = [...es]
+					.filter(Boolean)
+					.sort((a, b) => new Date(b.start ?? 0).getTime() - new Date(a.start ?? 0).getTime())[0]}
 				{@const pick = upcoming ?? latestByStart}
 
 				{#if pick}
