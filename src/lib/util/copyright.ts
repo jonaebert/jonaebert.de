@@ -1,7 +1,7 @@
 import { api } from '$lib/api';
 
-export async function getCopyright(image_id: string) {
-	const client: any = api(fetch);
+export async function getCopyright(image_id: string, fetchFn: typeof fetch = fetch) {
+	const client: any = api(fetchFn);
 
 	const response: any = await client.get('/copyright/{image_id}', {
 		params: { image_id: image_id }
