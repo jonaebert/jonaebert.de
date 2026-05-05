@@ -1,5 +1,6 @@
 import type { PageLoad } from './$types';
 import { api } from '$lib/api';
+import { getCopyright } from '$lib/util/copyright.js';
 
 function toTs(v: unknown): number {
 	const d = typeof v === 'string' ? new Date(v) : v instanceof Date ? v : null;
@@ -8,12 +9,21 @@ function toTs(v: unknown): number {
 }
 
 export const load: PageLoad = async ({ fetch, params }) => {
-	const client = api(fetch);
+	const client: any = api(fetch);
 
-	// 1) aktueller Post
-	const post = await client.get('/blog/post/{post_id}', {
+	// 1) aktuellen Post laden
+	const postSource: any = await client.get('/blog/post/{post_id}', {
 		params: { post_id: params.blogslug }
 	});
+
+	// 1.1) Copyright laden (wenn cover vorhanden)
+	const postCopyright: any[] = await getCopyright(postSource?.cover?.documentId ?? '');
+
+	// 1.2) Post mit Copyright anreichern (postCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
+	const post: any = {
+		...postSource,
+		copyright: postCopyright
+	};
 
 	// 2) alle Posts
 	const posts = await client.get('/blog/posts/');

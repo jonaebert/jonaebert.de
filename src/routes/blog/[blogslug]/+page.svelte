@@ -106,19 +106,16 @@
 					style="background-image: url({getCoverUrl(post.cover, true)});"
 					bind:this={rootEl}
 				>
-					{#if post?.copyright?.enabled}
+					{#if post?.copyright !== null}
 						<Copyright
-							copyright={post.copyright?.enabled
-								? [
-										{
-											enabled: true,
-											name: post.copyright.name,
-											url: post.copyright.url,
-											size: 'sm'
-										}
-									]
-								: undefined}
-							fill={true}
+							copyright={[
+								{
+									enabled: true,
+									name: post.copyright.label,
+									url: post.copyright.url,
+									size: 'sm'
+								}
+							]}
 							{rootEl}
 						/>
 					{/if}
