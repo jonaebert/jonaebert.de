@@ -17,7 +17,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	});
 
 	// 1.1) Copyright laden (wenn cover vorhanden)
-	const postCopyright: any[] = await getCopyright(postSource?.cover?.documentId ?? '');
+	const postCopyright: any[] = postSource?.cover?.documentId
+		? await getCopyright(postSource?.cover?.documentId, fetch)
+		: [null];
 
 	// 1.2) Post mit Copyright anreichern (postCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
 	const post: any = {
