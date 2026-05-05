@@ -43,8 +43,35 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const idx = sorted.findIndex((p: any) => String(p.documentId) === currentId);
 
 	// "previous" = neuerer Beitrag, "next" = älterer Beitrag (weil Liste neu->alt)
-	const previousPost = idx > 0 ? sorted[idx - 1] : null;
-	const nextPost = idx >= 0 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
+	const previousPostSource = idx > 0 ? sorted[idx - 1] : null;
+	const nextPostSource = idx >= 0 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
+
+	// 5) prev/next mit Copyright anreichern (wenn cover vorhanden)
+	if (previousPostSource?.id !== undefined) {
+		const previousPostCopyright: any[] = previousPostSource?.cover?.documentId
+			? await getCopyright(previousPostSource?.cover?.documentId, fetch)
+			: [null];
+
+		var previousPost: any = {
+			...previousPostSource,
+			copyright: previousPostCopyright
+		};
+	} else {
+		var previousPost: any = null;
+	}
+
+	if (nextPostSource?.id !== undefined) {
+		const nextPostCopyright: any[] = nextPostSource?.cover?.documentId
+			? await getCopyright(nextPostSource?.cover?.documentId, fetch)
+			: [null];
+
+		var nextPost: any = {
+			...nextPostSource,
+			copyright: nextPostCopyright
+		};
+	} else {
+		var nextPost: any = null;
+	}
 
 	return { post, previousPost, nextPost };
 };

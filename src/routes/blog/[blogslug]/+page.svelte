@@ -261,22 +261,37 @@
 						/>
 
 						{#if getCoverUrl(previousPost.cover, false)}
-							<Image
-								src={getCoverUrl(previousPost.cover, false)!}
-								alt={previousPost.cover?.alternativeText ?? previousPost.title}
-								classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-								loading="lazy"
-								copyright={previousPost.copyright?.enabled
-									? [
-											{
-												enabled: previousPost.copyright?.enabled,
-												name: previousPost.copyright?.name,
-												url: previousPost.copyright?.url || '',
-												size: 'xs'
-											}
-										]
-									: []}
-							/>
+							{#if previousPost?.copyright !== null}
+								<Image
+									src={getCoverUrl(previousPost.cover, false)!}
+									alt={previousPost.cover?.alternativeText ?? previousPost.title}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: true,
+											name: previousPost.copyright?.label,
+											url: previousPost.copyright?.url || '',
+											size: 'xs'
+										}
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(previousPost.cover, false)!}
+									alt={previousPost.cover?.alternativeText ?? previousPost.title}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
 						{/if}
 
 						<div class="min-w-0">
@@ -310,22 +325,39 @@
 				       min-w-0"
 				>
 					<div class="grid min-w-0 grid-cols-[auto_auto_1fr_auto] items-center gap-3">
-						<Image
-							src={getCoverUrl(nextPost.cover, false)!}
-							alt={nextPost.cover?.alternativeText ?? nextPost.title}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={nextPost.copyright?.enabled
-								? [
+						{#if getCoverUrl(nextPost.cover, false)}
+							{#if nextPost?.copyright !== null}
+								<Image
+									src={getCoverUrl(nextPost.cover, false)!}
+									alt={nextPost.cover?.alternativeText ?? nextPost.title}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
 										{
-											enabled: nextPost.copyright?.enabled,
-											name: nextPost.copyright?.name,
+											enabled: true,
+											name: nextPost.copyright?.label,
 											url: nextPost.copyright?.url || '',
 											size: 'xs'
 										}
-									]
-								: []}
-						/>
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(nextPost.cover, false)!}
+									alt={nextPost.cover?.alternativeText ?? nextPost.title}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächster Beitrag</div>
