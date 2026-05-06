@@ -17,9 +17,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	});
 
 	// 1.1) Copyright laden (wenn cover vorhanden)
-	const postCopyright: any[] = postSource?.cover?.documentId
+	const postCopyright: any = postSource?.cover?.documentId
 		? await getCopyright(postSource?.cover?.documentId, fetch)
-		: [null];
+		: null;
 
 	// 1.2) Post mit Copyright anreichern (postCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
 	const post: any = {
@@ -48,9 +48,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 	// 5) prev/next mit Copyright anreichern (wenn cover vorhanden)
 	if (previousPostSource?.id !== undefined) {
-		const previousPostCopyright: any[] = previousPostSource?.cover?.documentId
+		const previousPostCopyright: any = previousPostSource?.cover?.documentId
 			? await getCopyright(previousPostSource?.cover?.documentId, fetch)
-			: [null];
+			: null;
 
 		var previousPost: any = {
 			...previousPostSource,
@@ -61,9 +61,9 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	}
 
 	if (nextPostSource?.id !== undefined) {
-		const nextPostCopyright: any[] = nextPostSource?.cover?.documentId
+		const nextPostCopyright: any = nextPostSource?.cover?.documentId
 			? await getCopyright(nextPostSource?.cover?.documentId, fetch)
-			: [null];
+			: null;
 
 		var nextPost: any = {
 			...nextPostSource,
