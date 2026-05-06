@@ -58,7 +58,8 @@
 	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) return img_alte_waage;
 
-		if (cover.ext === '.svg') return je_cms_base_url + cover.url;
+		if ((cover.ext === '.svg' || cover.ext === '.avif') && cover.url)
+			return je_cms_base_url + cover.url;
 
 		if (cover.formats?.thumbnail?.url) {
 			if (highresolution && cover.formats?.large?.url) {

@@ -8,7 +8,7 @@
 
 	// Helper to get the correct media URL (handling SVGs and different formats)
 	function getMediaURL(media: any) {
-		if (media?.ext === '.svg') {
+		if ((media.ext === '.svg' || media.ext === '.avif') && media.url) {
 			return je_cms_base_url + media?.url;
 		} else if (media?.formats?.large?.url) {
 			return je_cms_base_url + media?.formats?.large?.url;

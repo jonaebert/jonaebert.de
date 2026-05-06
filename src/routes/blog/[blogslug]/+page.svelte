@@ -29,7 +29,8 @@
 		if (!cover) return null;
 
 		// SVG direkt
-		if (cover.ext === '.svg' && cover.url) return je_cms_base_url + cover.url;
+		if ((cover.ext === '.svg' || cover.ext === '.avif') && cover.url)
+			return je_cms_base_url + cover.url;
 
 		// Formate aus Strapi
 		const rel =
