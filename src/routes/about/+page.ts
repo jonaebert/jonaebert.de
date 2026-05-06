@@ -6,7 +6,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 	return {
 		posts: client.get('/blog/posts/', { query: { limit: 1 } }),
-		events: client.get('/calendar/events/', { query: { limit: 1 } }),
+		events: client.get('/calendar/events/', { query: { limit: 8 } }),
 		cv: {
 			headings: {
 				main: 'Lebenslauf',

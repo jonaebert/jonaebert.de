@@ -133,22 +133,37 @@
 
 						{#if coverUrl(event)}
 							<div>
-								<Image
-									src={coverUrl(event)!}
-									alt={event.cover?.alternativeText ?? event.subject}
-									classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-									loading="lazy"
-									copyright={event.copyright?.enabled
-										? [
-												{
-													enabled: event.copyright?.enabled,
-													name: event.copyright?.name,
-													url: event.copyright?.url || '',
-													compact: true
-												}
-											]
-										: []}
-								/>
+								{#if event.copyright !== null}
+									<Image
+										src={coverUrl(event)!}
+										alt={event.cover?.alternativeText ?? event.subject}
+										classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+										loading="lazy"
+										copyright={[
+											{
+												enabled: true,
+												name: event.copyright?.label,
+												url: event.copyright?.url || '',
+												size: 'xs'
+											}
+										]}
+									/>
+								{:else}
+									<Image
+										src={coverUrl(event)!}
+										alt={event.cover?.alternativeText ?? event.subject}
+										classNames="h-16 w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+										loading="lazy"
+										copyright={[
+											{
+												enabled: false,
+												name: '',
+												url: '',
+												size: ''
+											}
+										]}
+									/>
+								{/if}
 							</div>
 						{/if}
 
@@ -250,7 +265,8 @@
 				</div>
 
 				<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-					Der Kalender konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten erneut oder lade die Seite neu.
+					Der Kalender konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten
+					erneut oder lade die Seite neu.
 				</div>
 
 				<!-- Actions -->

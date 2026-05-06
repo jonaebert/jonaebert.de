@@ -6,8 +6,9 @@
 
 	export let files: any[];
 
+	// Helper to get the correct media URL (handling SVGs and different formats)
 	function getMediaURL(media: any) {
-		if (media?.ext === '.svg') {
+		if ((media.ext === '.svg' || media.ext === '.avif') && media.url) {
 			return je_cms_base_url + media?.url;
 		} else if (media?.formats?.large?.url) {
 			return je_cms_base_url + media?.formats?.large?.url;
@@ -101,7 +102,7 @@
 							src={getMediaURL(img)}
 							alt={img?.alternativeText}
 							classNames="h-full w-full object-cover"
-							copyright={[{ name: '', url: '' }]}
+							copyright={[{ enabled: false, name: '', url: '', size: '' }]}
 						/>
 					</div>
 				{/each}

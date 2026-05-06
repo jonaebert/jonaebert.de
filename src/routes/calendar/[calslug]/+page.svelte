@@ -7,16 +7,26 @@
 		uri,
 		img_alte_waage
 	} from '$lib/store';
-	import { FormatDate } from '$lib/util/date';
-	import Image from '$lib/components/ui/Image.svelte';
-	import { Icon, type IconName } from '$lib/components/icons';
 	import { goto } from '$app/navigation';
-	import DOMPurify from 'isomorphic-dompurify';
+	import { FormatDate } from '$lib/util/date';
+	import { Icon, type IconName } from '$lib/components/icons';
+	import Image from '$lib/components/ui/Image.svelte';
+	import Copyright from '$lib/components/ui/Copyright.svelte';
 	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import sanitizeHtml from 'sanitize-html';
 
 	export let data;
 	let { event, previousEvent, nextEvent } = data;
-	$: sanitizedDescription = DOMPurify.sanitize(String(event?.description ?? ''));
+	let sanitizedDescription: string = '';
+	$: sanitizedDescription = sanitizeHtml(String(event?.description ?? ''), {
+		allowedTags: ['b', 'i', 'em', 'strong', 'a', 'p', 'br'],
+		allowedAttributes: {
+			a: ['href', 'target', 'rel']
+		},
+		transformTags: {
+			a: sanitizeHtml.simpleTransform('a', { rel: 'noopener noreferrer' }, true)
+		}
+	});
 
 	/* -----------------------------
 	   Event Daten aufbereiten
@@ -48,7 +58,8 @@
 	function getCoverUrl(cover: any, highresolution: boolean): string {
 		if (!cover) return img_alte_waage;
 
-		if (cover.ext === '.svg') return je_cms_base_url + cover.url;
+		if ((cover.ext === '.svg' || cover.ext === '.avif') && cover.url)
+			return je_cms_base_url + cover.url;
 
 		if (cover.formats?.thumbnail?.url) {
 			if (highresolution && cover.formats?.large?.url) {
@@ -59,6 +70,11 @@
 
 		return img_alte_waage;
 	}
+
+	/* -----------------------------
+	   Root Element (für Copyright-Portal)
+	----------------------------- */
+	let rootEl: HTMLDivElement | null = null;
 
 	/* -----------------------------
 	   Status Badge
@@ -146,11 +162,26 @@
 		<div
 			class="relative overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 		>
-			{#if event?.cover}
+			{#if getCoverUrl(event?.cover, true)}
 				<div
 					class="absolute inset-0 bg-cover bg-center"
 					style="background-image: url({getCoverUrl(event.cover, true)});"
-				></div>
+					bind:this={rootEl}
+				>
+					{#if event?.copyright !== null}
+						<Copyright
+							copyright={[
+								{
+									enabled: true,
+									name: event.copyright.label,
+									url: event.copyright.url,
+									size: 'sm'
+								}
+							]}
+							{rootEl}
+						/>
+					{/if}
+				</div>
 				<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>
 			{:else}
 				<div class="absolute inset-0 bg-emerald-900 dark:bg-emerald-950"></div>
@@ -224,18 +255,32 @@
 			<div class="grid gap-8 lg:grid-cols-12">
 				<div class="lg:col-span-8 space-y-6">
 					<!-- Event image -->
-					{#if event.cover}
+					{#if event.cover && !event.description}
 						<div
 							class="overflow-hidden rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70"
 						>
-							<Image
-								src={getCoverUrl(event.cover, true)}
-								alt={event.cover.alternativeText}
-								classNames="w-full h-auto"
-								copyright={event.copyright?.enabled
-									? [{ enabled: true, name: event.copyright.name, url: event.copyright.url }]
-									: undefined}
-							/>
+							{#if event.copyright !== null}
+								<Image
+									src={getCoverUrl(event.cover, true)}
+									alt={event.cover.alternativeText}
+									classNames="w-full h-auto"
+									copyright={[
+										{
+											enabled: true,
+											name: event.copyright.label,
+											url: event.copyright.url,
+											size: 'md'
+										}
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(event.cover, true)}
+									alt={event.cover.alternativeText}
+									classNames="w-full h-auto"
+									copyright={[{ enabled: false, name: '', url: '', size: '' }]}
+								/>
+							{/if}
 						</div>
 					{/if}
 
@@ -374,22 +419,39 @@
 						         group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition"
 						/>
 
-						<Image
-							src={getCoverUrl(previousEvent.cover, false)!}
-							alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={previousEvent.copyright?.enabled
-								? [
+						{#if getCoverUrl(previousEvent.cover, false)}
+							{#if previousEvent?.copyright !== null}
+								<Image
+									src={getCoverUrl(previousEvent.cover, false)!}
+									alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
 										{
-											enabled: previousEvent.copyright?.enabled,
-											name: previousEvent.copyright?.name,
+											enabled: true,
+											name: previousEvent.copyright?.label,
 											url: previousEvent.copyright?.url || '',
-											compact: true
+											size: 'xs'
 										}
-									]
-								: []}
-						/>
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(previousEvent.cover, false)!}
+									alt={previousEvent.cover?.alternativeText ?? previousEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Vorheriger Termin</div>
@@ -422,22 +484,39 @@
 				       min-w-0"
 				>
 					<div class="grid min-w-0 grid-cols-[auto_auto_1fr_auto] items-center gap-3">
-						<Image
-							src={getCoverUrl(nextEvent.cover, false)!}
-							alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
-							classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
-							loading="lazy"
-							copyright={nextEvent.copyright?.enabled
-								? [
+						{#if getCoverUrl(nextEvent.cover, false)}
+							{#if nextEvent?.copyright !== null}
+								<Image
+									src={getCoverUrl(nextEvent.cover, false)!}
+									alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
 										{
-											enabled: nextEvent.copyright?.enabled,
-											name: nextEvent.copyright?.name,
+											enabled: true,
+											name: nextEvent.copyright?.label,
 											url: nextEvent.copyright?.url || '',
-											compact: true
+											size: 'xs'
 										}
-									]
-								: []}
-						/>
+									]}
+								/>
+							{:else}
+								<Image
+									src={getCoverUrl(nextEvent.cover, false)!}
+									alt={nextEvent.cover?.alternativeText ?? nextEvent.subject}
+									classNames="h-14 w-14 sm:h-16 sm:w-16 rounded-2xl object-cover border border-zinc-200/70 dark:border-zinc-800/70"
+									loading="lazy"
+									copyright={[
+										{
+											enabled: false,
+											name: '',
+											url: '',
+											size: ''
+										}
+									]}
+								/>
+							{/if}
+						{/if}
 
 						<div class="min-w-0">
 							<div class="text-xs text-zinc-500 dark:text-zinc-400">Nächster Termin</div>

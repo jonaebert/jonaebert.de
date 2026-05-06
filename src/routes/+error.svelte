@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Image from '$lib/components/ui/Image.svelte';
-	import { je_cms_base_url } from '$lib/store';
+	import { je_cms_base_url, img_alte_waage } from '$lib/store';
 </script>
 
 <section class="container py-8 sm:py-12">
@@ -11,12 +11,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2">
 			<!-- Media -->
 			<div class="relative min-h-[25vh] md:min-h-[60vh] overflow-hidden">
-				<Image
-					fill
-					src={`${je_cms_base_url}/uploads/Braunschweig_Alte_Waage_ced5cdd56e.png`}
-					alt="Braunschweig Alte Waage"
-					classNames="object-cover"
-				/>
+				<Image fill src={img_alte_waage} alt="Braunschweig Alte Waage" classNames="object-cover" />
 				<div
 					class="absolute inset-0 bg-linear-to-b from-white/15 via-white/5 to-white/25 dark:from-zinc-950/75 dark:via-zinc-950/45 dark:to-zinc-950/80"
 				></div>

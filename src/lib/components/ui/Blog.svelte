@@ -34,23 +34,37 @@
 			>
 				{#if coverUrl(post)}
 					<div class="relative">
-						<Image
-							src={coverUrl(post)!}
-							alt={post.cover?.alternativeText ?? post.title ?? 'Blogbild'}
-							classNames="block w-full aspect-video object-cover"
-							loading="lazy"
-							copyright={post.copyright?.enabled
-								? [
-										{
-											enabled: post.copyright.enabled,
-											name: post.copyright.name,
-											url: post.copyright.url || '',
-											compact: true,
-											size: 'xs'
-										}
-									]
-								: []}
-						/>
+						{#if post.copyright !== null}
+							<Image
+								src={coverUrl(post)!}
+								alt={post.cover?.alternativeText ?? post.title ?? 'Blogbild'}
+								classNames="block w-full aspect-video object-cover"
+								loading="lazy"
+								copyright={[
+									{
+										enabled: true,
+										name: post.copyright?.label,
+										url: post.copyright?.url || '',
+										size: 'xs'
+									}
+								]}
+							/>
+						{:else}
+							<Image
+								src={coverUrl(post)!}
+								alt={post.cover?.alternativeText ?? post.title ?? 'Blogbild'}
+								classNames="block w-full aspect-video object-cover"
+								loading="lazy"
+								copyright={[
+									{
+										enabled: false,
+										name: '',
+										url: '',
+										size: ''
+									}
+								]}
+							/>
+						{/if}
 					</div>
 				{/if}
 
@@ -99,7 +113,8 @@
 					</div>
 
 					<div class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-						Der Blog konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten erneut oder lade die Seite neu.
+						Der Blog konnte gerade nicht geladen werden. Bitte versuche es in ein paar Minuten
+						erneut oder lade die Seite neu.
 					</div>
 
 					<!-- Actions -->
