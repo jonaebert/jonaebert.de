@@ -97,7 +97,7 @@
 			loop
 			playsinline
 			preload="metadata"
-			poster={`${je_cms_base_url}/uploads/thumbnail_Hero_Video_Teaserimage_704af3dfc7.png`}
+			poster={`${je_cms_base_url}/uploads/Hero_Video_Teaserimage_a9468bcb38.avif`}
 			class="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
 		>
 			<source src="/home/herovideo.mp4" type="video/mp4" />

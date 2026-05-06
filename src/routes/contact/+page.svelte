@@ -109,7 +109,7 @@
 	>
 		<div
 			class="absolute inset-0 bg-cover bg-center"
-			style={`background-image: url(${je_cms_base_url}/uploads/Kontakt_93eb0e428c.png);`}
+			style={`background-image: url(${je_cms_base_url}/uploads/Kontakt_753e525d38.avif);`}
 			aria-hidden="true"
 		></div>
 		<div class="absolute inset-0 bg-zinc-950/45 dark:bg-zinc-950/55" aria-hidden="true"></div>

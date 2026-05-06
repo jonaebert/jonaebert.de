@@ -248,7 +248,7 @@
 		<a href="/about" target="_self" class="block mt-5">
 			<div class="aspect-square overflow-hidden">
 				<Image
-					src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_7b47e25bf6.png`}
+					src={`${je_cms_base_url}/uploads/Portrait_1000x1000_Cutout_4c9c36776e.avif`}
 					alt="Portrait von {name}"
 					classNames="h-full w-full object-cover scale-100 sm:scale-95 hover:scale-100 transition-transform duration-500 ease-in-out"
 				/>
