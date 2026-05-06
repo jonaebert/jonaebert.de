@@ -36,10 +36,10 @@ export const cf_public_turnstile_site_key = import.meta.env.VITE_JE_PUBLIC_TURNS
 
 // Pictures
 // Logo
-export const logo = `${je_cms_base_url}/uploads/Logo_310x100_c17dfefe52.svg`;
-export const logo_clear = `${je_cms_base_url}/uploads/Logo_310x100_Clear_2769e089a9.svg`;
-export const logo_small = `${je_cms_base_url}/uploads/Logo_500x500_67fca42684.svg`;
-export const logo_small_clear = `${je_cms_base_url}/uploads/Logo_500x500_Clear_dce31db3d5.svg`;
+export const logo = `${je_cms_base_url}/uploads/Logo_310x100_3704933223.avif`;
+export const logo_clear = `${je_cms_base_url}/uploads/Logo_310x100_Clear_715090bcde.avif`;
+export const logo_small = `${je_cms_base_url}/uploads/Logo_500x500_b6c6c14fe4.avif`;
+export const logo_small_clear = `${je_cms_base_url}/uploads/Logo_500x500_Clear_e094324445.avif`;
 // Alte Waage
 export const img_alte_waage = `${je_cms_base_url}/uploads/Braunschweig_Alte_Waage_da98b0abaa.avif`;
 
