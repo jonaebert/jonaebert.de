@@ -51,8 +51,12 @@
 					</h2>
 
 					<p class="mt-3 text-sm sm:text-base text-zinc-700/90 dark:text-zinc-400 leading-relaxed">
-						Wenn du über einen Link hier gelandet bist, kann die Seite verschoben oder entfernt
-						worden sein.
+						{#if $page.status === 404}
+							Wenn du über einen Link hier gelandet bist, kann die Seite verschoben oder entfernt
+							worden sein.
+						{:else}
+							Leider ist ein unerwarteter Fehler aufgetreten. Bitte versuche es später erneut.
+						{/if}
 					</p>
 
 					<div class="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:gap-3">
