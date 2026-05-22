@@ -28,6 +28,9 @@
 			poster={`${je_cms_base_url}/uploads/Hero_Video_Teaserimage_a9468bcb38.avif`}
 			class="absolute inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
 		>
+			<source src={`${je_cms_base_url}/uploads/herovideo_57c323e489.webm`} type="video/webm" />
+			<source src={`${je_cms_base_url}/uploads/herovideo_05a2d354f6.mp4`} type="video/mp4" />
+			<source src="/home/herovideo.webm" type="video/webm" />
 			<source src="/home/herovideo.mp4" type="video/mp4" />
 		</video>
 		<div

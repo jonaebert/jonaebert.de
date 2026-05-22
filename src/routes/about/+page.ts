@@ -25,7 +25,15 @@ export const load: PageLoad = async ({ fetch, params }) => {
 						company: 'ITEBO GmbH',
 						start: '2024-10',
 						end: '',
-						description: [],
+						description: [
+							'Technischer Betrieb und Administration von Web-, Applikations- und Datenbankservern für kommunale Fachanwendungen',
+							'Telefonischer Support für Kund:innen und Anwender:innen der kommunalen Fachanwendungen',
+							'Administration und Installation von Arbeitsplatz- und Serversystemen',
+							'Einspielen von Updates und Patches für kommunale Fachanwendungen',
+							'Überwachung der Systemleistung und -sicherheit sowie Fehlerbehebung bei Störungen',
+							'Optimierung und Automatisierung von Routineaufgaben',
+							'Kommunikation mit Kund:innen, externen Dienstleistern und Lieferanten'
+						],
 						skills: ['Windows', 'Datenbankverwaltung (MSSQL)', 'Kunden-Support', 'VOIS'],
 						image: 'logo_itebo.webp',
 						link: 'https://www.itebo.de'
@@ -40,7 +48,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 							'Administration Netzwerkumgebung/Firewall',
 							'Administrativer 2nd- und 3rd-Level Support (Remote)',
 							'Performance- und Securitymanagement sowie Analyse und Beseitigung von Störungen',
-							'Kommunikation mit Kunden, externen Dienstleistern und Lieferanten',
+							'Kommunikation mit Kund:innen, externen Dienstleistern und Lieferanten',
 							'Verwaltung und Konfiguration von Server-Diensten (Windows, Linux)',
 							'Administration Telefonanlage',
 							'Technische Unterstützung bei der Einführung der ISO 27001',
