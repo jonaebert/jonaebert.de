@@ -1,6 +1,6 @@
 {
 	"name": "jonaebert.de",
-	"version": "26.5.2",
+	"version": "26.6.0",
 	"private": true,
 	"engines": {
 		"node": ">=20.19 || >=22.13 || >=24 || >=25"
@@ -23,20 +23,20 @@
 		"@fortawesome/free-brands-svg-icons": "^7.2.0",
 		"@fortawesome/free-solid-svg-icons": "^7.2.0",
 		"@sveltejs/adapter-node": "^5.5.4",
-		"@sveltejs/kit": "^2.60.1",
+		"@sveltejs/kit": "^2.61.1",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@tailwindcss/vite": "^4.3.0",
 		"@types/eslint": "^9.6.1",
-		"@typescript-eslint/eslint-plugin": "^8.59.3",
+		"@typescript-eslint/eslint-plugin": "^8.59.4",
 		"@typescript-eslint/parser": "^8.59.0",
 		"dotenv": "^17.4.2",
-		"eslint": "^10.2.1",
+		"eslint": "^10.4.1",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-svelte": "^3.17.1",
 		"globals": "^17.6.0",
 		"openapi-typescript": "^7.13.0",
 		"prettier": "^3.8.3",
-		"prettier-plugin-svelte": "^3.5.1",
+		"prettier-plugin-svelte": "^4.0.1",
 		"@types/sanitize-html": "^2.13.0",
 		"svelte": "^5.55.9",
 		"svelte-check": "^4.4.8",
@@ -44,7 +44,7 @@
 		"tailwindcss": "^4.3.0",
 		"tslib": "^2.8.1",
 		"typescript": "^6.0.3",
-		"vite": "^8.0.10"
+		"vite": "^8.0.14"
 	},
 	"dependencies": {
 		"sanitize-html": "^2.17.4",
