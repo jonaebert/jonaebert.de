@@ -30,7 +30,7 @@
 		"@typescript-eslint/eslint-plugin": "^8.59.4",
 		"@typescript-eslint/parser": "^8.59.0",
 		"dotenv": "^17.4.2",
-		"eslint": "^10.2.1",
+		"eslint": "^10.4.1",
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-svelte": "^3.17.1",
 		"globals": "^17.6.0",
