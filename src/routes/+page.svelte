@@ -129,12 +129,12 @@
 	<Hero {posts} {events} />
 
 	<!-- Calendar Preview -->
-	<div class="order-4 lg:order-0 lg:col-span-6">
+	<div id="events" class="order-4 lg:order-0 lg:col-span-6">
 		<Calendar {events} limit={7} />
 	</div>
 
 	<!-- Blog Preview -->
-	<div class="order-5 lg:order-0 lg:col-span-6">
+	<div id="posts" class="order-5 lg:order-0 lg:col-span-6">
 		<Blog {posts} limit={6} />
 	</div>
 </section>
