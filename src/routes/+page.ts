@@ -6,7 +6,9 @@ export const load: PageLoad = async ({ fetch }) => {
 	const client: any = api(fetch);
 
 	// 1) Alle Events laden
-	const eventsSource: any[] = await client.get('/calendar/events/', { query: { limit: 8 } });
+	const eventsSource: any[] = await client.get('/calendar/events/', {
+		query: { limit: 8 }
+	});
 
 	// 2) Copyright für alle Events laden (wenn cover vorhanden)
 	const events = await Promise.all(
