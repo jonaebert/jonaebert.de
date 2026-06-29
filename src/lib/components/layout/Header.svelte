@@ -77,10 +77,18 @@
 					{/each}
 				</nav>
 
+				<!-- Mach's Grün -->
+				<a
+					href="/braunschweig2031"
+					class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-magenta hover:scale-105 text-white transition-all ease-in-out duration-300"
+				>
+					Braunschweig 2031
+				</a>
+
 				<!-- Desktop contact -->
 				<a
 					href="/contact"
-					class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white transition"
+					class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-white hover:scale-105 transition-all ease-in-out duration-300"
 				>
 					Kontakt
 				</a>
@@ -147,6 +155,14 @@
 							{item.label}
 						</a>
 					{/each}
+
+					<a
+						href="/braunschweig2031"
+						on:click={closeMobile}
+						class="mt-1 inline-flex items-center justify-center px-4 py-3 rounded-xl text-sm font-semibold bg-magenta hover:scale-105 text-white"
+					>
+						Braunschweig 2031
+					</a>
 
 					<a
 						href="/contact"

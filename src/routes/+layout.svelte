@@ -18,15 +18,17 @@
 	$: pageTitle =
 		activeRoute === '/'
 			? name + ' (' + pronouns + ') - ' + slogan
-			: activeRoute === '/about'
-				? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan
-				: activeRoute === '/contact'
-					? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + slogan
-					: activeRoute === '/legal/privacy'
-						? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + slogan
-						: activeRoute === '/legal/imprint'
-							? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
-							: name + ' (' + pronouns + ') - ' + slogan;
+			: activeRoute === '/braunschweig2031'
+				? 'Kommunalwahl Braunschweig 2026 - ' + name + ' (' + pronouns + ') - ' + slogan
+				: activeRoute === '/about'
+					? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan
+					: activeRoute === '/contact'
+						? 'Kontakt - ' + name + ' (' + pronouns + ') - ' + slogan
+						: activeRoute === '/legal/privacy'
+							? 'Datenschutzerklärung - ' + name + ' (' + pronouns + ') - ' + slogan
+							: activeRoute === '/legal/imprint'
+								? 'Impressum - ' + name + ' (' + pronouns + ') - ' + slogan
+								: name + ' (' + pronouns + ') - ' + slogan;
 	// Theme Toggle
 	onMount(() => {
 		const storedTheme = getStoredTheme();
