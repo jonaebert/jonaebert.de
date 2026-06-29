@@ -79,10 +79,10 @@
 
 				<!-- Mach's Grün -->
 				<a
-					href="/braunschweig2031"
+					href="/braunschweig2035"
 					class="hidden md:inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-medium bg-magenta hover:scale-105 text-white transition-all ease-in-out duration-300"
 				>
-					Braunschweig 2031
+					Braunschweig 2035
 				</a>
 
 				<!-- Desktop contact -->
@@ -157,11 +157,11 @@
 					{/each}
 
 					<a
-						href="/braunschweig2031"
+						href="/braunschweig2035"
 						on:click={closeMobile}
 						class="mt-1 inline-flex items-center justify-center px-4 py-3 rounded-xl text-sm font-semibold bg-magenta hover:scale-105 text-white"
 					>
-						Braunschweig 2031
+						Braunschweig 2035
 					</a>
 
 					<a

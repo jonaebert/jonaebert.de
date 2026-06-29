@@ -18,7 +18,7 @@
 	$: pageTitle =
 		activeRoute === '/'
 			? name + ' (' + pronouns + ') - ' + slogan
-			: activeRoute === '/braunschweig2031'
+			: activeRoute === '/braunschweig2035'
 				? 'Kommunalwahl Braunschweig 2026 - ' + name + ' (' + pronouns + ') - ' + slogan
 				: activeRoute === '/about'
 					? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan

@@ -7,7 +7,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
 	// Alle Posts laden
 	const postsSource: any[] = await client.get('/blog/posts/', {
-		query: { limit: 8, category: 'braunschweig-2031' }
+		query: { limit: 8, category: 'braunschweig-2035' }
 	});
 
 	// Copyright für alle Posts laden (wenn cover vorhanden)
