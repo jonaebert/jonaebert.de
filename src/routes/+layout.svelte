@@ -19,7 +19,7 @@
 		activeRoute === '/'
 			? name + ' (' + pronouns + ') - ' + slogan
 			: activeRoute === '/braunschweig2035'
-				? 'Kommunalwahl Braunschweig 2026 - ' + name + ' (' + pronouns + ') - ' + slogan
+				? 'Kommunalwahl 2026 – Braunschweig 2035 – ' + name + ' (' + pronouns + ') - ' + slogan
 				: activeRoute === '/about'
 					? 'Über mich - ' + name + ' (' + pronouns + ') - ' + slogan
 					: activeRoute === '/contact'
