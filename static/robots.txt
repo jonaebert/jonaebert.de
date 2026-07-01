@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /calendar/
 Disallow: /blog/category/
+Disallow: /test
 Allow: /
 
 Sitemap: https://jonaebert.de/sitemap.xml
