@@ -16,7 +16,7 @@
 <div
 	class="font-barlow bg-grashalm text-zinc-900 dark:text-white rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden"
 >
-	<section class="relative min-h-[60vh] flex items-center">
+	<section class="relative min-h-[60vh] pb-10 flex items-center">
 		<!-- Background Image -->
 		<div class="absolute inset-0 z-0">
 			<img
