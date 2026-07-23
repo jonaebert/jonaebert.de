@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 	import { je_cms_base_url, name, pronouns } from '$lib/store.js';
 	import Blog from '$lib/components/ui/Blog.svelte';
 	import Image from '$lib/components/ui/Image.svelte';
@@ -8,8 +9,23 @@
 	const { posts } = data;
 
 	// Countdown zur Wahl
-	const wahlDatum = new Date('2026-09-13');
-	$: tageBisWahl = Math.ceil((wahlDatum.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
+	const wahlDatum = new Date('2026-09-13T00:00:00');
+	let now = new Date();
+
+	// Berechne die Anzahl der Tage bis zur Wahl
+	let interval: number;
+
+	onMount(() => {
+		interval = setInterval(() => {
+			now = new Date();
+		}, 60000);
+	});
+
+	onDestroy(() => {
+		clearInterval(interval);
+	});
+
+	$: tageBisWahl = Math.ceil((wahlDatum.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 </script>
 
 <!-- HERO SECTION -->
