@@ -13,14 +13,11 @@ export const load: PageLoad = async ({ fetch }) => {
 	// Copyright für alle Posts laden (wenn cover vorhanden)
 	const posts = await Promise.all(
 		postsSource.map(async (post: any) => {
-			if (post?.cover?.documentId) {
-				const postCopyright: any[] = await getCopyright(post?.cover?.documentId ?? '', fetch);
+			const copyright = post?.cover?.documentId
+				? await getCopyright(post.cover.documentId, fetch).catch(() => null)
+				: null;
 
-				return {
-					...post,
-					copyright: postCopyright || null
-				};
-			}
+			return { ...post, copyright };
 		})
 	);
 
