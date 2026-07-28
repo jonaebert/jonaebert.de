@@ -411,3 +411,6 @@ vite.config.ts.timestamp-*
 
 # Ignore generated OpenAPI types
 src/lib/api/openapi.ts
+
+# Ignore test route
+src/routes/test

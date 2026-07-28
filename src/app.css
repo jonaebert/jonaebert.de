@@ -27,6 +27,13 @@
 	--bubble-size-md: 12rem;
 	--bubble-size-lg: 20rem;
 	--bubble-size-xl: 34rem;
+
+	/* Mach's Grün */
+	--tanne: #005437;
+	--klee: #008939;
+	--grashalm: #8abd24;
+	--sand: #f5f1e9;
+	--magenta: #e61981;
 }
 .dark {
 	/* Hauptfarben */
@@ -55,11 +62,89 @@
 	.border-accent {
 		border-color: var(--accent);
 	}
+
+	/* Mach's Grün Farben */
+	.bg-tanne {
+		background-color: var(--tanne);
+	}
+	.bg-klee {
+		background-color: var(--klee);
+	}
+	.bg-grashalm {
+		background-color: var(--grashalm);
+	}
+	.bg-sand {
+		background-color: var(--sand);
+	}
+	.bg-magenta {
+		background-color: var(--magenta);
+	}
+
+	/* Textfarben */
+	.text-tanne {
+		color: var(--tanne);
+	}
+	.text-klee {
+		color: var(--klee);
+	}
+	.text-grashalm {
+		color: var(--grashalm);
+	}
+	.text-sand {
+		color: var(--sand);
+	}
+	.text-magenta {
+		color: var(--magenta);
+	}
+
+	/* Borderfarben */
+	.border-tanne {
+		border-color: var(--tanne);
+	}
+	.border-klee {
+		border-color: var(--klee);
+	}
+	.border-grashalm {
+		border-color: var(--grashalm);
+	}
+	.border-sand {
+		border-color: var(--sand);
+	}
+	.border-magenta {
+		border-color: var(--magenta);
+	}
+
+	/* Ringfarben (für Focus-States) */
+	.ring-tanne {
+		--tw-ring-color: var(--tanne);
+	}
+	.ring-klee {
+		--tw-ring-color: var(--klee);
+	}
+	.ring-grashalm {
+		--tw-ring-color: var(--grashalm);
+	}
+	.ring-sand {
+		--tw-ring-color: var(--sand);
+	}
+	.ring-magenta {
+		--tw-ring-color: var(--magenta);
+	}
+
+	/* Hover-States */
+	.hover\:bg-tanne:hover {
+		background-color: var(--tanne);
+	}
+	.hover\:bg-klee:hover {
+		background-color: var(--klee);
+	}
 }
 
 @theme {
 	/* Fonts */
 	--font-ubuntu: Ubuntu;
+	--font-barlow: Barlow;
+	--font-barlow-condensed: Barlow Condensed;
 
 	/* Colors */
 	--color-accent: var(--accent);

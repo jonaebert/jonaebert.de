@@ -5,7 +5,7 @@
 	import SocialIcons from './SocialIcons.svelte';
 	import { je_cms_base_url } from '$lib/store.js';
 
-	export let posts: Promise<any[]>;
+	export let posts: any[];
 	export let limit: number = 4;
 
 	function coverUrl(item: any): string | null {
@@ -29,7 +29,7 @@
 		{#each ps.slice(0, limit) as post (post.id ?? post.documentId)}
 			<a
 				href={`/blog/${post.documentId}`}
-				class="group block rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+				class="group block rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 hover:dark:bg-zinc-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
 				aria-label={`Blogbeitrag öffnen: ${post.title}`}
 			>
 				{#if coverUrl(post)}

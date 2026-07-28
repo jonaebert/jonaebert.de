@@ -6,38 +6,50 @@ export const load: PageLoad = async ({ fetch }) => {
 	const client: any = api(fetch);
 
 	// 1) Alle Events laden
-	const eventsSource: any[] = await client.get('/calendar/events/', { query: { limit: 8 } });
+	const eventsSource: any[] = await client.get('/calendar/events/', {
+		query: { limit: 8 }
+	});
 
-	// 2) Copyright für alle Events laden (wenn cover vorhanden)
-	const events = await Promise.all(
-		eventsSource.map(async (event: any) => {
-			if (event?.cover?.documentId) {
-				const eventCopyright: any[] = await getCopyright(event?.cover?.documentId ?? '', fetch);
+	// 1.1) Copyright für alle Events laden (wenn cover vorhanden)
+	const copyrightEventsPromises = eventsSource.map(async (event: any) => {
+		if (event?.cover?.documentId) {
+			try {
+				return await getCopyright(event?.cover?.documentId, fetch);
+			} catch (error) {}
+		}
+		return null;
+	});
 
-				return {
-					...event,
-					copyright: eventCopyright || null
-				};
-			}
-		})
-	);
+	const eventsCopyright = await Promise.all(copyrightEventsPromises);
 
-	// 3) Alle Posts laden
-	const postsSource: any[] = await client.get('/blog/posts/', { query: { limit: 8 } });
+	// 1.2) Events mit Copyright anreichern (eventsCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
+	const events = eventsSource.map((event, index) => ({
+		...event,
+		copyright: eventsCopyright[index]
+	}));
 
-	// 4) Copyright für alle Posts laden (wenn cover vorhanden)
-	const posts = await Promise.all(
-		postsSource.map(async (post: any) => {
-			if (post?.cover?.documentId) {
-				const postCopyright: any[] = await getCopyright(post?.cover?.documentId ?? '', fetch);
+	// 2) Alle Posts laden
+	const postsSource: any[] = await client.get('/blog/posts/', {
+		query: { limit: 8, category: 'allgemein' }
+	});
 
-				return {
-					...post,
-					copyright: postCopyright || null
-				};
-			}
-		})
-	);
+	// 2.1) Copyright für alle Posts laden (wenn cover vorhanden)
+	const copyrightPostsPromises = postsSource.map(async (post: any) => {
+		if (post?.cover?.documentId) {
+			try {
+				return await getCopyright(post?.cover?.documentId, fetch);
+			} catch (error) {}
+		}
+		return null;
+	});
+
+	const postsCopyright = await Promise.all(copyrightPostsPromises);
+
+	// 2.2) Posts mit Copyright anreichern (postsCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
+	const posts = postsSource.map((post, index) => ({
+		...post,
+		copyright: postsCopyright[index]
+	}));
 
 	return {
 		posts,
