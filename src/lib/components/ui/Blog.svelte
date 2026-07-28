@@ -5,7 +5,7 @@
 	import SocialIcons from './SocialIcons.svelte';
 	import { je_cms_base_url } from '$lib/store.js';
 
-	export let posts: Promise<any[]>;
+	export let posts: any[];
 	export let limit: number = 4;
 
 	function coverUrl(item: any): string | null {

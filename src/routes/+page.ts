@@ -28,24 +28,28 @@ export const load: PageLoad = async ({ fetch }) => {
 		copyright: eventsCopyright[index]
 	}));
 
-	// 3) Alle Posts laden
+	// 2) Alle Posts laden
 	const postsSource: any[] = await client.get('/blog/posts/', {
 		query: { limit: 8, category: 'allgemein' }
 	});
 
-	// 4) Copyright für alle Posts laden (wenn cover vorhanden)
-	const posts = await Promise.all(
-		postsSource.map(async (post: any) => {
-			if (post?.cover?.documentId) {
-				const postCopyright: any[] = await getCopyright(post?.cover?.documentId ?? '', fetch);
+	// 2.1) Copyright für alle Posts laden (wenn cover vorhanden)
+	const copyrightPostsPromises = postsSource.map(async (post: any) => {
+		if (post?.cover?.documentId) {
+			try {
+				return await getCopyright(post?.cover?.documentId, fetch);
+			} catch (error) {}
+		}
+		return null;
+	});
 
-				return {
-					...post,
-					copyright: postCopyright || null
-				};
-			}
-		})
-	);
+	const postsCopyright = await Promise.all(copyrightPostsPromises);
+
+	// 2.2) Posts mit Copyright anreichern (postsCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
+	const posts = postsSource.map((post, index) => ({
+		...post,
+		copyright: postsCopyright[index]
+	}));
 
 	return {
 		posts,
