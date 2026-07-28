@@ -10,19 +10,23 @@ export const load: PageLoad = async ({ fetch }) => {
 		query: { limit: 8 }
 	});
 
-	// 2) Copyright für alle Events laden (wenn cover vorhanden)
-	const events = await Promise.all(
-		eventsSource.map(async (event: any) => {
-			if (event?.cover?.documentId) {
-				const eventCopyright: any[] = await getCopyright(event?.cover?.documentId ?? '', fetch);
+	// 1.1) Copyright für alle Events laden (wenn cover vorhanden)
+	const copyrightEventsPromises = eventsSource.map(async (event: any) => {
+		if (event?.cover?.documentId) {
+			try {
+				return await getCopyright(event?.cover?.documentId, fetch);
+			} catch (error) {}
+		}
+		return null;
+	});
 
-				return {
-					...event,
-					copyright: eventCopyright || null
-				};
-			}
-		})
-	);
+	const eventsCopyright = await Promise.all(copyrightEventsPromises);
+
+	// 1.2) Events mit Copyright anreichern (eventsCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
+	const events = eventsSource.map((event, index) => ({
+		...event,
+		copyright: eventsCopyright[index]
+	}));
 
 	// 3) Alle Posts laden
 	const postsSource: any[] = await client.get('/blog/posts/', {

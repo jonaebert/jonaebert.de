@@ -6,7 +6,7 @@
 	import Icon from '$lib/components/icons/Icon.svelte';
 	import SocialIcons from './SocialIcons.svelte';
 
-	export let events: Promise<any[]>;
+	export let events: any[];
 	export let limit: number = 8;
 
 	function coverUrl(item: any): string | null {
@@ -38,7 +38,7 @@
 			a.getDate() === b.getDate()
 		);
 	}
-
+	Promise<any[]>;
 	function isTodayEvent(startIso?: string | null, endIso?: string | null): boolean {
 		if (!startIso) return false;
 		const now = new Date();
