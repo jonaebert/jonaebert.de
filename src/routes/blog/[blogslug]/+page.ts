@@ -53,7 +53,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	// 5.1) previous
 	let previousPost: any = null;
 	let previousPostCopyright: any = null;
-	if (previousPostSource?.id !== undefined) {
+	if (previousPostSource?.id !== undefined && previousPostSource?.cover?.documentId) {
 		try {
 			previousPostCopyright = await getCopyright(previousPostSource?.cover?.documentId, fetch);
 		} catch (error) {}
@@ -66,7 +66,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	// 5.2) next
 	let nextPost: any = null;
 	let nextPostCopyright: any = null;
-	if (nextPostSource?.id !== undefined) {
+	if (nextPostSource?.id !== undefined && nextPostSource?.cover?.documentId) {
 		try {
 			nextPostCopyright = await getCopyright(nextPostSource?.cover?.documentId, fetch);
 		} catch (error) {}

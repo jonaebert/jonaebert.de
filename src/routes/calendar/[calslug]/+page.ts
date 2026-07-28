@@ -56,7 +56,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	// 5) prev/next mit Copyright anreichern (wenn cover vorhanden)
 	let previousEvent: any = null;
 	let previousEventCopyright: any = null;
-	if (previousEventSource?.id !== undefined) {
+	if (previousEventSource?.id !== undefined && previousEventSource?.cover?.documentId) {
 		try {
 			previousEventCopyright = await getCopyright(previousEventSource?.cover?.documentId, fetch);
 		} catch (error) {}
@@ -68,7 +68,7 @@ export const load: PageLoad = async ({ fetch, params }) => {
 
 	let nextEvent: any = null;
 	let nextEventCopyright: any = null;
-	if (nextEventSource?.id !== undefined) {
+	if (nextEventSource?.id !== undefined && nextEventSource?.cover?.documentId) {
 		try {
 			nextEventCopyright = await getCopyright(nextEventSource?.cover?.documentId, fetch);
 		} catch (error) {}
