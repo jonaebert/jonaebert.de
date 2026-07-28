@@ -7,7 +7,7 @@ export async function getCopyright(image_id: string, fetchFn: typeof fetch = fet
 		params: { image_id: image_id }
 	});
 
-	const copyright: any[] = Array.isArray(response) ? response[0] : null;
+	const copyright: any[] = response ? response : null;
 
 	return (await copyright) || null;
 }
