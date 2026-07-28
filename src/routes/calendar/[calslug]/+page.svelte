@@ -403,7 +403,7 @@
 
 	{#if previousEvent || nextEvent}
 		<div class="grid gap-4 pt-6 sm:pt-8 sm:grid-cols-2">
-			{#if previousEvent}
+			{#if previousEvent && previousEvent?.documentId}
 				<a
 					href={`/calendar/${previousEvent.documentId}`}
 					on:click|preventDefault={() => goto(`/calendar/${previousEvent.documentId}`)}
@@ -474,7 +474,7 @@
 				<div class="hidden sm:block" aria-hidden="true"></div>
 			{/if}
 
-			{#if nextEvent}
+			{#if nextEvent && nextEvent?.documentId}
 				<a
 					href={`/calendar/${nextEvent.documentId}`}
 					on:click|preventDefault={() => goto(`/calendar/${nextEvent.documentId}`)}
