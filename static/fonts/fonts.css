@@ -1,15 +1,52 @@
 /* Ubuntu */
 /* Variable */
 @font-face {
-	font-family: 'Ubuntu';
+	font-family: Ubuntu;
 	src: url(/fonts/ubuntu/UbuntuSans-VariableFont.ttf) format('truetype');
 	font-style: normal;
 	font-display: swap;
 }
 /* Variable italic */
 @font-face {
-	font-family: 'Ubuntu';
+	font-family: Ubuntu;
 	src: url(/fonts/ubuntu/UbuntuSans-Italic-VariableFont.ttf) format('truetype');
 	font-style: italic;
+	font-display: swap;
+}
+
+/* Barlow */
+/* ExtraBold */
+@font-face {
+	font-family: Barlow;
+	src: url(/fonts/barlow/Barlow-ExtraBold.ttf) format('truetype');
+	font-weight: 800;
+	font-display: swap;
+}
+/* Light */
+@font-face {
+	font-family: Barlow;
+	src: url(/fonts/barlow/Barlow-Light.ttf) format('truetype');
+	font-weight: 300;
+	font-display: swap;
+}
+/* Medium */
+@font-face {
+	font-family: Barlow;
+	src: url(/fonts/barlow/Barlow-Medium.ttf) format('truetype');
+	font-weight: 400, 500;
+	font-display: swap;
+}
+/* Regular */
+@font-face {
+	font-family: Barlow;
+	src: url(/fonts/barlow/Barlow-Regular.ttf) format('truetype');
+	font-weight: 400, 500;
+	font-display: swap;
+}
+/* Condensed ExtraBold */
+@font-face {
+	font-family: Barlow Condensed;
+	src: url(/fonts/barlow/BarlowCondensed-ExtraBold.ttf) format('truetype');
+	font-weight: 800;
 	font-display: swap;
 }

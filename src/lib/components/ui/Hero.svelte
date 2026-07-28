@@ -2,6 +2,11 @@
 	import { FormatDate } from '$lib/util/date.js';
 	import Image from '$lib/components/ui/Image.svelte';
 	import { je_cms_base_url, name } from '$lib/store.js';
+	import Skeleton from 'boneyard-js/svelte';
+	import '$lib/bones/registry';
+
+	let isLoadingPosts = true;
+	let isLoadingEvents = true;
 
 	export let posts: any[] = [];
 	export let events: any[] = [];
@@ -44,6 +49,17 @@
 		const end = endIso ? new Date(endIso) : new Date(start.getTime() + 90 * 60 * 1000);
 		return now >= start && now <= end;
 	}
+
+	if (posts.length > 0) {
+		setTimeout(() => {
+			isLoadingPosts = false;
+		}, 2000);
+	}
+	if (events.length > 0) {
+		setTimeout(() => {
+			isLoadingEvents = false;
+		}, 2000);
+	}
 </script>
 
 <div class="order-2 lg:order-0 lg:col-span-5 grid gap-5">
@@ -64,6 +80,7 @@
 
 		<div class="mt-5 space-y-3">
 			<!-- Neuester Beitrag -->
+			<!--<Skeleton name="hero-posts" loading={isLoadingPosts}>-->
 			{#await posts}
 				<div
 					class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
@@ -128,8 +145,10 @@
 					</div>
 				</div>
 			{/await}
+			<!--</Skeleton>-->
 
 			<!-- Nächster / aktueller Termin -->
+			<!--<Skeleton name="hero-events" loading={isLoadingEvents}>-->
 			{#await events}
 				<div
 					class="rounded-xl p-4 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
@@ -214,6 +233,7 @@
 					</div>
 				</div>
 			{/await}
+			<!--</Skeleton>-->
 		</div>
 	</div>
 

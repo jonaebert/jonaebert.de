@@ -245,7 +245,7 @@
 	<!-- Prev/Next Post -->
 	{#if previousPost || nextPost}
 		<div class="grid gap-4 pt-6 sm:pt-8 sm:grid-cols-2">
-			{#if previousPost}
+			{#if previousPost && previousPost?.documentId}
 				<a
 					href={`/blog/${previousPost.documentId}`}
 					on:click|preventDefault={() => goto(`/blog/${previousPost.documentId}`)}
@@ -316,7 +316,7 @@
 				<div class="hidden sm:block" aria-hidden="true"></div>
 			{/if}
 
-			{#if nextPost}
+			{#if nextPost && nextPost?.documentId}
 				<a
 					href={`/blog/${nextPost.documentId}`}
 					on:click|preventDefault={() => goto(`/blog/${nextPost.documentId}`)}
