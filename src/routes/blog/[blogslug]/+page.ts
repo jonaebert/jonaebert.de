@@ -17,9 +17,12 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	});
 
 	// 1.1) Copyright laden (wenn cover vorhanden)
-	const postCopyright: any = postSource?.cover?.documentId
-		? await getCopyright(postSource?.cover?.documentId, fetch)
-		: null;
+	let postCopyright: any = null;
+	if (postSource?.cover?.documentId) {
+		try {
+			postCopyright = await getCopyright(postSource?.cover?.documentId, fetch);
+		} catch (error) {}
+	}
 
 	// 1.2) Post mit Copyright anreichern (postCopyright ist null, wenn kein cover oder kein Copyright vorhanden)
 	const post: any = {
@@ -47,31 +50,31 @@ export const load: PageLoad = async ({ fetch, params }) => {
 	const nextPostSource = idx >= 0 && idx < sorted.length - 1 ? sorted[idx + 1] : null;
 
 	// 5) prev/next mit Copyright anreichern (wenn cover vorhanden)
+	// 5.1) previous
+	let previousPost: any = null;
+	let previousPostCopyright: any = null;
 	if (previousPostSource?.id !== undefined) {
-		const previousPostCopyright: any = previousPostSource?.cover?.documentId
-			? await getCopyright(previousPostSource?.cover?.documentId, fetch)
-			: null;
-
-		var previousPost: any = {
-			...previousPostSource,
-			copyright: previousPostCopyright
-		};
-	} else {
-		var previousPost: any = null;
+		try {
+			previousPostCopyright = await getCopyright(previousPostSource?.cover?.documentId, fetch);
+		} catch (error) {}
 	}
+	previousPost = {
+		...previousPostSource,
+		copyright: previousPostCopyright
+	};
 
+	// 5.2) next
+	let nextPost: any = null;
+	let nextPostCopyright: any = null;
 	if (nextPostSource?.id !== undefined) {
-		const nextPostCopyright: any = nextPostSource?.cover?.documentId
-			? await getCopyright(nextPostSource?.cover?.documentId, fetch)
-			: null;
-
-		var nextPost: any = {
-			...nextPostSource,
-			copyright: nextPostCopyright
-		};
-	} else {
-		var nextPost: any = null;
+		try {
+			nextPostCopyright = await getCopyright(nextPostSource?.cover?.documentId, fetch);
+		} catch (error) {}
 	}
+	nextPost = {
+		...nextPostSource,
+		copyright: nextPostCopyright
+	};
 
 	return { post, previousPost, nextPost };
 };
