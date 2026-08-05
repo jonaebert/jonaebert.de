@@ -48,7 +48,7 @@
 		"vite": "^8.1.5"
 	},
 	"dependencies": {
-		"sanitize-html": "^2.17.4",
+		"sanitize-html": "^2.17.5",
 		"svelte-fa": "^4.0.4"
 	},
 	"type": "module"
