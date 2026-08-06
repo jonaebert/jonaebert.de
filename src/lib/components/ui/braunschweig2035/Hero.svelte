@@ -80,18 +80,57 @@
 		</div>
 
 		<!-- Right Content - Portrait -->
-		<div class="flex flex-col items-center justify-center relative z-30">
+		<div class="flex flex-col space-y-3 items-center justify-center relative z-30">
 			<div class="absolute -top-10 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
-			<Image
-				src={`${je_cms_base_url}/uploads/Jona_Hoch_29e9ec7fc4.avif`}
-				alt="Portrait {name}"
-				classNames="relative w-full max-w-md max-h-[25vh] rounded-2xl shadow-2xl"
-			/>
+			<div class="flex flex-col items-center justify-center relative">
+				<Image
+					src={`${je_cms_base_url}/uploads/Jona_Hoch_29e9ec7fc4.avif`}
+					alt="Portrait {name}"
+					classNames="relative w-full max-w-md max-h-[25vh] rounded-2xl shadow-2xl"
+				/>
+				<div
+					class="-mt-7 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm px-4 py-2 rounded-lg text-center"
+				>
+					<span class="font-bold text-accent">{name}</span>
+					<span class="text-sm text-zinc-600 dark:text-zinc-400"> ({pronouns})</span>
+				</div>
+			</div>
 			<div
-				class="-mt-7 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm px-4 py-2 rounded-lg text-center"
+				class="group relative bg-white/70 dark:bg-zinc-950/60 backdrop-blur rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6 overflow-hidden"
 			>
-				<span class="font-bold text-accent">{name}</span>
-				<span class="text-sm text-zinc-600 dark:text-zinc-400"> ({pronouns})</span>
+				<div class="space-y-3">
+					<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+						Kommunalwahl • September 2026
+					</p>
+					<h3
+						class="text-lg sm:text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100"
+					>
+						Für euch in Braunschweig
+					</h3>
+
+					<div class="text-zinc-600 dark:text-zinc-400 space-y-3">
+						<div
+							class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+						>
+							<p class="font-bold">Rat der Stadt Braunschweig</p>
+							<div class="flex flex-nowrap gap-2 items-center">
+								<p>Wahlbereich 21 (Braunschweig Südost)</p>
+								<p>•</p>
+								<p class="font-bold">Platz 2</p>
+							</div>
+						</div>
+						<div
+							class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+						>
+							<p class="font-bold">Stadtbezirksrat 322</p>
+							<div class="flex flex-nowrap gap-2 items-center">
+								<p>Nördliche Schunter-/Okeraue</p>
+								<p>•</p>
+								<p class="font-bold">Platz 1</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
