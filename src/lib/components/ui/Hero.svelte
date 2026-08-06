@@ -254,13 +254,22 @@
 				<div
 					class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 				>
-					Rat der Stadt Braunschweig<br />Wahlbereich 21 (Braunschweig Südost) •
-					<strong>Platz 2</strong>
+					<p class="font-bold">Rat der Stadt Braunschweig</p>
+					<div class="flex flex-nowrap gap-2 items-center">
+						<p>Wahlbereich 21 (Braunschweig Südost)</p>
+						<p>•</p>
+						<p class="font-bold">Platz 2</p>
+					</div>
 				</div>
 				<div
 					class="rounded-xl p-4 text-sm sm:text-md bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
 				>
-					Stadtbezirksrat 322<br />Nördliche Schunter-/Okeraue • <strong>Platz 1</strong>
+					<p class="font-bold">Stadtbezirksrat 322</p>
+					<div class="flex flex-nowrap gap-2 items-center">
+						<p>Nördliche Schunter-/Okeraue</p>
+						<p>•</p>
+						<p class="font-bold">Platz 1</p>
+					</div>
 				</div>
 			</div>
 		</div>
