@@ -1,30 +1,10 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
 	import Hero from '$lib/components/ui/braunschweig2035/Hero.svelte';
 	import Blog from '$lib/components/ui/Blog.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
 
 	export let data;
 	const { posts } = data;
-
-	// Countdown zur Wahl
-	const wahlDatum = new Date('2026-09-13T00:00:00');
-	let now = new Date();
-
-	// Berechne die Anzahl der Tage bis zur Wahl
-	let interval: number;
-
-	onMount(() => {
-		interval = setInterval(() => {
-			now = new Date();
-		}, 60000);
-	});
-
-	onDestroy(() => {
-		clearInterval(interval);
-	});
-
-	$: tageBisWahl = Math.ceil((wahlDatum.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 </script>
 
 <div
