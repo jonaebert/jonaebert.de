@@ -65,16 +65,16 @@
 
 			<div class="flex flex-wrap gap-4 pt-4">
 				<a
-					href="#mitmachen"
+					href="/braunschweig2035#themen"
 					class="px-6 py-3 bg-accent text-white rounded-lg font-medium hover:bg-accent/90 transition-colors"
 				>
-					Jetzt unterstützen
+					Meine Themen
 				</a>
 				<a
-					href="#themen"
+					href="/braunschweig2035#unterstuetzen"
 					class="px-6 py-3 border-2 border-white/30 text-white rounded-lg font-medium bg-white/10 hover:bg-white/20 transition-colors"
 				>
-					Meine Themen
+					Jetzt unterstützen
 				</a>
 			</div>
 		</div>
