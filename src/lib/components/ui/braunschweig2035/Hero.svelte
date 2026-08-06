@@ -99,9 +99,6 @@
 				class="group relative bg-white/70 dark:bg-zinc-950/60 backdrop-blur rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 p-4 sm:p-6 overflow-hidden"
 			>
 				<div class="space-y-3">
-					<p class="text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-						Kommunalwahl • September 2026
-					</p>
 					<h3
 						class="text-lg sm:text-xl font-semibold leading-snug text-zinc-900 dark:text-zinc-100"
 					>
