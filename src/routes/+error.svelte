@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import Image from '$lib/components/ui/Image.svelte';
-	import { je_cms_base_url, img_alte_waage } from '$lib/store';
+	import { img_alte_waage } from '$lib/store';
 </script>
 
 <section class="container py-8 sm:py-12">
