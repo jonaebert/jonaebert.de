@@ -3,6 +3,9 @@
 	import { je_cms_base_url, name, pronouns } from '$lib/store.js';
 	import Image from '$lib/components/ui/Image.svelte';
 
+	// Slogan for the hero section
+	export let slogan: string = '';
+
 	// Countdown zur Wahl
 	const wahlDatum = new Date('2026-09-13T00:00:00');
 	let now = new Date();
@@ -54,8 +57,21 @@
 				{/if}
 			</div>
 
-			<h1 class="font-barlow-condensed text-4xl md:text-6xl">
-				Braunschweig <span class="text-accent">zukunftsfähig</span> gestalten
+			<h1 class="font-barlow-condensed text-4xl md:text-6xl flex flex-col justify-between">
+				{#if slogan !== null && slogan !== undefined && slogan.trim() !== ''}
+					Braunschweig <span class="text-accent">zukunftsfähig</span> gestalten
+				{:else}
+					{#each slogan.split(' ') as word, index}
+						{#if index === 1}
+							<span class="text-accent">{word}</span>
+						{:else}
+							{word}
+						{/if}
+						{#if index < 2}
+							{' '}
+						{/if}
+					{/each}
+				{/if}
 			</h1>
 
 			<p class="text-xl md:text-2xl text-white/90 max-w-lg">
