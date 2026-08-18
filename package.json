@@ -1,6 +1,6 @@
 {
 	"name": "jonaebert.de",
-	"version": "26.7.0",
+	"version": "26.8.0",
 	"private": true,
 	"engines": {
 		"node": ">=20.19 || >=22.13 || >=24 || >=25"
@@ -23,7 +23,7 @@
 		"@fortawesome/free-brands-svg-icons": "^7.2.0",
 		"@fortawesome/free-solid-svg-icons": "^7.2.0",
 		"@sveltejs/adapter-node": "^5.5.4",
-		"@sveltejs/kit": "^2.70.2",
+		"@sveltejs/kit": "^2.70.3",
 		"@sveltejs/vite-plugin-svelte": "^7.2.0",
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/eslint": "^9.6.1",
