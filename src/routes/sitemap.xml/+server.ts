@@ -5,7 +5,14 @@ const site = 'https://jonaebert.de';
 
 // Non dynamic pages
 const pages_10 = [''];
-const pages_08 = ['about', 'braunschweig2035', 'contact', 'legal/imprint', 'legal/privacy'];
+const pages_08 = [
+	'about',
+	'braunschweig2035',
+	'braunschweig2035/climate',
+	'contact',
+	'legal/imprint',
+	'legal/privacy'
+];
 
 // Fetch posts
 let posts: string[] = [];
