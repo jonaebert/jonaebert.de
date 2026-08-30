@@ -58,7 +58,7 @@
 			</div>
 
 			<h1 class="font-barlow-condensed text-4xl md:text-6xl flex flex-col justify-between">
-				{#if slogan !== null && slogan !== undefined && slogan.trim() !== ''}
+				{#if slogan === null || slogan === undefined || slogan.trim() === ''}
 					Braunschweig <span class="text-accent">zukunftsfähig</span> gestalten
 				{:else}
 					{#each slogan.split(' ') as word, index}
