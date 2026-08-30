@@ -87,7 +87,7 @@
 					Meine Themen
 				</a>
 				<a
-					href="/braunschweig2035#unterstuetzen"
+					href="/braunschweig2035#mitmachen"
 					class="px-6 py-3 border-2 border-white/30 text-white rounded-lg font-medium bg-white/10 hover:bg-white/20 transition-colors"
 				>
 					Jetzt unterstützen
