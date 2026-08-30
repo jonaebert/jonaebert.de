@@ -20,7 +20,7 @@
 		{
 			titel: 'Ausbau erneuerbarer Energien',
 			beschreibung:
-				'Mehr Parks, begrünte Dächer und Fassaden sowie urbane Gärten verbessern das Mikroklima und die Lebensqualität. Ich setze mich für eine grüne Stadt ein, die Hitzeinseln reduziert und die Biodiversität fördert. Die gute Umsetzung des Pockets Parks Kannengießerstraße soll als Grundlage für die Prüfung der Umsetzung weiterer Pockets Parks in Braunschweig dienen.',
+				'Ich möchte, dass Braunschweig Vorreiter bei der Nutzung von Solar-, Wind- und Geothermie wird. Die Stadt soll Bürgerenergiegenossenschaften unterstützen. Ich setze mich außerdem für mehr Photovoltaikanlagen auf öffentlichen & Dächern ein. Die Akzeptanzabgabe soll zu einem großen Teil den Stadtbezirken zugutekommen, um die Akzeptanz zu erhöhen.',
 			bild: 'Ausbau_erneuerbare_Energien_63cd48ea06.png',
 			alt: 'Solarpanels auf einer Wiese',
 			zustaendigkeit: 'rat'
