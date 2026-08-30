@@ -200,9 +200,7 @@
 						Ihre Meinung ist mir wichtig! Teilen Sie mir Ihre Anliegen und Vorschläge für
 						Braunschweig mit.
 					</p>
-					<a href="/contact?braunschweig2035=true" class="text-accent font-medium hover:underline"
-						>Kontakt aufnehmen</a
-					>
+					<a href="/contact" class="text-accent font-medium hover:underline">Kontakt aufnehmen</a>
 				</div>
 			</div>
 		</div>
