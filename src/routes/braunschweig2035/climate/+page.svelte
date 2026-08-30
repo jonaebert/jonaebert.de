@@ -1,123 +1,102 @@
 <script lang="ts">
 	import Hero from '$lib/components/ui/braunschweig2035/Hero.svelte';
-	import Blog from '$lib/components/ui/Blog.svelte';
 	import Icon from '$lib/components/icons/Icon.svelte';
+	import { je_cms_base_url } from '$lib/store';
+	import Image from '$lib/components/ui/Image.svelte';
 
-	export let data;
-	const { posts } = data;
+	// Hier könntest du dynamische Daten laden, z. B. aus Strapi
+	const slogan = 'Klimaneutrales Braunschweig - Jetzt handeln!';
+
+	// Themenbereiche (könnten später aus Strapi geladen werden)
+	const themenbereiche = [
+		{
+			titel: 'Energieeffizienz in Gebäuden',
+			beschreibung:
+				'Ich setze mich für eine Sanierungsoffensive ein, um den Energieverbrauch in öffentlichen und privaten Gebäuden zu reduzieren. Die Stadt Braunschweig soll Eigentümer:innen mit Beratungsangeboten dabei unterstützen, ihre Häuser klimafreundlich zu modernisieren. Die „Grüne Hausnummer” stellt einen zusätzlichen Anreiz für besonders energieeffiziente Gebäude dar.',
+			bild: 'Energieeffizienz_in_Gebaeuden_51225f9678.png',
+			alt: 'Reihenhaus mit Weinreben an der Außenwand',
+			zustaendigkeit: 'rat'
+		},
+		{
+			titel: 'Ausbau erneuerbarer Energien',
+			beschreibung:
+				'Ich möchte, dass Braunschweig Vorreiter bei der Nutzung von Solar-, Wind- und Geothermie wird. Die Stadt soll Bürgerenergiegenossenschaften unterstützen. Ich setze mich außerdem für mehr Photovoltaikanlagen auf öffentlichen & Dächern ein. Die Akzeptanzabgabe soll zu einem großen Teil den Stadtbezirken zugutekommen, um die Akzeptanz zu erhöhen.',
+			bild: 'Ausbau_erneuerbare_Energien_63cd48ea06.png',
+			alt: 'Solarpanels auf einer Wiese',
+			zustaendigkeit: 'rat'
+		},
+		{
+			titel: 'Nachhaltige Mobilität',
+			beschreibung:
+				'Ich möchte den Ausbau von Radwegen, den öffentlichen Nahverkehr und von Sharing-Angebote vorantreiben. Ziel ist es, den Autoverkehr zu reduzieren, einen komfortablen und emissionsfreien Verkehr für alle zu ermöglichen. Velorouten sollen die Stadtteile miteinander verbinden und den Umstieg auf das Fahrrad erleichtern. Die vorhandenen Radwege sollen nach dem Braunschweiger Standard saniert und ausgebaut werden, um die Sicherheit zu erhöhen.',
+			bild: 'Nachhaltige_Mobilitaet_3541876c82.png',
+			alt: 'Fahrradweg in der Stadt',
+			zustaendigkeit: 'beides'
+		},
+		{
+			titel: 'Grüne Infrastruktur',
+			beschreibung:
+				'Mehr Parks, begrünte Dächer und Fassaden sowie urbane Gärten verbessern das Mikroklima und die Lebensqualität. Ich setze mich für eine grüne Stadt ein, die Hitzeinseln reduziert und die Biodiversität fördert. Anhand der guten Umsetzung des Pockets Parks Kannengießerstraße soll die Umsetzung weiterer Pockets Parks in Braunschweig geprüft werden.',
+			bild: 'Parkanlage_c7a3e96c2d.png',
+			alt: 'Park mit Bäumen, Wiese und einer Bank',
+			zustaendigkeit: 'beides'
+		}
+	];
 </script>
 
 <div
 	class="font-barlow bg-grashalm text-zinc-900 dark:text-white rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden"
 >
 	<!-- HERO SECTION -->
-	<Hero />
+	<Hero {slogan} />
 
-	<!-- THEMEN SECTION -->
-	<section id="themen" class="py-20 bg-zinc-50 dark:bg-zinc-900">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-12">
-				<h2
-					class="font-barlow-condensed uppercase text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white"
-				>
-					Wofür ich mich <span class="text-accent">einsetze</span>
-				</h2>
-				<p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-					Drei zentrale Themen, die unsere Stadt bewegen – und meine Lösungsansätze
-				</p>
-			</div>
-
-			<div class="grid md:grid-cols-3 gap-8">
-				<!-- Thema 1 -->
-				<div
-					class="bg-white dark:bg-zinc-800 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
-				>
-					<div
-						class="w-12 h-12 bg-accent/10 text-accent rounded-lg flex items-center justify-center mb-4"
-					>
-						<Icon name="earth" classes="h-6 w-6 stroke-20" />
-					</div>
-					<h3 class="text-xl font-bold mb-3">Klimaneutrale Stadt</h3>
-					<p class="text-zinc-600 dark:text-zinc-400 mb-4">
-						Bis 2035 soll Braunschweig klimaneutral werden – mit sozialem Ausgleich und innovativen
-						Lösungen für die Bereiche Energie, Verkehr und Bauen.
-					</p>
-					<a href="/braunschweig2035/climate" class="text-accent font-medium hover:underline"
-						>Mehr erfahren</a
-					>
-				</div>
-
-				<!-- Thema 2 -->
-				<div
-					class="bg-white dark:bg-zinc-800 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
-				>
-					<div
-						class="w-12 h-12 bg-accent/10 text-accent rounded-lg flex items-center justify-center mb-4"
-					>
-						<Icon name="pin" classes="h-6 w-6" />
-					</div>
-					<h3 class="text-xl font-bold mb-3">Lebenswerte Quartiere</h3>
-					<p class="text-zinc-600 dark:text-zinc-400 mb-4">
-						Entsiegelung vorantreiben, Grünflächen erhalten und lebendige Nachbarschaften für alle
-						Generationen fördern. Für eine klimaresiliente Stadt, in der alle gut leben können!
-					</p>
-					<!--<a href="/wohnraum" class="text-accent font-medium hover:underline">Mehr erfahren</a>-->
-				</div>
-
-				<!-- Thema 3 -->
-				<div
-					class="bg-white dark:bg-zinc-800 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-shadow"
-				>
-					<div
-						class="w-12 h-12 bg-accent/10 text-accent rounded-lg flex items-center justify-center mb-4"
-					>
-						<Icon name="lightning" classes="h-6 w-6" />
-					</div>
-					<h3 class="text-xl font-bold mb-3">Moderne Mobilität</h3>
-					<p class="text-zinc-600 dark:text-zinc-400 mb-4">
-						Sichere Radwege, ein attraktiver ÖPNV und autofreie Zonen sind wichtig, damit sich alle
-						gut und sicher in der Stadt fortbewegen können.
-					</p>
-					<!--<a href="/mobilitaet" class="text-accent font-medium hover:underline">Mehr erfahren</a>-->
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- AKTUELLES SECTION -->
-	<section class="py-20">
-		<div class="container mx-auto px-4">
-			<div class="flex justify-between items-center mb-12">
+	<!-- Themenbereiche -->
+	<section class="max-w-6xl mx-auto my-12 px-4 space-y-12">
+		{#each themenbereiche as bereich, index}
+			<div
+				class="flex flex-col md:flex-row gap-8 items-center rounded-xl p-6 bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/70 dark:border-zinc-800/70"
+				class:md:flex-row-reverse={index % 2 === 1}
+			>
 				<div>
-					<h2
-						class="font-barlow-condensed uppercase text-3xl md:text-4xl text-zinc-900 dark:text-white"
-					>
-						Aktuelles <span class="text-tanne">zur Wahl</span>
-					</h2>
-					<p class="mt-2 text-lg text-zinc-600 dark:text-zinc-800">
-						Neuigkeiten, Veranstaltungen und meine Positionen zu aktuellen Themen
+					<Image
+						src={`${je_cms_base_url}/uploads/${bereich.bild}`}
+						alt={bereich.alt}
+						classNames="rounded-lg object-cover w-full h-64"
+					/>
+				</div>
+
+				<!-- Text mit Titel + Badge -->
+				<div class="w-full md:w-1/2">
+					<div class="flex items-center gap-2 mb-4">
+						<h2 class="text-2xl font-bold text-zinc-800 dark:text-zinc-100">
+							{bereich.titel}
+						</h2>
+						{#if bereich.zustaendigkeit === 'beides'}
+							<span
+								class="flex justify-center px-2 py-1 text-xs font-medium bg-green-200 text-green-900 dark:bg-green-700 dark:text-green-100 rounded-full"
+							>
+								Rat & Stadtbezirksrat
+							</span>
+						{:else if bereich.zustaendigkeit === 'rat'}
+							<span
+								class="flex justify-center px-2 py-1 text-xs font-medium bg-emerald-200 text-emerald-900 dark:bg-emerald-700 dark:text-emerald-100 rounded-full"
+							>
+								Rat der Stadt
+							</span>
+						{:else if bereich.zustaendigkeit === 'stadtbezirksrat'}
+							<span
+								class="flex justify-center px-2 py-1 text-xs font-medium bg-lime-200 text-lime-900 dark:bg-lime-700 dark:text-lime-100 rounded-full"
+							>
+								Stadtbezirksrat 322
+							</span>
+						{/if}
+					</div>
+					<p class="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+						{bereich.beschreibung}
 					</p>
 				</div>
 			</div>
-
-			{#if posts.length === 0}
-				<p class="text-zinc-600 dark:text-zinc-800 text-center">
-					Aktuell keine Beiträge zur Kommunalwahl gefunden. <br /> Bitte schauen Sie später noch einmal
-					vorbei.
-				</p>
-			{:else}
-				<Blog {posts} limit={4} />
-			{/if}
-
-			<div class="text-center mt-12">
-				<a
-					href="/#posts"
-					class="px-6 py-3 bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white rounded-lg font-medium hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
-				>
-					Alle Beiträge anzeigen
-				</a>
-			</div>
-		</div>
+		{/each}
 	</section>
 
 	<!-- MITMACHEN SECTION -->
