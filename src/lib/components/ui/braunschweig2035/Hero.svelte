@@ -58,7 +58,7 @@
 			</div>
 
 			<h1 class="font-barlow-condensed text-4xl md:text-6xl flex flex-col justify-between">
-				{#if slogan !== null && slogan !== undefined && slogan.trim() !== ''}
+				{#if slogan === null || slogan === undefined || slogan.trim() === ''}
 					Braunschweig <span class="text-accent">zukunftsfähig</span> gestalten
 				{:else}
 					{#each slogan.split(' ') as word, index}
@@ -87,7 +87,7 @@
 					Meine Themen
 				</a>
 				<a
-					href="/braunschweig2035#unterstuetzen"
+					href="/braunschweig2035#mitmachen"
 					class="px-6 py-3 border-2 border-white/30 text-white rounded-lg font-medium bg-white/10 hover:bg-white/20 transition-colors"
 				>
 					Jetzt unterstützen
