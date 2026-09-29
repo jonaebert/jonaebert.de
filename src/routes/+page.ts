@@ -30,7 +30,7 @@ export const load: PageLoad = async ({ fetch }) => {
 
 	// 2) Alle Posts laden
 	const postsSource: any[] = await client.get('/blog/posts/', {
-		query: { limit: 8, category: 'allgemein' }
+		query: { limit: 8, categories: 'allgemein' }
 	});
 
 	// 2.1) Copyright für alle Posts laden (wenn cover vorhanden)
