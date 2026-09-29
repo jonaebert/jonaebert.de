@@ -47,7 +47,7 @@
 		<div class="text-white space-y-6">
 			<div class="inline-block bg-grashalm text-tanne px-4 py-2 rounded-full text-sm font-bold">
 				{#if tageBisWahl < 0}
-					Kommunalwahl 2026 – vielen Dank für euer Vertrauen! Die Wahl ist vorbei.
+					Kommunalwahl 2026 – vielen Dank für euer Vertrauen!
 				{:else if tageBisWahl === 0}
 					Kommunalwahl 2026 – heute ist die Wahl!
 				{:else if tageBisWahl === 1}
