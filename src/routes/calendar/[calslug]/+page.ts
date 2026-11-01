@@ -1,6 +1,6 @@
 import type { PageLoad } from './$types';
-import { api } from '$lib/api';
-import { getCopyright } from '$lib/util/copyright.js';
+import { api } from '#lib/api/index.js';
+import { getCopyright } from '#lib/util/copyright.js';
 
 function toTs(v: unknown): number {
 	const d: Date | null = typeof v === 'string' ? new Date(v) : v instanceof Date ? v : null;

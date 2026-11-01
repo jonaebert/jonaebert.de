@@ -1,3 +1,5 @@
+import adapter from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig, loadEnv } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
@@ -24,6 +26,33 @@ export default defineConfig(({ mode }) => {
 	}
 
 	return {
-		plugins: [sveltekit(), tailwindcss(), boneyardPlugin()]
+		plugins: [
+			sveltekit({
+				// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+				// for more information about preprocessors
+				preprocess: [vitePreprocess()],
+				extensions: ['.svelte'],
+				// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+				// If your environment is not supported or you settled on a specific environment, switch out the adapter.
+				// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+				adapter: adapter(),
+
+				prerender: {
+					handleMissingId(id, path) {
+						console.warn(`Missing ID: ${id} on path: ${path}`);
+
+						return true;
+					},
+
+					handleHttpError(path) {
+						console.warn(`HTTP-Error: ${path}`);
+
+						return true;
+					}
+				}
+			}),
+			tailwindcss(),
+			boneyardPlugin()
+		]
 	};
 });

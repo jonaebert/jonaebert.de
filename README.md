@@ -4,7 +4,7 @@
 
 [![Release](https://img.shields.io/github/v/release/jonaebert/jonaebert.de?logo=github)](https://github.com/jonaebert/jonaebert.de/releases)
 ![Last Release Date](https://img.shields.io/badge/release%20date-July%2028%2C%202025-informational?logo=github)
-![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-blue?logo=nodedotjs)
+![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.17-blue?logo=nodedotjs)
 
 **Persönliche Website von Jona Ebert (they/them)**  
 Erstellt mit **SvelteKit**, gestaltet mit **Tailwind CSS**, gehostet auf **Hetzner Cloud** via **Coolify**, mit einem Basisdesign von **BÜNDNIS 90/DIE GRÜNEN**.
@@ -40,3 +40,4 @@ git clone https://github.com/jonaebert/jonaebert.de.git
 cd jonaebert.de
 npm install
 npm run dev
+```

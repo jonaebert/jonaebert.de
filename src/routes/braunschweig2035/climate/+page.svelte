@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Hero from '$lib/components/ui/braunschweig2035/Hero.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
-	import { je_cms_base_url } from '$lib/store';
-	import Image from '$lib/components/ui/Image.svelte';
+	import Hero from '#lib/components/ui/braunschweig2035/Hero.svelte';
+	import Icon from '#lib/components/icons/Icon.svelte';
+	import { je_cms_base_url } from '#lib/store.js';
+	import Image from '#lib/components/ui/Image.svelte';
 
 	// Hier könntest du dynamische Daten laden, z. B. aus Strapi
 	const slogan = 'Klimaneutrales Braunschweig - Jetzt handeln!';

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { je_cms_base_url } from '$lib/store.js';
-	import { FormatDate } from '$lib/util/date.js';
-	import CalendarListSkeleton from '$lib/components/skeleton/CalendarListSkeleton.svelte';
-	import Image from '$lib/components/ui/Image.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import { je_cms_base_url } from '#lib/store.js';
+	import { FormatDate } from '#lib/util/date.js';
+	import CalendarListSkeleton from '#lib/components/skeleton/CalendarListSkeleton.svelte';
+	import Image from '#lib/components/ui/Image.svelte';
+	import Icon from '#lib/components/icons/Icon.svelte';
 	import SocialIcons from './SocialIcons.svelte';
 
 	export let events: any[];

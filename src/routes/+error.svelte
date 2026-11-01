@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { page } from '$app/stores';
-	import Image from '$lib/components/ui/Image.svelte';
-	import { img_alte_waage } from '$lib/store';
+	import { page } from '$app/state';
+	import Image from '#lib/components/ui/Image.svelte';
+	import { img_alte_waage } from '#lib/store.js';
 </script>
 
 <section class="container py-8 sm:py-12">
@@ -37,21 +37,21 @@
 					<h1
 						class="mt-1 text-4xl sm:text-5xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50"
 					>
-						{$page.status}
+						{page.status}
 					</h1>
 
 					<h2
 						class="mt-4 text-xl sm:text-2xl font-medium tracking-tight text-zinc-900 dark:text-zinc-200"
 					>
-						{#if $page.status === 404}
+						{#if page.status === 404}
 							Diese Seite existiert nicht.
 						{:else}
-							{$page.error?.message ?? 'Ein unerwarteter Fehler ist aufgetreten.'}
+							{page.error?.message ?? 'Ein unerwarteter Fehler ist aufgetreten.'}
 						{/if}
 					</h2>
 
 					<p class="mt-3 text-sm sm:text-base text-zinc-700/90 dark:text-zinc-400 leading-relaxed">
-						{#if $page.status === 404}
+						{#if page.status === 404}
 							Wenn du über einen Link hier gelandet bist, kann die Seite verschoben oder entfernt
 							worden sein.
 						{:else}
@@ -75,9 +75,9 @@
 						</a>
 					</div>
 
-					{#if $page.status !== 404 && $page.error?.message}
+					{#if page.status !== 404 && page.error?.message}
 						<p class="mt-5 text-xs text-zinc-500 dark:text-zinc-500">
-							Technischer Hinweis: {$page.error.message}
+							Technischer Hinweis: {page.error.message}
 						</p>
 					{/if}
 				</div>

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { FormatDate } from '$lib/util/date.js';
-	import Image from '$lib/components/ui/Image.svelte';
-	import { je_cms_base_url, name } from '$lib/store.js';
+	import { FormatDate } from '#lib/util/date.js';
+	import Image from '#lib/components/ui/Image.svelte';
+	import { je_cms_base_url, name } from '#lib/store.js';
 	import Skeleton from 'boneyard-js/svelte';
-	import '$lib/bones/registry';
+	import '#lib/bones/registry.js';
 
 	let isLoadingPosts = true;
 	let isLoadingEvents = true;

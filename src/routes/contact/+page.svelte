@@ -7,17 +7,17 @@
 		n8n_contact_url,
 		je_cms_base_url,
 		cf_public_turnstile_site_key
-	} from '$lib/store';
-	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
-	import { page } from '$app/stores';
-	import Turnstile from '$lib/components/security/Turnstile.svelte';
+	} from '#lib/store.js';
+	import SocialIcons from '#lib/components/ui/SocialIcons.svelte';
+	import { page } from '$app/state';
+	import Turnstile from '#lib/components/security/Turnstile.svelte';
 	import { onDestroy } from 'svelte';
-	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import BubbleBackground from '#lib/components/ui/BubbleBackground.svelte';
 
 	let turnstileToken: string = '';
 	let turnstileRef: Turnstile | null = null;
 
-	$: barrierParam = $page.url.searchParams.get('barrier');
+	$: barrierParam = page.url.searchParams.get('barrier');
 	$: barrierChecked = barrierParam === 'true';
 
 	let formEl: HTMLFormElement | null = null;
@@ -81,6 +81,7 @@
 			messageText = '';
 			barrierChecked = barrierParam === 'true';
 			successTimer1 = setTimeout(() => (submitting = 2), 500);
+
 			successTimer2 = setTimeout(() => {
 				submitting = 0;
 			}, 8000);
@@ -99,7 +100,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href={$uri.url.href} />
+	<link rel="canonical" href={uri.url.href} />
 </svelte:head>
 
 <section class="container py-10 sm:py-14">
@@ -183,6 +184,7 @@
 				>
 					Kontaktformular
 				</h2>
+
 				<p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
 					Ich antworte in der Regel zeitnah — je klarer dein Anliegen, desto schneller geht’s.
 				</p>
@@ -261,8 +263,7 @@
 							class="w-full rounded-xl border border-zinc-200/70 dark:border-zinc-800/70
 							bg-white dark:bg-zinc-950 px-4 py-3 text-sm
 							text-zinc-950 dark:text-zinc-50 placeholder:text-zinc-400 dark:placeholder:text-zinc-500
-							focus:outline-none focus:ring-2 ring-accent/40"
-						></textarea>
+							focus:outline-none focus:ring-2 ring-accent/40"></textarea>
 						<div class="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
 							<span
 								class:text-amber-600={messageText.length >= messageMax * 0.9 &&
@@ -408,10 +409,8 @@
 											<button
 												type="button"
 												class="inline-flex w-full sm:w-auto items-center justify-center px-5 py-3 rounded-xl text-sm font-medium border border-zinc-200/70 dark:border-zinc-800/70 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition"
-												on:click={() => (submitting = 0)}
+												on:click={() => (submitting = 0)}>Zurück</button
 											>
-												Zurück
-											</button>
 										</div>
 									</div>
 								{/if}

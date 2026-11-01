@@ -6,13 +6,13 @@
 		pronouns,
 		uri,
 		img_alte_waage
-	} from '$lib/store';
+	} from '#lib/store.js';
 	import { goto } from '$app/navigation';
-	import { FormatDate } from '$lib/util/date';
-	import { Icon, type IconName } from '$lib/components/icons';
-	import Image from '$lib/components/ui/Image.svelte';
-	import Copyright from '$lib/components/ui/Copyright.svelte';
-	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import { FormatDate } from '#lib/util/date.js';
+	import { Icon, type IconName } from '#lib/components/icons/index.js';
+	import Image from '#lib/components/ui/Image.svelte';
+	import Copyright from '#lib/components/ui/Copyright.svelte';
+	import BubbleBackground from '#lib/components/ui/BubbleBackground.svelte';
 	import sanitizeHtml from 'sanitize-html';
 
 	export let data;
@@ -151,7 +151,7 @@
 
 <svelte:head>
 	<title>{event.subject} – {name} ({pronouns})</title>
-	<link rel="canonical" href={$uri.url.href} />
+	<link rel="canonical" href={uri.url.href} />
 	<meta property="og:title" content={event.subject} />
 	<meta property="og:image" content={getCoverUrl(event.cover, false)} />
 </svelte:head>

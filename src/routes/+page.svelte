@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { je_cms_base_url, name, pronouns } from '$lib/store.js';
-	import Calendar from '$lib/components/ui/Calendar.svelte';
-	import Blog from '$lib/components/ui/Blog.svelte';
-	import Slogan from '$lib/components/ui/Slogan.svelte';
-	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
-	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
-	import Hero from '$lib/components/ui/Hero.svelte';
+	import { je_cms_base_url, name, pronouns } from '#lib/store.js';
+	import Calendar from '#lib/components/ui/Calendar.svelte';
+	import Blog from '#lib/components/ui/Blog.svelte';
+	import Slogan from '#lib/components/ui/Slogan.svelte';
+	import SocialIcons from '#lib/components/ui/SocialIcons.svelte';
+	import BubbleBackground from '#lib/components/ui/BubbleBackground.svelte';
+	import Hero from '#lib/components/ui/Hero.svelte';
 
 	export let data;
 	const { posts, events } = data;
