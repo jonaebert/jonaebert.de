@@ -39,7 +39,7 @@
 		"openapi-typescript": "^7.13.0",
 		"prettier": "^3.9.9",
 		"prettier-plugin-svelte": "^4.1.1",
-		"svelte": "^5.57.0",
+		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.6",
 		"svelte-routing": "^2.13.0",
 		"tailwindcss": "^4.3.0",
@@ -51,5 +51,9 @@
 		"sanitize-html": "^2.17.7",
 		"svelte-fa": "^4.0.4"
 	},
-	"type": "module"
+	"type": "module",
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
+	}
 }

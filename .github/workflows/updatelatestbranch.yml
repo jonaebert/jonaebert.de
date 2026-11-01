@@ -5,7 +5,7 @@ permissions:
 on:
   push:
     tags:
-      - '*'  # alle Tags
+      - '*' # alle Tags
 
 jobs:
   update-latest-branch:

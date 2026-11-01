@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { contextMenuAction } from '$lib/store';
-	import { browser } from '$app/environment';
-	import { portal } from '$lib/actions/portal';
+	import { contextMenuAction } from '#lib/store.js';
+	import { browser } from '$app/env';
+	import { portal } from '#lib/actions/portal.js';
 	import { tick, onDestroy } from 'svelte';
 
 	export let copyright:
@@ -235,14 +235,15 @@
 				on:blur={() => scheduleCloseFromHover()}
 			>
 				<svg viewBox="0 0 24 24" aria-hidden="true" class="block" width="1em" height="1em">
-					<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
+					<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"></circle>
+
 					<path
 						d="M14.8 9.3a4 4 0 1 0 0 5.4"
 						fill="none"
 						stroke="currentColor"
 						stroke-width="2"
 						stroke-linecap="round"
-					/>
+					></path>
 				</svg>
 			</button>
 		</div>
@@ -277,7 +278,7 @@
 								class="text-accent underline-offset-2 hover:underline cursor-pointer"
 								on:click|stopPropagation
 							>
-								&copy; {copyrightItem?.name}
+								© {copyrightItem?.name}
 								<!-- Link icon -->
 								<svg
 									viewBox="0 0 24 24"
@@ -289,12 +290,13 @@
 									stroke-linejoin="round"
 									aria-hidden="true"
 								>
-									<path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13" />
-									<path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11" />
+									<path d="M10 13a5 5 0 0 1 0-7l1.5-1.5a5 5 0 0 1 7 7L17 13"></path>
+
+									<path d="M14 11a5 5 0 0 1 0 7L12.5 19.5a5 5 0 0 1-7-7L7 11"></path>
 								</svg>
 							</a>
 						{:else}
-							<span>&copy; {copyrightItem?.name}</span>
+							<span>© {copyrightItem?.name}</span>
 						{/if}
 					</div>
 					<div class="mt-2 flex justify-end">

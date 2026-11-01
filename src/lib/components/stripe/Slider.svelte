@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { je_cms_base_url } from '$lib/store.js';
-	import Image from '$lib/components/ui/Image.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import { je_cms_base_url } from '#lib/store.js';
+	import Image from '#lib/components/ui/Image.svelte';
+	import Icon from '#lib/components/icons/Icon.svelte';
 
 	export let files: any[];
 

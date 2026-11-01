@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SkeletonBlock from '$lib/components/skeleton/SkeletonBlock.svelte';
+	import SkeletonBlock from '#lib/components/skeleton/SkeletonBlock.svelte';
 
 	// Anzahl der Skeleton-Cards
 	export let items: number = 2;

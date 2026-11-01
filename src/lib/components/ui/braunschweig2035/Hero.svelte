@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
-	import { je_cms_base_url, name, pronouns } from '$lib/store.js';
-	import Image from '$lib/components/ui/Image.svelte';
+	import { je_cms_base_url, name, pronouns } from '#lib/store.js';
+	import Image from '#lib/components/ui/Image.svelte';
 
 	// Slogan for the hero section
 	export let slogan: string = '';

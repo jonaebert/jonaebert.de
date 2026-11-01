@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SkeletonBlock from '$lib/components/skeleton/SkeletonBlock.svelte';
+	import SkeletonBlock from '#lib/components/skeleton/SkeletonBlock.svelte';
 	export let items = 8;
 </script>
 
@@ -19,7 +19,9 @@
 	<!-- Items -->
 	<div class="mt-5 space-y-3">
 		{#each Array(items) as _}
-			<div class="block rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden">
+			<div
+				class="block rounded-xl border border-zinc-200/70 dark:border-zinc-800/70 overflow-hidden"
+			>
 				<div class="flex items-center gap-4 p-4">
 					<!-- Datum Badge (w-16 h-16, zentriert wie im echten Layout) -->
 					<div

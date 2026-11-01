@@ -1,5 +1,5 @@
 // Imports
-import { je_api_base_url } from '$lib/store.js';
+import { je_api_base_url } from '#lib/store.js';
 
 const site = 'https://jonaebert.de';
 

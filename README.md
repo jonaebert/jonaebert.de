@@ -40,3 +40,4 @@ git clone https://github.com/jonaebert/jonaebert.de.git
 cd jonaebert.de
 npm install
 npm run dev
+```

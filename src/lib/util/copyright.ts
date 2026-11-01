@@ -1,4 +1,4 @@
-import { api } from '$lib/api';
+import { api } from '#lib/api/index.js';
 
 export async function getCopyright(image_id: string, fetchFn: typeof fetch = fetch) {
 	const client: any = api(fetchFn);
