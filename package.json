@@ -1,9 +1,9 @@
 {
 	"name": "jonaebert.de",
-	"version": "26.9.1",
+	"version": "26.11.0",
 	"private": true,
 	"engines": {
-		"node": ">=20.19 || >=22.13 || >=24 || >=25"
+		"node": ">=22.17 || >=24 || >=25"
 	},
 	"scripts": {
 		"build": "npm run gen:api && vite build",
