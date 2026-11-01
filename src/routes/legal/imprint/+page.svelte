@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, address, contact, uri } from '$lib/store';
+	import { name, address, contact, uri } from '#lib/store.js';
 
 	const social = [
 		{ label: 'Facebook', handle: '@jonaebertbs' },
@@ -24,7 +24,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href={$uri.url.href} />
+	<link rel="canonical" href={uri.url.href} />
 </svelte:head>
 
 <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -111,7 +111,7 @@
 								href={contact.web}
 								rel="me noopener noreferrer"
 							>
-								{$uri.url.protocol}//{$uri.url.host}{contact.web}
+								{uri.url.protocol}//{uri.url.host}{contact.web}
 							</a>
 						</div>
 					</div>

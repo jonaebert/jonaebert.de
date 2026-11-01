@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { je_cms_base_url } from '$lib/store.js';
-	import Image from '$lib/components/ui/Image.svelte';
+	import { je_cms_base_url } from '#lib/store.js';
+	import Image from '#lib/components/ui/Image.svelte';
 
 	export let file: any;
 

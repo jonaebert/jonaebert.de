@@ -1,5 +1,5 @@
 import type { PageLoad } from './$types';
-import { api } from '$lib/api';
+import { api } from '#lib/api/index.js';
 
 export const load: PageLoad = async ({ fetch, params }) => {
 	const client = api(fetch);

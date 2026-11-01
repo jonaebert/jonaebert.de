@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { name, pronouns } from '$lib/store';
-	import Slogan from '$lib/components/ui/Slogan.svelte';
-	import SocialIcons from '$lib/components/ui/SocialIcons.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
-	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import { name, pronouns } from '#lib/store.js';
+	import Slogan from '#lib/components/ui/Slogan.svelte';
+	import SocialIcons from '#lib/components/ui/SocialIcons.svelte';
+	import Icon from '#lib/components/icons/Icon.svelte';
+	import BubbleBackground from '#lib/components/ui/BubbleBackground.svelte';
 
 	const legalLinks = [
 		{ href: '/legal/imprint', label: 'Impressum' },

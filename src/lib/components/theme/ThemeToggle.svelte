@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Theme } from '$lib/util/theme';
-	import { applyTheme, getStoredTheme, storeTheme } from '$lib/util/theme';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import type { Theme } from '#lib/util/theme.js';
+	import { applyTheme, getStoredTheme, storeTheme } from '#lib/util/theme.js';
+	import Icon from '#lib/components/icons/Icon.svelte';
 
 	let theme: Theme = 'system';
 

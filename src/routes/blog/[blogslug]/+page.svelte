@@ -1,14 +1,14 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { goto } from '$app/navigation';
-	import { name, pronouns, je_cms_base_url, uri } from '$lib/store';
-	import { FormatDate } from '$lib/util/date';
-	import Image from '$lib/components/ui/Image.svelte';
-	import Copyright from '$lib/components/ui/Copyright.svelte';
-	import Renderer from '$lib/components/stripe/Renderer.svelte';
-	import { Icon } from '$lib/components/icons';
-	import SharePanel from '$lib/components/ui/SharePanel.svelte';
-	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import { name, pronouns, je_cms_base_url, uri } from '#lib/store.js';
+	import { FormatDate } from '#lib/util/date.js';
+	import Image from '#lib/components/ui/Image.svelte';
+	import Copyright from '#lib/components/ui/Copyright.svelte';
+	import Renderer from '#lib/components/stripe/Renderer.svelte';
+	import { Icon } from '#lib/components/icons/index.js';
+	import SharePanel from '#lib/components/ui/SharePanel.svelte';
+	import BubbleBackground from '#lib/components/ui/BubbleBackground.svelte';
 
 	export let data;
 	let { post, previousPost, nextPost } = data;
@@ -88,7 +88,7 @@
 
 <svelte:head>
 	<title>{post?.title} – {name} ({pronouns})</title>
-	<link rel="canonical" href={$uri.url.href} />
+	<link rel="canonical" href={uri.url.href} />
 	<meta property="og:title" content={post?.title} />
 	{#if post?.cover}
 		<meta property="og:image" content={getCoverUrl(post.cover, false) ?? undefined} />
@@ -212,7 +212,7 @@
 				<aside class="lg:col-span-4 space-y-4 lg:sticky lg:top-24 self-start">
 					<!-- Share -->
 					<SharePanel
-						url={$page.url.href}
+						url={page.url.href}
 						title={post?.title ?? ''}
 						text={post?.description ?? ''}
 					/>

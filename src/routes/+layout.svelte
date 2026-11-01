@@ -4,17 +4,17 @@
 	import '../app.css';
 
 	// Import von Layout-Komponenten
-	import Header from '$lib/components/layout/Header.svelte';
-	import Footer from '$lib/components/layout/Footer.svelte';
+	import Header from '#lib/components/layout/Header.svelte';
+	import Footer from '#lib/components/layout/Footer.svelte';
 
 	//Import von Theme Store
-	import { applyTheme, getStoredTheme } from '$lib/util/theme';
+	import { applyTheme, getStoredTheme } from '#lib/util/theme.js';
 
 	// Initialisierung Variablen
-	import { name, uri, pronouns, slogan } from '$lib/store';
+	import { name, uri, pronouns, slogan } from '#lib/store.js';
 
 	// Seiten-Titel dynamisch setzen
-	$: activeRoute = $uri.url.pathname;
+	$: activeRoute = uri.url.pathname;
 	$: pageTitle =
 		activeRoute === '/'
 			? name + ' (' + pronouns + ') - ' + slogan

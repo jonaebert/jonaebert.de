@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { contextMenuAction } from '$lib/store';
-	import Copyright from '$lib/components/ui/Copyright.svelte';
+	import { contextMenuAction } from '#lib/store.js';
+	import Copyright from '#lib/components/ui/Copyright.svelte';
 
 	export let src: string;
 	export let alt: string = '';

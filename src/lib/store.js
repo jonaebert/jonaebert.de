@@ -1,5 +1,5 @@
 // store.js
-import { page } from '$app/stores'; // Values: https://developer.mozilla.org/en-US/docs/Web/API/URL
+import { page } from '$app/state'; // Values: https://developer.mozilla.org/en-US/docs/Web/API/URL
 
 // Personal
 export const name = 'Jona Ebert';

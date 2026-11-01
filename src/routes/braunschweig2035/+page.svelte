@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Hero from '$lib/components/ui/braunschweig2035/Hero.svelte';
-	import Blog from '$lib/components/ui/Blog.svelte';
-	import Icon from '$lib/components/icons/Icon.svelte';
+	import Hero from '#lib/components/ui/braunschweig2035/Hero.svelte';
+	import Blog from '#lib/components/ui/Blog.svelte';
+	import Icon from '#lib/components/icons/Icon.svelte';
 
 	export let data;
 	const { posts } = data;

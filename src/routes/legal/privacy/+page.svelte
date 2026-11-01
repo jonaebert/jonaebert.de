@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { name, address, contact, uri } from '$lib/store';
+	import { name, address, contact, uri } from '#lib/store.js';
 
 	const social = [
 		{
@@ -57,7 +57,7 @@
 
 <svelte:head>
 	<meta name="robots" content="index,follow" />
-	<link rel="canonical" href={$uri.url.href} />
+	<link rel="canonical" href={uri.url.href} />
 </svelte:head>
 
 <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
@@ -160,7 +160,7 @@
 							class="text-accent underline underline-offset-4 decoration-zinc-300 hover:decoration-current dark:decoration-zinc-700 break-all"
 							href="/legal/imprint"
 						>
-							{$uri.url.protocol}//{$uri.url.host}/legal/imprint
+							{uri.url.protocol}//{uri.url.host}/legal/imprint
 						</a>
 					</div>
 				</div>

@@ -1,6 +1,6 @@
 import type { PageLoad } from './$types';
-import { api } from '$lib/api';
-import { getCopyright } from '$lib/util/copyright.js';
+import { api } from '#lib/api/index.js';
+import { getCopyright } from '#lib/util/copyright.js';
 
 export const load: PageLoad = async ({ fetch }) => {
 	const client: any = api(fetch);
